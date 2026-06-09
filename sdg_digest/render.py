@@ -146,7 +146,9 @@ def render_html(digest: Digest) -> str:
     .editorial-note p, .weekly-thread p {{ margin: 0; font-size: 15px; line-height: 1.78; }}
     .section-title {{ margin: 30px 0 12px; font-size: 19px; color: #123524; }}
     .section-subtitle {{ color: #66736a; font-weight: 400; }}
-    article.card {{ background: #f7f9f7; border: 1px solid #dfe6df; border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }}
+    article.card {{ border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }}
+    .recent-card {{ background: #f2f7fd; border: 1px solid #d5e5f6; }}
+    .research-card {{ background: #f7f9f7; border: 1px solid #dfe6df; }}
     .compact-card {{ padding: 16px 20px; }}
     .card h3 {{ font-size: 19px; line-height: 1.35; margin: 0 0 6px; }}
     .card h3 a {{ color: #0b5cad; text-decoration: none; }}
@@ -205,15 +207,15 @@ def render_html(digest: Digest) -> str:
 
     {editorial_html}
 
-    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News · {len(recent_news)}</span></h2>
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
     <section>{recent_html}</section>
 
-    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals · {len(research_signals)}</span></h2>
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
     <section>{research_html}</section>
 
     {weekly_html}
 
-    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading · {len(readings[:3])}</span></h2>
+    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading</span></h2>
     <section class="readings-band">{readings_html}</section>
   </main>
 </body>
@@ -223,7 +225,7 @@ def render_html(digest: Digest) -> str:
 
 def _render_recent_news_html(index: int, item: NewsBrief) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in item.tags)
-    return f"""<article class="card compact-card">
+    return f"""<article class="card compact-card recent-card">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="body-text">{html.escape(item.one_sentence_zh)}</p>
@@ -233,7 +235,7 @@ def _render_recent_news_html(index: int, item: NewsBrief) -> str:
 
 def _render_research_signal_html(index: int, item: DigestItem) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in item.tags)
-    return f"""<article class="card">
+    return f"""<article class="card research-card">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="tags">{tags}</p>

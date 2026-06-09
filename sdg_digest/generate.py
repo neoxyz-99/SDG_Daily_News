@@ -284,12 +284,12 @@ def _call_openai(
             "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize.",
             "recent_news: select up to the requested maximum from recent_news_candidates. Write only one_sentence_zh for each item.",
             "research_signals: select up to the requested maximum from research_candidates. These require core_argument_zh, why_now_zh, agenda_position_zh, and tags.",
-            "Core Argument: one Chinese sentence naming a specific actor, institution, policy instrument, or negotiating party, and what that actor argues should change. Do not restate the title or use statistics as the core argument.",
+            "Core Argument: write 1 dense Chinese sentence, 70-120 Chinese characters. It must name a specific actor, institution, policy instrument, or negotiating party; state the concrete problem or mechanism identified by the article; explain why that mechanism matters; and indicate what policy, financing, governance, or institutional change the article argues for or implies. Do not write vague sentences such as 'X is important' or 'cannot be ignored'. Do not restate the title or use statistics as the core of the argument.",
             "Why Now: 1-2 Chinese sentences with a temporal anchor: what this responds to, advances, or challenges. If timing is unclear, say so plainly.",
             "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process. If unclear, output exactly: 议程背景不明确",
             "Tags are post-selection labels only. Use 1-3 specific Chinese tags from the tag registry when possible, and avoid broad tags like 气候变化 or 可持续发展.",
             "weekly_thread_zh: only if at least 2 selected items share an issue line; 1-2 Chinese sentences explaining the shared agenda question or disagreement.",
-            "Select up to 3 classic readings from bibliography. Preserve note_zh, methodology_zh, authors, year, journal, DOI, and URL exactly.",
+            "Select up to 3 classic readings from bibliography. Preserve note_zh, methodology_zh, authors, year, journal, DOI, and URL exactly. The selected readings should be the ones whose preserved prose gives the most concrete analytical leverage for this issue.",
             "For each reading, generate today_connection_zh as one sentence that references a specific selected news/research title or source. If there is no genuine connection, output exactly: 本期暂无直接关联，建议结合[填入议题方向，如气候融资谈判]阅读",
             "For each reading, generate exactly 2 research_directions. Each has one Chinese question under 30 characters and 3-5 English search keywords. Do not cite literature, authors, or book titles.",
             "In reading generated fields, annotate key theoretical concepts on first mention with English in parentheses, such as 嵌入式自由主义（embedded liberalism） or 混合融资（blended finance）. Do not annotate common names such as 世界银行 or 联合国.",
@@ -788,7 +788,7 @@ def _validate_required_text(value: str, field_name: str) -> None:
 
 def _validate_core_argument(value: str, title: str) -> None:
     _validate_required_text(value, f"core_argument_zh for {title}")
-    if _compact_len(value) < 18:
+    if _compact_len(value) < 45:
         raise ValueError(f"core_argument_zh is too short for {title}: {_compact_len(value)} chars")
     if _normalize_for_compare(value) == _normalize_for_compare(title):
         raise ValueError(f"core_argument_zh restates title for {title}")
