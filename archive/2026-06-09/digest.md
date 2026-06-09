@@ -2,7 +2,7 @@
 
 Issue date: 2026-06-09
 
-水资源融资成为全球发展与气候议程的核心
+强调水资源融资在气候政策中的重要性。
 
 ## 今日新闻 / News
 
@@ -10,15 +10,15 @@ Issue date: 2026-06-09
 
 Climate Policy Initiative · 2026-06-09
 
-Tags: #气候金融 #绿色转型
+Tags: #气候金融 #绿色转型 https://www.un.org/sustainabledevelopment/water-and-sanitation/
 
-**摘要**: 水资源已成为2026年全球发展与气候议程的核心。CPI发布的报告总结了十年来的实践经验，强调要满足所有人对安全、可靠、可负担的水和卫生服务的需求，建立气候变化适应的水系统。
+**摘要**: 水资源融资已成为全球发展和气候议程的主要内容。本文总结了十年来的经验，强调了在气候变化背景下建立可靠、高效的供水、卫生和水资源管理系统的必要性。未来到来的联合国水大会将是推动这一议程的重要时刻。
 
-**Brief**: Water has emerged as a central concern in global development and climate agendas in 2026. The report by CPI summarizes ten years of practice, stressing the need to meet everyone’s demand for safe, reliable, and affordable WASH services while building systems resilient to climate change.
+**Brief**: Water financing has moved to the forefront of global development and climate agendas. This article summarizes a decade of lessons, emphasizing the need for reliable and effective water, sanitation, and water resource management systems in the context of climate change. The upcoming UN Water Conference is set to be a pivotal moment for this agenda.
 
-**为什么重要**: 解决水资源融资缺口对可持续发展和气候适应至关重要，确保人们获得基本的水资源和卫生服务。
+**为什么重要**: 水资源对应对气候变化至关重要，缺乏融资将削弱抗击气候变化的能力。
 
-**Why it matters**: Addressing the water finance gap is crucial for sustainable development and climate adaptation, ensuring access to essential water and sanitation services for all.
+**Why it matters**: Water resources are crucial for climate change mitigation; inadequate financing undermines efforts to combat climate impacts.
 
 Original: https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/
 
@@ -36,7 +36,7 @@ Stephen D. Krasner · 1982 · International Organization
 
 文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。
 
-*This classic article provides foundational insights into how international regimes influence state behavior, critical for contemporary climate governance discussions.*
+*This classical article helps understand regime impacts on national behavior amid climate negotiations and development financing.*
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018920
 
@@ -52,22 +52,22 @@ Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国�
 
 文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。
 
-*Ruggie's concept of embedded liberalism remains vital for understanding the balancing act between market openness and social protections in climate financing today.*
+*Ruggie's concept of embedded liberalism remains relevant for discussions on climate finance and development policy.*
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018993
 
-### Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees
+### Climate Change and the Global South
 
-Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics
+Saleemul Huq and Hannah Reid · 2004 · Climate Policy
 
-#多边治理 #Global South #发展不平等
+#Global South #发展不平等
 
-这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。
+Huq 与 Reid 讨论全球南方为何在气候变化中处于高度脆弱的位置：这些国家历史排放较少，却更容易遭受农业、水资源、贫困和适应能力不足带来的复合风险。文章的贡献在于把气候政策从单纯减排议题拉回发展议题，强调适应、贫困削减和国际支持必须被放在同一分析框架中。
 
 **方法论 / Methodology**
 
-文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。
+文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。
 
-*This article highlights the governance gaps in protecting those displaced by climate change, an increasingly urgent issue in contemporary debates on environmental justice.*
+*This work highlights the vulnerabilities of the Global South in climate discussions, emphasizing the need for integrated policy approaches.*
 
-DOI / 原文链接: https://doi.org/10.1162/glep.2010.10.1.60
+DOI / 原文链接: https://doi.org/10.1080/14693062.2004.9685516
