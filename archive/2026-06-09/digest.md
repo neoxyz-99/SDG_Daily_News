@@ -1,69 +1,47 @@
 # SDG Daily Digest - 2026-06-09
 
-本文探讨了当前全球气候政策与可持续发展目标(SDG)之间的动态关系，关注如何在应对气候变化的过程中，通过创造性金融 支持与透明度来增强社会韧性。同时也讨论了全球南方在气候政策面临的特殊挑战与机遇。
+今日关注气候政策、发展金融与可持续发展议程中的更新。
 
-This piece explores the dynamic relationship between current global climate policies and the Sustainable Development Goals (SDGs), focusing on how creative financial support and transparency can enhance societal resilience in the face of climate change. It also discusses the unique challenges and opportunities for the Global South in climate policy.
+Today's brief tracks climate policy, development finance, and sustainable development updates.
 
 ## 今日新闻 / News
 
-### 1. Scaling Climate Action by Lowering Emissions (SCALE)
-
-- 来源 / Source: World Bank Climate
-- 日期 / Date: 2026-06-09
-- 标签 / Tags: #气候金融 #债务可持续性 #Global South
-- SDG links: 
-- 原文 / Original: https://www.worldbank.org/en/programs/scale/
-
-**中文摘要**: SCALE是一个多捐助者基金，旨在通过结果导向气候融资促进变革性气候行动，帮助各国进入国际碳市场以弥补融资缺口。
-
-**English brief**: SCALE is a multi-donor fund aimed at catalyzing transformative climate action through Results-Based Climate Finance, helping countries access international carbon markets to bridge the financing gap.
-
-**为什么重要**: 通过为发展中国家提供有针对性的融资支持，SCALE有助于提升这些国家在气候行动中的参与度，从而推动达成气候目标并应对全球变暖的影响。
-
-**Why it matters**: By providing targeted financing support to developing countries, SCALE helps enhance their participation in climate action, thus promoting the achievement of climate goals and addressing the impacts of global warming.
-
-**关键词/术语 / Terms**
-
-- Results-Based Climate Finance / 结果导向气候融资: 一种以项目结果为基础的融资方式，强调财务资源的分配与项目实现的成就相挂钩，以提高财政支出的效率。
-
-### 2. Culture and Education
-
-- 来源 / Source: UN News - Climate and Environment
-- 日期 / Date: 2026-06-09
-- 标签 / Tags: #SDG进展 #绿色转型
-- SDG links: 
-- 原文 / Original: https://news.un.org/en/news/topic/culture-and-education
-
-**中文摘要**: 在加沙地带，足球运动员通过开展比赛与活动来提高人们对联合国可持续发展目标的认识，旨在为生活在困难环境中的人们带来希望。
-
-**English brief**: In the Gaza Strip, footballers are raising awareness about the UN Sustainable Development Goals through matches and events, aiming to bring hope to people living in difficult conditions.
-
-**为什么重要**: 这种活动展现了体育在推动可持续发展目标实现方面的潜力，能够激励人们面对困难并支持社会重建与和解。
-
-**Why it matters**: This initiative showcases the potential of sports to drive the realization of Sustainable Development Goals, inspiring people to face challenges and supporting social rebuilding and reconciliation.
-
-**关键词/术语 / Terms**
-
-- Sustainable Development Goals (SDGs) / 可持续发展目标: 联合国设定的17个全球目标，旨在结束贫困、保护地球并确保所有人享有和平与繁荣。
+今日没有符合筛选条件的新内容。
 
 ## 今日深读 / Reading List
 
-### Paris Agreement climate proposals need a boost to keep warming well below 2 °C [#NDC]
+### Structural Causes and Regime Consequences: Regimes as Intervening Variables
 
-Rogelj et al. (2016) · paper
+Stephen D. Krasner · 1982 · International Organization
 
-- 核心观点 / Argument: 文章认为，现有国家承诺不足以把升温稳定在远低于2°C，更不足以支撑1.5°C目标；巴黎机制的关键不只是提交承诺，而是后续持续加码。 / The paper argues that existing national pledges are insufficient for holding warming well below 2°C, let alone 1.5°C; the Paris mechanism depends on repeated strengthening of pledges.
-- 方法 / Method: 作者汇总各国减排承诺，将其转化为全球排放路径，并与多种温控情景进行比较。 / The authors aggregate national mitigation pledges, translate them into global emissions pathways, and compare them with temperature-consistent scenarios.
-- 例子或证据 / Evidence: 核心证据是INDC/NDC承诺所对应的2030年排放水平，与2°C和1.5°C路径之间仍存在显著缺口。 / The key evidence is the gap between projected 2030 emissions under INDC/NDC pledges and pathways compatible with 2°C and 1.5°C.
-- 今日关联 / Relevance: 适合解读任何关于NDC更新、全球盘点或气候雄心不足的新闻。 / Useful for interpreting news on NDC updates, the global stocktake, and ambition gaps.
-- Link: https://doi.org/10.1038/nature18307
+#多边治理
 
-### A climate finance accounting framework [#气候金融]
+这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。
 
-Roberts et al. (2021) · paper
+**
 
-- 核心观点 / Argument: 文章认为，气候资金争议的核心在于口径不清：贷款、赠款、私营动员资金和重新标记的发展援助不能被简单相加，否则会夸大实际支持。 / The article argues that disputes over climate finance stem from unclear accounting: loans, grants, private mobilization, and relabelled aid cannot be treated as equivalent support.
-- 方法 / Method: 通过规范性核算框架区分资金来源、工具、赠款等价额、额外性和受援方实际获得的净支持。 / It develops a normative accounting framework distinguishing sources, instruments, grant-equivalent value, additionality, and net support received.
-- 例子或证据 / Evidence: 文章以发达国家气候资金承诺和1000亿美元目标的核算争议为背景，说明不同口径会得出截然不同的资金规模。 / Using debates around developed-country finance pledges and the USD 100 billion goal, it shows how accounting choices can radically change reported finance levels.
-- 今日关联 / Relevance: 适合分析MDB气候融资、适应资金、损失与损害资金以及绿色贷款是否真正增加发展中国家财政空间。 / Useful for assessing whether MDB climate finance, adaptation finance, loss-and-damage finance, or green lending genuinely expands fiscal space.
-- Link: https://doi.org/10.1038/s41558-021-01041-6
+DOI: https://doi.org/10.1017/S0020818300018920
+
+### International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order
+
+John Gerard Ruggie · 1982 · International Organization
+
+#多边治理 #发展不平等 #绿色转型
+
+Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。
+
+**
+
+DOI: https://doi.org/10.1017/S0020818300018993
+
+### Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees
+
+Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics
+
+#多边治理 #Global South #发展不平等
+
+这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。
+
+**
+
+DOI: https://doi.org/10.1162/glep.2010.10.1.60

@@ -5,142 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SDG Daily Digest - 2026-06-09</title>
   <style>
-    body { margin: 0; background: #f3f5f2; color: #1f2933; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    body { margin: 0; background: #f4f6f4; color: #1f2933; font-family: Arial, "Microsoft YaHei", sans-serif; }
     .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
-    main { max-width: 780px; margin: 0 auto; padding: 22px 14px 44px; }
-    header { background: #113b2d; color: #f7fbf6; border-radius: 6px; padding: 28px 26px; border-bottom: 5px solid #d9b45a; }
+    main { max-width: 820px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { background: #103d2b; color: #f7fbf6; border-radius: 7px; padding: 28px 28px 24px; border-bottom: 4px solid #d7b65c; }
     h1 { font-size: 28px; line-height: 1.2; margin: 0 0 16px; letter-spacing: 0; }
     header p { font-size: 16px; line-height: 1.72; margin: 8px 0 0; color: #edf7ef; }
-    .en { color: #617064; font-size: 14px; line-height: 1.65; }
+    .en { color: #5d6e63; font-size: 14px; line-height: 1.72; }
     header .en { color: #cde6d3; }
-    .section-title { margin: 28px 0 12px; font-size: 18px; color: #123524; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
     .section-subtitle { color: #647067; font-weight: 400; }
-    article { background: #fff; border: 1px solid #d9e1d9; border-radius: 6px; padding: 20px; margin: 14px 0; }
+    article.news { background: #fff; border: 1px solid #d9e1d9; border-radius: 7px; padding: 20px; margin: 14px 0; }
     .news h3 { font-size: 19px; line-height: 1.35; margin: 0 0 10px; }
     .news h3 a { color: #0b5cad; text-decoration: none; }
     .meta { font-size: 13px; color: #5f6b7a; margin: 0 0 12px; }
     .tags { margin: 0 0 14px; }
-    .tag { display: inline-block; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }
-    .sdg { display: inline-block; background: #eef4ff; color: #244f8f; border: 1px solid #c9daf8; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }
+    .tag, .sdg { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }
+    .tag { background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .sdg { background: #eef4ff; color: #244f8f; border: 1px solid #c9daf8; }
     .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
     .summary { font-size: 15px; line-height: 1.78; margin: 0; }
     .impact { background: #f7faf7; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
     .terms { border-top: 1px solid #e5ebe6; padding-top: 12px; margin-top: 14px; font-size: 13px; color: #425466; }
     .terms ul { margin: 8px 0 0; padding-left: 18px; }
-    .reading { background: #fffaf0; border-color: #ead9a7; }
-    .reading h3 { font-size: 17px; line-height: 1.35; margin: 0 0 8px; }
-    .reading h3 a { color: #8a4b08; text-decoration: none; }
-    .reading-grid { margin-top: 14px; }
-    .reading-block { border-top: 1px solid #ead9a7; padding-top: 10px; margin-top: 10px; }
-    .reading-block strong { color: #6f3f08; }
+    .readings-band { background: #faf8f4; border-radius: 7px; padding: 18px 20px 8px; }
+    article.reading { background: transparent; border: 0; border-radius: 0; padding: 0; margin: 0 0 24px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #6f4a18; text-decoration: none; }
+    .reading .meta { color: #7a746c; }
+    .reading-text { font-size: 15px; line-height: 1.82; margin: 14px 0 10px; color: #2f332f; }
+    .today-note { margin: 10px 0 0 14px; color: #5d6e63; font-style: italic; font-size: 14px; line-height: 1.7; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
     .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
     a { color: #0b5cad; }
     @media (max-width: 520px) {
       main { padding: 12px 10px 28px; }
       header { padding: 22px 18px; }
       h1 { font-size: 24px; }
-      article { padding: 16px; }
+      article.news { padding: 16px; }
+      .readings-band { padding: 16px 16px 4px; }
     }
   </style>
 </head>
 <body>
-  <div class="preheader">本文探讨了当前全球气候政策与可持续发展目标(SDG)之间的动态关系，关注如何在应对气候变化的过程中，通过创造性金融 支持与透明度来增强社会韧性。同时也讨论了全球南方在气候政策面临的特殊挑战与机遇。</div>
+  <div class="preheader">今日关注气候政策、发展金融与可持续发展议程中的更新。</div>
   <main>
     <header>
       <h1>SDG Daily Digest - 2026-06-09</h1>
-      <p>本文探讨了当前全球气候政策与可持续发展目标(SDG)之间的动态关系，关注如何在应对气候变化的过程中，通过创造性金融 支持与透明度来增强社会韧性。同时也讨论了全球南方在气候政策面临的特殊挑战与机遇。</p>
-      <p class="en">This piece explores the dynamic relationship between current global climate policies and the Sustainable Development Goals (SDGs), focusing on how creative financial support and transparency can enhance societal resilience in the face of climate change. It also discusses the unique challenges and opportunities for the Global South in climate policy.</p>
+      <p>今日关注气候政策、发展金融与可持续发展议程中的更新。</p>
+      <p class="en">Today&#x27;s brief tracks climate policy, development finance, and sustainable development updates.</p>
     </header>
 
-    <h2 class="section-title">今日新闻 <span class="section-subtitle">/ News · 2</span></h2>
-    <article class="news">
-  <h3>1. <a href="https://www.worldbank.org/en/programs/scale/">Scaling Climate Action by Lowering Emissions (SCALE)</a></h3>
-  <p class="meta">来源 / Source: World Bank Climate · 日期 / Date: 2026-06-09</p>
-  <p class="tags"><span class="tag">#气候金融</span><span class="tag">#债务可持续性</span><span class="tag">#Global South</span></p>
-  <p class="label">中文摘要</p>
-  <p class="summary">SCALE是一个多捐助者基金，旨在通过结果导向气候融资促进变革性气候行动，帮助各国进入国际碳市场以弥补融资缺口。</p>
-  <p class="label">English brief</p>
-  <p class="summary en">SCALE is a multi-donor fund aimed at catalyzing transformative climate action through Results-Based Climate Finance, helping countries access international carbon markets to bridge the financing gap.</p>
-  <div class="impact">
-    <p class="label">为什么重要</p>
-    <p class="summary">通过为发展中国家提供有针对性的融资支持，SCALE有助于提升这些国家在气候行动中的参与度，从而推动达成气候目标并应对全球变暖的影响。</p>
-    <p class="label">Why it matters</p>
-    <p class="summary en">By providing targeted financing support to developing countries, SCALE helps enhance their participation in climate action, thus promoting the achievement of climate goals and addressing the impacts of global warming.</p>
-  </div>
-  <div class="terms"><strong>关键词/术语 / Terms</strong><ul><li><strong>Results-Based Climate Finance / 结果导向气候融资</strong>: 一种以项目结果为基础的融资方式，强调财务资源的分配与项目实现的成就相挂钩，以提高财政支出的效率。</li></ul></div>
-</article>
-<article class="news">
-  <h3>2. <a href="https://news.un.org/en/news/topic/culture-and-education">Culture and Education</a></h3>
-  <p class="meta">来源 / Source: UN News - Climate and Environment · 日期 / Date: 2026-06-09</p>
-  <p class="tags"><span class="tag">#SDG进展</span><span class="tag">#绿色转型</span></p>
-  <p class="label">中文摘要</p>
-  <p class="summary">在加沙地带，足球运动员通过开展比赛与活动来提高人们对联合国可持续发展目标的认识，旨在为生活在困难环境中的人们带来希望。</p>
-  <p class="label">English brief</p>
-  <p class="summary en">In the Gaza Strip, footballers are raising awareness about the UN Sustainable Development Goals through matches and events, aiming to bring hope to people living in difficult conditions.</p>
-  <div class="impact">
-    <p class="label">为什么重要</p>
-    <p class="summary">这种活动展现了体育在推动可持续发展目标实现方面的潜力，能够激励人们面对困难并支持社会重建与和解。</p>
-    <p class="label">Why it matters</p>
-    <p class="summary en">This initiative showcases the potential of sports to drive the realization of Sustainable Development Goals, inspiring people to face challenges and supporting social rebuilding and reconciliation.</p>
-  </div>
-  <div class="terms"><strong>关键词/术语 / Terms</strong><ul><li><strong>Sustainable Development Goals (SDGs) / 可持续发展目标</strong>: 联合国设定的17个全球目标，旨在结束贫困、保护地球并确保所有人享有和平与繁荣。</li></ul></div>
-</article>
+    <h2 class="section-title">今日新闻 <span class="section-subtitle">/ News · 0</span></h2>
+    <p class="empty">今日没有符合筛选条件的新内容。<br>No eligible updates today.</p>
 
-    <h2 class="section-title">今日深读 <span class="section-subtitle">/ Reading List · 2</span></h2>
-    <article class="reading">
-  <h3><a href="https://doi.org/10.1038/nature18307">Paris Agreement climate proposals need a boost to keep warming well below 2 °C</a></h3>
-  <p class="meta">Rogelj et al. · 2016 · paper</p>
-  <p class="tags"><span class="tag">#NDC</span></p>
-  <div class="reading-grid">
-    <div class="reading-block">
-  <strong>核心观点 / Argument</strong>
-  <p class="summary">文章认为，现有国家承诺不足以把升温稳定在远低于2°C，更不足以支撑1.5°C目标；巴黎机制的关键不只是提交承诺，而是后续持续加码。</p>
-  <p class="summary en">The paper argues that existing national pledges are insufficient for holding warming well below 2°C, let alone 1.5°C; the Paris mechanism depends on repeated strengthening of pledges.</p>
-</div>
-    <div class="reading-block">
-  <strong>方法 / Method</strong>
-  <p class="summary">作者汇总各国减排承诺，将其转化为全球排放路径，并与多种温控情景进行比较。</p>
-  <p class="summary en">The authors aggregate national mitigation pledges, translate them into global emissions pathways, and compare them with temperature-consistent scenarios.</p>
-</div>
-    <div class="reading-block">
-  <strong>例子或证据 / Evidence</strong>
-  <p class="summary">核心证据是INDC/NDC承诺所对应的2030年排放水平，与2°C和1.5°C路径之间仍存在显著缺口。</p>
-  <p class="summary en">The key evidence is the gap between projected 2030 emissions under INDC/NDC pledges and pathways compatible with 2°C and 1.5°C.</p>
-</div>
-    <div class="reading-block">
-  <strong>今日关联 / Relevance</strong>
-  <p class="summary">适合解读任何关于NDC更新、全球盘点或气候雄心不足的新闻。</p>
-  <p class="summary en">Useful for interpreting news on NDC updates, the global stocktake, and ambition gaps.</p>
-</div>
-  </div>
+    <h2 class="section-title">今日深读 <span class="section-subtitle">/ Reading List · 3</span></h2>
+    <section class="readings-band">
+      <article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018920">Structural Causes and Regime Consequences: Regimes as Intervening Variables</a></h3>
+  <p class="meta">Stephen D. Krasner · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span></p>
+  <p class="reading-text">这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。</p>
+  <p class="today-note"></p>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018920">DOI / 原文链接</a>
 </article>
 <article class="reading">
-  <h3><a href="https://doi.org/10.1038/s41558-021-01041-6">A climate finance accounting framework</a></h3>
-  <p class="meta">Roberts et al. · 2021 · paper</p>
-  <p class="tags"><span class="tag">#气候金融</span></p>
-  <div class="reading-grid">
-    <div class="reading-block">
-  <strong>核心观点 / Argument</strong>
-  <p class="summary">文章认为，气候资金争议的核心在于口径不清：贷款、赠款、私营动员资金和重新标记的发展援助不能被简单相加，否则会夸大实际支持。</p>
-  <p class="summary en">The article argues that disputes over climate finance stem from unclear accounting: loans, grants, private mobilization, and relabelled aid cannot be treated as equivalent support.</p>
-</div>
-    <div class="reading-block">
-  <strong>方法 / Method</strong>
-  <p class="summary">通过规范性核算框架区分资金来源、工具、赠款等价额、额外性和受援方实际获得的净支持。</p>
-  <p class="summary en">It develops a normative accounting framework distinguishing sources, instruments, grant-equivalent value, additionality, and net support received.</p>
-</div>
-    <div class="reading-block">
-  <strong>例子或证据 / Evidence</strong>
-  <p class="summary">文章以发达国家气候资金承诺和1000亿美元目标的核算争议为背景，说明不同口径会得出截然不同的资金规模。</p>
-  <p class="summary en">Using debates around developed-country finance pledges and the USD 100 billion goal, it shows how accounting choices can radically change reported finance levels.</p>
-</div>
-    <div class="reading-block">
-  <strong>今日关联 / Relevance</strong>
-  <p class="summary">适合分析MDB气候融资、适应资金、损失与损害资金以及绿色贷款是否真正增加发展中国家财政空间。</p>
-  <p class="summary en">Useful for assessing whether MDB climate finance, adaptation finance, loss-and-damage finance, or green lending genuinely expands fiscal space.</p>
-</div>
-  </div>
+  <h3><a href="https://doi.org/10.1017/S0020818300018993">International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order</a></h3>
+  <p class="meta">John Gerard Ruggie · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#发展不平等</span><span class="tag">#绿色转型</span></p>
+  <p class="reading-text">Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。</p>
+  <p class="today-note"></p>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018993">DOI / 原文链接</a>
 </article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep.2010.10.1.60">Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees</a></h3>
+  <p class="meta">Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#Global South</span><span class="tag">#发展不平等</span></p>
+  <p class="reading-text">这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。</p>
+  <p class="today-note"></p>
+  <a class="doi-link" href="https://doi.org/10.1162/glep.2010.10.1.60">DOI / 原文链接</a>
+</article>
+    </section>
   </main>
 </body>
 </html>
