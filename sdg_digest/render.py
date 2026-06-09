@@ -12,8 +12,8 @@ def render_markdown(digest: Digest) -> str:
         f"Issue date: {digest.digest_date.isoformat()}",
         "",
     ]
-    if digest.items and digest.overview_zh:
-        lines.extend([digest.overview_zh, ""])
+    if digest.overview_zh:
+        lines.extend(["## 每日导语 / Daily Editorial Note", "", digest.overview_zh, ""])
 
     lines.extend(["## 今日新闻 / News", ""])
     if digest.items:
@@ -24,15 +24,13 @@ def render_markdown(digest: Digest) -> str:
                     "",
                     f"{item.source_org} · {item.published_date}",
                     "",
-                    f"Tags: {' '.join(item.tags + item.sdg_links)}",
+                    f"Tags: {' '.join(item.tags)}",
                     "",
-                    f"**摘要**: {item.summary_zh}",
+                    f"**核心论点 / Core Argument**: {item.core_argument_zh or item.summary_zh}",
                     "",
-                    f"**Brief**: {item.summary_en}",
+                    f"**为什么此刻重要 / Why Now**: {item.why_now_zh or item.why_it_matters_zh}",
                     "",
-                    f"**为什么重要**: {item.why_it_matters_zh}",
-                    "",
-                    f"**Why it matters**: {item.why_it_matters_en}",
+                    f"**议程位置 / Agenda Position**: {item.agenda_position_zh or '议程背景不明确'}",
                     "",
                     f"Original: {item.url}",
                     "",
@@ -40,6 +38,9 @@ def render_markdown(digest: Digest) -> str:
             )
     else:
         lines.extend(["今日没有符合筛选条件的新内容。", ""])
+
+    if digest.weekly_thread_zh:
+        lines.extend(["## 本周议题线索 / Weekly Thread", "", digest.weekly_thread_zh, ""])
 
     lines.extend(["## 今日深读 / Reading List", ""])
     if digest.readings:
@@ -52,18 +53,18 @@ def render_markdown(digest: Digest) -> str:
                     "",
                     " ".join(reading.tags),
                     "",
-                    reading.note_zh,
+                    f"**核心论点摘要**: {reading.note_zh}",
                     "",
                 ]
             )
             if reading.methodology_zh:
-                lines.extend(["**方法论 / Methodology**", "", reading.methodology_zh, ""])
-            if reading.today_relevance_en:
-                lines.extend([f"*{reading.today_relevance_en}*", ""])
-            if reading.further_reading:
-                lines.extend(["**延伸阅读 / Further Reading**", ""])
-                for item in reading.further_reading[:3]:
-                    lines.append(f"- {item.title}, {item.authors} ({item.year}): {item.description_zh}")
+                lines.extend(["**方法论说明 / Methodology**", "", reading.methodology_zh, ""])
+            if reading.today_connection_zh:
+                lines.extend(["**今日关联 / Today's Connection**", "", reading.today_connection_zh, ""])
+            if reading.research_directions:
+                lines.extend(["**研究方向 / Research Directions**", ""])
+                for direction in reading.research_directions:
+                    lines.append(f"- {direction.question_zh} ({', '.join(direction.keywords)})")
                 lines.append("")
             lines.extend([f"DOI / 原文链接: {reading.url}", ""])
     else:
@@ -81,7 +82,16 @@ def render_html(digest: Digest) -> str:
     if not readings_html:
         readings_html = '<p class="empty">今日没有匹配到白名单深读材料。</p>'
 
-    theme_html = f'<p class="theme-line">{html.escape(digest.overview_zh)}</p>' if digest.items and digest.overview_zh else ""
+    editorial_html = (
+        f'<section class="editorial-note"><h2>每日导语</h2><p>{html.escape(digest.overview_zh)}</p></section>'
+        if digest.overview_zh
+        else ""
+    )
+    weekly_html = (
+        f'<section class="weekly-thread"><h2>本周议题线索</h2><p>{html.escape(digest.weekly_thread_zh)}</p></section>'
+        if digest.weekly_thread_zh
+        else ""
+    )
     preheader = html.escape((digest.overview_zh or digest.subject)[:120])
 
     return f"""<!doctype html>
@@ -98,34 +108,32 @@ def render_html(digest: Digest) -> str:
     .header-row {{ position: relative; z-index: 2; display: table; width: 100%; }}
     .issue-date {{ display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }}
     .masthead {{ display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }}
-    .theme-line {{ position: relative; z-index: 2; max-width: 560px; margin: 22px 0 0; color: #edf7ef; font-size: 16px; line-height: 1.65; }}
     .header-pattern {{ position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }}
+    .editorial-note, .weekly-thread {{ background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }}
+    .editorial-note h2, .weekly-thread h2 {{ margin: 0 0 8px; font-size: 16px; color: #123524; }}
+    .editorial-note p, .weekly-thread p {{ margin: 0; font-size: 15px; line-height: 1.78; }}
     .section-title {{ margin: 30px 0 12px; font-size: 19px; color: #123524; }}
     .section-subtitle {{ color: #647067; font-weight: 400; }}
-    .news-list {{ display: block; }}
     article.news {{ background: #f7f9f7; border: 1px solid #dfe6df; border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }}
     .news h3 {{ font-size: 19px; line-height: 1.35; margin: 0 0 6px; }}
     .news h3 a {{ color: #0b5cad; text-decoration: none; }}
     .meta {{ font-size: 12px; color: #888; margin: 0 0 12px; }}
     .tags {{ margin: 0 0 14px; }}
-    .tag, .sdg {{ display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }}
-    .tag {{ background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }}
-    .sdg {{ background: #eef4ff; color: #244f8f; border: 1px solid #c9daf8; }}
+    .tag {{ display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }}
     .label {{ margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }}
-    .summary {{ font-size: 15px; line-height: 1.78; margin: 0; }}
-    .impact {{ background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }}
-    .terms {{ border-top: 1px solid #e5ebe6; padding-top: 12px; margin-top: 14px; font-size: 13px; color: #425466; }}
-    .terms ul {{ margin: 8px 0 0; padding-left: 18px; }}
+    .analysis-text {{ font-size: 15px; line-height: 1.78; margin: 0; }}
+    .agenda {{ background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }}
     .readings-band {{ background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }}
-    article.reading {{ background: transparent; border: 0; border-radius: 0; padding: 0; margin: 0 0 24px; box-shadow: none; }}
+    article.reading {{ background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }}
     .reading h3 {{ font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }}
     .reading h3 a {{ color: #5e4630; text-decoration: none; }}
     .reading .meta {{ color: #7a746c; font-size: 12px; }}
-    .reading-text, .method-text {{ font-size: 15px; line-height: 1.82; margin: 14px 0 10px; color: #2f332f; }}
-    .method-title, .further-title {{ margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }}
-    .today-note {{ margin: 12px 0 0 14px; color: #5d6e63; font-style: italic; font-size: 14px; line-height: 1.7; }}
-    .further-list {{ margin: 8px 0 0; padding-left: 18px; }}
-    .further-list li {{ margin: 8px 0; line-height: 1.65; }}
+    .reading-text, .method-text, .connection-text {{ font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }}
+    .method-title, .connection-title, .research-title {{ margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }}
+    .connection-text {{ margin-left: 14px; color: #5d6e63; font-style: italic; }}
+    .research-list {{ margin: 8px 0 0; padding-left: 18px; }}
+    .research-list li {{ margin: 8px 0; line-height: 1.65; }}
+    .keywords {{ color: #617064; font-size: 13px; }}
     .doi-link {{ display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }}
     .empty {{ background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }}
     a {{ color: #0b5cad; }}
@@ -160,13 +168,16 @@ def render_html(digest: Digest) -> str:
         <div class="issue-date">{digest.digest_date.isoformat()}</div>
         <div class="masthead">The Governance Brief</div>
       </div>
-      {theme_html}
     </header>
+
+    {editorial_html}
 
     <h2 class="section-title">今日新闻 <span class="section-subtitle">/ News · {len(digest.items)}</span></h2>
     <section class="news-list">
       {items_html}
     </section>
+
+    {weekly_html}
 
     <h2 class="section-title">今日深读 <span class="section-subtitle">/ Reading List · {len(digest.readings[:3])}</span></h2>
     <section class="readings-band">
@@ -179,59 +190,57 @@ def render_html(digest: Digest) -> str:
 
 
 def _render_item_html(index: int, item) -> str:
-    terms = "".join(
-        f"<li><strong>{html.escape(term.term_en)} / {html.escape(term.term_zh)}</strong>: {html.escape(term.explanation_zh)}</li>"
-        for term in item.terms
-    )
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in item.tags)
-    sdg_links = "".join(f'<span class="sdg">{html.escape(link)}</span>' for link in item.sdg_links)
     return f"""<article class="news">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
-  <p class="tags">{tags}{sdg_links}</p>
-  <p class="label">摘要</p>
-  <p class="summary">{html.escape(item.summary_zh)}</p>
-  <p class="label">Brief</p>
-  <p class="summary">{html.escape(item.summary_en)}</p>
-  <div class="impact">
-    <p class="label">为什么重要</p>
-    <p class="summary">{html.escape(item.why_it_matters_zh)}</p>
-    <p class="label">Why it matters</p>
-    <p class="summary">{html.escape(item.why_it_matters_en)}</p>
+  <p class="tags">{tags}</p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="analysis-text">{html.escape(item.core_argument_zh or item.summary_zh)}</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="analysis-text">{html.escape(item.why_now_zh or item.why_it_matters_zh)}</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="analysis-text">{html.escape(item.agenda_position_zh or "议程背景不明确")}</p>
   </div>
-  <div class="terms"><strong>关键词/术语 / Terms</strong><ul>{terms}</ul></div>
 </article>"""
 
 
 def _render_reading_html(reading: DeepRead) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in reading.tags)
-    today_relevance = reading.today_relevance_en or reading.note_en
     methodology = (
-        f"""<p class="method-title">方法论 / Methodology</p>
+        f"""<p class="method-title">方法论说明 / Methodology</p>
   <p class="method-text">{html.escape(reading.methodology_zh)}</p>"""
         if reading.methodology_zh
         else ""
     )
-    further = _render_further_reading(reading)
+    connection = (
+        f"""<p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">{html.escape(reading.today_connection_zh)}</p>"""
+        if reading.today_connection_zh
+        else ""
+    )
+    research = _render_research_directions(reading)
     return f"""<article class="reading">
   <h3><a href="{html.escape(reading.url)}">{html.escape(reading.title)}</a></h3>
   <p class="meta">{html.escape(reading.authors)} · {reading.year} · {html.escape(reading.journal)}</p>
   <p class="tags">{tags}</p>
+  <p class="method-title">核心论点摘要</p>
   <p class="reading-text">{html.escape(reading.note_zh)}</p>
   {methodology}
-  <p class="today-note">{html.escape(today_relevance)}</p>
-  {further}
+  {connection}
+  {research}
   <a class="doi-link" href="{html.escape(reading.url)}">DOI / 原文链接</a>
 </article>"""
 
 
-def _render_further_reading(reading: DeepRead) -> str:
-    if not reading.further_reading:
+def _render_research_directions(reading: DeepRead) -> str:
+    if not reading.research_directions:
         return ""
     items = "".join(
-        f"<li><strong>{html.escape(item.title)}</strong>, {html.escape(item.authors)} ({item.year}). "
-        f"{html.escape(item.description_zh)}</li>"
-        for item in reading.further_reading[:3]
+        f"<li>{html.escape(direction.question_zh)} "
+        f'<span class="keywords">({html.escape(", ".join(direction.keywords))})</span></li>'
+        for direction in reading.research_directions[:2]
     )
-    return f"""<p class="further-title">延伸阅读 / Further Reading</p>
-  <ul class="further-list">{items}</ul>"""
+    return f"""<p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list">{items}</ul>"""

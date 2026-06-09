@@ -20,7 +20,7 @@ SOURCE_SUGGESTIONS = [
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate SDG daily digest")
+    parser = argparse.ArgumentParser(description="Generate The Governance Brief")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
     parser.add_argument("--lookback-days", type=int, default=3)
     parser.add_argument("--max-items", type=int, default=5)
@@ -58,9 +58,6 @@ def main() -> None:
     archive_dir = write_archive(digest, args.output_dir)
     print(f"Archived digest to {archive_dir}")
     print(f"Selected {len(digest.items)} item(s)")
-    for reading in digest.readings:
-        if not reading.further_reading:
-            print(f"Missing further_reading entries in bibliography for: {reading.title}")
 
     if args.send_email and not args.dry_run:
         response = send_email(digest, render_html(digest))

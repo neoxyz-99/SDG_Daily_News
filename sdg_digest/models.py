@@ -38,6 +38,12 @@ class FurtherReading:
 
 
 @dataclass(frozen=True)
+class ResearchDirection:
+    question_zh: str
+    keywords: list[str]
+
+
+@dataclass(frozen=True)
 class DeepRead:
     title: str
     authors: str
@@ -58,6 +64,8 @@ class DeepRead:
     relevance_zh: str = ""
     relevance_en: str = ""
     today_relevance_en: str = ""
+    today_connection_zh: str = ""
+    research_directions: list[ResearchDirection] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
     kind: str = "reading"
 
@@ -78,6 +86,9 @@ class DigestItem:
     terms: list[DigestTerm]
     tags: list[str]
     url: str
+    core_argument_zh: str = ""
+    why_now_zh: str = ""
+    agenda_position_zh: str = ""
     summary_en: str = ""
     why_it_matters_zh: str = ""
     why_it_matters_en: str = ""
@@ -93,3 +104,4 @@ class Digest:
     items: list[DigestItem]
     readings: list[DeepRead] = field(default_factory=list)
     overview_en: str = ""
+    weekly_thread_zh: str = ""

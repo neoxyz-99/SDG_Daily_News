@@ -35,29 +35,30 @@ class GenerateTests(unittest.TestCase):
         payload["items"][0]["url"] = "https://invented.example/article"
 
         with self.assertRaises(ValueError):
-            validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
+            validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
 
-    def test_validation_rejects_unapproved_reading(self) -> None:
+    def test_validation_rejects_broad_tags(self) -> None:
         candidate = _candidate()
         payload = _payload(candidate)
-        payload["readings"] = [
-            {
-                "title": "Invented classic",
-                "authors": "Nobody",
-                "year": 2020,
-                "journal": "World Development",
-                "doi": "10.0000/invented",
-                "today_relevance_en": "It matters today.",
-            }
-        ]
+        payload["items"][0]["tags"] = ["#气候变化"]
 
         with self.assertRaises(ValueError):
-            validate_digest_payload(payload, [candidate], {"#气候金融": [_reading()]}, date(2026, 6, 9))
+            validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
 
-    def test_validation_preserves_approved_reading_brief(self) -> None:
+    def test_daily_note_is_omitted_when_only_one_news_item_is_selected(self) -> None:
         candidate = _candidate()
-        reading = _reading()
         payload = _payload(candidate)
+
+        digest = validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
+
+        self.assertEqual(digest.overview_zh, "")
+        self.assertEqual(len(digest.items), 1)
+
+    def test_validation_preserves_approved_reading_brief_and_adds_research_directions(self) -> None:
+        first = _candidate()
+        second = _candidate_two()
+        reading = _reading()
+        payload = _payload(first, second)
         payload["readings"] = [
             {
                 "title": reading.title,
@@ -65,67 +66,61 @@ class GenerateTests(unittest.TestCase):
                 "year": reading.year,
                 "journal": reading.journal,
                 "doi": reading.doi,
-                "today_relevance_en": "It matters today because climate finance claims still need careful accounting.",
+                "today_connection_zh": "这篇文献有助于理解 Climate Finance Update 中公共资金承诺与报告激励之间的张力。",
+                "research_directions": [
+                    {
+                        "question_zh": "气候资金如何被标记",
+                        "keywords": ["climate finance", "aid reporting", "Rio markers"],
+                    },
+                    {
+                        "question_zh": "承诺与拨付如何错位",
+                        "keywords": ["pledges", "disbursement", "climate aid"],
+                    },
+                ],
             }
         ]
 
-        digest = validate_digest_payload(payload, [candidate], {"#气候金融": [reading]}, date(2026, 6, 9))
+        digest = validate_digest_payload(payload, [first, second], {"#气候金融": [reading]}, date(2026, 6, 9))
 
         self.assertEqual(digest.readings[0].note_zh, reading.note_zh)
         self.assertEqual(digest.readings[0].journal, "World Development")
-        self.assertIn("climate finance claims", digest.readings[0].today_relevance_en)
+        self.assertIn("公共资金承诺", digest.readings[0].today_connection_zh)
+        self.assertEqual(len(digest.readings[0].research_directions), 2)
 
-    def test_validation_allows_shorter_summary_when_candidate_pool_is_tiny(self) -> None:
-        candidate = _candidate()
-        payload = _payload(candidate)
-        payload["items"][0]["summary_zh"] = (
-            "这条更新讨论水资源融资缺口如何影响气候适应、公共投资和发展中国家的基础设施规划，"
-            "并指出长期项目准备、风险分担和机构协调会影响资金能否真正落地，"
-            "也提示多边开发机构需要改善项目管线和本地执行能力。"
-        )
-        payload["items"][0]["summary_en"] = (
-            "This update examines how a water finance gap affects adaptation, public investment, "
-            "project preparation, risk sharing, and institutional coordination in developing countries. "
-            "It also shows why multilateral development banks and local agencies need stronger pipelines."
-        )
-
-        digest = validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
-
-        self.assertEqual(len(digest.items), 1)
-        self.assertIn("水资源融资缺口", digest.items[0].summary_zh)
-
-    def test_fallback_uses_bibliography_for_separate_readings(self) -> None:
+    def test_fallback_uses_editorial_fields(self) -> None:
         candidate = _candidate()
         reading = _reading()
 
         digest = fallback_digest([candidate], {"#气候金融": [reading]}, date(2026, 6, 9))
 
         self.assertEqual(digest.readings[0].title, reading.title)
-        self.assertEqual(digest.items[0].deep_reads, [])
-        self.assertIn("Climate Finance Update", digest.items[0].title_en)
-        self.assertTrue(digest.items[0].why_it_matters_en)
+        self.assertEqual(digest.items[0].agenda_position_zh, "议程背景不明确")
+        self.assertTrue(digest.items[0].core_argument_zh)
+        self.assertEqual(digest.overview_zh, "")
 
 
-def _payload(candidate: Candidate) -> dict:
+def _payload(first: Candidate, second: Candidate | None = None) -> dict:
+    items = [_item(first)]
+    if second:
+        items.append(_item(second))
     return {
-        "overview_zh": "今日关注气候金融和发展政策。",
-        "overview_en": "Today focuses on climate finance and development policy.",
-        "items": [
-            {
-                "title_en": candidate.title,
-                "source_org": candidate.source_org,
-                "published_date": candidate.published_date,
-                "summary_zh": "这条更新讨论气候金融工具如何影响发展中国家的项目融资、政策执行和长期财政空间，尤其强调公共资金、私营资本和多边机构之间的协调问题。它进一步说明，融资安排并不只是资金规模问题，也关系到项目准备、风险分担和多边机构能否把气候承诺转化为可执行投资。",
-                "summary_en": "This update examines how climate finance tools affect project finance, policy implementation, and fiscal space in developing countries, with particular attention to the coordination between public funding, private capital, and multilateral institutions. It also shows why project preparation, risk sharing, and credible public institutions matter for turning climate commitments into investable programmes.",
-                "why_it_matters_zh": "它关系到发展中国家能否把气候目标转化为可执行的投资计划。",
-                "why_it_matters_en": "It matters because climate commitments depend on credible investment pipelines and institutions that can mobilize finance.",
-                "terms": [],
-                "tags": ["#气候金融"],
-                "sdg_links": ["SDG 13 Climate Action"],
-                "url": candidate.url,
-            }
-        ],
+        "daily_editorial_note_zh": "公共资金承诺与执行能力之间的落差，正在重塑气候融资议程的责任边界。",
+        "weekly_thread_zh": "两条新闻共同指向气候融资从承诺规模转向执行能力的议题线索。",
+        "items": items,
         "readings": [],
+    }
+
+
+def _item(candidate: Candidate) -> dict:
+    return {
+        "title_en": candidate.title,
+        "source_org": candidate.source_org,
+        "published_date": candidate.published_date,
+        "core_argument_zh": "这篇文章主张，气候融资的关键矛盾不只是资金规模，而是公共机构能否把承诺转化为可执行的项目管线。",
+        "why_now_zh": "它回应了发展中国家在新一轮气候融资安排中对项目准备和风险分担的压力，也挑战了只看承诺金额的评估方式。",
+        "agenda_position_zh": "它更像是气候融资执行阶段的政策诊断，而不是谈判前的立场表态。",
+        "tags": ["#气候金融", "#多边治理"],
+        "url": candidate.url,
     }
 
 
@@ -145,6 +140,22 @@ def _candidate() -> Candidate:
     )
 
 
+def _candidate_two() -> Candidate:
+    return Candidate(
+        title="Water finance and climate adaptation",
+        source_org="IISD SDG Knowledge Hub",
+        source_type="think_tank",
+        published_date="2026-06-09",
+        url="https://sdg.iisd.org/example",
+        summary_hint=(
+            "The article examines how water finance gaps affect climate adaptation, infrastructure planning, "
+            "public investment, and development policy coordination across institutions."
+        ),
+        tags=[],
+        discovered_date="2026-06-09",
+    )
+
+
 def _reading() -> DeepRead:
     return DeepRead(
         title="Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
@@ -154,6 +165,7 @@ def _reading() -> DeepRead:
         note_zh="这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。",
         journal="World Development",
         doi="10.1016/j.worlddev.2011.07.020",
+        methodology_zh="文章采用政治经济学分析与报告制度比较，优势是揭示资金统计背后的激励结构，局限是难以直接估计每一笔资金的真实气候贡献。",
         tags=["#气候金融"],
         kind="journal article",
     )

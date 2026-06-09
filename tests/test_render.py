@@ -3,36 +3,30 @@ from __future__ import annotations
 from datetime import date
 import unittest
 
-from sdg_digest.models import DeepRead, Digest, DigestItem, DigestTerm, FurtherReading
+from sdg_digest.models import DeepRead, Digest, DigestItem, ResearchDirection
 from sdg_digest.render import render_html, render_markdown
 
 
 class RenderTests(unittest.TestCase):
-    def test_render_markdown_and_html_include_redesigned_sections(self) -> None:
+    def test_render_markdown_and_html_include_editorial_brief_structure(self) -> None:
         digest = Digest(
             digest_date=date(2026, 6, 9),
             subject="The Governance Brief - 2026-06-09",
-            overview_zh="气候融资与治理议程同步推进。",
-            overview_en="This line should not be displayed in the header.",
+            overview_zh="公共资金承诺与执行能力之间的落差，正在重塑气候融资议程的责任边界。",
+            overview_en="This line should not be displayed.",
+            weekly_thread_zh="两条新闻共同指向气候融资从承诺规模转向执行能力的议题线索。",
             items=[
                 DigestItem(
                     title_en="Climate finance update",
-                    source_org="UNFCCC News",
+                    source_org="Climate Policy Initiative",
                     published_date="2026-06-09",
-                    summary_zh="这条更新讨论气候融资工具如何影响发展中国家的项目融资、政策执行和长期财政空间，尤其强调公共资金、私人资本和多边机构之间的协调问题。",
-                    summary_en="The update highlights how climate finance arrangements support NDC implementation, project preparation, and coordination between public finance and private capital.",
-                    why_it_matters_zh="它关系到发展中国家能否把气候目标转化为可执行的投资计划。",
-                    why_it_matters_en="It matters for developing countries' ability to finance and implement climate pledges.",
-                    terms=[
-                        DigestTerm(
-                            term_en="NDC",
-                            term_zh="国家自主贡献",
-                            explanation_zh="各国在《巴黎协定》下提交的减排和适应承诺。",
-                        )
-                    ],
-                    tags=["#NDC", "#气候金融"],
-                    sdg_links=["SDG 13 Climate Action"],
-                    url="https://unfccc.int/news/example",
+                    summary_zh="",
+                    terms=[],
+                    tags=["#气候金融", "#多边治理"],
+                    url="https://climatepolicyinitiative.org/example",
+                    core_argument_zh="这篇文章主张，气候融资的关键矛盾不只是资金规模，而是公共机构能否把承诺转化为项目管线。",
+                    why_now_zh="它回应了发展中国家在新一轮气候融资安排中对项目准备和风险分担的压力。",
+                    agenda_position_zh="它更像是气候融资执行阶段的政策诊断，而不是谈判前的立场表态。",
                 )
             ],
             readings=[
@@ -42,19 +36,19 @@ class RenderTests(unittest.TestCase):
                     year=2004,
                     url="https://doi.org/10.1080/14693062.2004.9685516",
                     note_zh="Huq 与 Reid 讨论全球南方为何在气候变化中处于高度脆弱的位置：这些国家历史排放较少，却更容易遭受农业、水资源、贫困和适应能力不足带来的复合风险。文章的贡献在于把气候政策从单纯减排议题拉回发展议题，强调适应、贫困减缓和国际支持必须被放在同一分析框架中。",
-                    note_en="A classic climate and development reading.",
                     journal="Climate Policy",
                     doi="10.1080/14693062.2004.9685516",
                     methodology_zh="文章采用政策分析与发展研究综合讨论，结合脆弱性、适应能力和南北责任差异来解释气候风险分布；这种方法适合提出制度性判断，但不能替代量化因果识别。",
-                    today_relevance_en="It matters today because adaptation news often reveals deeper development constraints.",
-                    further_reading=[
-                        FurtherReading(
-                            title="Adaptation to climate change in the developing world",
-                            authors="Huq et al.",
-                            year=2003,
-                            description_zh="这篇文章延伸了适应能力与发展约束之间的关系。",
-                            url="https://doi.org/example",
-                        )
+                    today_connection_zh="这篇文献有助于理解 Climate finance update 中融资安排与发展能力之间的结构性张力。",
+                    research_directions=[
+                        ResearchDirection(
+                            question_zh="适应资金如何分配",
+                            keywords=["adaptation finance", "allocation", "vulnerability"],
+                        ),
+                        ResearchDirection(
+                            question_zh="发展能力如何影响适应",
+                            keywords=["development capacity", "adaptation", "institutions"],
+                        ),
                     ],
                     tags=["#Global South", "#发展不平等"],
                     kind="journal article",
@@ -66,22 +60,21 @@ class RenderTests(unittest.TestCase):
         html = render_html(digest)
 
         self.assertIn("The Governance Brief", markdown)
-        self.assertIn("今日新闻", markdown)
-        self.assertIn("摘要", markdown)
-        self.assertIn("方法论 / Methodology", markdown)
-        self.assertIn("延伸阅读 / Further Reading", markdown)
-        self.assertIn("2026-06-09", html)
+        self.assertIn("每日导语", markdown)
+        self.assertIn("核心论点 / Core Argument", markdown)
+        self.assertIn("为什么此刻重要 / Why Now", markdown)
+        self.assertIn("议程位置 / Agenda Position", markdown)
+        self.assertIn("本周议题线索", markdown)
+        self.assertIn("今日关联 / Today's Connection", markdown)
+        self.assertIn("研究方向 / Research Directions", markdown)
         self.assertIn("header-pattern", html)
-        self.assertIn("The Governance Brief", html)
-        self.assertIn("气候融资与治理议程同步推进。", html)
-        self.assertIn("article.news", html)
-        self.assertIn("#f7f9f7", html)
-        self.assertIn("方法论 / Methodology", html)
-        self.assertIn("延伸阅读 / Further Reading", html)
-        self.assertIn("today-note", html)
+        self.assertIn("editorial-note", html)
+        self.assertIn("weekly-thread", html)
+        self.assertIn("核心论点 / Core Argument", html)
+        self.assertIn("研究方向 / Research Directions", html)
         self.assertNotIn("SDG Daily Digest", html)
-        self.assertNotIn("This line should not be displayed in the header", html)
-        self.assertNotIn("Argument", html)
+        self.assertNotIn("This line should not be displayed", html)
+        self.assertNotIn("English Brief", html)
 
 
 if __name__ == "__main__":

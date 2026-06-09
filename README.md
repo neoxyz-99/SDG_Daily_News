@@ -1,6 +1,6 @@
 # The Governance Brief
 
-Daily bilingual governance digest for climate policy, sustainable development, development finance, and global governance updates. The pipeline collects RSS/Atom feed entries from approved institutional sources, screens candidates with an AI relevance check, summarizes 3-5 selected news items, pairs them with approved journal-article deep reads, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
+Daily editorial brief for climate policy, sustainable development, development finance, and global governance updates. The pipeline collects RSS/Atom feed entries from approved institutional sources, screens candidates with an AI relevance check, selects 3-5 policy-relevant news items, writes analytical editorial fields, pairs them with approved journal-article deep reads, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
 
 ## Quick Start
 
@@ -50,13 +50,15 @@ Each run writes:
 - Feed entries with fewer than 50 words in their official summary/description are skipped instead of falling back to webpage crawling.
 - Keyword filters are not used as admission gates. Candidate relevance is checked by the model with a yes/no policy-substance question.
 - Tags are assigned after selection for archive classification only.
-- `bibliography.yml` defines approved deep reads from selected journals. The model may select from this file and write a short "why it matters today" sentence, but it does not rewrite the human-written prose brief, methodology note, or further-reading entries.
-- The newsletter header uses a model-written Chinese theme sentence of at most 40 characters when news items are present.
+- News items are generated as editorial analysis: core argument, why now, agenda position, and post-selection tags.
+- The daily editorial note is generated only when at least two news items are selected. It raises a core tension or open question rather than summarizing the issue.
+- A weekly thread is generated only when at least two selected news items share a related agenda line.
+- `bibliography.yml` defines approved deep reads from selected journals. The model may select from this file and write a today's-connection sentence plus two research directions, but it does not rewrite the human-written prose brief or methodology note.
 
 ## Notes
 
 - If fewer than ten candidates pass relevance screening, the workflow logs a warning and continues with what is available.
 - If the candidate pool is still below ten items after a seven-day lookback window, the workflow logs source-expansion suggestions instead of adding sources automatically.
 - If fewer than five high-quality items are found, the digest is shorter rather than padded.
-- Deep reads are linked through DOI metadata and selected only from the approved bibliography. Missing `further_reading` entries are logged for manual follow-up.
+- Deep reads are linked through DOI metadata and selected only from the approved bibliography. The generated research directions provide search keywords rather than invented reading lists.
 - GitHub Actions may occasionally delay scheduled runs during high-load windows; the workflow uses a non-hour time to reduce that risk.

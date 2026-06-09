@@ -6,17 +6,13 @@ from datetime import date
 from typing import Any
 
 from .http import post_json
-from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm
+from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm, ResearchDirection
 
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_OPENAI_TIMEOUT_SECONDS = 180
 OPENAI_MAX_ATTEMPTS = 2
 MIN_NEWS_ITEMS = 3
-MIN_SUMMARY_ZH_CHARS = 100
-MIN_SUMMARY_EN_WORDS = 45
-LOW_POOL_MIN_SUMMARY_ZH_CHARS = 80
-LOW_POOL_MIN_SUMMARY_EN_WORDS = 35
 MIN_RELEVANT_CANDIDATES = 10
 
 TAG_REGISTRY = [
@@ -35,6 +31,9 @@ TAG_REGISTRY = [
     "#能源转型",
     "#生物多样性",
 ]
+
+BANNED_EMPTY_PHRASES = ["至关重要", "意义深远", "备受关注", "在全球化背景下"]
+BROAD_TAGS = {"#气候变化", "气候变化", "#可持续发展", "可持续发展"}
 
 TERM_LIBRARY = {
     "#气候金融": DigestTerm(
@@ -71,16 +70,6 @@ TERM_LIBRARY = {
         "multilateral governance",
         "多边治理",
         "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。",
-    ),
-    "#碳市场": DigestTerm(
-        "carbon markets",
-        "碳市场",
-        "通过碳信用、排放配额或交易机制为减排行动定价和配置资源的政策工具。",
-    ),
-    "#能源转型": DigestTerm(
-        "energy transition",
-        "能源转型",
-        "能源系统从高碳化石燃料向可再生、低碳和高效率结构转变的过程。",
     ),
 }
 
@@ -131,8 +120,8 @@ def generate_digest(
                 last_exc = exc
                 feedback = (
                     f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
-                    "Use only the provided feed summaries as source material, keep tags to 1-3 per item, "
-                    "and do not rewrite bibliography prose briefs."
+                    "Use only the provided feed summaries as source material. Preserve bibliography prose. "
+                    "Do not use empty rhetoric, invented agenda timing, or generated literature references."
                 )
                 if attempt + 1 < OPENAI_MAX_ATTEMPTS:
                     print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
@@ -204,26 +193,37 @@ def _call_openai(
 ) -> dict[str, Any]:
     prompt = {
         "run_date": run_date.isoformat(),
+        "editorial_role": (
+            "You are the editorial AI for The Governance Brief, a daily newsletter serving policy researchers "
+            "and graduate students working on global governance, climate finance, and sustainable development."
+        ),
+        "reader_profile": (
+            "Readers understand multilateral governance, climate finance, and SDG frameworks. Do not explain "
+            "basic concepts; provide analytical density."
+        ),
         "editorial_scope": [
             "Climate policy, sustainable development, development finance, global governance, green transition, inequality, and multilateral institutions.",
             "The candidates already passed source whitelist and AI relevance checks.",
-            "Use the feed_summary/source_excerpt field as the source text. Do not assume you have read the linked webpage.",
+            "Use the feed_summary field as the source text. Do not assume you have read the linked webpage.",
         ],
         "tag_registry": TAG_REGISTRY,
         "instructions": [
             "Return a JSON object that follows the schema.",
-            "Select the strongest 3-5 news items. Prefer 4-5 when enough candidates exist.",
-            "Write overview_zh as one Chinese sentence of at most 40 Chinese characters describing the connective thread across today's selected items. If there are no items, return an empty string.",
-            "overview_en may be an empty string; it will not be displayed.",
-            "If fewer than 3 candidates are provided, select every usable candidate instead of padding or inventing items.",
-            "For each selected item, write a substantive Chinese summary of 100-160 Chinese characters and an English brief of 50-90 words.",
-            "Assign 1-3 tags per item from tag_registry after selection. Tags are archive labels and must not affect selection.",
-            "If no existing tag fits, you may create one new tag beginning with #.",
-            "Explain 1-2 professional terms per item.",
+            "Your role is not to summarize information; help readers understand what is happening, why it matters now, and how theoretical frameworks explain underlying tensions.",
+            "Select the strongest 3-5 news items. Prefer 4-5 when enough candidates exist. If fewer than 3 candidates are provided, select every usable candidate instead of padding or inventing items.",
+            "daily_editorial_note_zh must be under 100 Chinese characters, raise a core tension or open question across selected news, and name conflicts or convergence among actor logics. If fewer than 2 news items are selected, return null.",
+            "weekly_thread_zh should be 1-2 Chinese sentences only when at least 2 selected news items share a related issue; otherwise return null.",
+            "For each selected item, write core_argument_zh as one Chinese sentence describing what the article argues, not what it covers. Do not make a statistic the core argument and do not restate the title.",
+            "For each selected item, write why_now_zh in 1-2 Chinese sentences with an explicit temporal anchor: what it responds to, advances, or challenges. If timing cannot be inferred from the provided feed text, say so rather than guessing.",
+            "For each selected item, write agenda_position_zh as one Chinese sentence. If the agenda background is unclear, write exactly: 议程背景不明确.",
+            "Assign 1-3 Chinese tags after selection. Tags must be specific to the article content; avoid broad tags such as 气候变化 or 可持续发展.",
             "Select 2-3 deep reads from bibliography. Use only bibliography entries.",
-            "For each selected deep read, output only its identity fields and one short English today_relevance_en sentence.",
-            "Do not rewrite bibliography prose briefs, authors, years, journals, DOIs, or links.",
-            "Do not invent URLs, sources, readings, dates, authors, journals, or DOIs.",
+            "For each selected deep read, output only its identity fields, today_connection_zh, and two research_directions.",
+            "today_connection_zh must explicitly connect the theoretical frame to one selected news item. If no real connection exists, write: 本期暂无直接关联，建议结合[议题方向]阅读",
+            "Each research direction must include one Chinese research-question direction under 30 Chinese characters and 3-5 English search keywords. Do not cite any specific literature title, author, or publication.",
+            "Do not rewrite bibliography prose briefs, methodology notes, authors, years, journals, DOIs, or links.",
+            "Do not invent URLs, sources, readings, dates, authors, journals, DOIs, data, or literature.",
+            "Avoid empty rhetoric including 至关重要, 意义深远, 备受关注, and 在全球化背景下.",
         ],
         "candidates": [_candidate_payload(candidate) for candidate in candidates[:30]],
         "bibliography": [
@@ -240,8 +240,8 @@ def _call_openai(
             {
                 "role": "system",
                 "content": (
-                    "You are a bilingual policy research editor. You summarize only provided feed text, "
-                    "classify archive tags after selection, and preserve approved bibliography prose."
+                    "You are a bilingual policy research editor for The Governance Brief. You write analytical "
+                    "editorial fields from provided feed text, classify tags after selection, and preserve approved bibliography prose."
                 ),
             },
             {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
@@ -249,7 +249,7 @@ def _call_openai(
         "text": {
             "format": {
                 "type": "json_schema",
-                "name": "sdg_digest",
+                "name": "governance_brief",
                 "strict": True,
                 "schema": _digest_schema(max_items),
             }
@@ -268,10 +268,10 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
     return {
         "type": "object",
         "additionalProperties": False,
-        "required": ["overview_zh", "overview_en", "items", "readings"],
+        "required": ["daily_editorial_note_zh", "weekly_thread_zh", "items", "readings"],
         "properties": {
-            "overview_zh": {"type": "string"},
-            "overview_en": {"type": "string"},
+            "daily_editorial_note_zh": {"type": ["string", "null"]},
+            "weekly_thread_zh": {"type": ["string", "null"]},
             "items": {
                 "type": "array",
                 "minItems": 0,
@@ -283,39 +283,20 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                         "title_en",
                         "source_org",
                         "published_date",
-                        "summary_zh",
-                        "summary_en",
-                        "why_it_matters_zh",
-                        "why_it_matters_en",
-                        "terms",
+                        "core_argument_zh",
+                        "why_now_zh",
+                        "agenda_position_zh",
                         "tags",
-                        "sdg_links",
                         "url",
                     ],
                     "properties": {
                         "title_en": {"type": "string"},
                         "source_org": {"type": "string"},
                         "published_date": {"type": "string"},
-                        "summary_zh": {"type": "string"},
-                        "summary_en": {"type": "string"},
-                        "why_it_matters_zh": {"type": "string"},
-                        "why_it_matters_en": {"type": "string"},
-                        "terms": {
-                            "type": "array",
-                            "maxItems": 2,
-                            "items": {
-                                "type": "object",
-                                "additionalProperties": False,
-                                "required": ["term_en", "term_zh", "explanation_zh"],
-                                "properties": {
-                                    "term_en": {"type": "string"},
-                                    "term_zh": {"type": "string"},
-                                    "explanation_zh": {"type": "string"},
-                                },
-                            },
-                        },
+                        "core_argument_zh": {"type": "string"},
+                        "why_now_zh": {"type": "string"},
+                        "agenda_position_zh": {"type": "string"},
                         "tags": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "string"}},
-                        "sdg_links": {"type": "array", "items": {"type": "string"}},
                         "url": {"type": "string"},
                     },
                 },
@@ -327,14 +308,33 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                 "items": {
                     "type": "object",
                     "additionalProperties": False,
-                    "required": ["title", "authors", "year", "journal", "doi", "today_relevance_en"],
+                    "required": ["title", "authors", "year", "journal", "doi", "today_connection_zh", "research_directions"],
                     "properties": {
                         "title": {"type": "string"},
                         "authors": {"type": "string"},
                         "year": {"type": "integer"},
                         "journal": {"type": "string"},
                         "doi": {"type": "string"},
-                        "today_relevance_en": {"type": "string"},
+                        "today_connection_zh": {"type": "string"},
+                        "research_directions": {
+                            "type": "array",
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "required": ["question_zh", "keywords"],
+                                "properties": {
+                                    "question_zh": {"type": "string"},
+                                    "keywords": {
+                                        "type": "array",
+                                        "minItems": 3,
+                                        "maxItems": 5,
+                                        "items": {"type": "string"},
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
             },
@@ -357,50 +357,38 @@ def validate_digest_payload(
     }
 
     items: list[DigestItem] = []
-    min_summary_zh_chars = _min_summary_zh_chars(candidates)
-    min_summary_en_words = _min_summary_en_words(candidates)
     for raw in payload.get("items", []):
         if raw.get("url") not in candidate_urls:
             raise ValueError(f"Digest item has unapproved URL: {raw.get('url')}")
         if raw.get("source_org") not in candidate_sources:
             raise ValueError(f"Digest item has unapproved source: {raw.get('source_org')}")
+
+        title = str(raw["title_en"]).strip()
         tags = [str(tag).strip() for tag in raw.get("tags", []) if str(tag).strip()]
-        if not tags:
-            raise ValueError(f"Digest item has no tags: {raw.get('title_en')}")
-        if len(tags) > 3:
-            raise ValueError(f"Digest item has too many tags: {raw.get('title_en')}")
-        terms = [
-            DigestTerm(
-                term_en=str(term.get("term_en", "")).strip(),
-                term_zh=str(term.get("term_zh", "")).strip(),
-                explanation_zh=str(term.get("explanation_zh", "")).strip(),
+        _validate_tags(tags, title)
+
+        core_argument_zh = str(raw.get("core_argument_zh", "")).strip()
+        why_now_zh = str(raw.get("why_now_zh", "")).strip()
+        agenda_position_zh = str(raw.get("agenda_position_zh", "")).strip()
+        _validate_required_text(core_argument_zh, f"core_argument_zh for {title}")
+        _validate_required_text(why_now_zh, f"why_now_zh for {title}")
+        _validate_required_text(agenda_position_zh, f"agenda_position_zh for {title}")
+
+        items.append(
+            DigestItem(
+                title_en=title,
+                source_org=str(raw["source_org"]).strip(),
+                published_date=str(raw["published_date"]).strip(),
+                summary_zh=core_argument_zh,
+                terms=[],
+                tags=tags,
+                url=str(raw["url"]).strip(),
+                core_argument_zh=core_argument_zh,
+                why_now_zh=why_now_zh,
+                agenda_position_zh=agenda_position_zh,
+                why_it_matters_zh=why_now_zh,
             )
-            for term in raw.get("terms", [])
-        ]
-        item = DigestItem(
-            title_en=str(raw["title_en"]).strip(),
-            source_org=str(raw["source_org"]).strip(),
-            published_date=str(raw["published_date"]).strip(),
-            summary_zh=str(raw["summary_zh"]).strip(),
-            summary_en=str(raw.get("summary_en", "")).strip(),
-            why_it_matters_zh=str(raw.get("why_it_matters_zh", "")).strip(),
-            why_it_matters_en=str(raw.get("why_it_matters_en", "")).strip(),
-            terms=terms,
-            tags=tags,
-            sdg_links=list(raw.get("sdg_links", [])),
-            url=str(raw["url"]).strip(),
         )
-        if _compact_len(item.summary_zh) < min_summary_zh_chars:
-            raise ValueError(
-                f"Digest item summary_zh is too short for {item.title_en}: "
-                f"{_compact_len(item.summary_zh)} chars"
-            )
-        if _word_count(item.summary_en) < min_summary_en_words:
-            raise ValueError(
-                f"Digest item summary_en is too short for {item.title_en}: "
-                f"{_word_count(item.summary_en)} words"
-            )
-        items.append(item)
 
     readings: list[DeepRead] = []
     for raw in payload.get("readings", []):
@@ -414,6 +402,18 @@ def validate_digest_payload(
         approved = approved_reads.get(key)
         if not approved:
             raise ValueError(f"Digest has unapproved reading: {key}")
+
+        today_connection_zh = str(raw.get("today_connection_zh", "")).strip()
+        _validate_required_text(today_connection_zh, f"today_connection_zh for {approved.title}")
+        research_directions = [
+            ResearchDirection(
+                question_zh=str(direction.get("question_zh", "")).strip(),
+                keywords=[str(keyword).strip() for keyword in direction.get("keywords", []) if str(keyword).strip()],
+            )
+            for direction in raw.get("research_directions", [])
+        ]
+        _validate_research_directions(research_directions, approved.title)
+
         readings.append(
             DeepRead(
                 title=approved.title,
@@ -428,12 +428,23 @@ def validate_digest_payload(
                 further_reading=approved.further_reading,
                 tags=approved.tags,
                 kind=approved.kind,
-                today_relevance_en=str(raw.get("today_relevance_en", "")).strip(),
+                today_connection_zh=today_connection_zh,
+                research_directions=research_directions,
             )
         )
 
-    if items and _compact_len(str(payload.get("overview_zh", ""))) > 40:
-        raise ValueError("overview_zh theme sentence is longer than 40 Chinese characters")
+    daily_editorial_note_zh = _optional_text(payload.get("daily_editorial_note_zh"))
+    weekly_thread_zh = _optional_text(payload.get("weekly_thread_zh"))
+    if len(items) < 2:
+        daily_editorial_note_zh = ""
+    elif not daily_editorial_note_zh:
+        raise ValueError("daily_editorial_note_zh is required when at least 2 news items are selected")
+    if daily_editorial_note_zh:
+        if _compact_len(daily_editorial_note_zh) > 100:
+            raise ValueError("daily_editorial_note_zh is longer than 100 Chinese characters")
+        _validate_required_text(daily_editorial_note_zh, "daily_editorial_note_zh")
+    if weekly_thread_zh:
+        _validate_required_text(weekly_thread_zh, "weekly_thread_zh")
 
     if len(candidates) >= MIN_NEWS_ITEMS and len(items) < MIN_NEWS_ITEMS:
         raise ValueError(f"Digest selected only {len(items)} news items from {len(candidates)} candidates")
@@ -441,10 +452,11 @@ def validate_digest_payload(
     return Digest(
         digest_date=run_date,
         subject=f"The Governance Brief - {run_date.isoformat()}",
-        overview_zh=str(payload.get("overview_zh", "")).strip() if items else "",
-        overview_en=str(payload.get("overview_en", "")).strip(),
+        overview_zh=daily_editorial_note_zh,
+        overview_en="",
         items=items,
         readings=readings,
+        weekly_thread_zh=weekly_thread_zh,
     )
 
 
@@ -456,29 +468,31 @@ def fallback_digest(
     items: list[DigestItem] = []
     for candidate in candidates:
         tags = candidate.tags or ["#多边治理"]
+        core_argument_zh = _fallback_core_argument(candidate)
+        why_now_zh = "这条信息提供了一个政策议程观察点，但需要结合原文判断其回应的具体政策节点。"
         items.append(
             DigestItem(
                 title_en=candidate.title,
                 source_org=candidate.source_org,
                 published_date=candidate.published_date,
-                summary_zh=_fallback_summary_zh(candidate),
-                summary_en=_fallback_summary_en(candidate),
-                why_it_matters_zh="这条信息可作为观察政策执行、资金安排或多边治理变化的线索。",
-                why_it_matters_en="It can be read as a signal for policy implementation, finance arrangements, or multilateral governance.",
+                summary_zh=core_argument_zh,
                 terms=_terms_for_tags(tags),
                 tags=tags[:3],
-                sdg_links=_sdg_links(tags),
                 url=candidate.url,
+                core_argument_zh=core_argument_zh,
+                why_now_zh=why_now_zh,
+                agenda_position_zh="议程背景不明确",
+                why_it_matters_zh=why_now_zh,
             )
         )
-    readings = _select_readings_for_candidates(candidates, bibliography)
     return Digest(
         digest_date=run_date,
         subject=f"The Governance Brief - {run_date.isoformat()}",
-        overview_zh="气候、融资与治理议程交织推进。" if items else "",
+        overview_zh="",
         overview_en="",
         items=items,
-        readings=readings,
+        readings=_select_readings_for_candidates(candidates, bibliography),
+        weekly_thread_zh="",
     )
 
 
@@ -502,6 +516,7 @@ def _reading_payload(reading: DeepRead) -> dict[str, Any]:
         "doi": reading.doi,
         "url": reading.url,
         "brief_zh": reading.note_zh,
+        "methodology_zh": reading.methodology_zh,
         "tags": reading.tags,
     }
 
@@ -530,12 +545,11 @@ def _is_timeout_exception(exc: BaseException) -> bool:
     return "timed out" in str(exc).lower()
 
 
-def _fallback_summary_zh(candidate: Candidate) -> str:
-    return _trim_sentence(candidate.summary_hint, 180) or f"{candidate.title} 来自 {candidate.source_org}。"
-
-
-def _fallback_summary_en(candidate: Candidate) -> str:
-    return _trim_sentence(candidate.summary_hint, 420) or f"This item comes from {candidate.source_org}."
+def _fallback_core_argument(candidate: Candidate) -> str:
+    source_text = _trim_sentence(candidate.summary_hint, 120)
+    if source_text:
+        return f"这篇材料主张，{source_text}"
+    return f"这篇材料来自 {candidate.source_org}，其政策论点需要结合原文进一步判断。"
 
 
 def _trim_sentence(value: str, limit: int) -> str:
@@ -553,12 +567,40 @@ def _word_count(value: str) -> int:
     return len([word for word in (value or "").replace("—", " ").split() if word.strip()])
 
 
-def _min_summary_zh_chars(candidates: list[Candidate]) -> int:
-    return MIN_SUMMARY_ZH_CHARS if len(candidates) >= MIN_NEWS_ITEMS else LOW_POOL_MIN_SUMMARY_ZH_CHARS
+def _optional_text(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
 
 
-def _min_summary_en_words(candidates: list[Candidate]) -> int:
-    return MIN_SUMMARY_EN_WORDS if len(candidates) >= MIN_NEWS_ITEMS else LOW_POOL_MIN_SUMMARY_EN_WORDS
+def _validate_required_text(value: str, field_name: str) -> None:
+    if not value:
+        raise ValueError(f"{field_name} is empty")
+    for phrase in BANNED_EMPTY_PHRASES:
+        if phrase in value:
+            raise ValueError(f"{field_name} contains banned empty phrase: {phrase}")
+
+
+def _validate_tags(tags: list[str], title: str) -> None:
+    if not tags:
+        raise ValueError(f"Digest item has no tags: {title}")
+    if len(tags) > 3:
+        raise ValueError(f"Digest item has too many tags: {title}")
+    broad = [tag for tag in tags if tag in BROAD_TAGS]
+    if broad:
+        raise ValueError(f"Digest item uses broad tag(s) for {title}: {', '.join(broad)}")
+
+
+def _validate_research_directions(directions: list[ResearchDirection], title: str) -> None:
+    if len(directions) != 2:
+        raise ValueError(f"Reading must have exactly 2 research directions: {title}")
+    for direction in directions:
+        if not direction.question_zh:
+            raise ValueError(f"Reading research direction is empty: {title}")
+        if _compact_len(direction.question_zh) > 30:
+            raise ValueError(f"Reading research direction is too long: {title}")
+        if not (3 <= len(direction.keywords) <= 5):
+            raise ValueError(f"Reading research direction keywords must contain 3-5 terms: {title}")
 
 
 def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
@@ -572,17 +614,6 @@ def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
             "信息对政策设计、执行、融资安排或评估框架可能带来的具体影响。",
         )
     ]
-
-
-def _sdg_links(tags: list[str]) -> list[str]:
-    links: list[str] = []
-    if any(tag in tags for tag in ("#气候金融", "#NDC", "#绿色转型", "#碳市场", "#能源转型")):
-        links.extend(["SDG 13 Climate Action", "SDG 17 Partnerships"])
-    if any(tag in tags for tag in ("#SDG进展", "#发展不平等", "#粮食与土地")):
-        links.extend(["SDG implementation", "SDG 10 Reduced Inequalities"])
-    if any(tag in tags for tag in ("#债务可持续性", "#主权债务", "#Global South")):
-        links.extend(["SDG 8 Decent Work and Growth", "SDG 10 Reduced Inequalities"])
-    return list(dict.fromkeys(links))[:3]
 
 
 def _select_readings_for_candidates(
