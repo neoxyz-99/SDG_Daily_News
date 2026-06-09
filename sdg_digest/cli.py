@@ -15,8 +15,9 @@ from .render import render_html
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate SDG daily digest")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
-    parser.add_argument("--lookback-days", type=int, default=3)
+    parser.add_argument("--lookback-days", type=int, default=5)
     parser.add_argument("--max-items", type=int, default=5)
+    parser.add_argument("--candidate-pool", type=int, default=18)
     parser.add_argument("--sources", default="sources.yml")
     parser.add_argument("--bibliography", default="bibliography.yml")
     parser.add_argument("--output-dir", default="archive")
@@ -31,7 +32,7 @@ def main() -> None:
 
     candidates = collect_candidates(sources, run_date, args.lookback_days)
     candidates = deduplicate_candidates(candidates)
-    selected = rank_candidates(candidates, args.max_items)
+    selected = rank_candidates(candidates, args.candidate_pool)
     digest = generate_digest(
         selected,
         bibliography,
