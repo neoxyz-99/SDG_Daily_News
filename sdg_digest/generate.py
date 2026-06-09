@@ -15,7 +15,8 @@ MIN_SUMMARY_ZH_CHARS = 150
 MIN_SUMMARY_EN_WORDS = 70
 MIN_READING_ITEMS = 3
 MIN_READING_NOTE_ZH_CHARS = 120
-OPENAI_MAX_ATTEMPTS = 2
+OPENAI_MAX_ATTEMPTS = 3
+DEFAULT_OPENAI_TIMEOUT_SECONDS = 180
 
 TERM_LIBRARY = {
     "#NDC": DigestTerm(
@@ -79,6 +80,18 @@ def generate_digest(
                 )
                 if attempt + 1 < OPENAI_MAX_ATTEMPTS:
                     print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
+                    continue
+                break
+            except TimeoutError as exc:
+                last_exc = exc
+                if attempt + 1 < OPENAI_MAX_ATTEMPTS:
+                    print(f"OpenAI request timed out; retrying attempt {attempt + 2}/{OPENAI_MAX_ATTEMPTS}")
+                    continue
+                break
+            except OSError as exc:
+                last_exc = exc
+                if _is_timeout_exception(exc) and attempt + 1 < OPENAI_MAX_ATTEMPTS:
+                    print(f"OpenAI request timed out; retrying attempt {attempt + 2}/{OPENAI_MAX_ATTEMPTS}")
                     continue
                 break
             except Exception as exc:
@@ -154,10 +167,24 @@ def _call_openai(
         OPENAI_RESPONSES_URL,
         payload,
         headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
-        timeout=60,
+        timeout=_openai_timeout_seconds(),
     )
     text = _extract_response_text(response)
     return json.loads(text)
+
+
+def _openai_timeout_seconds() -> int:
+    raw = os.getenv("OPENAI_TIMEOUT_SECONDS", "").strip()
+    if not raw:
+        return DEFAULT_OPENAI_TIMEOUT_SECONDS
+    try:
+        return max(60, int(raw))
+    except ValueError:
+        return DEFAULT_OPENAI_TIMEOUT_SECONDS
+
+
+def _is_timeout_exception(exc: BaseException) -> bool:
+    return "timed out" in str(exc).lower()
 
 
 def _extract_response_text(response: dict[str, Any]) -> str:
