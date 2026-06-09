@@ -10,7 +10,11 @@
         "url": "https://doi.org/10.1017/S0020818300018920",
         "brief_zh": "Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。",
         "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
-        "tags": ["#多边治理"]
+        "tags": [
+          "#多边治理"
+        ],
+        "note_en": "Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.",
+        "method_en": "The article uses conceptual construction and theoretical synthesis. Its strength is to clarify the regime concept and its causal claims; its limitation is that it does not offer systematic empirical testing."
       },
       {
         "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
@@ -21,7 +25,13 @@
         "url": "https://doi.org/10.1017/S0020818300018993",
         "brief_zh": "Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。",
         "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
-        "tags": ["#多边治理", "#发展不平等", "#绿色转型"]
+        "tags": [
+          "#多边治理",
+          "#发展不平等",
+          "#绿色转型"
+        ],
+        "note_en": "Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.",
+        "method_en": "The article uses historical institutional analysis and conceptual history. It reveals the political foundations of economic order, but does not provide a quantitative causal estimate."
       }
     ],
     "#Global South": [
@@ -34,7 +44,13 @@
         "url": "https://doi.org/10.1162/glep.2010.10.1.60",
         "brief_zh": "Biermann 与 Boas 以气候流离失所为切口，指出现有难民法主要围绕迫害和跨境庇护设计，无法处理海平面上升、干旱和灾害累积造成的长期迁移风险。文章主张建立面向未来的全球保护制度，将预防性迁移、资金支持、责任分担和机构协调纳入同一框架。它的贡献不只是提出“气候难民”概念，而是揭示气候影响如何把人道保护、适应融资、主权边界和发展脆弱性连成一个治理缺口。",
         "methodology_zh": "文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。",
-        "tags": ["#多边治理", "#Global South", "#发展不平等"]
+        "tags": [
+          "#多边治理",
+          "#Global South",
+          "#发展不平等"
+        ],
+        "note_en": "Biermann and Boas start from climate displacement to show that existing refugee law is poorly suited to long-term migration driven by sea-level rise, drought, and cumulative climate shocks. They argue for a forward-looking global protection system that links planned relocation, financing, responsibility-sharing, and institutional coordination. The article is valuable not only because it popularizes the problem of climate refugees, but because it identifies a governance gap between humanitarian protection, adaptation finance, sovereignty, and development vulnerability.",
+        "method_en": "The article uses normative institutional design and policy analysis. It is strong at identifying protection gaps and institutional options, but less able to estimate implementation politics."
       },
       {
         "title": "Climate Change and the Global South",
@@ -45,7 +61,12 @@
         "url": "https://doi.org/10.1080/14693062.2004.9685516",
         "brief_zh": "Huq 与 Reid 将气候变化重新放回发展政治经济中，指出全球南方的脆弱性并不只是自然暴露程度更高，而是由贫困、基础设施不足、农业依赖、财政能力有限和历史排放责任不对称共同塑造。文章反对把气候政策窄化为减排技术问题，强调适应、减贫、能力建设和国际资金支持必须同时进入政策设计。它的分析贡献在于说明气候风险的分布本身就是发展不平等的结果，因此评估气候金融或适应项目时，不能只看项目数量，还要看其是否改变脆弱性的制度根源。",
         "methodology_zh": "文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。",
-        "tags": ["#Global South", "#发展不平等"]
+        "tags": [
+          "#Global South",
+          "#发展不平等"
+        ],
+        "note_en": "Huq and Reid reinsert climate change into the political economy of development. They argue that vulnerability in the Global South is produced not only by exposure to climate hazards, but also by poverty, weak infrastructure, agricultural dependence, limited fiscal capacity, and unequal historical responsibility. The article challenges approaches that narrow climate policy to emissions technology and insists that adaptation, poverty reduction, capacity building, and international support must be designed together. It helps readers evaluate climate finance and adaptation projects by asking whether they address the institutional roots of vulnerability rather than only the number of projects funded.",
+        "method_en": "The article uses policy synthesis and vulnerability analysis. It is useful for framing development constraints, but it does not attempt single-variable causal identification."
       }
     ],
     "#气候金融": [
@@ -58,7 +79,13 @@
         "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
         "brief_zh": "Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。",
         "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
-        "tags": ["#气候金融", "#发展不平等", "#多边治理"]
+        "tags": [
+          "#气候金融",
+          "#发展不平等",
+          "#多边治理"
+        ],
+        "note_en": "Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.",
+        "method_en": "The article combines political economy analysis with scrutiny of aid reporting practices. It reveals incentives behind statistical claims, though it depends on the quality of public aid data."
       }
     ],
     "#SDG进展": [
@@ -71,7 +98,13 @@
         "url": "https://doi.org/10.1016/0305-750X(91)90197-P",
         "brief_zh": "Lele 对“可持续发展”概念做出早期且尖锐的拆解：它之所以容易成为共识，恰恰因为生态保护、经济增长、代际公平和贫困削减被放进一个看似兼容的话语中，却没有说明这些目标冲突时如何排序。文章挑战了把可持续发展当作无争议政策口号的做法，要求区分生态持续性、社会公平和发展需求之间的真实张力。它的价值在于提供一种审读 SDG、绿色转型和自然资本政策的警惕视角：每个“共赢”叙事背后都要追问分配、权力和成本承担。",
         "methodology_zh": "文章采用批判性文献综述和概念分析方法，拆解可持续发展概念中生态、增长和公平目标的张力。它能澄清概念混用，但不直接检验具体政策效果。",
-        "tags": ["#SDG进展", "#发展不平等", "#绿色转型"]
+        "tags": [
+          "#SDG进展",
+          "#发展不平等",
+          "#绿色转型"
+        ],
+        "note_en": "Lele offers an early critique of sustainable development as a policy consensus built on conceptual ambiguity. The concept appears attractive because ecological limits, economic growth, intergenerational equity, and poverty reduction are placed in one apparently compatible vocabulary, yet the article shows that it does not specify how conflicts among these goals should be resolved. Its value is to make readers skeptical of easy win-win narratives in SDG and green transition debates: every claim of sustainability should be examined for distribution, power, and who carries the costs.",
+        "method_en": "The article uses critical literature review and conceptual analysis. It clarifies hidden tensions within sustainable development, but does not test specific policy outcomes."
       }
     ],
     "#生物多样性": [
@@ -84,7 +117,13 @@
         "url": "https://doi.org/10.5751/ES-00650-090205",
         "brief_zh": "Walker 等人区分韧性、适应性和转型能力，回应的是社会—生态系统面对冲击时究竟应当维持既有功能、调整治理路径，还是在旧结构不可持续时主动转型。文章把生态反馈、制度学习、跨尺度互动和行动者能力放进同一框架，说明系统稳定并不总是好事，某些稳定状态本身可能锁定脆弱性和不平等。它的贡献在于为气候适应、生物多样性治理和粮食系统政策提供判断工具：政策目标不是抽象地“增强韧性”，而是判断该保留什么、改变什么、何时转型。",
         "methodology_zh": "文章采用社会—生态系统理论建模和概念综合方法，解释系统在冲击下的稳定、适应和转型。它有助于识别系统机制，但案例细节和政策操作化需要其他研究补充。",
-        "tags": ["#生物多样性", "#粮食与土地", "#绿色转型"]
+        "tags": [
+          "#生物多样性",
+          "#粮食与土地",
+          "#绿色转型"
+        ],
+        "note_en": "Walker and colleagues distinguish resilience, adaptability, and transformability to ask whether a social-ecological system should preserve existing functions, adjust its pathway, or deliberately transform when the old structure becomes untenable. The article links ecological feedbacks, institutional learning, cross-scale interaction, and actor capacity in one framework. Its key insight is that stability is not always desirable: some stable states lock in vulnerability and inequality. This helps interpret adaptation, biodiversity, and food-system policies by asking what should be maintained, what should change, and when transformation is necessary.",
+        "method_en": "The article uses social-ecological systems theory and conceptual modeling. It identifies system mechanisms, but concrete policy application requires additional case evidence."
       }
     ]
   }

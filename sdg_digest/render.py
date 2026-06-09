@@ -17,6 +17,8 @@ def render_markdown(digest: Digest) -> str:
     ]
     if digest.overview_zh:
         lines.extend(["## 本周导语 / Editorial Note", "", digest.overview_zh, ""])
+        if digest.overview_en:
+            lines.extend([digest.overview_en, ""])
 
     lines.extend(["## 近期要闻 / Recent News", ""])
     if recent_news:
@@ -28,6 +30,8 @@ def render_markdown(digest: Digest) -> str:
                     f"{item.source_org} · {item.published_date}",
                     "",
                     f"{item.one_sentence_zh}",
+                    "",
+                    f"{item.one_sentence_en}",
                     "",
                     f"Tags: {' '.join(item.tags)}",
                     "",
@@ -51,9 +55,15 @@ def render_markdown(digest: Digest) -> str:
                     "",
                     f"**核心论点 / Core Argument**: {item.core_argument_zh or item.summary_zh}",
                     "",
+                    f"{item.core_argument_en or item.summary_en}",
+                    "",
                     f"**为什么此刻重要 / Why Now**: {item.why_now_zh or item.why_it_matters_zh}",
                     "",
+                    f"{item.why_now_en or item.why_it_matters_en}",
+                    "",
                     f"**议程位置 / Agenda Position**: {item.agenda_position_zh or '议程背景不明确'}",
+                    "",
+                    f"{item.agenda_position_en or 'The agenda background is unclear.'}",
                     "",
                     f"Original: {item.url}",
                     "",
@@ -64,6 +74,8 @@ def render_markdown(digest: Digest) -> str:
 
     if digest.weekly_thread_zh:
         lines.extend(["## 本周议题线索 / Weekly Thread", "", digest.weekly_thread_zh, ""])
+        if digest.weekly_thread_en:
+            lines.extend([digest.weekly_thread_en, ""])
 
     lines.extend(["## 经典研读 / Classic Reading", ""])
     if readings:
@@ -78,16 +90,24 @@ def render_markdown(digest: Digest) -> str:
                     "",
                     reading.note_zh,
                     "",
+                    reading.note_en,
+                    "",
                 ]
             )
             if reading.methodology_zh:
                 lines.extend(["**方法论 / Methodology**", "", reading.methodology_zh, ""])
+                if reading.method_en:
+                    lines.extend([reading.method_en, ""])
             if reading.today_connection_zh:
                 lines.extend(["**今日关联 / Today's Connection**", "", reading.today_connection_zh, ""])
+                if reading.today_connection_en:
+                    lines.extend([reading.today_connection_en, ""])
             if reading.research_directions:
                 lines.extend(["**研究方向 / Research Directions**", ""])
                 for direction in reading.research_directions:
                     lines.append(f"- {direction.question_zh} ({', '.join(direction.keywords)})")
+                    if direction.question_en:
+                        lines.append(f"  {direction.question_en}")
                 lines.append("")
             lines.extend([f"DOI / 原文链接: {reading.url}", ""])
     else:
@@ -115,12 +135,14 @@ def render_html(digest: Digest) -> str:
         readings_html = '<p class="empty">本期没有匹配到白名单经典研读材料。</p>'
 
     editorial_html = (
-        f'<section class="editorial-note"><h2>本周导语</h2><p>{html.escape(digest.overview_zh)}</p></section>'
+        f'<section class="editorial-note"><h2>本周导语 / Editorial Note</h2>'
+        f'<p>{html.escape(digest.overview_zh)}</p>{_paragraph_en(digest.overview_en)}</section>'
         if digest.overview_zh
         else ""
     )
     weekly_html = (
-        f'<section class="weekly-thread"><h2>本周议题线索</h2><p>{html.escape(digest.weekly_thread_zh)}</p></section>'
+        f'<section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2>'
+        f'<p>{html.escape(digest.weekly_thread_zh)}</p>{_paragraph_en(digest.weekly_thread_en)}</section>'
         if digest.weekly_thread_zh
         else ""
     )
@@ -157,6 +179,7 @@ def render_html(digest: Digest) -> str:
     .tag {{ display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }}
     .label {{ margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }}
     .body-text {{ font-size: 15px; line-height: 1.78; margin: 0; }}
+    .en-text {{ color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }}
     .agenda {{ background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }}
     .readings-band {{ background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }}
     article.reading {{ background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }}
@@ -229,6 +252,7 @@ def _render_recent_news_html(index: int, item: NewsBrief) -> str:
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="body-text">{html.escape(item.one_sentence_zh)}</p>
+  {_paragraph_en(item.one_sentence_en)}
   <p class="tags">{tags}</p>
 </article>"""
 
@@ -241,11 +265,14 @@ def _render_research_signal_html(index: int, item: DigestItem) -> str:
   <p class="tags">{tags}</p>
   <p class="label">核心论点 / Core Argument</p>
   <p class="body-text">{html.escape(item.core_argument_zh or item.summary_zh)}</p>
+  {_paragraph_en(item.core_argument_en or item.summary_en)}
   <p class="label">为什么此刻重要 / Why Now</p>
   <p class="body-text">{html.escape(item.why_now_zh or item.why_it_matters_zh)}</p>
+  {_paragraph_en(item.why_now_en or item.why_it_matters_en)}
   <div class="agenda">
     <p class="label">议程位置 / Agenda Position</p>
     <p class="body-text">{html.escape(item.agenda_position_zh or "议程背景不明确")}</p>
+    {_paragraph_en(item.agenda_position_en or "The agenda background is unclear.")}
   </div>
 </article>"""
 
@@ -254,13 +281,15 @@ def _render_reading_html(reading: DeepRead) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in reading.tags)
     methodology = (
         f"""<p class="method-title">方法论 / Methodology</p>
-  <p class="method-text">{html.escape(reading.methodology_zh)}</p>"""
+  <p class="method-text">{html.escape(reading.methodology_zh)}</p>
+  {_paragraph_en(reading.method_en)}"""
         if reading.methodology_zh
         else ""
     )
     connection = (
         f"""<p class="connection-title">今日关联 / Today's Connection</p>
-  <p class="connection-text">{html.escape(reading.today_connection_zh)}</p>"""
+  <p class="connection-text">{html.escape(reading.today_connection_zh)}</p>
+  {_paragraph_en(reading.today_connection_en)}"""
         if reading.today_connection_zh
         else ""
     )
@@ -270,6 +299,7 @@ def _render_reading_html(reading: DeepRead) -> str:
   <p class="meta">{html.escape(reading.authors)} · {reading.year} · {html.escape(reading.journal)}</p>
   <p class="tags">{tags}</p>
   <p class="reading-text">{html.escape(reading.note_zh)}</p>
+  {_paragraph_en(reading.note_en)}
   {methodology}
   {connection}
   {research}
@@ -282,11 +312,24 @@ def _render_research_directions(reading: DeepRead) -> str:
         return ""
     items = "".join(
         f"<li>{html.escape(direction.question_zh)} "
-        f'<span class="keywords">({html.escape(", ".join(direction.keywords))})</span></li>'
+        f'<span class="keywords">({html.escape(", ".join(direction.keywords))})</span>'
+        f'{_inline_en(direction.question_en)}</li>'
         for direction in reading.research_directions[:2]
     )
     return f"""<p class="research-title">研究方向 / Research Directions</p>
   <ul class="research-list">{items}</ul>"""
+
+
+def _paragraph_en(value: str) -> str:
+    if not value:
+        return ""
+    return f'<p class="en-text">{html.escape(value)}</p>'
+
+
+def _inline_en(value: str) -> str:
+    if not value:
+        return ""
+    return f'<br><span class="en-text">{html.escape(value)}</span>'
 
 
 # WEEKLY VISUAL REDESIGN DONE: HTML and Markdown now render recent news, research signals, and classic readings as separate modules.

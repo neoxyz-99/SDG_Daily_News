@@ -110,13 +110,16 @@ class GenerateTests(unittest.TestCase):
                 "journal": reading.journal,
                 "doi": reading.doi,
                 "today_connection_zh": "这篇文献有助于理解 Climate Finance Update 中公共资金承诺与报告激励之间的张力。",
+                "today_connection_en": "This reading helps interpret the tension between public finance pledges and reporting incentives in Climate Finance Update.",
                 "research_directions": [
                     {
                         "question_zh": "气候资金如何被标记",
+                        "question_en": "How is climate finance labeled?",
                         "keywords": ["climate finance", "aid reporting", "Rio markers"],
                     },
                     {
                         "question_zh": "承诺与拨付如何错位",
+                        "question_en": "How do pledges and disbursement diverge?",
                         "keywords": ["pledges", "disbursement", "climate aid"],
                     },
                 ],
@@ -148,7 +151,9 @@ def _payload(first: Candidate, second: Candidate | None = None) -> dict:
         items.append(_item(second))
     return {
         "daily_editorial_note_zh": "公共资金承诺与执行能力之间的落差，正在重塑气候融资议程的责任边界。",
+        "weekly_editorial_note_en": "The gap between public finance pledges and delivery capacity is reshaping responsibility in climate finance.",
         "weekly_thread_zh": "两条新闻共同指向气候融资从承诺规模转向执行能力的议题线索。",
+        "weekly_thread_en": "The two items point to a shift in climate finance debates from pledge volume to implementation capacity.",
         "items": items,
         "readings": [],
     }
@@ -160,8 +165,11 @@ def _item(candidate: Candidate) -> dict:
         "source_org": candidate.source_org,
         "published_date": candidate.published_date,
         "core_argument_zh": "这篇文章主张，气候融资的关键矛盾不只是资金规模，而是公共机构能否把承诺转化为可执行的项目管线。",
+        "core_argument_en": "The article argues that the central climate finance problem is not only the scale of funding, but whether public institutions can turn pledges into executable project pipelines.",
         "why_now_zh": "它回应了发展中国家在新一轮气候融资安排中对项目准备和风险分担的压力，也挑战了只看承诺金额的评估方式。",
+        "why_now_en": "It responds to pressure on developing countries to prepare projects and share risks under new climate finance arrangements, while challenging assessments focused only on pledged amounts.",
         "agenda_position_zh": "它更像是气候融资执行阶段的政策诊断，而不是谈判前的立场表态。",
+        "agenda_position_en": "It functions more as a policy diagnosis for the implementation phase of climate finance than as a pre-negotiation position statement.",
         "tags": ["#气候金融", "#多边治理"],
         "url": candidate.url,
     }
@@ -206,9 +214,11 @@ def _reading() -> DeepRead:
         year=2011,
         url="https://doi.org/10.1016/j.worlddev.2011.07.020",
         note_zh="这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。",
+        note_en="The article examines statistical bias in climate aid reporting and shows how donor governments label and present development assistance as climate-related finance.",
         journal="World Development",
         doi="10.1016/j.worlddev.2011.07.020",
         methodology_zh="文章采用政治经济学分析与报告制度比较，优势是揭示资金统计背后的激励结构，局限是难以直接估计每一笔资金的真实气候贡献。",
+        method_en="The article combines political economy analysis with scrutiny of reporting rules, revealing incentives behind climate finance statistics.",
         tags=["#气候金融"],
         kind="journal article",
     )

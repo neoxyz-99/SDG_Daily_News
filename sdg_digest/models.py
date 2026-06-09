@@ -42,6 +42,7 @@ class NewsBrief:
     published_date: str
     url: str
     one_sentence_zh: str
+    one_sentence_en: str = ""
     tags: list[str] = field(default_factory=list)
 
 
@@ -58,6 +59,7 @@ class FurtherReading:
 class ResearchDirection:
     question_zh: str
     keywords: list[str]
+    question_en: str = ""
 
 
 @dataclass(frozen=True)
@@ -82,6 +84,7 @@ class DeepRead:
     relevance_en: str = ""
     today_relevance_en: str = ""
     today_connection_zh: str = ""
+    today_connection_en: str = ""
     research_directions: list[ResearchDirection] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
     kind: str = "reading"
@@ -104,8 +107,11 @@ class DigestItem:
     tags: list[str]
     url: str
     core_argument_zh: str = ""
+    core_argument_en: str = ""
     why_now_zh: str = ""
+    why_now_en: str = ""
     agenda_position_zh: str = ""
+    agenda_position_en: str = ""
     summary_en: str = ""
     why_it_matters_zh: str = ""
     why_it_matters_en: str = ""
@@ -122,6 +128,7 @@ class Digest:
     readings: list[DeepRead] = field(default_factory=list)
     overview_en: str = ""
     weekly_thread_zh: str = ""
+    weekly_thread_en: str = ""
     recent_news: list[NewsBrief] = field(default_factory=list)
     research_signals: list[DigestItem] = field(default_factory=list)
     classic_readings: list[DeepRead] = field(default_factory=list)
