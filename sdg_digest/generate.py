@@ -69,14 +69,20 @@ def _call_openai(
 ) -> dict[str, Any]:
     prompt = {
         "run_date": run_date.isoformat(),
+        "editorial_scope": [
+            "Climate-related policy, finance, transition, disaster risk, development finance, and SDG consequences.",
+            "Include non-positive SDG-relevant events when they materially affect resilience, poverty, infrastructure, food, health, or climate adaptation.",
+            "Avoid treating SDG only as success stories; analyze tradeoffs, risks, implementation gaps, and financing implications.",
+        ],
         "instructions": [
             "Return a JSON object that follows the schema.",
             "Select the strongest 3-5 news items. If fewer are credible, return fewer.",
-            "Keep title_en in English. Write summary_zh in Chinese, 120-180 Chinese characters if possible.",
-            "Make every summary specific to the item title, source, and policy context; avoid repeated boilerplate.",
-            "Explain 1-2 professional terms per item with English term, Chinese translation, and plain Chinese explanation.",
+            "Write overview_zh and overview_en as reader-facing editorial summaries. Do not mention model, automation, fallback, or whitelist.",
+            "For each item, write summary_zh and summary_en as content summaries, not generic advice.",
+            "For each item, write why_it_matters_zh and why_it_matters_en explaining SDG, climate, finance, or resilience implications.",
+            "Explain 1-2 professional terms per item.",
             "Select 2-3 readings from the bibliography as a separate readings section.",
-            "For each reading, write note_zh explaining why it is useful for today's themes without inventing claims.",
+            "For each reading, summarize argument, method, evidence/example, and relevance in both Chinese and English.",
             "Use only candidate URLs for item URLs.",
             "Use readings only from the provided bibliography entries.",
             "Do not invent authors, years, links, organizations, or dates.",
@@ -93,8 +99,8 @@ def _call_openai(
             {
                 "role": "system",
                 "content": (
-                    "You are a policy research editor creating a concise Chinese daily digest "
-                    "for SDG, ESG, and climate finance professionals."
+                    "You are a bilingual policy research editor writing for readers who track "
+                    "climate policy, SDG risk, sustainable finance, and Global South development."
                 ),
             },
             {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
@@ -132,9 +138,10 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
     return {
         "type": "object",
         "additionalProperties": False,
-        "required": ["overview_zh", "items", "readings"],
+        "required": ["overview_zh", "overview_en", "items", "readings"],
         "properties": {
             "overview_zh": {"type": "string"},
+            "overview_en": {"type": "string"},
             "items": {
                 "type": "array",
                 "minItems": 0,
@@ -147,8 +154,12 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                         "source_org",
                         "published_date",
                         "summary_zh",
+                        "summary_en",
+                        "why_it_matters_zh",
+                        "why_it_matters_en",
                         "terms",
                         "tags",
+                        "sdg_links",
                         "url",
                     ],
                     "properties": {
@@ -156,6 +167,9 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                         "source_org": {"type": "string"},
                         "published_date": {"type": "string"},
                         "summary_zh": {"type": "string"},
+                        "summary_en": {"type": "string"},
+                        "why_it_matters_zh": {"type": "string"},
+                        "why_it_matters_en": {"type": "string"},
                         "terms": {
                             "type": "array",
                             "maxItems": 2,
@@ -170,10 +184,8 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                                 },
                             },
                         },
-                        "tags": {
-                            "type": "array",
-                            "items": {"type": "string"},
-                        },
+                        "tags": {"type": "array", "items": {"type": "string"}},
+                        "sdg_links": {"type": "array", "items": {"type": "string"}},
                         "url": {"type": "string"},
                     },
                 },
@@ -185,17 +197,40 @@ def _digest_schema(max_items: int) -> dict[str, Any]:
                 "items": {
                     "type": "object",
                     "additionalProperties": False,
-                    "required": ["title", "authors", "year", "url", "note_zh", "tags", "kind"],
+                    "required": [
+                        "title",
+                        "authors",
+                        "year",
+                        "url",
+                        "note_zh",
+                        "note_en",
+                        "argument_zh",
+                        "argument_en",
+                        "method_zh",
+                        "method_en",
+                        "evidence_zh",
+                        "evidence_en",
+                        "relevance_zh",
+                        "relevance_en",
+                        "tags",
+                        "kind",
+                    ],
                     "properties": {
                         "title": {"type": "string"},
                         "authors": {"type": "string"},
                         "year": {"type": "integer"},
                         "url": {"type": "string"},
                         "note_zh": {"type": "string"},
-                        "tags": {
-                            "type": "array",
-                            "items": {"type": "string"},
-                        },
+                        "note_en": {"type": "string"},
+                        "argument_zh": {"type": "string"},
+                        "argument_en": {"type": "string"},
+                        "method_zh": {"type": "string"},
+                        "method_en": {"type": "string"},
+                        "evidence_zh": {"type": "string"},
+                        "evidence_en": {"type": "string"},
+                        "relevance_zh": {"type": "string"},
+                        "relevance_en": {"type": "string"},
+                        "tags": {"type": "array", "items": {"type": "string"}},
                         "kind": {"type": "string"},
                     },
                 },
@@ -237,8 +272,12 @@ def validate_digest_payload(
                 source_org=str(raw["source_org"]).strip(),
                 published_date=str(raw["published_date"]).strip(),
                 summary_zh=str(raw["summary_zh"]).strip(),
+                summary_en=str(raw.get("summary_en", "")).strip(),
+                why_it_matters_zh=str(raw.get("why_it_matters_zh", "")).strip(),
+                why_it_matters_en=str(raw.get("why_it_matters_en", "")).strip(),
                 terms=terms,
                 tags=list(raw.get("tags", [])),
+                sdg_links=list(raw.get("sdg_links", [])),
                 url=str(raw["url"]).strip(),
             )
         )
@@ -255,6 +294,15 @@ def validate_digest_payload(
                 year=int(raw["year"]),
                 url=raw["url"],
                 note_zh=str(raw.get("note_zh", "")).strip(),
+                note_en=str(raw.get("note_en", "")).strip(),
+                argument_zh=str(raw.get("argument_zh", "")).strip(),
+                argument_en=str(raw.get("argument_en", "")).strip(),
+                method_zh=str(raw.get("method_zh", "")).strip(),
+                method_en=str(raw.get("method_en", "")).strip(),
+                evidence_zh=str(raw.get("evidence_zh", "")).strip(),
+                evidence_en=str(raw.get("evidence_en", "")).strip(),
+                relevance_zh=str(raw.get("relevance_zh", "")).strip(),
+                relevance_en=str(raw.get("relevance_en", "")).strip(),
                 tags=list(raw.get("tags", [])),
                 kind=str(raw.get("kind", "reading")).strip() or "reading",
             )
@@ -264,7 +312,9 @@ def validate_digest_payload(
         digest_date=run_date,
         subject=f"SDG Daily Digest - {run_date.isoformat()}",
         overview_zh=str(payload.get("overview_zh", "")).strip()
-        or "今日摘要聚焦 SDG、ESG 与气候金融领域的可信来源更新。",
+        or "今日摘要聚焦气候政策、可持续发展风险与转型金融的关键变化。",
+        overview_en=str(payload.get("overview_en", "")).strip()
+        or "Today's brief tracks key shifts in climate policy, SDG risk, and transition finance.",
         items=items,
         readings=readings,
     )
@@ -277,45 +327,60 @@ def fallback_digest(
 ) -> Digest:
     items: list[DigestItem] = []
     for candidate in candidates:
+        terms = _terms_for_tags(candidate.tags)
         items.append(
             DigestItem(
                 title_en=candidate.title,
                 source_org=candidate.source_org,
                 published_date=candidate.published_date,
-                summary_zh=_fallback_summary(candidate),
-                terms=_terms_for_tags(candidate.tags),
+                summary_zh=_fallback_summary_zh(candidate),
+                summary_en=_fallback_summary_en(candidate),
+                why_it_matters_zh=_fallback_impact_zh(candidate),
+                why_it_matters_en=_fallback_impact_en(candidate),
+                terms=terms,
                 tags=candidate.tags,
+                sdg_links=_sdg_links(candidate.tags),
                 url=candidate.url,
             )
         )
     readings = _select_readings_for_candidates(candidates, bibliography)
-    overview = (
-        "今日摘要按可信来源自动筛选，并区分为新闻更新与延伸阅读。"
-        "如模型生成不可用，本期使用保底摘要，但仍保留原文链接与白名单深读材料。"
-    )
+    overview_zh = "今日关注气候政策、转型金融与可持续发展风险中的关键变化。"
+    overview_en = "Today's brief tracks climate policy, transition finance, and SDG-relevant risk signals."
     if not items:
-        overview = "今日未筛选到符合可信来源与时间窗口要求的新内容。"
+        overview_zh = "今日未筛选到符合可信来源与时间窗口要求的新内容。"
+        overview_en = "No eligible updates were found within the trusted-source window today."
     return Digest(
         digest_date=run_date,
         subject=f"SDG Daily Digest - {run_date.isoformat()}",
-        overview_zh=overview,
+        overview_zh=overview_zh,
+        overview_en=overview_en,
         items=items,
         readings=readings,
     )
 
 
-def _fallback_summary(candidate: Candidate) -> str:
-    tags = "、".join(tag.lstrip("#") for tag in candidate.tags) or "可持续发展"
-    hint = _trim_sentence(candidate.summary_hint, 90)
+def _fallback_summary_zh(candidate: Candidate) -> str:
+    hint = _trim_sentence(candidate.summary_hint, 120)
     if hint:
-        return (
-            f"这条来自{candidate.source_org}的更新聚焦《{candidate.title}》。"
-            f"{hint} 建议重点观察其对{tags}议题下政策设计、融资安排或地区执行的影响。"
-        )
-    return (
-        f"这条来自{candidate.source_org}的更新聚焦《{candidate.title}》，"
-        f"主题与{tags}相关。建议阅读原文，判断其对政策研究、项目融资或区域发展议程的具体意义。"
-    )
+        return f"这条更新聚焦《{candidate.title}》。来源摘要显示：{hint}"
+    return f"这条更新聚焦《{candidate.title}》，来自{candidate.source_org}。当前来源提供的可抽取信息有限，需结合原文进一步判断具体内容。"
+
+
+def _fallback_summary_en(candidate: Candidate) -> str:
+    hint = _trim_sentence(candidate.summary_hint, 120)
+    if hint:
+        return f"This update focuses on \"{candidate.title}\". The source summary indicates: {hint}"
+    return f"This update focuses on \"{candidate.title}\" from {candidate.source_org}. The source exposes limited extractable detail, so the original item should be checked for specifics."
+
+
+def _fallback_impact_zh(candidate: Candidate) -> str:
+    tags = "、".join(tag.lstrip("#") for tag in candidate.tags) or "可持续发展"
+    return f"它与{tags}相关，可作为观察政策执行、资金流向、发展韧性或区域风险变化的线索。"
+
+
+def _fallback_impact_en(candidate: Candidate) -> str:
+    tags = ", ".join(tag.lstrip("#") for tag in candidate.tags) or "sustainable development"
+    return f"It is relevant to {tags} and can be read as a signal for policy implementation, finance flows, resilience, or regional risk."
 
 
 def _trim_sentence(value: str, limit: int) -> str:
@@ -338,6 +403,19 @@ def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
     ]
 
 
+def _sdg_links(tags: list[str]) -> list[str]:
+    links: list[str] = []
+    if "#气候金融" in tags or "#NDC" in tags or "#绿色转型" in tags:
+        links.extend(["SDG 13 Climate Action", "SDG 17 Partnerships"])
+    if "#SDG进展" in tags:
+        links.append("SDG implementation")
+    if "#债务可持续性" in tags:
+        links.extend(["SDG 8 Decent Work and Growth", "SDG 10 Reduced Inequalities"])
+    if "#Global South" in tags:
+        links.extend(["SDG 1 No Poverty", "SDG 10 Reduced Inequalities"])
+    return list(dict.fromkeys(links))[:3]
+
+
 def _select_readings_for_candidates(
     candidates: list[Candidate],
     bibliography: dict[str, list[DeepRead]],
@@ -356,29 +434,53 @@ def _select_readings_for_candidates(
             if key in seen:
                 continue
             seen.add(key)
-            selected.append(
-                DeepRead(
-                    title=reading.title,
-                    authors=reading.authors,
-                    year=reading.year,
-                    url=reading.url,
-                    note_zh=reading.note_zh or _reading_note(tag),
-                    tags=reading.tags or [tag],
-                    kind=reading.kind,
-                )
-            )
+            selected.append(_enrich_reading(reading, tag))
             if len(selected) >= target_count:
                 return selected
     return selected
 
 
-def _reading_note(tag: str) -> str:
-    notes = {
-        "#NDC": "适合作为理解国家气候承诺、巴黎协定目标与执行差距之间关系的基础读物。",
-        "#气候金融": "适合用来校准气候资金口径、核算边界与公共资金动员私人投资的讨论。",
-        "#SDG进展": "适合作为理解 SDG 治理、目标相互作用和执行评估的背景材料。",
-        "#绿色转型": "适合作为观察绿色产业政策、公共部门能力与低碳转型工具的理论参照。",
-        "#债务可持续性": "适合连接气候融资、财政空间与发展中国家债务压力之间的政策讨论。",
-        "#Global South": "适合帮助理解全球南方在气候治理、发展融资和规则公平中的结构性处境。",
+def _enrich_reading(reading: DeepRead, tag: str) -> DeepRead:
+    defaults = _reading_defaults(tag)
+    return DeepRead(
+        title=reading.title,
+        authors=reading.authors,
+        year=reading.year,
+        url=reading.url,
+        note_zh=reading.note_zh or defaults["note_zh"],
+        note_en=reading.note_en or defaults["note_en"],
+        argument_zh=reading.argument_zh or defaults["argument_zh"],
+        argument_en=reading.argument_en or defaults["argument_en"],
+        method_zh=reading.method_zh or defaults["method_zh"],
+        method_en=reading.method_en or defaults["method_en"],
+        evidence_zh=reading.evidence_zh or defaults["evidence_zh"],
+        evidence_en=reading.evidence_en or defaults["evidence_en"],
+        relevance_zh=reading.relevance_zh or defaults["relevance_zh"],
+        relevance_en=reading.relevance_en or defaults["relevance_en"],
+        tags=reading.tags or [tag],
+        kind=reading.kind,
+    )
+
+
+def _reading_defaults(tag: str) -> dict[str, str]:
+    themes = {
+        "#NDC": ("国家气候承诺与执行差距", "national climate pledges and implementation gaps"),
+        "#气候金融": ("气候资金口径、核算边界与融资动员", "climate finance definitions, accounting boundaries, and mobilization"),
+        "#SDG进展": ("SDG 治理、目标互动与执行评估", "SDG governance, goal interactions, and implementation assessment"),
+        "#绿色转型": ("绿色产业政策、公共部门能力与低碳转型工具", "green industrial policy, public-sector capability, and transition tools"),
+        "#债务可持续性": ("气候融资、财政空间与发展中国家债务压力", "climate finance, fiscal space, and debt stress in developing economies"),
+        "#Global South": ("全球南方在气候治理与发展融资中的结构性处境", "the structural position of the Global South in climate governance and development finance"),
     }
-    return notes.get(tag, "适合作为今日议题的背景读物，帮助把单条新闻放入更长的政策讨论中理解。")
+    theme_zh, theme_en = themes.get(tag, ("今日议题的政策背景", "the policy context behind today's themes"))
+    return {
+        "note_zh": f"适合作为理解{theme_zh}的背景材料。",
+        "note_en": f"Useful background for understanding {theme_en}.",
+        "argument_zh": f"这篇材料帮助建立关于{theme_zh}的基本分析框架。",
+        "argument_en": f"This reading helps frame {theme_en}.",
+        "method_zh": "以政策分析、文献讨论或案例比较为主，适合作为概念和判断框架。",
+        "method_en": "It mainly uses policy analysis, literature discussion, or comparative examples as a conceptual frame.",
+        "evidence_zh": "可结合文中涉及的政策案例、制度设计或资金安排理解其论证。",
+        "evidence_en": "Its argument can be read through the policy cases, institutional designs, or finance arrangements it discusses.",
+        "relevance_zh": "可用来把今日新闻放进更长周期的政策、融资和发展议程中理解。",
+        "relevance_en": "It helps place today's news in a longer policy, finance, and development agenda.",
+    }

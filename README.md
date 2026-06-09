@@ -1,6 +1,6 @@
 # SDG / ESG / Climate Finance Daily Digest
 
-Daily automated digest for SDG, ESG, and climate finance updates. The pipeline gathers trusted-source candidates, ranks 3-5 news items, pairs them with 2-3 approved classic readings, generates Chinese summaries with English titles, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
+Daily bilingual digest for climate policy, SDG risk, ESG, and climate finance updates. The pipeline gathers trusted-source candidates, ranks 3-5 news items, pairs them with 2-3 approved classic readings, generates Chinese and English briefs, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
 
 ## Quick Start
 

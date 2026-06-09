@@ -35,6 +35,15 @@ class DeepRead:
     year: int
     url: str
     note_zh: str = ""
+    note_en: str = ""
+    argument_zh: str = ""
+    argument_en: str = ""
+    method_zh: str = ""
+    method_en: str = ""
+    evidence_zh: str = ""
+    evidence_en: str = ""
+    relevance_zh: str = ""
+    relevance_en: str = ""
     tags: list[str] = field(default_factory=list)
     kind: str = "reading"
 
@@ -55,6 +64,10 @@ class DigestItem:
     terms: list[DigestTerm]
     tags: list[str]
     url: str
+    summary_en: str = ""
+    why_it_matters_zh: str = ""
+    why_it_matters_en: str = ""
+    sdg_links: list[str] = field(default_factory=list)
     deep_reads: list[DeepRead] = field(default_factory=list)
 
 
@@ -65,3 +78,4 @@ class Digest:
     overview_zh: str
     items: list[DigestItem]
     readings: list[DeepRead] = field(default_factory=list)
+    overview_en: str = ""
