@@ -1,31 +1,27 @@
 {
   "digest_date": "2026-06-09",
   "subject": "The Governance Brief - 2026-06-09",
-  "overview_zh": "强调水资源融资在气候政策中的重要性。",
+  "overview_zh": "",
   "items": [
     {
       "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
       "source_org": "Climate Policy Initiative",
       "published_date": "2026-06-09",
-      "summary_zh": "水资源融资已成为全球发展和气候议程的主要内容。本文总结了十年来的经验，强调了在气候变化背景下建立可靠、高效的供水、卫生和水资源管理系统的必要性。未来到来的联合国水大会将是推动这一议程的重要时刻。",
-      "terms": [
-        {
-          "term_en": "WASH",
-          "term_zh": "水、卫生与健康",
-          "explanation_zh": "包括确保每个人都能获得安全饮水、卫生设施和良好的卫生习惯。"
-        }
-      ],
+      "summary_zh": "在气候与发展议程日益紧密交织的背景下，解决水资源融资缺口成为当务之急。",
+      "terms": [],
       "tags": [
-        "#气候金融",
-        "#绿色转型"
+        "#水资源融资",
+        "#气候适应",
+        "#多边治理"
       ],
       "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
-      "summary_en": "Water financing has moved to the forefront of global development and climate agendas. This article summarizes a decade of lessons, emphasizing the need for reliable and effective water, sanitation, and water resource management systems in the context of climate change. The upcoming UN Water Conference is set to be a pivotal moment for this agenda.",
-      "why_it_matters_zh": "水资源对应对气候变化至关重要，缺乏融资将削弱抗击气候变化的能力。",
-      "why_it_matters_en": "Water resources are crucial for climate change mitigation; inadequate financing undermines efforts to combat climate impacts.",
-      "sdg_links": [
-        "https://www.un.org/sustainabledevelopment/water-and-sanitation/"
-      ],
+      "core_argument_zh": "在气候与发展议程日益紧密交织的背景下，解决水资源融资缺口成为当务之急。",
+      "why_now_zh": "随着即将召开的联合国水会议，明确有效的融资机制响应全球气候与水资源挑战显得尤为重要。",
+      "agenda_position_zh": "当前的水资源融资机制亟需改革，以满足气候适应的需要。",
+      "summary_en": "",
+      "why_it_matters_zh": "随着即将召开的联合国水会议，明确有效的融资机制响应全球气候与水资源挑战显得尤为重要。",
+      "why_it_matters_en": "",
+      "sdg_links": [],
       "deep_reads": []
     }
   ],
@@ -49,7 +45,30 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "This classical article helps understand regime impacts on national behavior amid climate negotiations and development financing.",
+      "today_relevance_en": "",
+      "today_connection_zh": "本期暂无直接关联，建议结合气候融资和多边治理阅读。",
+      "research_directions": [
+        {
+          "question_zh": "多边制度如何影响国家行为？",
+          "keywords": [
+            "international regimes",
+            "state behavior",
+            "governance",
+            "power structures",
+            "multilateral cooperation"
+          ]
+        },
+        {
+          "question_zh": "制度如何改变发展融资的逻辑？",
+          "keywords": [
+            "development finance",
+            "institutional change",
+            "governance",
+            "policy outcomes",
+            "global cooperation"
+          ]
+        }
+      ],
       "tags": [
         "#多边治理"
       ],
@@ -74,7 +93,30 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "Ruggie's concept of embedded liberalism remains relevant for discussions on climate finance and development policy.",
+      "today_relevance_en": "",
+      "today_connection_zh": "文章中的“嵌入式自由主义”提供了理解水资源融资与气候适应之间利益冲突与协调的框架。",
+      "research_directions": [
+        {
+          "question_zh": "市场自由化与社会保护的平衡？",
+          "keywords": [
+            "embedded liberalism",
+            "market liberalization",
+            "social protection",
+            "political economy",
+            "international regimes"
+          ]
+        },
+        {
+          "question_zh": "如何理解气候融资中的制度安排？",
+          "keywords": [
+            "climate finance",
+            "institutional arrangements",
+            "governance",
+            "development policy",
+            "multilateral cooperation"
+          ]
+        }
+      ],
       "tags": [
         "#多边治理",
         "#发展不平等",
@@ -83,15 +125,15 @@
       "kind": "journal article"
     },
     {
-      "title": "Climate Change and the Global South",
-      "authors": "Saleemul Huq and Hannah Reid",
-      "year": 2004,
-      "url": "https://doi.org/10.1080/14693062.2004.9685516",
-      "note_zh": "Huq 与 Reid 讨论全球南方为何在气候变化中处于高度脆弱的位置：这些国家历史排放较少，却更容易遭受农业、水资源、贫困和适应能力不足带来的复合风险。文章的贡献在于把气候政策从单纯减排议题拉回发展议题，强调适应、贫困削减和国际支持必须被放在同一分析框架中。",
+      "title": "Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees",
+      "authors": "Frank Biermann and Ingrid Boas",
+      "year": 2010,
+      "url": "https://doi.org/10.1162/glep.2010.10.1.60",
+      "note_zh": "这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。",
       "note_en": "",
-      "journal": "Climate Policy",
-      "doi": "10.1080/14693062.2004.9685516",
-      "methodology_zh": "文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。",
+      "journal": "Global Environmental Politics",
+      "doi": "10.1162/glep.2010.10.1.60",
+      "methodology_zh": "文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
@@ -101,13 +143,38 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "This work highlights the vulnerabilities of the Global South in climate discussions, emphasizing the need for integrated policy approaches.",
+      "today_relevance_en": "",
+      "today_connection_zh": "本文讨论的气候迁徙与水资源融资间的治理空白有助于引导对气候适应政策的理解与完善。",
+      "research_directions": [
+        {
+          "question_zh": "气候流离失所者面临的治理缺口？",
+          "keywords": [
+            "climate refugees",
+            "governance gaps",
+            "international protection",
+            "adaptation policies",
+            "multilateral frameworks"
+          ]
+        },
+        {
+          "question_zh": "全球气候治理如何回应社会脆弱性？",
+          "keywords": [
+            "climate governance",
+            "vulnerability",
+            "global mechanisms",
+            "adaptation",
+            "development support"
+          ]
+        }
+      ],
       "tags": [
+        "#多边治理",
         "#Global South",
         "#发展不平等"
       ],
       "kind": "journal article"
     }
   ],
-  "overview_en": ""
+  "overview_en": "",
+  "weekly_thread_zh": "全球水资源的融资挑战反映出发展的不平等性与气候适应能力间的紧张关系。"
 }

@@ -2,25 +2,25 @@
 
 Issue date: 2026-06-09
 
-强调水资源融资在气候政策中的重要性。
-
 ## 今日新闻 / News
 
 ### 1. Closing the water finance gap: Five lessons from a decade of practice
 
 Climate Policy Initiative · 2026-06-09
 
-Tags: #气候金融 #绿色转型 https://www.un.org/sustainabledevelopment/water-and-sanitation/
+Tags: #水资源融资 #气候适应 #多边治理
 
-**摘要**: 水资源融资已成为全球发展和气候议程的主要内容。本文总结了十年来的经验，强调了在气候变化背景下建立可靠、高效的供水、卫生和水资源管理系统的必要性。未来到来的联合国水大会将是推动这一议程的重要时刻。
+**核心论点 / Core Argument**: 在气候与发展议程日益紧密交织的背景下，解决水资源融资缺口成为当务之急。
 
-**Brief**: Water financing has moved to the forefront of global development and climate agendas. This article summarizes a decade of lessons, emphasizing the need for reliable and effective water, sanitation, and water resource management systems in the context of climate change. The upcoming UN Water Conference is set to be a pivotal moment for this agenda.
+**为什么此刻重要 / Why Now**: 随着即将召开的联合国水会议，明确有效的融资机制响应全球气候与水资源挑战显得尤为重要。
 
-**为什么重要**: 水资源对应对气候变化至关重要，缺乏融资将削弱抗击气候变化的能力。
-
-**Why it matters**: Water resources are crucial for climate change mitigation; inadequate financing undermines efforts to combat climate impacts.
+**议程位置 / Agenda Position**: 当前的水资源融资机制亟需改革，以满足气候适应的需要。
 
 Original: https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/
+
+## 本周议题线索 / Weekly Thread
+
+全球水资源的融资挑战反映出发展的不平等性与气候适应能力间的紧张关系。
 
 ## 今日深读 / Reading List
 
@@ -30,13 +30,20 @@ Stephen D. Krasner · 1982 · International Organization
 
 #多边治理
 
-这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。
+**核心论点摘要**: 这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。
 
-**方法论 / Methodology**
+**方法论说明 / Methodology**
 
 文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。
 
-*This classical article helps understand regime impacts on national behavior amid climate negotiations and development financing.*
+**今日关联 / Today's Connection**
+
+本期暂无直接关联，建议结合气候融资和多边治理阅读。
+
+**研究方向 / Research Directions**
+
+- 多边制度如何影响国家行为？ (international regimes, state behavior, governance, power structures, multilateral cooperation)
+- 制度如何改变发展融资的逻辑？ (development finance, institutional change, governance, policy outcomes, global cooperation)
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018920
 
@@ -46,28 +53,42 @@ John Gerard Ruggie · 1982 · International Organization
 
 #多边治理 #发展不平等 #绿色转型
 
-Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。
+**核心论点摘要**: Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。
 
-**方法论 / Methodology**
+**方法论说明 / Methodology**
 
 文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。
 
-*Ruggie's concept of embedded liberalism remains relevant for discussions on climate finance and development policy.*
+**今日关联 / Today's Connection**
+
+文章中的“嵌入式自由主义”提供了理解水资源融资与气候适应之间利益冲突与协调的框架。
+
+**研究方向 / Research Directions**
+
+- 市场自由化与社会保护的平衡？ (embedded liberalism, market liberalization, social protection, political economy, international regimes)
+- 如何理解气候融资中的制度安排？ (climate finance, institutional arrangements, governance, development policy, multilateral cooperation)
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018993
 
-### Climate Change and the Global South
+### Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees
 
-Saleemul Huq and Hannah Reid · 2004 · Climate Policy
+Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics
 
-#Global South #发展不平等
+#多边治理 #Global South #发展不平等
 
-Huq 与 Reid 讨论全球南方为何在气候变化中处于高度脆弱的位置：这些国家历史排放较少，却更容易遭受农业、水资源、贫困和适应能力不足带来的复合风险。文章的贡献在于把气候政策从单纯减排议题拉回发展议题，强调适应、贫困削减和国际支持必须被放在同一分析框架中。
+**核心论点摘要**: 这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。
 
-**方法论 / Methodology**
+**方法论说明 / Methodology**
 
-文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。
+文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。
 
-*This work highlights the vulnerabilities of the Global South in climate discussions, emphasizing the need for integrated policy approaches.*
+**今日关联 / Today's Connection**
 
-DOI / 原文链接: https://doi.org/10.1080/14693062.2004.9685516
+本文讨论的气候迁徙与水资源融资间的治理空白有助于引导对气候适应政策的理解与完善。
+
+**研究方向 / Research Directions**
+
+- 气候流离失所者面临的治理缺口？ (climate refugees, governance gaps, international protection, adaptation policies, multilateral frameworks)
+- 全球气候治理如何回应社会脆弱性？ (climate governance, vulnerability, global mechanisms, adaptation, development support)
+
+DOI / 原文链接: https://doi.org/10.1162/glep.2010.10.1.60
