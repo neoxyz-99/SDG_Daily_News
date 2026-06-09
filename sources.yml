@@ -25,19 +25,27 @@
       "default_tags": []
     },
     {
-      "name": "ODI Blogs",
-      "type": "think_tank",
+      "name": "UN News Climate Change",
+      "type": "international_org",
       "strategy": "rss",
-      "url": "https://odi.org/en/insights/feed/",
-      "allowed_domains": ["odi.org"],
+      "url": "https://news.un.org/feed/subscribe/en/news/topic/climate-change/feed/rss.xml",
+      "allowed_domains": ["news.un.org"],
       "default_tags": []
     },
     {
-      "name": "UNFCCC News",
-      "type": "international_org",
+      "name": "Nature Climate Change",
+      "type": "journal",
       "strategy": "rss",
-      "url": "https://unfccc.int/news/feed",
-      "allowed_domains": ["unfccc.int"],
+      "url": "https://www.nature.com/nclimate.rss",
+      "allowed_domains": ["nature.com", "www.nature.com"],
+      "default_tags": []
+    },
+    {
+      "name": "Brookings",
+      "type": "think_tank",
+      "strategy": "rss",
+      "url": "https://www.brookings.edu/feed/",
+      "allowed_domains": ["brookings.edu", "www.brookings.edu"],
       "default_tags": []
     }
   ]

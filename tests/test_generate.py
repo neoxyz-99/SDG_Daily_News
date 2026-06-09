@@ -75,6 +75,25 @@ class GenerateTests(unittest.TestCase):
         self.assertEqual(digest.readings[0].journal, "World Development")
         self.assertIn("climate finance claims", digest.readings[0].today_relevance_en)
 
+    def test_validation_allows_shorter_summary_when_candidate_pool_is_tiny(self) -> None:
+        candidate = _candidate()
+        payload = _payload(candidate)
+        payload["items"][0]["summary_zh"] = (
+            "这条更新讨论水资源融资缺口如何影响气候适应、公共投资和发展中国家的基础设施规划，"
+            "并指出长期项目准备、风险分担和机构协调会影响资金能否真正落地，"
+            "也提示多边开发机构需要改善项目管线和本地执行能力。"
+        )
+        payload["items"][0]["summary_en"] = (
+            "This update examines how a water finance gap affects adaptation, public investment, "
+            "project preparation, risk sharing, and institutional coordination in developing countries. "
+            "It also shows why multilateral development banks and local agencies need stronger pipelines."
+        )
+
+        digest = validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
+
+        self.assertEqual(len(digest.items), 1)
+        self.assertIn("水资源融资缺口", digest.items[0].summary_zh)
+
     def test_fallback_uses_bibliography_for_separate_readings(self) -> None:
         candidate = _candidate()
         reading = _reading()

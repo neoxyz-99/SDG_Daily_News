@@ -15,6 +15,8 @@ OPENAI_MAX_ATTEMPTS = 2
 MIN_NEWS_ITEMS = 3
 MIN_SUMMARY_ZH_CHARS = 100
 MIN_SUMMARY_EN_WORDS = 45
+LOW_POOL_MIN_SUMMARY_ZH_CHARS = 80
+LOW_POOL_MIN_SUMMARY_EN_WORDS = 35
 MIN_RELEVANT_CANDIDATES = 10
 
 TAG_REGISTRY = [
@@ -213,6 +215,7 @@ def _call_openai(
             "Select the strongest 3-5 news items. Prefer 4-5 when enough candidates exist.",
             "Write overview_zh as one Chinese sentence of at most 40 Chinese characters describing the connective thread across today's selected items. If there are no items, return an empty string.",
             "overview_en may be an empty string; it will not be displayed.",
+            "If fewer than 3 candidates are provided, select every usable candidate instead of padding or inventing items.",
             "For each selected item, write a substantive Chinese summary of 100-160 Chinese characters and an English brief of 50-90 words.",
             "Assign 1-3 tags per item from tag_registry after selection. Tags are archive labels and must not affect selection.",
             "If no existing tag fits, you may create one new tag beginning with #.",
@@ -354,6 +357,8 @@ def validate_digest_payload(
     }
 
     items: list[DigestItem] = []
+    min_summary_zh_chars = _min_summary_zh_chars(candidates)
+    min_summary_en_words = _min_summary_en_words(candidates)
     for raw in payload.get("items", []):
         if raw.get("url") not in candidate_urls:
             raise ValueError(f"Digest item has unapproved URL: {raw.get('url')}")
@@ -385,12 +390,12 @@ def validate_digest_payload(
             sdg_links=list(raw.get("sdg_links", [])),
             url=str(raw["url"]).strip(),
         )
-        if _compact_len(item.summary_zh) < MIN_SUMMARY_ZH_CHARS:
+        if _compact_len(item.summary_zh) < min_summary_zh_chars:
             raise ValueError(
                 f"Digest item summary_zh is too short for {item.title_en}: "
                 f"{_compact_len(item.summary_zh)} chars"
             )
-        if _word_count(item.summary_en) < MIN_SUMMARY_EN_WORDS:
+        if _word_count(item.summary_en) < min_summary_en_words:
             raise ValueError(
                 f"Digest item summary_en is too short for {item.title_en}: "
                 f"{_word_count(item.summary_en)} words"
@@ -546,6 +551,14 @@ def _compact_len(value: str) -> int:
 
 def _word_count(value: str) -> int:
     return len([word for word in (value or "").replace("—", " ").split() if word.strip()])
+
+
+def _min_summary_zh_chars(candidates: list[Candidate]) -> int:
+    return MIN_SUMMARY_ZH_CHARS if len(candidates) >= MIN_NEWS_ITEMS else LOW_POOL_MIN_SUMMARY_ZH_CHARS
+
+
+def _min_summary_en_words(candidates: list[Candidate]) -> int:
+    return MIN_SUMMARY_EN_WORDS if len(candidates) >= MIN_NEWS_ITEMS else LOW_POOL_MIN_SUMMARY_EN_WORDS
 
 
 def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
