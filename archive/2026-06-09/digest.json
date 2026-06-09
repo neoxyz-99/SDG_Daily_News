@@ -7,19 +7,19 @@
       "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
       "source_org": "Climate Policy Initiative",
       "published_date": "2026-06-09",
-      "summary_zh": "近年来，水资源融资的不足已成为全球发展和气候政策中突出的问题，迫切需要通过新的战略填补这一缺口。",
+      "summary_zh": "气候政策倡导组织气候政策倡议（CPI）指出，现有水资源融资工具不足以满足全球水务服务的融资需求，需创新融资机制。",
       "terms": [],
       "tags": [
         "#气候金融",
-        "#发展不平等",
-        "#多边治理"
+        "#水务投资",
+        "#全球治理"
       ],
       "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
-      "core_argument_zh": "近年来，水资源融资的不足已成为全球发展和气候政策中突出的问题，迫切需要通过新的战略填补这一缺口。",
-      "why_now_zh": "今年水资源议题上升为全球气候政策的焦点，反映了对安全和可持续水供给的新时期挑战与期望。",
-      "agenda_position_zh": "当前水资源融资政策有待进一步明确和强化。",
+      "core_argument_zh": "气候政策倡导组织气候政策倡议（CPI）指出，现有水资源融资工具不足以满足全球水务服务的融资需求，需创新融资机制。",
+      "why_now_zh": "全球水资源议题在本年度重新被聚焦，尤其是即将到来的联合国水大会揭示了对安全和可靠水务服务的急迫需求。",
+      "agenda_position_zh": "议程背景不明确。",
       "summary_en": "",
-      "why_it_matters_zh": "今年水资源议题上升为全球气候政策的焦点，反映了对安全和可持续水供给的新时期挑战与期望。",
+      "why_it_matters_zh": "全球水资源议题在本年度重新被聚焦，尤其是即将到来的联合国水大会揭示了对安全和可靠水务服务的急迫需求。",
       "why_it_matters_en": "",
       "sdg_links": [],
       "deep_reads": []
@@ -46,22 +46,22 @@
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "本期暂无直接关联，建议结合#多边治理阅读。",
+      "today_connection_zh": "Krasner的制度理论能够帮助理解CPI指出的水融资工具不足与应对需求之间的关系。",
       "research_directions": [
         {
-          "question_zh": "无政府状态下国际制度如何影响国家行为？",
+          "question_zh": "国际环境制度如何影响国家行动？",
           "keywords": [
             "international regimes",
             "state behavior",
-            "governance"
+            "governance structures"
           ]
         },
         {
-          "question_zh": "气候融资中的多边治理挑战如何应对？",
+          "question_zh": "气候变化中国家间权力如何变化？",
           "keywords": [
-            "climate finance",
-            "multilateral governance",
-            "policy challenges"
+            "climate negotiation",
+            "power dynamics",
+            "institutional frameworks"
           ]
         }
       ],
@@ -90,21 +90,21 @@
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "应对气候变化融资问题时，需关注开放市场与国家政策空间的张力。",
+      "today_connection_zh": "Ruggie的嵌入式自由主义概念能够帮助理解在水务融资中市场机制与政策保护之间的紧张关系。",
       "research_directions": [
         {
-          "question_zh": "如何平衡市场自由化与发展政策的需求？",
+          "question_zh": "全球融资中社会保护的角色是什么？",
           "keywords": [
             "embedded liberalism",
-            "market freedom",
-            "development policy"
+            "market mechanisms",
+            "social contracts"
           ]
         },
         {
-          "question_zh": "气候融资的社会保护政策框架是什么？",
+          "question_zh": "水资源治理中的政策空间如何影响融资？",
           "keywords": [
-            "social protection",
-            "climate finance",
+            "water governance",
+            "financing challenges",
             "policy frameworks"
           ]
         }
@@ -118,5 +118,5 @@
     }
   ],
   "overview_en": "",
-  "weekly_thread_zh": ""
+  "weekly_thread_zh": "水融资问题已成为全球关注的焦点，尤其是在气候变化影响下，明确融资机制的需求愈加迫切。"
 }
