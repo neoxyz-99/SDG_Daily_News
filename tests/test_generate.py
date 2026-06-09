@@ -1,13 +1,27 @@
 from __future__ import annotations
 
 from datetime import date
+import os
 import unittest
 
-from sdg_digest.generate import fallback_digest, validate_digest_payload
+from sdg_digest.generate import fallback_digest, generate_digest, validate_digest_payload
 from sdg_digest.models import Candidate, DeepRead
 
 
 class GenerateTests(unittest.TestCase):
+    def test_generate_requires_openai_key_when_not_skipping(self) -> None:
+        candidate = _candidate()
+        original_key = os.environ.pop("OPENAI_API_KEY", None)
+        original_fallback = os.environ.pop("ALLOW_OPENAI_FALLBACK", None)
+        try:
+            with self.assertRaises(RuntimeError):
+                generate_digest([candidate], {}, date(2026, 6, 9), max_items=5, use_openai=True)
+        finally:
+            if original_key is not None:
+                os.environ["OPENAI_API_KEY"] = original_key
+            if original_fallback is not None:
+                os.environ["ALLOW_OPENAI_FALLBACK"] = original_fallback
+
     def test_validation_rejects_invented_url(self) -> None:
         candidate = _candidate()
         payload = {
