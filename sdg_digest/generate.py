@@ -10,6 +10,11 @@ from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm
 
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 DEFAULT_MODEL = "gpt-4o-mini"
+MIN_NEWS_ITEMS = 3
+MIN_SUMMARY_ZH_CHARS = 150
+MIN_SUMMARY_EN_WORDS = 70
+MIN_READING_ITEMS = 3
+MIN_READING_NOTE_ZH_CHARS = 120
 
 TERM_LIBRARY = {
     "#NDC": DigestTerm(
@@ -84,13 +89,15 @@ def _call_openai(
         ],
         "instructions": [
             "Return a JSON object that follows the schema.",
-            "Select the strongest 3-5 news items. If fewer are credible, return fewer.",
+            "Select the strongest 3-5 news items. Prefer 4-5 when enough credible candidates exist.",
             "Write overview_zh and overview_en as reader-facing editorial summaries. Do not mention model, automation, fallback, or whitelist.",
-            "For each item, write summary_zh and summary_en as content summaries, not generic advice.",
-            "For each item, write why_it_matters_zh and why_it_matters_en explaining SDG, climate, finance, or resilience implications.",
+            "For each item, write summary_zh as a substantive Chinese brief of at least 150 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
+            "For each item, write summary_en as a substantive English brief of 90-130 words. It must summarize the item itself, not tell readers to check the original.",
+            "For each item, write why_it_matters_zh and why_it_matters_en explaining specific SDG, climate, finance, or resilience implications.",
             "Explain 1-2 professional terms per item.",
-            "Select 2-3 readings from the bibliography as a separate readings section.",
-            "For each reading, summarize argument, method, evidence/example, and relevance in both Chinese and English.",
+            "Select 3 readings from the bibliography when possible, using different tags or viewpoints when the candidate themes allow it.",
+            "For each reading, write note_zh as a 160-240 Chinese character abstract-style brief and note_en as a 90-130 word brief.",
+            "For each reading, summarize argument, method, evidence, and relevance in both Chinese and English with concrete article-level detail.",
             "Use only candidate URLs for item URLs.",
             "Use readings only from the provided bibliography entries.",
             "Do not invent authors, years, links, organizations, or dates.",
@@ -274,47 +281,65 @@ def validate_digest_payload(
             )
             for term in raw.get("terms", [])
         ]
-        items.append(
-            DigestItem(
-                title_en=str(raw["title_en"]).strip(),
-                source_org=str(raw["source_org"]).strip(),
-                published_date=str(raw["published_date"]).strip(),
-                summary_zh=str(raw["summary_zh"]).strip(),
-                summary_en=str(raw.get("summary_en", "")).strip(),
-                why_it_matters_zh=str(raw.get("why_it_matters_zh", "")).strip(),
-                why_it_matters_en=str(raw.get("why_it_matters_en", "")).strip(),
-                terms=terms,
-                tags=list(raw.get("tags", [])),
-                sdg_links=list(raw.get("sdg_links", [])),
-                url=str(raw["url"]).strip(),
-            )
+        item = DigestItem(
+            title_en=str(raw["title_en"]).strip(),
+            source_org=str(raw["source_org"]).strip(),
+            published_date=str(raw["published_date"]).strip(),
+            summary_zh=str(raw["summary_zh"]).strip(),
+            summary_en=str(raw.get("summary_en", "")).strip(),
+            why_it_matters_zh=str(raw.get("why_it_matters_zh", "")).strip(),
+            why_it_matters_en=str(raw.get("why_it_matters_en", "")).strip(),
+            terms=terms,
+            tags=list(raw.get("tags", [])),
+            sdg_links=list(raw.get("sdg_links", [])),
+            url=str(raw["url"]).strip(),
         )
+        if _compact_len(item.summary_zh) < MIN_SUMMARY_ZH_CHARS:
+            raise ValueError(
+                f"Digest item summary_zh is too short for {item.title_en}: "
+                f"{_compact_len(item.summary_zh)} chars"
+            )
+        if _word_count(item.summary_en) < MIN_SUMMARY_EN_WORDS:
+            raise ValueError(
+                f"Digest item summary_en is too short for {item.title_en}: "
+                f"{_word_count(item.summary_en)} words"
+            )
+        items.append(item)
 
     readings = []
     for raw in payload.get("readings", []):
         key = (raw.get("title"), raw.get("authors"), int(raw.get("year", 0)), raw.get("url"))
         if key not in approved_reads:
             raise ValueError(f"Digest has unapproved reading: {key}")
-        readings.append(
-            DeepRead(
-                title=raw["title"],
-                authors=raw["authors"],
-                year=int(raw["year"]),
-                url=raw["url"],
-                note_zh=str(raw.get("note_zh", "")).strip(),
-                note_en=str(raw.get("note_en", "")).strip(),
-                argument_zh=str(raw.get("argument_zh", "")).strip(),
-                argument_en=str(raw.get("argument_en", "")).strip(),
-                method_zh=str(raw.get("method_zh", "")).strip(),
-                method_en=str(raw.get("method_en", "")).strip(),
-                evidence_zh=str(raw.get("evidence_zh", "")).strip(),
-                evidence_en=str(raw.get("evidence_en", "")).strip(),
-                relevance_zh=str(raw.get("relevance_zh", "")).strip(),
-                relevance_en=str(raw.get("relevance_en", "")).strip(),
-                tags=list(raw.get("tags", [])),
-                kind=str(raw.get("kind", "reading")).strip() or "reading",
-            )
+        reading = DeepRead(
+            title=raw["title"],
+            authors=raw["authors"],
+            year=int(raw["year"]),
+            url=raw["url"],
+            note_zh=str(raw.get("note_zh", "")).strip(),
+            note_en=str(raw.get("note_en", "")).strip(),
+            argument_zh=str(raw.get("argument_zh", "")).strip(),
+            argument_en=str(raw.get("argument_en", "")).strip(),
+            method_zh=str(raw.get("method_zh", "")).strip(),
+            method_en=str(raw.get("method_en", "")).strip(),
+            evidence_zh=str(raw.get("evidence_zh", "")).strip(),
+            evidence_en=str(raw.get("evidence_en", "")).strip(),
+            relevance_zh=str(raw.get("relevance_zh", "")).strip(),
+            relevance_en=str(raw.get("relevance_en", "")).strip(),
+            tags=list(raw.get("tags", [])),
+            kind=str(raw.get("kind", "reading")).strip() or "reading",
         )
+        if _compact_len(reading.note_zh) < MIN_READING_NOTE_ZH_CHARS:
+            raise ValueError(
+                f"Reading note_zh is too short for {reading.title}: "
+                f"{_compact_len(reading.note_zh)} chars"
+            )
+        readings.append(reading)
+
+    if len(candidates) >= MIN_NEWS_ITEMS and len(items) < MIN_NEWS_ITEMS:
+        raise ValueError(f"Digest selected only {len(items)} news items from {len(candidates)} candidates")
+    if len(approved_reads) >= MIN_READING_ITEMS and len(readings) < MIN_READING_ITEMS:
+        raise ValueError(f"Digest selected only {len(readings)} readings from {len(approved_reads)} approved readings")
 
     return Digest(
         digest_date=run_date,
@@ -396,6 +421,14 @@ def _trim_sentence(value: str, limit: int) -> str:
     if len(text) <= limit:
         return text
     return text[: limit - 1].rstrip() + "…"
+
+
+def _compact_len(value: str) -> int:
+    return len("".join((value or "").split()))
+
+
+def _word_count(value: str) -> int:
+    return len([word for word in (value or "").replace("—", " ").split() if word.strip()])
 
 
 def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
