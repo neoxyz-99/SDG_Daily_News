@@ -211,6 +211,8 @@ def _call_openai(
         "instructions": [
             "Return a JSON object that follows the schema.",
             "Select the strongest 3-5 news items. Prefer 4-5 when enough candidates exist.",
+            "Write overview_zh as one Chinese sentence of at most 40 Chinese characters describing the connective thread across today's selected items. If there are no items, return an empty string.",
+            "overview_en may be an empty string; it will not be displayed.",
             "For each selected item, write a substantive Chinese summary of 100-160 Chinese characters and an English brief of 50-90 words.",
             "Assign 1-3 tags per item from tag_registry after selection. Tags are archive labels and must not affect selection.",
             "If no existing tag fits, you may create one new tag beginning with #.",
@@ -417,22 +419,25 @@ def validate_digest_payload(
                 note_en=approved.note_en,
                 journal=approved.journal,
                 doi=approved.doi,
+                methodology_zh=approved.methodology_zh,
+                further_reading=approved.further_reading,
                 tags=approved.tags,
                 kind=approved.kind,
                 today_relevance_en=str(raw.get("today_relevance_en", "")).strip(),
             )
         )
 
+    if items and _compact_len(str(payload.get("overview_zh", ""))) > 40:
+        raise ValueError("overview_zh theme sentence is longer than 40 Chinese characters")
+
     if len(candidates) >= MIN_NEWS_ITEMS and len(items) < MIN_NEWS_ITEMS:
         raise ValueError(f"Digest selected only {len(items)} news items from {len(candidates)} candidates")
 
     return Digest(
         digest_date=run_date,
-        subject=f"SDG Daily Digest - {run_date.isoformat()}",
-        overview_zh=str(payload.get("overview_zh", "")).strip()
-        or "今日摘要聚焦气候政策、可持续发展、发展金融与多边治理中的关键变化。",
-        overview_en=str(payload.get("overview_en", "")).strip()
-        or "Today's brief tracks key shifts in climate policy, sustainable development, development finance, and multilateral governance.",
+        subject=f"The Governance Brief - {run_date.isoformat()}",
+        overview_zh=str(payload.get("overview_zh", "")).strip() if items else "",
+        overview_en=str(payload.get("overview_en", "")).strip(),
         items=items,
         readings=readings,
     )
@@ -464,9 +469,9 @@ def fallback_digest(
     readings = _select_readings_for_candidates(candidates, bibliography)
     return Digest(
         digest_date=run_date,
-        subject=f"SDG Daily Digest - {run_date.isoformat()}",
-        overview_zh="今日关注气候政策、发展金融与可持续发展议程中的更新。",
-        overview_en="Today's brief tracks climate policy, development finance, and sustainable development updates.",
+        subject=f"The Governance Brief - {run_date.isoformat()}",
+        overview_zh="气候、融资与治理议程交织推进。" if items else "",
+        overview_en="",
         items=items,
         readings=readings,
     )

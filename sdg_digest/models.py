@@ -29,6 +29,15 @@ class Candidate:
 
 
 @dataclass(frozen=True)
+class FurtherReading:
+    title: str
+    authors: str
+    year: int
+    description_zh: str
+    url: str = ""
+
+
+@dataclass(frozen=True)
 class DeepRead:
     title: str
     authors: str
@@ -38,6 +47,8 @@ class DeepRead:
     note_en: str = ""
     journal: str = ""
     doi: str = ""
+    methodology_zh: str = ""
+    further_reading: list[FurtherReading] = field(default_factory=list)
     argument_zh: str = ""
     argument_en: str = ""
     method_zh: str = ""

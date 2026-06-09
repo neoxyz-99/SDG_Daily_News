@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .models import DeepRead, Source
+from .models import DeepRead, FurtherReading, Source
 
 
 def load_json_yaml(path: str | Path) -> dict[str, Any]:
@@ -49,6 +49,17 @@ def load_bibliography(path: str | Path) -> dict[str, list[DeepRead]]:
                 note_en=item.get("note_en", ""),
                 journal=item.get("journal", ""),
                 doi=item.get("doi", ""),
+                methodology_zh=item.get("methodology_zh", ""),
+                further_reading=[
+                    FurtherReading(
+                        title=reading["title"],
+                        authors=reading["authors"],
+                        year=int(reading["year"]),
+                        description_zh=reading["description_zh"],
+                        url=reading.get("url", ""),
+                    )
+                    for reading in item.get("further_reading", [])
+                ],
                 argument_zh=item.get("argument_zh", ""),
                 argument_en=item.get("argument_en", ""),
                 method_zh=item.get("method_zh", ""),
