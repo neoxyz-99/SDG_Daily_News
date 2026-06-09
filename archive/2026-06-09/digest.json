@@ -1,9 +1,187 @@
 {
   "digest_date": "2026-06-09",
-  "subject": "The Governance Brief - 2026-06-09",
-  "overview_zh": "",
-  "items": [],
-  "readings": [],
+  "subject": "The Governance Brief - Week of 2026-06-09",
+  "overview_zh": "气候治理的路径分歧再次显现，如何找到跨领域间的协作可能是今后的关键。",
+  "items": [
+    {
+      "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
+      "source_org": "Climate Policy Initiative",
+      "published_date": "2026-06-09",
+      "summary_zh": "气候政策倡导者强调，创新融资是填补水资源投资缺口的关键。",
+      "terms": [
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        }
+      ],
+      "tags": [
+        "#可持续金融与ESG",
+        "#气候金融"
+      ],
+      "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
+      "core_argument_zh": "气候政策倡导者强调，创新融资是填补水资源投资缺口的关键。",
+      "why_now_zh": "在2026年全球水议程即将召开前，强调水资源融资显得尤为重要。",
+      "agenda_position_zh": "该研究与近期国际水合作的讨论息息相关，为实践提供了政策建议。",
+      "summary_en": "",
+      "why_it_matters_zh": "在2026年全球水议程即将召开前，强调水资源融资显得尤为重要。",
+      "why_it_matters_en": "",
+      "sdg_links": [],
+      "deep_reads": []
+    }
+  ],
+  "readings": [
+    {
+      "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
+      "authors": "Stephen D. Krasner",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018920",
+      "note_zh": "这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。",
+      "note_en": "",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018920",
+      "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "本期讨论的气候平等愿景需要制度性框架的支撑，Krasner的理论便为此提供了基础。",
+      "research_directions": [
+        {
+          "question_zh": "如何通过制度改革改善气候治理？",
+          "keywords": [
+            "governance reform",
+            "climate regimes",
+            "international relations"
+          ]
+        },
+        {
+          "question_zh": "制度如何影响气候政策的实施？",
+          "keywords": [
+            "global governance",
+            "policy effectiveness",
+            "international agreements"
+          ]
+        }
+      ],
+      "tags": [
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    }
+  ],
   "overview_en": "",
-  "weekly_thread_zh": ""
+  "weekly_thread_zh": "本期讨论的气候平等与经济转型之间的张力，反映了全球治理过程中不同利益体的根本矛盾。",
+  "recent_news": [
+    {
+      "title_en": "The Guardian view on climate equality: a richer life and real public abundance, not just more stuff | Editorial",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-06-08",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
+      "one_sentence_zh": "《卫报》社论认为，基于财富再分配的气候平等愿景，值得对抗消费主义的趋势。",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "A good life for the 99% isn’t a pipe dream: it can be done. Here’s how",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-06-04",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/04/a-good-life-for-the-99-isnt-a-pipe-dream-it-can-be-done-heres-how",
+      "one_sentence_zh": "《卫报》报道展示了如何通过重新分配财富来实现几乎每个人的幸福生活。",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "World’s largest banks pledged $906bn to fossil fuel companies in ‘unfathomable’ increase in 2025, report finds",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-06-09",
+      "url": "https://www.theguardian.com/environment/2026/jun/09/world-banks-pledge-billions-fossil-fuel-industry-2025",
+      "one_sentence_zh": "大型银行对化石燃料行业的投资骤增9060亿美元，引发广泛批评。这",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    }
+  ],
+  "research_signals": [
+    {
+      "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
+      "source_org": "Climate Policy Initiative",
+      "published_date": "2026-06-09",
+      "summary_zh": "气候政策倡导者强调，创新融资是填补水资源投资缺口的关键。",
+      "terms": [
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        }
+      ],
+      "tags": [
+        "#可持续金融与ESG",
+        "#气候金融"
+      ],
+      "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
+      "core_argument_zh": "气候政策倡导者强调，创新融资是填补水资源投资缺口的关键。",
+      "why_now_zh": "在2026年全球水议程即将召开前，强调水资源融资显得尤为重要。",
+      "agenda_position_zh": "该研究与近期国际水合作的讨论息息相关，为实践提供了政策建议。",
+      "summary_en": "",
+      "why_it_matters_zh": "在2026年全球水议程即将召开前，强调水资源融资显得尤为重要。",
+      "why_it_matters_en": "",
+      "sdg_links": [],
+      "deep_reads": []
+    }
+  ],
+  "classic_readings": [
+    {
+      "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
+      "authors": "Stephen D. Krasner",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018920",
+      "note_zh": "这篇文章提出国际制度研究中最经典的问题：在无政府国际体系中，规则、规范和决策程序如何改变国家行为。Krasner 将 regime 定义为围绕特定议题形成的原则、规范、规则和程序，并说明它们既受权力结构塑造，也会反过来影响国家预期与合作边界。它为理解气候谈判、发展融资和多边机构协调提供了基础语言。",
+      "note_en": "",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018920",
+      "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "本期讨论的气候平等愿景需要制度性框架的支撑，Krasner的理论便为此提供了基础。",
+      "research_directions": [
+        {
+          "question_zh": "如何通过制度改革改善气候治理？",
+          "keywords": [
+            "governance reform",
+            "climate regimes",
+            "international relations"
+          ]
+        },
+        {
+          "question_zh": "制度如何影响气候政策的实施？",
+          "keywords": [
+            "global governance",
+            "policy effectiveness",
+            "international agreements"
+          ]
+        }
+      ],
+      "tags": [
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    }
+  ]
 }
