@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from sdg_digest.collect import deduplicate_candidates, is_allowed_url, rank_candidates
+from sdg_digest.collect import _extract_page_summary, deduplicate_candidates, is_allowed_url, rank_candidates
 from sdg_digest.models import Candidate
 
 
@@ -38,6 +38,18 @@ class CollectTests(unittest.TestCase):
         result = rank_candidates([plain, rich], max_items=1)
 
         self.assertEqual(result[0].url, rich.url)
+
+    def test_extract_page_summary_prefers_meta_description(self) -> None:
+        html = """
+        <html>
+          <head>
+            <meta name="description" content="A climate policy update with concrete finance and resilience implications for developing countries.">
+          </head>
+          <body><p>Fallback paragraph that should not be used first.</p></body>
+        </html>
+        """
+
+        self.assertIn("climate policy update", _extract_page_summary(html))
 
 
 def _candidate(
