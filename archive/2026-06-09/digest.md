@@ -8,19 +8,15 @@ Issue date: 2026-06-09
 
 Climate Policy Initiative · 2026-06-09
 
-Tags: #水资源融资 #多边治理
+Tags: #气候金融 #发展不平等 #多边治理
 
-**核心论点 / Core Argument**: 文章指出，要填补水资源融资缺口，需要借鉴过去十年的经验教训。
+**核心论点 / Core Argument**: 近年来，水资源融资的不足已成为全球发展和气候政策中突出的问题，迫切需要通过新的战略填补这一缺口。
 
-**为什么此刻重要 / Why Now**: 今年水资源议题上升至全球发展与气候议程的中心，即将召开的联合国水会议也加大了这一议题的重要性。
+**为什么此刻重要 / Why Now**: 今年水资源议题上升为全球气候政策的焦点，反映了对安全和可持续水供给的新时期挑战与期望。
 
-**议程位置 / Agenda Position**: 这篇文章对填补水资源融资缺口的策略提出了实证性建议。
+**议程位置 / Agenda Position**: 当前水资源融资政策有待进一步明确和强化。
 
 Original: https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/
-
-## 本周议题线索 / Weekly Thread
-
-水资源在可持续发展议程中的地位日益凸显，但政府间合作面临挑战。
 
 ## 今日深读 / Reading List
 
@@ -38,34 +34,34 @@ Stephen D. Krasner · 1982 · International Organization
 
 **今日关联 / Today's Connection**
 
-文章提供了理解水资源治理与多边制度运作之间相互作用的框架。
+本期暂无直接关联，建议结合#多边治理阅读。
 
 **研究方向 / Research Directions**
 
-- 水资源治理制度的变化如何影响国家行为？ (water governance, international regimes, state behavior)
-- 多边合作在水资源融资中面临的主要障碍是什么？ (multilateral cooperation, water finance, governance challenges)
+- 无政府状态下国际制度如何影响国家行为？ (international regimes, state behavior, governance)
+- 气候融资中的多边治理挑战如何应对？ (climate finance, multilateral governance, policy challenges)
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018920
 
-### Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid
+### International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order
 
-Axel Michaelowa and Katharina Michaelowa · 2011 · World Development
+John Gerard Ruggie · 1982 · International Organization
 
-#气候金融 #发展不平等 #多边治理
+#多边治理 #发展不平等 #绿色转型
 
-**核心论点摘要**: 这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。
+**核心论点摘要**: Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。
 
 **方法论说明 / Methodology**
 
-文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。
+文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。
 
 **今日关联 / Today's Connection**
 
-文章指出气候资金的统计偏差，这一问题可能影响水资源融资的透明度。
+应对气候变化融资问题时，需关注开放市场与国家政策空间的张力。
 
 **研究方向 / Research Directions**
 
-- 气候融资透明度的关键因素有哪些？ (climate finance, transparency, political economy)
-- 捐助国如何塑造 water investment 的报告标准？ (donor behavior, reporting standards, water investment)
+- 如何平衡市场自由化与发展政策的需求？ (embedded liberalism, market freedom, development policy)
+- 气候融资的社会保护政策框架是什么？ (social protection, climate finance, policy frameworks)
 
-DOI / 原文链接: https://doi.org/10.1016/j.worlddev.2011.07.020
+DOI / 原文链接: https://doi.org/10.1017/S0020818300018993

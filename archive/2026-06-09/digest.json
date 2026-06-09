@@ -7,18 +7,19 @@
       "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
       "source_org": "Climate Policy Initiative",
       "published_date": "2026-06-09",
-      "summary_zh": "文章指出，要填补水资源融资缺口，需要借鉴过去十年的经验教训。",
+      "summary_zh": "近年来，水资源融资的不足已成为全球发展和气候政策中突出的问题，迫切需要通过新的战略填补这一缺口。",
       "terms": [],
       "tags": [
-        "#水资源融资",
+        "#气候金融",
+        "#发展不平等",
         "#多边治理"
       ],
       "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
-      "core_argument_zh": "文章指出，要填补水资源融资缺口，需要借鉴过去十年的经验教训。",
-      "why_now_zh": "今年水资源议题上升至全球发展与气候议程的中心，即将召开的联合国水会议也加大了这一议题的重要性。",
-      "agenda_position_zh": "这篇文章对填补水资源融资缺口的策略提出了实证性建议。",
+      "core_argument_zh": "近年来，水资源融资的不足已成为全球发展和气候政策中突出的问题，迫切需要通过新的战略填补这一缺口。",
+      "why_now_zh": "今年水资源议题上升为全球气候政策的焦点，反映了对安全和可持续水供给的新时期挑战与期望。",
+      "agenda_position_zh": "当前水资源融资政策有待进一步明确和强化。",
       "summary_en": "",
-      "why_it_matters_zh": "今年水资源议题上升至全球发展与气候议程的中心，即将召开的联合国水会议也加大了这一议题的重要性。",
+      "why_it_matters_zh": "今年水资源议题上升为全球气候政策的焦点，反映了对安全和可持续水供给的新时期挑战与期望。",
       "why_it_matters_en": "",
       "sdg_links": [],
       "deep_reads": []
@@ -45,22 +46,22 @@
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "文章提供了理解水资源治理与多边制度运作之间相互作用的框架。",
+      "today_connection_zh": "本期暂无直接关联，建议结合#多边治理阅读。",
       "research_directions": [
         {
-          "question_zh": "水资源治理制度的变化如何影响国家行为？",
+          "question_zh": "无政府状态下国际制度如何影响国家行为？",
           "keywords": [
-            "water governance",
             "international regimes",
-            "state behavior"
+            "state behavior",
+            "governance"
           ]
         },
         {
-          "question_zh": "多边合作在水资源融资中面临的主要障碍是什么？",
+          "question_zh": "气候融资中的多边治理挑战如何应对？",
           "keywords": [
-            "multilateral cooperation",
-            "water finance",
-            "governance challenges"
+            "climate finance",
+            "multilateral governance",
+            "policy challenges"
           ]
         }
       ],
@@ -70,15 +71,15 @@
       "kind": "journal article"
     },
     {
-      "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
-      "authors": "Axel Michaelowa and Katharina Michaelowa",
-      "year": 2011,
-      "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
-      "note_zh": "这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。",
+      "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
+      "authors": "John Gerard Ruggie",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018993",
+      "note_zh": "Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。",
       "note_en": "",
-      "journal": "World Development",
-      "doi": "10.1016/j.worlddev.2011.07.020",
-      "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018993",
+      "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
@@ -89,33 +90,33 @@
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "文章指出气候资金的统计偏差，这一问题可能影响水资源融资的透明度。",
+      "today_connection_zh": "应对气候变化融资问题时，需关注开放市场与国家政策空间的张力。",
       "research_directions": [
         {
-          "question_zh": "气候融资透明度的关键因素有哪些？",
+          "question_zh": "如何平衡市场自由化与发展政策的需求？",
           "keywords": [
-            "climate finance",
-            "transparency",
-            "political economy"
+            "embedded liberalism",
+            "market freedom",
+            "development policy"
           ]
         },
         {
-          "question_zh": "捐助国如何塑造 water investment 的报告标准？",
+          "question_zh": "气候融资的社会保护政策框架是什么？",
           "keywords": [
-            "donor behavior",
-            "reporting standards",
-            "water investment"
+            "social protection",
+            "climate finance",
+            "policy frameworks"
           ]
         }
       ],
       "tags": [
-        "#气候金融",
+        "#多边治理",
         "#发展不平等",
-        "#多边治理"
+        "#绿色转型"
       ],
       "kind": "journal article"
     }
   ],
   "overview_en": "",
-  "weekly_thread_zh": "水资源在可持续发展议程中的地位日益凸显，但政府间合作面临挑战。"
+  "weekly_thread_zh": ""
 }
