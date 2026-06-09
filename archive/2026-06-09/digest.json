@@ -1,8 +1,35 @@
 {
   "digest_date": "2026-06-09",
-  "subject": "SDG Daily Digest - 2026-06-09",
-  "overview_zh": "今日关注气候政策、发展金融与可持续发展议程中的更新。",
-  "items": [],
+  "subject": "The Governance Brief - 2026-06-09",
+  "overview_zh": "聚焦气候融资、可持续发展的重要性。",
+  "items": [
+    {
+      "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
+      "source_org": "Climate Policy Initiative",
+      "published_date": "2026-06-09",
+      "summary_zh": "水资源问题已成为全球发展和气候议程的核心。随着“水前进”倡议的推出和即将举行的联合国水会议，本文总结了十年来在水融资方面的五个重要经验，以期促使各国建立更加强大的水资源管理体系，以应对气候变化的挑战。",
+      "terms": [
+        {
+          "term_en": "WASH",
+          "term_zh": "水、卫生与卫生设施",
+          "explanation_zh": "涵盖安全饮水、卫生设施和卫生的综合服务，确保基本生活条件。"
+        }
+      ],
+      "tags": [
+        "#SDG进展",
+        "#气候金融",
+        "#绿色转型"
+      ],
+      "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
+      "summary_en": "Water has become central to the global development and climate agenda. This article summarizes five key lessons from a decade of practice in water financing, emphasizing the need for stronger water management systems to adapt to climate change, alongside the launch of initiatives like 'Water Forward' and the upcoming UN Water Conference.",
+      "why_it_matters_zh": "水资源管理对满足可持续发展目标至关重要，尤其是在应对气候变化时。",
+      "why_it_matters_en": "Effective water management is crucial for achieving sustainable development goals, particularly in the context of climate change.",
+      "sdg_links": [
+        "https://sdgs.un.org/goals"
+      ],
+      "deep_reads": []
+    }
+  ],
   "readings": [
     {
       "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
@@ -13,6 +40,8 @@
       "note_en": "",
       "journal": "International Organization",
       "doi": "10.1017/S0020818300018920",
+      "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+      "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
@@ -21,21 +50,23 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "",
+      "today_relevance_en": "This piece establishes foundational concepts for understanding international regimes affecting climate governance and development finance.",
       "tags": [
         "#多边治理"
       ],
       "kind": "journal article"
     },
     {
-      "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
-      "authors": "John Gerard Ruggie",
-      "year": 1982,
-      "url": "https://doi.org/10.1017/S0020818300018993",
-      "note_zh": "Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。",
+      "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
+      "authors": "Axel Michaelowa and Katharina Michaelowa",
+      "year": 2011,
+      "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
+      "note_zh": "这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。",
       "note_en": "",
-      "journal": "International Organization",
-      "doi": "10.1017/S0020818300018993",
+      "journal": "World Development",
+      "doi": "10.1016/j.worlddev.2011.07.020",
+      "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+      "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
@@ -44,39 +75,14 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "",
+      "today_relevance_en": "Offers important context for evaluating the transparency of climate finance commitments among donor countries.",
       "tags": [
-        "#多边治理",
+        "#气候金融",
         "#发展不平等",
-        "#绿色转型"
-      ],
-      "kind": "journal article"
-    },
-    {
-      "title": "Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees",
-      "authors": "Frank Biermann and Ingrid Boas",
-      "year": 2010,
-      "url": "https://doi.org/10.1162/glep.2010.10.1.60",
-      "note_zh": "这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。",
-      "note_en": "",
-      "journal": "Global Environmental Politics",
-      "doi": "10.1162/glep.2010.10.1.60",
-      "argument_zh": "",
-      "argument_en": "",
-      "method_zh": "",
-      "method_en": "",
-      "evidence_zh": "",
-      "evidence_en": "",
-      "relevance_zh": "",
-      "relevance_en": "",
-      "today_relevance_en": "",
-      "tags": [
-        "#多边治理",
-        "#Global South",
-        "#发展不平等"
+        "#多边治理"
       ],
       "kind": "journal article"
     }
   ],
-  "overview_en": "Today's brief tracks climate policy, development finance, and sustainable development updates."
+  "overview_en": ""
 }
