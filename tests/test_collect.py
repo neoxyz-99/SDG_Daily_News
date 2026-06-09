@@ -1,50 +1,67 @@
 from __future__ import annotations
 
+from datetime import date
 import unittest
+from unittest.mock import patch
 
-from sdg_digest.collect import _extract_page_summary, deduplicate_candidates, is_allowed_url, rank_candidates
-from sdg_digest.models import Candidate
+from sdg_digest.collect import collect_candidates, deduplicate_candidates, is_allowed_url, rank_candidates
+from sdg_digest.models import Candidate, Source
 
 
 class CollectTests(unittest.TestCase):
     def test_allowed_url_accepts_subdomains(self) -> None:
-        self.assertTrue(is_allowed_url("https://blogs.worldbank.org/en/post", ["worldbank.org"]))
-        self.assertTrue(is_allowed_url("https://www.unfccc.int/news", ["unfccc.int"]))
+        self.assertTrue(is_allowed_url("https://www.carbonbrief.org/post", ["carbonbrief.org"]))
+        self.assertTrue(is_allowed_url("https://unfccc.int/news/example", ["unfccc.int"]))
 
     def test_allowed_url_rejects_unapproved_domain(self) -> None:
-        self.assertFalse(is_allowed_url("https://example.com/climate-finance", ["worldbank.org"]))
-        self.assertFalse(is_allowed_url("not-a-url", ["worldbank.org"]))
+        self.assertFalse(is_allowed_url("https://example.com/climate-finance", ["carbonbrief.org"]))
+        self.assertFalse(is_allowed_url("not-a-url", ["carbonbrief.org"]))
 
-    def test_deduplicate_candidates_by_url_title_and_doi(self) -> None:
-        first = _candidate("Climate finance for adaptation", "https://doi.org/10.123/a", doi="10.123/a")
-        same_url = _candidate("Different title", "https://doi.org/10.123/a?utm=x")
+    def test_rss_collection_skips_short_feed_summaries(self) -> None:
+        source = Source(
+            name="Carbon Brief",
+            type="think_tank",
+            strategy="rss",
+            allowed_domains=["carbonbrief.org"],
+            default_tags=[],
+            url="https://www.carbonbrief.org/feed/",
+        )
+        feed = """<?xml version="1.0"?>
+        <rss><channel>
+          <item>
+            <title>Climate policy update</title>
+            <link>https://www.carbonbrief.org/climate-policy-update</link>
+            <pubDate>Tue, 09 Jun 2026 12:00:00 GMT</pubDate>
+            <description>Too short.</description>
+          </item>
+          <item>
+            <title>Detailed climate finance analysis</title>
+            <link>https://www.carbonbrief.org/detailed-climate-finance-analysis</link>
+            <pubDate>Tue, 09 Jun 2026 12:00:00 GMT</pubDate>
+            <description>This analysis explains how public finance, development banks, debt pressure, project pipelines, policy credibility, private capital mobilization, adaptation needs, and institutional coordination shape the delivery of climate finance in developing economies over the next decade. It also reviews how national planning systems, concessional lending, risk guarantees, and multilateral institutions affect whether climate commitments become credible investment programmes.</description>
+          </item>
+        </channel></rss>
+        """
+
+        with patch("sdg_digest.collect.fetch_text", return_value=feed):
+            result = collect_candidates([source], date(2026, 6, 9), lookback_days=3)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].title, "Detailed climate finance analysis")
+        self.assertEqual(result[0].tags, [])
+
+    def test_deduplicate_candidates_by_exact_url_then_title_similarity(self) -> None:
+        first = _candidate("Climate finance for adaptation", "https://example.org/a")
+        same_url = _candidate("Different title", "https://example.org/a?utm=x")
         same_title = _candidate("Climate finance for adaptation!", "https://example.org/other")
-        same_doi = _candidate("Another", "https://doi.org/10.123/a-alt", doi="10.123/a")
         unique = _candidate("Debt and climate risks", "https://example.org/debt")
 
-        result = deduplicate_candidates([first, same_url, same_title, same_doi, unique])
+        result = deduplicate_candidates([first, same_url, same_title, unique])
 
         self.assertEqual([item.url for item in result], [first.url, unique.url])
 
-    def test_rank_prefers_relevant_source_and_keywords(self) -> None:
-        plain = _candidate("General update", "https://example.org/a", source_type="think_tank", tags=[])
-        rich = _candidate(
-            "Climate finance and NDC debt sustainability",
-            "https://example.org/b",
-            source_type="journal",
-            tags=["#气候金融", "#NDC"],
-        )
-
-        result = rank_candidates([plain, rich], max_items=1)
-
-        self.assertEqual(result[0].url, rich.url)
-
-    def test_rank_prefers_richer_source_excerpt(self) -> None:
-        thin = _candidate(
-            "Climate finance update",
-            "https://example.org/thin",
-            summary_hint="Short update.",
-        )
+    def test_rank_prefers_richer_feed_summary(self) -> None:
+        thin = _candidate("Climate finance update", "https://example.org/thin", summary_hint="Short update.")
         rich = _candidate(
             "Climate finance update",
             "https://example.org/rich",
@@ -52,7 +69,8 @@ class CollectTests(unittest.TestCase):
                 "This update explains how a climate finance facility supports developing countries "
                 "through concessional finance, technical assistance, results-based payments, and "
                 "policy reforms that connect emissions reduction with resilience and fiscal capacity. "
-                "It identifies implementing agencies, funding mechanisms, and implications for NDC delivery."
+                "It identifies implementing agencies, funding mechanisms, and implications for NDC delivery. "
+                "It also describes how public institutions coordinate with private investors and local governments."
             ),
         )
 
@@ -60,42 +78,17 @@ class CollectTests(unittest.TestCase):
 
         self.assertEqual(result[0].url, rich.url)
 
-    def test_extract_page_summary_combines_meta_description_and_body_text(self) -> None:
-        html = """
-        <html>
-          <head>
-            <meta name="description" content="A climate policy update with concrete finance and resilience implications for developing countries.">
-          </head>
-          <body><article>
-            <p>The policy creates a new funding mechanism for adaptation planning, fiscal resilience, and locally led implementation in climate-vulnerable countries.</p>
-          </article></body>
-        </html>
-        """
 
-        result = _extract_page_summary(html)
-
-        self.assertIn("climate policy update", result)
-        self.assertIn("funding mechanism", result)
-
-
-def _candidate(
-    title: str,
-    url: str,
-    doi: str | None = None,
-    source_type: str = "journal",
-    tags: list[str] | None = None,
-    summary_hint: str = "",
-) -> Candidate:
+def _candidate(title: str, url: str, summary_hint: str = "") -> Candidate:
     return Candidate(
         title=title,
         source_org="Source",
-        source_type=source_type,
+        source_type="think_tank",
         published_date="2026-06-09",
         url=url,
         summary_hint=summary_hint,
-        tags=tags or ["#气候金融"],
+        tags=[],
         discovered_date="2026-06-09",
-        doi=doi,
     )
 
 

@@ -44,9 +44,11 @@ def load_bibliography(path: str | Path) -> dict[str, list[DeepRead]]:
                 title=item["title"],
                 authors=item["authors"],
                 year=int(item["year"]),
-                url=item["url"],
-                note_zh=item.get("note_zh", ""),
+                url=item.get("url") or f"https://doi.org/{item.get('doi', '').strip()}",
+                note_zh=item.get("brief_zh", item.get("note_zh", "")),
                 note_en=item.get("note_en", ""),
+                journal=item.get("journal", ""),
+                doi=item.get("doi", ""),
                 argument_zh=item.get("argument_zh", ""),
                 argument_en=item.get("argument_en", ""),
                 method_zh=item.get("method_zh", ""),
@@ -55,8 +57,8 @@ def load_bibliography(path: str | Path) -> dict[str, list[DeepRead]]:
                 evidence_en=item.get("evidence_en", ""),
                 relevance_zh=item.get("relevance_zh", ""),
                 relevance_en=item.get("relevance_en", ""),
-                tags=[tag],
-                kind=item.get("kind", "reading"),
+                tags=list(item.get("tags", [tag])),
+                kind=item.get("kind", "journal article"),
             )
             for item in items
         ]

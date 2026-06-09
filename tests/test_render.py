@@ -8,7 +8,7 @@ from sdg_digest.render import render_html, render_markdown
 
 
 class RenderTests(unittest.TestCase):
-    def test_render_markdown_and_html_include_news_and_readings(self) -> None:
+    def test_render_markdown_and_html_include_news_and_redesigned_readings(self) -> None:
         digest = Digest(
             digest_date=date(2026, 6, 9),
             subject="SDG Daily Digest - 2026-06-09",
@@ -36,27 +36,18 @@ class RenderTests(unittest.TestCase):
                 )
             ],
             readings=[
-                _reading(
-                    "The Paris Agreement",
-                    "Rogelj et al.",
-                    2016,
-                    "https://doi.org/10.1038/nclimate3031",
-                    ["#NDC"],
-                ),
-                _reading(
-                    "A climate finance accounting framework",
-                    "Roberts et al.",
-                    2021,
-                    "https://doi.org/10.1038/s41558-021-01041-6",
-                    ["#气候金融"],
-                ),
-                _reading(
-                    "Decolonizing climate policy",
-                    "Sultana",
-                    2022,
-                    "https://doi.org/10.1177/03091325211017697",
-                    ["#Global South"],
-                ),
+                DeepRead(
+                    title="Climate Change and the Global South",
+                    authors="Saleemul Huq and Hannah Reid",
+                    year=2004,
+                    url="https://doi.org/10.1080/14693062.2004.9685516",
+                    note_zh="Huq 与 Reid 讨论全球南方为何在气候变化中处于高度脆弱的位置：这些国家历史排放较少，却更容易遭受农业、水资源、贫困和适应能力不足带来的复合风险。文章的贡献在于把气候政策从单纯减排议题拉回发展议题，强调适应、贫困削减和国际支持必须被放在同一分析框架中。",
+                    journal="Climate Policy",
+                    doi="10.1080/14693062.2004.9685516",
+                    today_relevance_en="It matters today because disaster and adaptation news often reveal deeper development constraints.",
+                    tags=["#Global South", "#发展不平等"],
+                    kind="journal article",
+                )
             ],
         )
 
@@ -66,37 +57,14 @@ class RenderTests(unittest.TestCase):
         self.assertIn("今日新闻", markdown)
         self.assertIn("Climate finance update", markdown)
         self.assertIn("今日深读", markdown)
-        self.assertIn("**摘要**", markdown)
-        self.assertIn("**Brief**", markdown)
-        self.assertIn("例证 / Evidence", markdown)
-        self.assertIn("The Paris Agreement", markdown)
-        self.assertIn("今日新闻", html)
-        self.assertIn("今日深读", html)
-        self.assertIn("Why it matters", html)
-        self.assertIn("Reading Path", html)
-        self.assertIn("推荐进一步了解的概念", html)
-        self.assertIn("A climate finance accounting framework", html)
-
-
-def _reading(title: str, authors: str, year: int, url: str, tags: list[str]) -> DeepRead:
-    return DeepRead(
-        title=title,
-        authors=authors,
-        year=year,
-        url=url,
-        note_zh="这是一段较长的阅读摘要，用来说明文章的主要问题意识、研究对象和对今日议题的参考价值。",
-        note_en="This is a longer reading brief that explains the article's core question, object of analysis, and relevance for today's issue.",
-        argument_zh="文章讨论全球目标、融资安排或气候治理之间的关键张力。",
-        argument_en="The article discusses key tensions among global goals, finance arrangements, or climate governance.",
-        method_zh="采用政策分析、文献讨论或案例比较的方法。",
-        method_en="It uses policy analysis, literature discussion, or comparative cases.",
-        evidence_zh="例证包括国家承诺、融资工具、制度安排或发展中国家的政策约束。",
-        evidence_en="Evidence includes national pledges, finance instruments, institutional arrangements, or policy constraints.",
-        relevance_zh="适合用来理解今日新闻背后的政策机制和融资含义。",
-        relevance_en="Useful for interpreting the policy mechanism and finance implication behind today's news.",
-        tags=tags,
-        kind="paper",
-    )
+        self.assertIn("Climate Policy", markdown)
+        self.assertIn("10.1080/14693062.2004.9685516", markdown)
+        self.assertNotIn("Argument", markdown)
+        self.assertNotIn("Method", markdown)
+        self.assertIn("readings-band", html)
+        self.assertIn("Climate Change and the Global South", html)
+        self.assertIn("today-note", html)
+        self.assertNotIn("reading-block", html)
 
 
 if __name__ == "__main__":

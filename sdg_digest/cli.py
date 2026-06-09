@@ -8,14 +8,14 @@ from .archive import write_archive
 from .collect import collect_candidates, deduplicate_candidates, rank_candidates
 from .config import load_bibliography, load_sources
 from .emailer import send_email
-from .generate import generate_digest
+from .generate import filter_relevant_candidates, generate_digest
 from .render import render_html
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate SDG daily digest")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
-    parser.add_argument("--lookback-days", type=int, default=5)
+    parser.add_argument("--lookback-days", type=int, default=3)
     parser.add_argument("--max-items", type=int, default=5)
     parser.add_argument("--candidate-pool", type=int, default=30)
     parser.add_argument("--sources", default="sources.yml")
@@ -32,6 +32,9 @@ def main() -> None:
 
     candidates = collect_candidates(sources, run_date, args.lookback_days)
     candidates = deduplicate_candidates(candidates)
+    print(f"Collected {len(candidates)} candidate(s) after source and deduplication checks")
+    candidates = filter_relevant_candidates(candidates, use_openai=not args.skip_openai)
+    print(f"{len(candidates)} candidate(s) passed AI relevance check")
     selected = rank_candidates(candidates, args.candidate_pool)
     digest = generate_digest(
         selected,

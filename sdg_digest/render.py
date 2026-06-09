@@ -5,16 +5,6 @@ import html
 from .models import DeepRead, Digest
 
 
-CONCEPT_LABELS = {
-    "#NDC": "NDC / 国家自主贡献",
-    "#气候金融": "climate finance / 气候金融",
-    "#SDG进展": "SDG implementation / SDG 落实",
-    "#绿色转型": "green transition / 绿色转型",
-    "#债务可持续性": "debt sustainability / 债务可持续性",
-    "#Global South": "Global South / 全球南方",
-}
-
-
 def render_markdown(digest: Digest) -> str:
     lines = [
         f"# {digest.subject}",
@@ -59,20 +49,19 @@ def render_markdown(digest: Digest) -> str:
     lines.extend(["## 今日深读 / Reading List", ""])
     if digest.readings:
         for reading in digest.readings:
-            tags = f" [{' '.join(reading.tags)}]" if reading.tags else ""
             lines.extend(
                 [
-                    f"### {reading.title}{tags}",
+                    f"### {reading.title}",
                     "",
-                    f"{reading.authors} ({reading.year}) · {reading.kind}",
+                    f"{reading.authors} · {reading.year} · {reading.journal}",
                     "",
-                    f"**阅读摘要 / Brief**: {reading.note_zh} / {reading.note_en}",
+                    " ".join(reading.tags),
                     "",
-                    f"- 核心观点 / Argument: {reading.argument_zh} / {reading.argument_en}",
-                    f"- 方法 / Method: {reading.method_zh} / {reading.method_en}",
-                    f"- 例证 / Evidence: {reading.evidence_zh} / {reading.evidence_en}",
-                    f"- 今日关联 / Relevance: {reading.relevance_zh} / {reading.relevance_en}",
-                    f"- Link: {reading.url}",
+                    reading.note_zh,
+                    "",
+                    f"*{reading.today_relevance_en or reading.note_en}*",
+                    "",
+                    f"DOI: {reading.url}",
                     "",
                 ]
             )
@@ -85,9 +74,7 @@ def render_html(digest: Digest) -> str:
     items_html = "\n".join(_render_item_html(index, item) for index, item in enumerate(digest.items, start=1))
     if not items_html:
         items_html = '<p class="empty">今日没有符合筛选条件的新内容。<br>No eligible updates today.</p>'
-    readings_html = "\n".join(
-        _render_reading_html(index, reading, digest.readings) for index, reading in enumerate(digest.readings, start=1)
-    )
+    readings_html = "\n".join(_render_reading_html(reading) for reading in digest.readings)
     if not readings_html:
         readings_html = '<p class="empty">今日没有匹配到白名单深读材料。<br>No approved readings matched today\'s themes.</p>'
     return f"""<!doctype html>
@@ -107,41 +94,35 @@ def render_html(digest: Digest) -> str:
     header .en {{ color: #cde6d3; }}
     .section-title {{ margin: 30px 0 12px; font-size: 19px; color: #123524; }}
     .section-subtitle {{ color: #647067; font-weight: 400; }}
-    article {{ background: #fff; border: 1px solid #d9e1d9; border-radius: 7px; padding: 20px; margin: 14px 0; }}
+    article.news {{ background: #fff; border: 1px solid #d9e1d9; border-radius: 7px; padding: 20px; margin: 14px 0; }}
     .news h3 {{ font-size: 19px; line-height: 1.35; margin: 0 0 10px; }}
     .news h3 a {{ color: #0b5cad; text-decoration: none; }}
     .meta {{ font-size: 13px; color: #5f6b7a; margin: 0 0 12px; }}
     .tags {{ margin: 0 0 14px; }}
-    .tag, .sdg, .concept {{ display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }}
+    .tag, .sdg {{ display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; }}
     .tag {{ background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }}
     .sdg {{ background: #eef4ff; color: #244f8f; border: 1px solid #c9daf8; }}
-    .concept {{ background: #f4f0e7; color: #71511d; border: 1px solid #e0d3b9; }}
     .label {{ margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }}
     .summary {{ font-size: 15px; line-height: 1.78; margin: 0; }}
     .impact {{ background: #f7faf7; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }}
     .terms {{ border-top: 1px solid #e5ebe6; padding-top: 12px; margin-top: 14px; font-size: 13px; color: #425466; }}
     .terms ul {{ margin: 8px 0 0; padding-left: 18px; }}
-    .reading {{ background: #fffdf8; border-color: #e5d5b0; padding: 0; overflow: hidden; }}
-    .reading-head {{ padding: 20px 20px 14px; border-bottom: 1px solid #eadfc6; background: #fffaf0; }}
-    .reading h3 {{ font-size: 18px; line-height: 1.35; margin: 0 0 8px; }}
-    .reading h3 a {{ color: #7a4208; text-decoration: none; }}
-    .reading-body {{ padding: 18px 20px 20px; }}
-    .reading-brief {{ background: #ffffff; border: 1px solid #eee3c9; border-radius: 6px; padding: 14px; margin-bottom: 14px; }}
-    .reading-grid {{ margin-top: 4px; }}
-    .reading-block {{ border-left: 3px solid #d7b65c; padding: 0 0 0 12px; margin: 14px 0; }}
-    .reading-block strong {{ color: #6f3f08; font-size: 13px; }}
-    .reading-path {{ background: #f7faf7; border: 1px solid #dbe7dc; border-radius: 6px; padding: 14px; margin-top: 16px; }}
-    .reading-path ul {{ margin: 8px 0 0; padding-left: 18px; }}
-    .reading-path li {{ margin: 6px 0; line-height: 1.55; }}
+    .readings-band {{ background: #faf8f4; border-radius: 7px; padding: 18px 20px 8px; }}
+    article.reading {{ background: transparent; border: 0; border-radius: 0; padding: 0; margin: 0 0 24px; box-shadow: none; }}
+    .reading h3 {{ font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }}
+    .reading h3 a {{ color: #6f4a18; text-decoration: none; }}
+    .reading .meta {{ color: #7a746c; }}
+    .reading-text {{ font-size: 15px; line-height: 1.82; margin: 14px 0 10px; color: #2f332f; }}
+    .today-note {{ margin: 10px 0 0 14px; color: #5d6e63; font-style: italic; font-size: 14px; line-height: 1.7; }}
+    .doi-link {{ display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }}
     .empty {{ background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }}
     a {{ color: #0b5cad; }}
     @media (max-width: 520px) {{
       main {{ padding: 12px 10px 28px; }}
       header {{ padding: 22px 18px; }}
       h1 {{ font-size: 24px; }}
-      article {{ padding: 16px; }}
-      .reading {{ padding: 0; }}
-      .reading-head, .reading-body {{ padding-left: 16px; padding-right: 16px; }}
+      article.news {{ padding: 16px; }}
+      .readings-band {{ padding: 16px 16px 4px; }}
     }}
   </style>
 </head>
@@ -158,7 +139,9 @@ def render_html(digest: Digest) -> str:
     {items_html}
 
     <h2 class="section-title">今日深读 <span class="section-subtitle">/ Reading List · {len(digest.readings)}</span></h2>
-    {readings_html}
+    <section class="readings-band">
+      {readings_html}
+    </section>
   </main>
 </body>
 </html>
@@ -190,57 +173,14 @@ def _render_item_html(index: int, item) -> str:
 </article>"""
 
 
-def _render_reading_html(index: int, reading: DeepRead, all_readings: list[DeepRead]) -> str:
+def _render_reading_html(reading: DeepRead) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in reading.tags)
-    concepts = "".join(
-        f'<span class="concept">{html.escape(CONCEPT_LABELS.get(tag, tag.lstrip("#")))}</span>'
-        for tag in reading.tags[:4]
-    )
-    path = _reading_path(reading, all_readings)
+    today_relevance = reading.today_relevance_en or reading.note_en
     return f"""<article class="reading">
-  <div class="reading-head">
-    <h3>{index}. <a href="{html.escape(reading.url)}">{html.escape(reading.title)}</a></h3>
-    <p class="meta">{html.escape(reading.authors)} · {reading.year} · {html.escape(reading.kind)}</p>
-    <p class="tags">{tags}</p>
-  </div>
-  <div class="reading-body">
-    <div class="reading-brief">
-      <p class="label">阅读摘要 / Brief</p>
-      <p class="summary">{html.escape(reading.note_zh)}</p>
-      <p class="summary en">{html.escape(reading.note_en)}</p>
-    </div>
-    <div class="reading-grid">
-      {_reading_block("核心观点 / Argument", reading.argument_zh, reading.argument_en)}
-      {_reading_block("方法 / Method", reading.method_zh, reading.method_en)}
-      {_reading_block("例证 / Evidence", reading.evidence_zh, reading.evidence_en)}
-    </div>
-    <div class="reading-path">
-      <strong>今日关联 / Reading Path</strong>
-      <p class="summary">{html.escape(reading.relevance_zh)}</p>
-      <p class="summary en">{html.escape(reading.relevance_en)}</p>
-      {path}
-      <p class="label">推荐进一步了解的概念 / Concepts</p>
-      <p>{concepts}</p>
-    </div>
-  </div>
+  <h3><a href="{html.escape(reading.url)}">{html.escape(reading.title)}</a></h3>
+  <p class="meta">{html.escape(reading.authors)} · {reading.year} · {html.escape(reading.journal)}</p>
+  <p class="tags">{tags}</p>
+  <p class="reading-text">{html.escape(reading.note_zh)}</p>
+  <p class="today-note">{html.escape(today_relevance)}</p>
+  <a class="doi-link" href="{html.escape(reading.url)}">DOI / 原文链接</a>
 </article>"""
-
-
-def _reading_block(label: str, zh: str, en: str) -> str:
-    return f"""<div class="reading-block">
-  <strong>{html.escape(label)}</strong>
-  <p class="summary">{html.escape(zh)}</p>
-  <p class="summary en">{html.escape(en)}</p>
-</div>"""
-
-
-def _reading_path(reading: DeepRead, all_readings: list[DeepRead]) -> str:
-    related = [item for item in all_readings if item.url != reading.url]
-    if not related:
-        return ""
-    links = "".join(
-        f'<li><a href="{html.escape(item.url)}">{html.escape(item.title)}</a> '
-        f'<span class="en">({html.escape(item.authors)}, {item.year})</span></li>'
-        for item in related[:2]
-    )
-    return f"<ul>{links}</ul>"

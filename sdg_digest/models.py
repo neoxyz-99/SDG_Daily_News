@@ -36,6 +36,8 @@ class DeepRead:
     url: str
     note_zh: str = ""
     note_en: str = ""
+    journal: str = ""
+    doi: str = ""
     argument_zh: str = ""
     argument_en: str = ""
     method_zh: str = ""
@@ -44,6 +46,7 @@ class DeepRead:
     evidence_en: str = ""
     relevance_zh: str = ""
     relevance_en: str = ""
+    today_relevance_en: str = ""
     tags: list[str] = field(default_factory=list)
     kind: str = "reading"
 
