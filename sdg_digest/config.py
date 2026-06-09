@@ -45,6 +45,9 @@ def load_bibliography(path: str | Path) -> dict[str, list[DeepRead]]:
                 authors=item["authors"],
                 year=int(item["year"]),
                 url=item["url"],
+                note_zh=item.get("note_zh", ""),
+                tags=[tag],
+                kind=item.get("kind", "reading"),
             )
             for item in items
         ]

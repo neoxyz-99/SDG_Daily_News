@@ -34,6 +34,9 @@ class DeepRead:
     authors: str
     year: int
     url: str
+    note_zh: str = ""
+    tags: list[str] = field(default_factory=list)
+    kind: str = "reading"
 
 
 @dataclass(frozen=True)
@@ -61,3 +64,4 @@ class Digest:
     subject: str
     overview_zh: str
     items: list[DigestItem]
+    readings: list[DeepRead] = field(default_factory=list)

@@ -8,7 +8,7 @@ from sdg_digest.render import render_html, render_markdown
 
 
 class RenderTests(unittest.TestCase):
-    def test_render_markdown_and_html_include_digest_fields(self) -> None:
+    def test_render_markdown_and_html_include_news_and_readings(self) -> None:
         digest = Digest(
             digest_date=date(2026, 6, 9),
             subject="SDG Daily Digest - 2026-06-09",
@@ -28,14 +28,17 @@ class RenderTests(unittest.TestCase):
                     ],
                     tags=["#NDC", "#气候金融"],
                     url="https://unfccc.int/news/example",
-                    deep_reads=[
-                        DeepRead(
-                            title="The Paris Agreement",
-                            authors="Rogelj et al.",
-                            year=2016,
-                            url="https://doi.org/10.1038/nclimate3031",
-                        )
-                    ],
+                )
+            ],
+            readings=[
+                DeepRead(
+                    title="The Paris Agreement",
+                    authors="Rogelj et al.",
+                    year=2016,
+                    url="https://doi.org/10.1038/nclimate3031",
+                    note_zh="适合作为理解 NDC 与全球温控目标之间张力的基础读物。",
+                    tags=["#NDC"],
+                    kind="paper",
                 )
             ],
         )
@@ -43,10 +46,13 @@ class RenderTests(unittest.TestCase):
         markdown = render_markdown(digest)
         html = render_html(digest)
 
+        self.assertIn("今日新闻", markdown)
         self.assertIn("Climate finance update", markdown)
-        self.assertIn("国家自主贡献", markdown)
-        self.assertIn("Climate finance update", html)
-        self.assertIn("#NDC #气候金融", html)
+        self.assertIn("今日深读", markdown)
+        self.assertIn("The Paris Agreement", markdown)
+        self.assertIn("今日新闻", html)
+        self.assertIn("今日深读", html)
+        self.assertIn("#NDC", html)
 
 
 if __name__ == "__main__":

@@ -21,15 +21,15 @@ class GenerateTests(unittest.TestCase):
                     "terms": [],
                     "tags": ["#气候金融"],
                     "url": "https://invented.example/article",
-                    "deep_reads": [],
                 }
             ],
+            "readings": [],
         }
 
         with self.assertRaises(ValueError):
             validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
 
-    def test_validation_rejects_unapproved_deep_read(self) -> None:
+    def test_validation_rejects_unapproved_reading(self) -> None:
         candidate = _candidate()
         payload = {
             "overview_zh": "今日关注气候金融。",
@@ -42,14 +42,17 @@ class GenerateTests(unittest.TestCase):
                     "terms": [],
                     "tags": ["#气候金融"],
                     "url": candidate.url,
-                    "deep_reads": [
-                        {
-                            "title": "Invented classic",
-                            "authors": "Nobody",
-                            "year": 2020,
-                            "url": "https://example.org/invented",
-                        }
-                    ],
+                }
+            ],
+            "readings": [
+                {
+                    "title": "Invented classic",
+                    "authors": "Nobody",
+                    "year": 2020,
+                    "url": "https://example.org/invented",
+                    "note_zh": "这不是白名单材料。",
+                    "tags": ["#气候金融"],
+                    "kind": "paper",
                 }
             ],
         }
@@ -57,13 +60,22 @@ class GenerateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
 
-    def test_fallback_uses_bibliography_for_deep_reads(self) -> None:
+    def test_fallback_uses_bibliography_for_separate_readings(self) -> None:
         candidate = _candidate()
-        reading = DeepRead("A climate finance accounting framework", "Roberts et al.", 2021, "https://doi.org/x")
+        reading = DeepRead(
+            "A climate finance accounting framework",
+            "Roberts et al.",
+            2021,
+            "https://doi.org/x",
+            tags=["#气候金融"],
+            kind="paper",
+        )
 
         digest = fallback_digest([candidate], {"#气候金融": [reading]}, date(2026, 6, 9))
 
-        self.assertEqual(digest.items[0].deep_reads, [reading])
+        self.assertEqual(digest.readings[0].title, reading.title)
+        self.assertEqual(digest.items[0].deep_reads, [])
+        self.assertIn("Climate Finance Update", digest.items[0].summary_zh)
 
 
 def _candidate() -> Candidate:
@@ -73,7 +85,7 @@ def _candidate() -> Candidate:
         source_type="international_org",
         published_date="2026-06-09",
         url="https://worldbank.org/en/topic/climatechange",
-        summary_hint="climate finance",
+        summary_hint="The update discusses finance for low-carbon and climate-resilient development.",
         tags=["#气候金融"],
         discovered_date="2026-06-09",
     )

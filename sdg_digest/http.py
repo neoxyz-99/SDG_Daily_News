@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from urllib import request
+from urllib import error, request
 
 
 DEFAULT_TIMEOUT_SECONDS = 20
@@ -32,6 +32,10 @@ def post_json(
         },
         method="POST",
     )
-    with request.urlopen(req, timeout=timeout) as response:
-        charset = response.headers.get_content_charset() or "utf-8"
-        return json.loads(response.read().decode(charset, errors="replace"))
+    try:
+        with request.urlopen(req, timeout=timeout) as response:
+            charset = response.headers.get_content_charset() or "utf-8"
+            return json.loads(response.read().decode(charset, errors="replace"))
+    except error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"HTTP {exc.code} from {url}: {detail}") from exc
