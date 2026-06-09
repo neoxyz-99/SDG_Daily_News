@@ -26,6 +26,16 @@ KEYWORDS = (
     "carbon",
     "net zero",
     "development finance",
+    "disaster",
+    "disaster risk",
+    "earthquake",
+    "flood",
+    "typhoon",
+    "drought",
+    "resilience",
+    "food security",
+    "humanitarian",
+    "infrastructure",
 )
 
 
@@ -127,6 +137,7 @@ def _collect_page(source: Source, run_date: date, lookback_days: int) -> list[Ca
         ):
             continue
         seen.add(link)
+        summary_hint = _fetch_page_summary(link)
         candidates.append(
             Candidate(
                 title=title,
@@ -134,7 +145,7 @@ def _collect_page(source: Source, run_date: date, lookback_days: int) -> list[Ca
                 source_type=source.type,
                 published_date=run_date.isoformat(),
                 url=link,
-                summary_hint="",
+                summary_hint=summary_hint,
                 tags=source.default_tags,
                 discovered_date=run_date.isoformat(),
             )
@@ -274,6 +285,37 @@ def _xml_text(entry: ElementTree.Element, names: list[str]) -> str:
 
 def _clean_text(value: str) -> str:
     return html.unescape(re.sub(r"\s+", " ", value or "")).strip()
+
+
+def _fetch_page_summary(url: str) -> str:
+    try:
+        text = fetch_text(url, timeout=12)
+    except Exception:
+        return ""
+    return _extract_page_summary(text)
+
+
+def _extract_page_summary(text: str, max_chars: int = 700) -> str:
+    for pattern in (
+        r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']description["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:description["\']',
+    ):
+        match = re.search(pattern, text, re.I | re.S)
+        if match:
+            summary = _clean_text(match.group(1))
+            if len(summary) >= 40:
+                return summary[:max_chars]
+
+    paragraphs = []
+    for raw in re.findall(r"<p\b[^>]*>(.*?)</p>", text, re.I | re.S):
+        paragraph = _clean_text(re.sub(r"<[^>]+>", " ", raw))
+        if len(paragraph) >= 50 and not paragraph.lower().startswith(("cookie", "subscribe", "sign up")):
+            paragraphs.append(paragraph)
+        if len(" ".join(paragraphs)) >= max_chars:
+            break
+    return " ".join(paragraphs)[:max_chars]
 
 
 def _canonical_url(url: str) -> str:
