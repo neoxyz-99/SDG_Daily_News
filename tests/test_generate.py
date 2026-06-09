@@ -12,14 +12,19 @@ class GenerateTests(unittest.TestCase):
         candidate = _candidate()
         payload = {
             "overview_zh": "今日关注气候金融。",
+            "overview_en": "Today focuses on climate finance.",
             "items": [
                 {
                     "title_en": "Climate Finance Update",
                     "source_org": "World Bank Climate",
                     "published_date": "2026-06-09",
                     "summary_zh": "这是一条关于气候金融政策含义的中文摘要。",
+                    "summary_en": "This is an English brief on climate finance policy.",
+                    "why_it_matters_zh": "它影响气候资金安排。",
+                    "why_it_matters_en": "It matters for climate finance arrangements.",
                     "terms": [],
                     "tags": ["#气候金融"],
+                    "sdg_links": ["SDG 13 Climate Action"],
                     "url": "https://invented.example/article",
                 }
             ],
@@ -33,14 +38,19 @@ class GenerateTests(unittest.TestCase):
         candidate = _candidate()
         payload = {
             "overview_zh": "今日关注气候金融。",
+            "overview_en": "Today focuses on climate finance.",
             "items": [
                 {
                     "title_en": candidate.title,
                     "source_org": candidate.source_org,
                     "published_date": candidate.published_date,
                     "summary_zh": "这是一条关于气候金融政策含义的中文摘要。",
+                    "summary_en": "This is an English brief on climate finance policy.",
+                    "why_it_matters_zh": "它影响气候资金安排。",
+                    "why_it_matters_en": "It matters for climate finance arrangements.",
                     "terms": [],
                     "tags": ["#气候金融"],
+                    "sdg_links": ["SDG 13 Climate Action"],
                     "url": candidate.url,
                 }
             ],
@@ -51,6 +61,15 @@ class GenerateTests(unittest.TestCase):
                     "year": 2020,
                     "url": "https://example.org/invented",
                     "note_zh": "这不是白名单材料。",
+                    "note_en": "This is not approved.",
+                    "argument_zh": "未知。",
+                    "argument_en": "Unknown.",
+                    "method_zh": "未知。",
+                    "method_en": "Unknown.",
+                    "evidence_zh": "未知。",
+                    "evidence_en": "Unknown.",
+                    "relevance_zh": "未知。",
+                    "relevance_en": "Unknown.",
                     "tags": ["#气候金融"],
                     "kind": "paper",
                 }
@@ -76,6 +95,9 @@ class GenerateTests(unittest.TestCase):
         self.assertEqual(digest.readings[0].title, reading.title)
         self.assertEqual(digest.items[0].deep_reads, [])
         self.assertIn("Climate Finance Update", digest.items[0].summary_zh)
+        self.assertIn("Climate Finance Update", digest.items[0].summary_en)
+        self.assertTrue(digest.items[0].why_it_matters_en)
+        self.assertTrue(digest.readings[0].argument_en)
 
 
 def _candidate() -> Candidate:
