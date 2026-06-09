@@ -4,7 +4,7 @@ from datetime import date
 import unittest
 from unittest.mock import patch
 
-from sdg_digest.collect import collect_candidates, deduplicate_candidates, is_allowed_url, rank_candidates
+from sdg_digest.collect import CollectionStats, collect_candidates, deduplicate_candidates, is_allowed_url, rank_candidates
 from sdg_digest.models import Candidate, Source
 
 
@@ -77,6 +77,45 @@ class CollectTests(unittest.TestCase):
         result = rank_candidates([thin, rich], max_items=1)
 
         self.assertEqual(result[0].url, rich.url)
+
+    def test_whitelisted_source_attempts_full_text_extraction(self) -> None:
+        source = Source(
+            name="IISD SDG Knowledge Hub",
+            type="think_tank",
+            strategy="rss",
+            allowed_domains=["sdg.iisd.org"],
+            default_tags=[],
+            url="https://sdg.iisd.org/feed/",
+        )
+        feed = """<?xml version="1.0"?>
+        <rss><channel>
+          <item>
+            <title>Water finance policy update</title>
+            <link>https://sdg.iisd.org/commentary/policy-briefs/water-finance-policy-update</link>
+            <pubDate>Tue, 09 Jun 2026 12:00:00 GMT</pubDate>
+            <description>This policy update explains how water finance gaps affect adaptation, public investment, project pipelines, institutional coordination, risk sharing, development planning, climate resilience, and multilateral finance. It reviews how public agencies and development partners connect infrastructure needs with financing instruments and policy implementation across sectors. The article also discusses implementation capacity, concessional resources, local planning systems, accountability, and the role of international institutions in translating commitments into practical investment programmes.</description>
+          </item>
+        </channel></rss>
+        """
+        stats = CollectionStats()
+
+        with patch("sdg_digest.collect.fetch_text", return_value=feed), patch(
+            "sdg_digest.collect.extract_full_text",
+            return_value=(
+                "Executive summary: the report argues that public agencies need stronger project "
+                "pipelines, blended finance tools, and institutional coordination to close water "
+                "finance gaps while protecting climate adaptation priorities. It describes how "
+                "recipient governments, development banks, and local utilities can align concessional "
+                "capital, guarantees, fiscal planning, and adaptation objectives so that water systems "
+                "become investable without shifting all risks to vulnerable communities."
+            ),
+        ), patch("sdg_digest.collect.time.sleep"):
+            result = collect_candidates([source], date(2026, 6, 9), lookback_days=3, stats=stats)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].text_source, "full_text")
+        self.assertIn("Executive summary", result[0].full_text)
+        self.assertEqual(stats.full_text_sources, {"IISD SDG Knowledge Hub"})
 
 
 def _candidate(title: str, url: str, summary_hint: str = "") -> Candidate:

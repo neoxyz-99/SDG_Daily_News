@@ -34,6 +34,12 @@ $env:DIGEST_FROM_EMAIL="Digest <digest@example.com>"
 python -m sdg_digest.cli --send-email
 ```
 
+Dry run that prints the generated brief without sending email or updating the sent-article record:
+
+```powershell
+python -m sdg_digest.cli --dry-run --skip-openai
+```
+
 ## Output
 
 Each run writes:
@@ -47,7 +53,9 @@ Each run writes:
 ## Pipeline Logic
 
 - `sources.yml` defines the RSS/Atom source whitelist and allowed item domains.
-- Feed entries with fewer than 50 words in their official summary/description are skipped instead of falling back to webpage crawling.
+- Feed entries with fewer than 50 words in their official summary/description are skipped.
+- Whitelisted institutional domains attempt full-text or executive-summary extraction before generation; HTTP 403, timeouts, or extraction failures fall back to the RSS summary.
+- `sent_articles.json` stores previously sent URLs so GitHub Actions does not resend the same articles across runs. The file keeps the most recent 500 URLs.
 - Keyword filters are not used as admission gates. Candidate relevance is checked by the model with a yes/no policy-substance question.
 - Tags are assigned after selection for archive classification only.
 - News items are generated as editorial analysis: core argument, why now, agenda position, and post-selection tags.

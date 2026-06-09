@@ -26,6 +26,8 @@ class Candidate:
     tags: list[str]
     discovered_date: str
     doi: str | None = None
+    full_text: str = ""
+    text_source: str = "rss"
 
 
 @dataclass(frozen=True)

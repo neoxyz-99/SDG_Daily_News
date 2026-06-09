@@ -34,6 +34,24 @@ TAG_REGISTRY = [
 
 BANNED_EMPTY_PHRASES = ["至关重要", "意义深远", "备受关注", "在全球化背景下"]
 BROAD_TAGS = {"#气候变化", "气候变化", "#可持续发展", "可持续发展"}
+GENERIC_RESEARCH_KEYWORDS = {"climate change", "governance", "sustainable development", "policy"}
+ACTOR_HINTS = [
+    "CPI",
+    "World Bank",
+    "IISD",
+    "UNFCCC",
+    "Brookings",
+    "政府",
+    "机构",
+    "捐助",
+    "受援",
+    "多边",
+    "融资",
+    "市场",
+    "基金",
+    "银行",
+    "国家",
+]
 
 TERM_LIBRARY = {
     "#气候金融": DigestTerm(
@@ -213,19 +231,24 @@ def _call_openai(
             "Select the strongest 3-5 news items. Prefer 4-5 when enough candidates exist. If fewer than 3 candidates are provided, select every usable candidate instead of padding or inventing items.",
             "daily_editorial_note_zh must be under 100 Chinese characters, raise a core tension or open question across selected news, and name conflicts or convergence among actor logics. If fewer than 2 news items are selected, return null.",
             "weekly_thread_zh should be 1-2 Chinese sentences only when at least 2 selected news items share a related issue; otherwise return null.",
-            "For each selected item, write core_argument_zh as one Chinese sentence describing what the article argues, not what it covers. Do not make a statistic the core argument and do not restate the title.",
+            "Core Argument prompt: Based on the article content, write the core argument in ONE sentence in Chinese. The sentence MUST name a specific actor: an institution such as CPI or World Bank, a policy instrument such as blended finance or carbon market, or a negotiating party such as developed country donors or recipient governments. State what that actor is arguing FOR or AGAINST, or what the article claims should change. Do NOT use subjectless sentences, do NOT restate the title, and do NOT use statistics as the core of the argument. Use full_text when available; otherwise use rss_summary.",
             "For each selected item, write why_now_zh in 1-2 Chinese sentences with an explicit temporal anchor: what it responds to, advances, or challenges. If timing cannot be inferred from the provided feed text, say so rather than guessing.",
             "For each selected item, write agenda_position_zh as one Chinese sentence. If the agenda background is unclear, write exactly: 议程背景不明确.",
             "Assign 1-3 Chinese tags after selection. Tags must be specific to the article content; avoid broad tags such as 气候变化 or 可持续发展.",
             "Select 2-3 deep reads from bibliography. Use only bibliography entries.",
             "For each selected deep read, output only its identity fields, today_connection_zh, and two research_directions.",
-            "today_connection_zh must explicitly connect the theoretical frame to one selected news item. If no real connection exists, write: 本期暂无直接关联，建议结合[议题方向]阅读",
-            "Each research direction must include one Chinese research-question direction under 30 Chinese characters and 3-5 English search keywords. Do not cite any specific literature title, author, or publication.",
+            "Today's Connection prompt: Write ONE sentence in Chinese connecting this academic paper to today's news. You MUST reference the specific news article by its title or source institution. Explain HOW the theoretical framework in this paper helps interpret a specific argument or tension in that news article. Do NOT write a general statement that could apply to any news item. If no genuine connection exists, output exactly: 本期暂无直接关联，建议结合[填入议题方向，如气候融资谈判]阅读. Never force a connection.",
+            "Research Directions prompt: Based on this paper's core argument, provide exactly 2 research directions. Each direction must include one Chinese research question under 30 Chinese characters and 3-5 English search keywords in parentheses. Do NOT cite any specific author names, book titles, or publication details. Keywords must be specific enough to return academic results and avoid generic terms like climate change or governance.",
+            "In reading-list generated fields, when introducing a key theoretical concept or proper noun for the first time, append the English original in parentheses immediately after it, such as 嵌入式自由主义（embedded liberalism）, 制度变量（intervening variable）, or 混合融资（blended finance）. Do this only on first mention and do not annotate common names such as 世界银行 or 联合国.",
             "Do not rewrite bibliography prose briefs, methodology notes, authors, years, journals, DOIs, or links.",
             "Do not invent URLs, sources, readings, dates, authors, journals, DOIs, data, or literature.",
             "Avoid empty rhetoric including 至关重要, 意义深远, 备受关注, and 在全球化背景下.",
         ],
         "candidates": [_candidate_payload(candidate) for candidate in candidates[:30]],
+        "news_titles_and_sources": [
+            {"title": candidate.title, "source": candidate.source_org}
+            for candidate in candidates[:30]
+        ],
         "bibliography": [
             _reading_payload(reading)
             for readings in bibliography.values()
@@ -262,6 +285,10 @@ def _call_openai(
         timeout=_openai_timeout_seconds(),
     )
     return json.loads(_extract_response_text(response))
+
+
+# CHANGE 3 DONE: AI prompts now require actor-specific core arguments, concrete reading connections, and focused research directions.
+# CHANGE 4 DONE: reading-list prompts now require first-mention English annotations for key theoretical terms.
 
 
 def _digest_schema(max_items: int) -> dict[str, Any]:
@@ -370,7 +397,7 @@ def validate_digest_payload(
         core_argument_zh = str(raw.get("core_argument_zh", "")).strip()
         why_now_zh = str(raw.get("why_now_zh", "")).strip()
         agenda_position_zh = str(raw.get("agenda_position_zh", "")).strip()
-        _validate_required_text(core_argument_zh, f"core_argument_zh for {title}")
+        _validate_core_argument(core_argument_zh, title)
         _validate_required_text(why_now_zh, f"why_now_zh for {title}")
         _validate_required_text(agenda_position_zh, f"agenda_position_zh for {title}")
 
@@ -491,7 +518,7 @@ def fallback_digest(
         overview_zh="",
         overview_en="",
         items=items,
-        readings=_select_readings_for_candidates(candidates, bibliography),
+        readings=_fallback_readings(candidates, bibliography),
         weekly_thread_zh="",
     )
 
@@ -502,8 +529,12 @@ def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
         "source_org": candidate.source_org,
         "published_date": candidate.published_date,
         "url": candidate.url,
-        "feed_summary": candidate.summary_hint,
+        "rss_summary": candidate.summary_hint,
+        "full_text": candidate.full_text,
+        "article_content": candidate.full_text or candidate.summary_hint,
+        "text_source": candidate.text_source,
         "feed_summary_words": _word_count(candidate.summary_hint),
+        "full_text_words": _word_count(candidate.full_text),
     }
 
 
@@ -581,6 +612,12 @@ def _validate_required_text(value: str, field_name: str) -> None:
             raise ValueError(f"{field_name} contains banned empty phrase: {phrase}")
 
 
+def _validate_core_argument(value: str, title: str) -> None:
+    _validate_required_text(value, f"core_argument_zh for {title}")
+    if not any(hint in value for hint in ACTOR_HINTS):
+        raise ValueError(f"core_argument_zh lacks a specific actor or policy instrument: {title}")
+
+
 def _validate_tags(tags: list[str], title: str) -> None:
     if not tags:
         raise ValueError(f"Digest item has no tags: {title}")
@@ -601,6 +638,9 @@ def _validate_research_directions(directions: list[ResearchDirection], title: st
             raise ValueError(f"Reading research direction is too long: {title}")
         if not (3 <= len(direction.keywords) <= 5):
             raise ValueError(f"Reading research direction keywords must contain 3-5 terms: {title}")
+        generic = [keyword for keyword in direction.keywords if keyword.lower() in GENERIC_RESEARCH_KEYWORDS]
+        if generic:
+            raise ValueError(f"Reading research direction has generic keyword(s) for {title}: {', '.join(generic)}")
 
 
 def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
@@ -633,3 +673,41 @@ def _select_readings_for_candidates(
             if len(selected) >= target_count:
                 return selected
     return selected
+
+
+def _fallback_readings(
+    candidates: list[Candidate],
+    bibliography: dict[str, list[DeepRead]],
+) -> list[DeepRead]:
+    if not candidates:
+        return []
+    readings: list[DeepRead] = []
+    for reading in _select_readings_for_candidates(candidates, bibliography):
+        readings.append(
+            DeepRead(
+                title=reading.title,
+                authors=reading.authors,
+                year=reading.year,
+                url=reading.url,
+                note_zh=reading.note_zh,
+                note_en=reading.note_en,
+                journal=reading.journal,
+                doi=reading.doi,
+                methodology_zh=reading.methodology_zh,
+                further_reading=reading.further_reading,
+                tags=reading.tags,
+                kind=reading.kind,
+                today_connection_zh="本期暂无直接关联，建议结合气候融资谈判阅读",
+                research_directions=[
+                    ResearchDirection(
+                        question_zh="制度设计如何影响融资",
+                        keywords=["institutional design", "climate finance", "development banks"],
+                    ),
+                    ResearchDirection(
+                        question_zh="政策承诺如何转化",
+                        keywords=["policy implementation", "pledge delivery", "public finance"],
+                    ),
+                ],
+            )
+        )
+    return readings
