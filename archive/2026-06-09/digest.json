@@ -1,18 +1,23 @@
 {
   "digest_date": "2026-06-09",
   "subject": "SDG Daily Digest - 2026-06-09",
-  "overview_zh": "今日摘要基于可信来源自动筛选；未调用模型时使用保守模板摘要。",
+  "overview_zh": "今日摘要按可信来源自动筛选，并区分为新闻更新与延伸阅读。如模型生成不可用，本期使用保底摘要，但仍保留原文链接与白名单深读材料。",
   "items": [
     {
       "title_en": "Early signs that the EU carbon border adjustment mechanism is reshaping EU–India steel trade",
       "source_org": "Nature Climate Change",
       "published_date": "2026-06-08",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
+      "summary_zh": "这条来自Nature Climate Change的更新聚焦《Early signs that the EU carbon border adjustment mechanism is reshaping EU–India steel trade》。Abstract The EU Carbon Border Adjustment Mechanism (CBAM) aims to level carbon-related co… 建议重点观察其对绿色转型、气候金融议题下政策设计、融资安排或地区执行的影响。",
       "terms": [
         {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
+          "term_en": "green transition",
+          "term_zh": "绿色转型",
+          "explanation_zh": "经济结构、产业政策和投资方向向低碳、资源高效和韧性发展转变的过程。"
+        },
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
         }
       ],
       "tags": [
@@ -20,37 +25,23 @@
         "#气候金融"
       ],
       "url": "https://doi.org/10.1038/s41558-026-02607-y",
-      "deep_reads": [
-        {
-          "title": "A green industrial policy for Europe",
-          "authors": "Rodrik",
-          "year": 2014,
-          "url": "https://doi.org/10.1093/oxrep/gru025"
-        },
-        {
-          "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
-          "authors": "Kattel and Mazzucato",
-          "year": 2018,
-          "url": "https://doi.org/10.1093/icc/dty032"
-        },
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        }
-      ]
+      "deep_reads": []
     },
     {
       "title_en": "Cooperative activities and SDGs",
       "source_org": "UNFCCC News",
       "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
+      "summary_zh": "这条来自UNFCCC News的更新聚焦《Cooperative activities and SDGs》，主题与NDC、气候金融、绿色转型相关。建议阅读原文，判断其对政策研究、项目融资或区域发展议程的具体意义。",
       "terms": [
         {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
+          "term_en": "NDC",
+          "term_zh": "国家自主贡献",
+          "explanation_zh": "各国在《巴黎协定》下提交的减排、适应和支持目标，是观察气候治理雄心的重要入口。"
+        },
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
         }
       ],
       "tags": [
@@ -59,37 +50,23 @@
         "#绿色转型"
       ],
       "url": "https://unfccc.int/topics/cooperative-activities-and-sdgs/cooperative-activities-with-united-nations-entities-and-other-international-organizations",
-      "deep_reads": [
-        {
-          "title": "The Paris Agreement: resolving the inconsistency between global goals and national contributions",
-          "authors": "Rogelj et al.",
-          "year": 2016,
-          "url": "https://doi.org/10.1038/nclimate3031"
-        },
-        {
-          "title": "Nationally determined contributions under the Paris Agreement",
-          "authors": "Falkner",
-          "year": 2016,
-          "url": "https://doi.org/10.1080/14693062.2016.1218325"
-        },
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        }
-      ]
+      "deep_reads": []
     },
     {
       "title_en": "World Bank Development Finance with Climate Co-Benefits",
       "source_org": "World Bank Climate",
       "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
+      "summary_zh": "这条来自World Bank Climate的更新聚焦《World Bank Development Finance with Climate Co-Benefits》，主题与气候金融、债务可持续性、Global South相关。建议阅读原文，判断其对政策研究、项目融资或区域发展议程的具体意义。",
       "terms": [
         {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        },
+        {
+          "term_en": "debt sustainability",
+          "term_zh": "债务可持续性",
+          "explanation_zh": "一国在不牺牲长期发展能力的情况下持续偿付债务并保持财政空间的能力。"
         }
       ],
       "tags": [
@@ -98,37 +75,23 @@
         "#Global South"
       ],
       "url": "https://www.worldbank.org/en/programs/world-bank-development-finance-with-climate-co-benefits",
-      "deep_reads": [
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        },
-        {
-          "title": "What counts as climate finance?",
-          "authors": "Buchner et al.",
-          "year": 2011,
-          "url": "https://www.climatepolicyinitiative.org/publication/the-landscape-of-climate-finance/"
-        },
-        {
-          "title": "Debt sustainability in developing countries",
-          "authors": "Wyplosz",
-          "year": 2011,
-          "url": "https://doi.org/10.1093/oxrep/grr007"
-        }
-      ]
+      "deep_reads": []
     },
     {
       "title_en": "2024 Joint Summary Report on Multilateral Developing Banks' Climate Finance",
       "source_org": "World Bank Climate",
       "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
+      "summary_zh": "这条来自World Bank Climate的更新聚焦《2024 Joint Summary Report on Multilateral Developing Banks' Climate Finance》，主题与气候金融、债务可持续性、Global South相关。建议阅读原文，判断其对政策研究、项目融资或区域发展议程的具体意义。",
       "terms": [
         {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        },
+        {
+          "term_en": "debt sustainability",
+          "term_zh": "债务可持续性",
+          "explanation_zh": "一国在不牺牲长期发展能力的情况下持续偿付债务并保持财政空间的能力。"
         }
       ],
       "tags": [
@@ -137,37 +100,23 @@
         "#Global South"
       ],
       "url": "https://thedocs.worldbank.org/en/doc/9dfd56a554f3384875ea3ab122f2c994-0320012025/joint-summary-report-on-multilateral-development-banksclimate-finance",
-      "deep_reads": [
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        },
-        {
-          "title": "What counts as climate finance?",
-          "authors": "Buchner et al.",
-          "year": 2011,
-          "url": "https://www.climatepolicyinitiative.org/publication/the-landscape-of-climate-finance/"
-        },
-        {
-          "title": "Debt sustainability in developing countries",
-          "authors": "Wyplosz",
-          "year": 2011,
-          "url": "https://doi.org/10.1093/oxrep/grr007"
-        }
-      ]
+      "deep_reads": []
     },
     {
       "title_en": "World Bank Climate Finance 2025",
       "source_org": "World Bank Climate",
       "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
+      "summary_zh": "这条来自World Bank Climate的更新聚焦《World Bank Climate Finance 2025》，主题与气候金融、债务可持续性、Global South相关。建议阅读原文，判断其对政策研究、项目融资或区域发展议程的具体意义。",
       "terms": [
         {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        },
+        {
+          "term_en": "debt sustainability",
+          "term_zh": "债务可持续性",
+          "explanation_zh": "一国在不牺牲长期发展能力的情况下持续偿付债务并保持财政空间的能力。"
         }
       ],
       "tags": [
@@ -176,141 +125,42 @@
         "#Global South"
       ],
       "url": "https://thedocs.worldbank.org/en/doc/af985cf92e8b967ba707f43fb2dd9de7-0320012025/original/FY25-Project-Level-WB-CCB-data.pdf",
-      "deep_reads": [
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        },
-        {
-          "title": "What counts as climate finance?",
-          "authors": "Buchner et al.",
-          "year": 2011,
-          "url": "https://www.climatepolicyinitiative.org/publication/the-landscape-of-climate-finance/"
-        },
-        {
-          "title": "Debt sustainability in developing countries",
-          "authors": "Wyplosz",
-          "year": 2011,
-          "url": "https://doi.org/10.1093/oxrep/grr007"
-        }
-      ]
+      "deep_reads": []
+    }
+  ],
+  "readings": [
+    {
+      "title": "A green industrial policy for Europe",
+      "authors": "Rodrik",
+      "year": 2014,
+      "url": "https://doi.org/10.1093/oxrep/gru025",
+      "note_zh": "适合作为观察绿色产业政策、公共部门能力与低碳转型工具的理论参照。",
+      "tags": [
+        "#绿色转型"
+      ],
+      "kind": "paper"
     },
     {
-      "title_en": "AR7 Climate Change: Mitigation of Climate Change",
-      "source_org": "IPCC News",
-      "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
-      "terms": [
-        {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
-        }
-      ],
+      "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
+      "authors": "Kattel and Mazzucato",
+      "year": 2018,
+      "url": "https://doi.org/10.1093/icc/dty032",
+      "note_zh": "适合作为观察绿色产业政策、公共部门能力与低碳转型工具的理论参照。",
       "tags": [
-        "#绿色转型",
+        "#绿色转型"
+      ],
+      "kind": "paper"
+    },
+    {
+      "title": "A climate finance accounting framework",
+      "authors": "Roberts et al.",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41558-021-01041-6",
+      "note_zh": "适合用来校准气候资金口径、核算边界与公共资金动员私人投资的讨论。",
+      "tags": [
         "#气候金融"
       ],
-      "url": "https://www.ipcc.ch/report/seventh-assessment-report-working-group-iii/",
-      "deep_reads": [
-        {
-          "title": "A green industrial policy for Europe",
-          "authors": "Rodrik",
-          "year": 2014,
-          "url": "https://doi.org/10.1093/oxrep/gru025"
-        },
-        {
-          "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
-          "authors": "Kattel and Mazzucato",
-          "year": 2018,
-          "url": "https://doi.org/10.1093/icc/dty032"
-        },
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        }
-      ]
-    },
-    {
-      "title_en": "AR6 Climate Change 2022: Mitigation of Climate Change",
-      "source_org": "IPCC News",
-      "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
-      "terms": [
-        {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
-        }
-      ],
-      "tags": [
-        "#绿色转型",
-        "#气候金融"
-      ],
-      "url": "https://www.ipcc.ch/report/sixth-assessment-report-working-group-3/",
-      "deep_reads": [
-        {
-          "title": "A green industrial policy for Europe",
-          "authors": "Rodrik",
-          "year": 2014,
-          "url": "https://doi.org/10.1093/oxrep/gru025"
-        },
-        {
-          "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
-          "authors": "Kattel and Mazzucato",
-          "year": 2018,
-          "url": "https://doi.org/10.1093/icc/dty032"
-        },
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        }
-      ]
-    },
-    {
-      "title_en": "Sustainable Development",
-      "source_org": "IISD",
-      "published_date": "2026-06-09",
-      "summary_zh": "该条目来自可信来源，涉及可持续发展、气候政策或绿色转型议题。建议结合原文判断其对政策研究、融资工具或区域发展议程的具体影响。",
-      "terms": [
-        {
-          "term_en": "policy implication",
-          "term_zh": "政策含义",
-          "explanation_zh": "指信息对政策设计、执行或评估可能带来的影响。"
-        }
-      ],
-      "tags": [
-        "#SDG进展",
-        "#气候金融",
-        "#Global South"
-      ],
-      "url": "https://www.iisd.org/mission-and-goals/sustainable-development",
-      "deep_reads": [
-        {
-          "title": "Sustainable Development Goals and the governance challenge",
-          "authors": "Kanie and Biermann",
-          "year": 2017,
-          "url": "https://mitpress.mit.edu/9780262533195/governing-through-goals/"
-        },
-        {
-          "title": "Policy: Map the interactions between Sustainable Development Goals",
-          "authors": "Nilsson, Griggs and Visbeck",
-          "year": 2016,
-          "url": "https://doi.org/10.1038/534320a"
-        },
-        {
-          "title": "A climate finance accounting framework",
-          "authors": "Roberts et al.",
-          "year": 2021,
-          "url": "https://doi.org/10.1038/s41558-021-01041-6"
-        }
-      ]
+      "kind": "paper"
     }
   ]
 }
