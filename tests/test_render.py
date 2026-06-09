@@ -36,24 +36,27 @@ class RenderTests(unittest.TestCase):
                 )
             ],
             readings=[
-                DeepRead(
-                    title="The Paris Agreement",
-                    authors="Rogelj et al.",
-                    year=2016,
-                    url="https://doi.org/10.1038/nclimate3031",
-                    note_zh="适合作为理解 NDC 与全球温控目标之间张力的基础读物。",
-                    note_en="Useful background for understanding the tension between NDCs and global temperature goals.",
-                    argument_zh="文章讨论全球目标与国家贡献之间的不一致。",
-                    argument_en="The article discusses inconsistencies between global goals and national contributions.",
-                    method_zh="采用情景分析和政策比较。",
-                    method_en="It uses scenario analysis and policy comparison.",
-                    evidence_zh="以巴黎协定目标和各国承诺为例。",
-                    evidence_en="It uses Paris Agreement goals and national pledges as evidence.",
-                    relevance_zh="有助于理解今日 NDC 新闻的治理背景。",
-                    relevance_en="It helps interpret today's NDC news in a broader governance context.",
-                    tags=["#NDC"],
-                    kind="paper",
-                )
+                _reading(
+                    "The Paris Agreement",
+                    "Rogelj et al.",
+                    2016,
+                    "https://doi.org/10.1038/nclimate3031",
+                    ["#NDC"],
+                ),
+                _reading(
+                    "A climate finance accounting framework",
+                    "Roberts et al.",
+                    2021,
+                    "https://doi.org/10.1038/s41558-021-01041-6",
+                    ["#气候金融"],
+                ),
+                _reading(
+                    "Decolonizing climate policy",
+                    "Sultana",
+                    2022,
+                    "https://doi.org/10.1177/03091325211017697",
+                    ["#Global South"],
+                ),
             ],
         )
 
@@ -63,13 +66,37 @@ class RenderTests(unittest.TestCase):
         self.assertIn("今日新闻", markdown)
         self.assertIn("Climate finance update", markdown)
         self.assertIn("今日深读", markdown)
-        self.assertIn("English brief", markdown)
+        self.assertIn("**摘要**", markdown)
+        self.assertIn("**Brief**", markdown)
+        self.assertIn("例证 / Evidence", markdown)
         self.assertIn("The Paris Agreement", markdown)
         self.assertIn("今日新闻", html)
         self.assertIn("今日深读", html)
         self.assertIn("Why it matters", html)
-        self.assertIn("Argument", html)
-        self.assertIn("#NDC", html)
+        self.assertIn("Reading Path", html)
+        self.assertIn("推荐进一步了解的概念", html)
+        self.assertIn("A climate finance accounting framework", html)
+
+
+def _reading(title: str, authors: str, year: int, url: str, tags: list[str]) -> DeepRead:
+    return DeepRead(
+        title=title,
+        authors=authors,
+        year=year,
+        url=url,
+        note_zh="这是一段较长的阅读摘要，用来说明文章的主要问题意识、研究对象和对今日议题的参考价值。",
+        note_en="This is a longer reading brief that explains the article's core question, object of analysis, and relevance for today's issue.",
+        argument_zh="文章讨论全球目标、融资安排或气候治理之间的关键张力。",
+        argument_en="The article discusses key tensions among global goals, finance arrangements, or climate governance.",
+        method_zh="采用政策分析、文献讨论或案例比较的方法。",
+        method_en="It uses policy analysis, literature discussion, or comparative cases.",
+        evidence_zh="例证包括国家承诺、融资工具、制度安排或发展中国家的政策约束。",
+        evidence_en="Evidence includes national pledges, finance instruments, institutional arrangements, or policy constraints.",
+        relevance_zh="适合用来理解今日新闻背后的政策机制和融资含义。",
+        relevance_en="Useful for interpreting the policy mechanism and finance implication behind today's news.",
+        tags=tags,
+        kind="paper",
+    )
 
 
 if __name__ == "__main__":
