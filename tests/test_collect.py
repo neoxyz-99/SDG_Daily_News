@@ -117,6 +117,44 @@ class CollectTests(unittest.TestCase):
         self.assertIn("Executive summary", result[0].full_text)
         self.assertEqual(stats.full_text_sources, {"IISD SDG Knowledge Hub"})
 
+    def test_short_research_rss_summary_can_be_rescued_by_full_text(self) -> None:
+        source = Source(
+            name="Climate Policy Initiative",
+            type="think_tank",
+            strategy="rss",
+            allowed_domains=["climatepolicyinitiative.org"],
+            default_tags=[],
+            url="https://climatepolicyinitiative.org/feed/",
+        )
+        feed = """<?xml version="1.0"?>
+        <rss><channel>
+          <item>
+            <title>Closing the water finance gap</title>
+            <link>https://climatepolicyinitiative.org/publication/closing-the-water-finance-gap</link>
+            <pubDate>Tue, 09 Jun 2026 12:00:00 GMT</pubDate>
+            <description>Short summary.</description>
+          </item>
+        </channel></rss>
+        """
+
+        with patch("sdg_digest.collect.fetch_text", return_value=feed), patch(
+            "sdg_digest.collect.extract_full_text",
+            return_value=(
+                "The report argues that water finance requires better institutional coordination, "
+                "stronger project preparation, public risk sharing, and concessional instruments "
+                "that can help recipient governments translate adaptation needs into investable "
+                "pipelines without shifting costs to vulnerable communities. It also discusses "
+                "how development banks, local utilities, fiscal authorities, and climate funds "
+                "can align planning cycles, guarantees, revenue models, and adaptation objectives "
+                "so that water infrastructure can attract capital while maintaining public accountability."
+            ),
+        ), patch("sdg_digest.collect.time.sleep"):
+            result = collect_candidates([source], date(2026, 6, 9), lookback_days=7)
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].text_source, "full_text")
+        self.assertEqual(result[0].layer, "research")
+
 
 def _candidate(title: str, url: str, summary_hint: str = "") -> Candidate:
     return Candidate(

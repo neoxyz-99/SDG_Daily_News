@@ -17,7 +17,8 @@ from bs4 import BeautifulSoup
 from .http import USER_AGENT, fetch_text
 from .models import Candidate, Source
 
-RESEARCH_MIN_FEED_WORDS = 50
+RESEARCH_MIN_CONTENT_WORDS = 15
+FULL_TEXT_MIN_WORDS = 50
 EVENT_MIN_FEED_WORDS = 0
 TITLE_SIMILARITY_THRESHOLD = 0.85
 FULL_TEXT_TIMEOUT_SECONDS = 10
@@ -39,6 +40,9 @@ SUMMARY_SELECTORS = ["executive-summary", "summary", "abstract", "lead", "intro"
 @dataclass
 class CollectionStats:
     rss_items_fetched: int = 0
+    rss_items_after_text_check: int = 0
+    rss_items_after_date_domain_check: int = 0
+    short_text_skips: int = 0
     full_text_sources: set[str] = field(default_factory=set)
     rss_fallback_sources: set[str] = field(default_factory=set)
     full_text_failures: list[str] = field(default_factory=list)
@@ -62,12 +66,14 @@ def collect_candidates(
             print(f"Skipping source {source.name}: {exc}")
 
     since = run_date - timedelta(days=lookback_days)
-    return [
+    filtered = [
         candidate
         for candidate in candidates
         if is_allowed_url(candidate.url, _source_domains(sources, candidate.source_org))
         and _within_lookback(candidate.published_date, since, run_date)
     ]
+    stats.rss_items_after_date_domain_check = len(filtered)
+    return filtered
 
 
 def _source_domains(sources: list[Source], source_name: str) -> list[str]:
@@ -101,9 +107,12 @@ def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list
             continue
         stats.rss_items_fetched += 1
         rss_summary = _clean_text(summary)
-        if _word_count(rss_summary) < _minimum_feed_words(source):
-            continue
         full_text, text_source = _maybe_extract_full_text(link.strip(), rss_summary, source, stats)
+        if _word_count(full_text or rss_summary) < _minimum_candidate_words(source):
+            stats.short_text_skips += 1
+            print(f"Skipping item with too little extractable text: {source.name} - {_clean_text(title)}")
+            continue
+        stats.rss_items_after_text_check += 1
         candidates.append(
             Candidate(
                 title=_clean_text(title),
@@ -139,7 +148,7 @@ def _maybe_extract_full_text(
         stats.full_text_failures.append(f"{source.name}: {exc}")
         stats.rss_fallback_sources.add(source.name)
         return "", "rss"
-    if extracted and _word_count(extracted) >= RESEARCH_MIN_FEED_WORDS:
+    if extracted and _word_count(extracted) >= FULL_TEXT_MIN_WORDS:
         stats.full_text_sources.add(source.name)
         return extracted, "full_text"
     stats.rss_fallback_sources.add(source.name)
@@ -190,10 +199,10 @@ def _is_full_text_whitelisted(url: str) -> bool:
     return any(host == domain or host.endswith(f".{domain}") for domain in FULL_TEXT_WHITELIST if domain != "lse.ac.uk")
 
 
-def _minimum_feed_words(source: Source) -> int:
+def _minimum_candidate_words(source: Source) -> int:
     if source.layer in {"event", "news"}:
         return EVENT_MIN_FEED_WORDS
-    return RESEARCH_MIN_FEED_WORDS
+    return RESEARCH_MIN_CONTENT_WORDS
 
 
 def _entry_link(entry: ElementTree.Element) -> str:
@@ -324,3 +333,4 @@ def _cosine_similarity(first: Counter[str], second: Counter[str]) -> float:
 
 
 # CHANGE 2 DONE: whitelist sources attempt full-text extraction with RSS fallback and collection stats.
+# ZERO-CANDIDATE FIX DONE: research items are no longer rejected for short RSS summaries before full-text extraction is attempted.
