@@ -52,12 +52,20 @@ def generate_digest(
     max_items: int,
     use_openai: bool = True,
 ) -> Digest:
-    if use_openai and os.getenv("OPENAI_API_KEY") and candidates:
+    allow_fallback = os.getenv("ALLOW_OPENAI_FALLBACK", "").lower() == "true"
+    if use_openai and candidates:
+        if not os.getenv("OPENAI_API_KEY"):
+            if allow_fallback:
+                return fallback_digest(candidates[:max_items], bibliography, run_date)
+            raise RuntimeError("OPENAI_API_KEY is not set; refusing to publish fallback digest")
         try:
             raw = _call_openai(candidates, bibliography, run_date, max_items)
             return validate_digest_payload(raw, candidates, bibliography, run_date)
         except Exception as exc:
-            print(f"OpenAI generation failed, using deterministic fallback: {exc}")
+            if allow_fallback:
+                print(f"OpenAI generation failed, using deterministic fallback: {exc}")
+                return fallback_digest(candidates[:max_items], bibliography, run_date)
+            raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
     return fallback_digest(candidates[:max_items], bibliography, run_date)
 
 
