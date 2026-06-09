@@ -1,0 +1,88 @@
+{
+  "readings": {
+    "#NDC": [
+      {
+        "title": "The Paris Agreement: resolving the inconsistency between global goals and national contributions",
+        "authors": "Rogelj et al.",
+        "year": 2016,
+        "url": "https://doi.org/10.1038/nclimate3031"
+      },
+      {
+        "title": "Nationally determined contributions under the Paris Agreement",
+        "authors": "Falkner",
+        "year": 2016,
+        "url": "https://doi.org/10.1080/14693062.2016.1218325"
+      }
+    ],
+    "#气候金融": [
+      {
+        "title": "A climate finance accounting framework",
+        "authors": "Roberts et al.",
+        "year": 2021,
+        "url": "https://doi.org/10.1038/s41558-021-01041-6"
+      },
+      {
+        "title": "What counts as climate finance?",
+        "authors": "Buchner et al.",
+        "year": 2011,
+        "url": "https://www.climatepolicyinitiative.org/publication/the-landscape-of-climate-finance/"
+      }
+    ],
+    "#SDG进展": [
+      {
+        "title": "Sustainable Development Goals and the governance challenge",
+        "authors": "Kanie and Biermann",
+        "year": 2017,
+        "url": "https://mitpress.mit.edu/9780262533195/governing-through-goals/"
+      },
+      {
+        "title": "Policy: Map the interactions between Sustainable Development Goals",
+        "authors": "Nilsson, Griggs and Visbeck",
+        "year": 2016,
+        "url": "https://doi.org/10.1038/534320a"
+      }
+    ],
+    "#绿色转型": [
+      {
+        "title": "A green industrial policy for Europe",
+        "authors": "Rodrik",
+        "year": 2014,
+        "url": "https://doi.org/10.1093/oxrep/gru025"
+      },
+      {
+        "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
+        "authors": "Kattel and Mazzucato",
+        "year": 2018,
+        "url": "https://doi.org/10.1093/icc/dty032"
+      }
+    ],
+    "#债务可持续性": [
+      {
+        "title": "Debt sustainability in developing countries",
+        "authors": "Wyplosz",
+        "year": 2011,
+        "url": "https://doi.org/10.1093/oxrep/grr007"
+      },
+      {
+        "title": "Fiscal space for what? Analytical issues from a human development perspective",
+        "authors": "Roy, Heuty and Letouze",
+        "year": 2007,
+        "url": "https://www.undp.org/publications/fiscal-space-what-analytical-issues-human-development-perspective"
+      }
+    ],
+    "#Global South": [
+      {
+        "title": "Decolonizing climate policy",
+        "authors": "Sultana",
+        "year": 2022,
+        "url": "https://doi.org/10.1177/03091325211017697"
+      },
+      {
+        "title": "Climate change and the global south",
+        "authors": "Huq and Reid",
+        "year": 2004,
+        "url": "https://doi.org/10.1080/14693062.2004.9685516"
+      }
+    ]
+  }
+}

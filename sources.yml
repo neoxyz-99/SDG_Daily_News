@@ -1,0 +1,100 @@
+{
+  "sources": [
+    {
+      "name": "UN News - Climate and Environment",
+      "type": "international_org",
+      "strategy": "page",
+      "url": "https://news.un.org/en/news/topic/climate-change",
+      "allowed_domains": ["news.un.org", "un.org"],
+      "default_tags": ["#SDG进展", "#绿色转型"]
+    },
+    {
+      "name": "UNFCCC News",
+      "type": "international_org",
+      "strategy": "page",
+      "url": "https://unfccc.int/news",
+      "allowed_domains": ["unfccc.int"],
+      "default_tags": ["#NDC", "#气候金融", "#绿色转型"]
+    },
+    {
+      "name": "World Bank Climate",
+      "type": "international_org",
+      "strategy": "page",
+      "url": "https://www.worldbank.org/en/topic/climatechange",
+      "allowed_domains": ["worldbank.org", "blogs.worldbank.org"],
+      "default_tags": ["#气候金融", "#债务可持续性", "#Global South"]
+    },
+    {
+      "name": "UNDP News Centre",
+      "type": "international_org",
+      "strategy": "page",
+      "url": "https://www.undp.org/news-centre",
+      "allowed_domains": ["undp.org"],
+      "default_tags": ["#SDG进展", "#Global South"]
+    },
+    {
+      "name": "IPCC News",
+      "type": "international_org",
+      "strategy": "page",
+      "url": "https://www.ipcc.ch/news/",
+      "allowed_domains": ["ipcc.ch"],
+      "default_tags": ["#绿色转型", "#气候金融"]
+    },
+    {
+      "name": "IISD",
+      "type": "think_tank",
+      "strategy": "page",
+      "url": "https://www.iisd.org/articles",
+      "allowed_domains": ["iisd.org"],
+      "default_tags": ["#SDG进展", "#气候金融", "#Global South"]
+    },
+    {
+      "name": "WRI Insights",
+      "type": "think_tank",
+      "strategy": "page",
+      "url": "https://www.wri.org/insights",
+      "allowed_domains": ["wri.org"],
+      "default_tags": ["#绿色转型", "#气候金融", "#NDC"]
+    },
+    {
+      "name": "ODI",
+      "type": "think_tank",
+      "strategy": "page",
+      "url": "https://odi.org/en/insights/",
+      "allowed_domains": ["odi.org"],
+      "default_tags": ["#Global South", "#债务可持续性"]
+    },
+    {
+      "name": "Brookings",
+      "type": "think_tank",
+      "strategy": "page",
+      "url": "https://www.brookings.edu/topic/climate-change/",
+      "allowed_domains": ["brookings.edu"],
+      "default_tags": ["#气候金融", "#绿色转型"]
+    },
+    {
+      "name": "Nature Climate Change",
+      "type": "journal",
+      "strategy": "crossref",
+      "issn": ["1758-678X", "1758-6798"],
+      "allowed_domains": ["nature.com", "doi.org", "api.crossref.org"],
+      "default_tags": ["#绿色转型", "#气候金融"]
+    },
+    {
+      "name": "Global Policy",
+      "type": "journal",
+      "strategy": "crossref",
+      "issn": ["1758-5880", "1758-5899"],
+      "allowed_domains": ["onlinelibrary.wiley.com", "doi.org", "api.crossref.org"],
+      "default_tags": ["#SDG进展", "#Global South"]
+    },
+    {
+      "name": "World Development",
+      "type": "journal",
+      "strategy": "crossref",
+      "issn": ["0305-750X"],
+      "allowed_domains": ["sciencedirect.com", "doi.org", "api.crossref.org"],
+      "default_tags": ["#SDG进展", "#债务可持续性", "#Global South"]
+    }
+  ]
+}
