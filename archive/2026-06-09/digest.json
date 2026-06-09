@@ -1,32 +1,34 @@
 {
   "digest_date": "2026-06-09",
   "subject": "The Governance Brief - 2026-06-09",
-  "overview_zh": "聚焦气候融资、可持续发展的重要性。",
+  "overview_zh": "水资源融资成为全球发展与气候议程的核心",
   "items": [
     {
       "title_en": "Closing the water finance gap: Five lessons from a decade of practice",
       "source_org": "Climate Policy Initiative",
       "published_date": "2026-06-09",
-      "summary_zh": "水资源问题已成为全球发展和气候议程的核心。随着“水前进”倡议的推出和即将举行的联合国水会议，本文总结了十年来在水融资方面的五个重要经验，以期促使各国建立更加强大的水资源管理体系，以应对气候变化的挑战。",
+      "summary_zh": "水资源已成为2026年全球发展与气候议程的核心。CPI发布的报告总结了十年来的实践经验，强调要满足所有人对安全、可靠、可负担的水和卫生服务的需求，建立气候变化适应的水系统。",
       "terms": [
         {
           "term_en": "WASH",
-          "term_zh": "水、卫生与卫生设施",
-          "explanation_zh": "涵盖安全饮水、卫生设施和卫生的综合服务，确保基本生活条件。"
+          "term_zh": "水和卫生服务",
+          "explanation_zh": "指水资源、卫生、和卫生设施的整合服务，旨在保护人类健康和环境。"
+        },
+        {
+          "term_en": "climate resilience",
+          "term_zh": "气候韧性",
+          "explanation_zh": "指能够适应气候变化影响的社会和环境系统，以保持其功能和稳定性。"
         }
       ],
       "tags": [
-        "#SDG进展",
         "#气候金融",
         "#绿色转型"
       ],
       "url": "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
-      "summary_en": "Water has become central to the global development and climate agenda. This article summarizes five key lessons from a decade of practice in water financing, emphasizing the need for stronger water management systems to adapt to climate change, alongside the launch of initiatives like 'Water Forward' and the upcoming UN Water Conference.",
-      "why_it_matters_zh": "水资源管理对满足可持续发展目标至关重要，尤其是在应对气候变化时。",
-      "why_it_matters_en": "Effective water management is crucial for achieving sustainable development goals, particularly in the context of climate change.",
-      "sdg_links": [
-        "https://sdgs.un.org/goals"
-      ],
+      "summary_en": "Water has emerged as a central concern in global development and climate agendas in 2026. The report by CPI summarizes ten years of practice, stressing the need to meet everyone’s demand for safe, reliable, and affordable WASH services while building systems resilient to climate change.",
+      "why_it_matters_zh": "解决水资源融资缺口对可持续发展和气候适应至关重要，确保人们获得基本的水资源和卫生服务。",
+      "why_it_matters_en": "Addressing the water finance gap is crucial for sustainable development and climate adaptation, ensuring access to essential water and sanitation services for all.",
+      "sdg_links": [],
       "deep_reads": []
     }
   ],
@@ -50,22 +52,22 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "This piece establishes foundational concepts for understanding international regimes affecting climate governance and development finance.",
+      "today_relevance_en": "This classic article provides foundational insights into how international regimes influence state behavior, critical for contemporary climate governance discussions.",
       "tags": [
         "#多边治理"
       ],
       "kind": "journal article"
     },
     {
-      "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
-      "authors": "Axel Michaelowa and Katharina Michaelowa",
-      "year": 2011,
-      "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
-      "note_zh": "这篇文章研究气候援助报告中的统计偏差，核心问题是捐助国如何在发展援助中标记、计算和呈现气候相关资金。作者指出，气候资金并非透明中性的数字，而是受到政治激励、报告规则和国际声誉竞争影响。它为判断气候金融承诺是否真实、额外和可追踪提供了重要背景。",
+      "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
+      "authors": "John Gerard Ruggie",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018993",
+      "note_zh": "Ruggie 追问战后国际经济秩序为何既支持开放市场，又保留国内社会保护和政策空间。他提出“嵌入式自由主义”概念，说明多边规则并不只是市场自由化工具，也嵌入了特定社会契约和发展想象。今天讨论绿色产业政策、气候融资条件和多边发展银行改革时，这篇文章仍能帮助理解开放秩序与国家发展能力之间的张力。",
       "note_en": "",
-      "journal": "World Development",
-      "doi": "10.1016/j.worlddev.2011.07.020",
-      "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018993",
+      "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
@@ -75,11 +77,38 @@
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
-      "today_relevance_en": "Offers important context for evaluating the transparency of climate finance commitments among donor countries.",
+      "today_relevance_en": "Ruggie's concept of embedded liberalism remains vital for understanding the balancing act between market openness and social protections in climate financing today.",
       "tags": [
-        "#气候金融",
+        "#多边治理",
         "#发展不平等",
-        "#多边治理"
+        "#绿色转型"
+      ],
+      "kind": "journal article"
+    },
+    {
+      "title": "Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees",
+      "authors": "Frank Biermann and Ingrid Boas",
+      "year": 2010,
+      "url": "https://doi.org/10.1162/glep.2010.10.1.60",
+      "note_zh": "这篇文章从气候流离失所问题切入，追问现有国际制度是否有能力保护因气候变化而迁移的人群。作者认为，传统难民法和气候制度之间存在治理空白，需要建立更具前瞻性的全球保护安排。它的重要性在于把气候影响、人口迁移、发展脆弱性和国际责任连接起来，适合解释灾害和适应融资新闻背后的治理缺口。",
+      "note_en": "",
+      "journal": "Global Environmental Politics",
+      "doi": "10.1162/glep.2010.10.1.60",
+      "methodology_zh": "文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "This article highlights the governance gaps in protecting those displaced by climate change, an increasingly urgent issue in contemporary debates on environmental justice.",
+      "tags": [
+        "#多边治理",
+        "#Global South",
+        "#发展不平等"
       ],
       "kind": "journal article"
     }
