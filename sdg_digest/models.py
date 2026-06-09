@@ -13,6 +13,7 @@ class Source:
     default_tags: list[str]
     url: str | None = None
     issn: list[str] = field(default_factory=list)
+    layer: str = "research"
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,20 @@ class Candidate:
     doi: str | None = None
     full_text: str = ""
     text_source: str = "rss"
+    semantic_score: int | None = None
+    semantic_domain: str = ""
+    semantic_reason: str = ""
+    layer: str = "research"
+
+
+@dataclass(frozen=True)
+class NewsBrief:
+    title_en: str
+    source_org: str
+    published_date: str
+    url: str
+    one_sentence_zh: str
+    tags: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -107,3 +122,6 @@ class Digest:
     readings: list[DeepRead] = field(default_factory=list)
     overview_en: str = ""
     weekly_thread_zh: str = ""
+    recent_news: list[NewsBrief] = field(default_factory=list)
+    research_signals: list[DigestItem] = field(default_factory=list)
+    classic_readings: list[DeepRead] = field(default_factory=list)

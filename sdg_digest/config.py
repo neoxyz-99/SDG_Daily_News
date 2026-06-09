@@ -30,6 +30,7 @@ def load_sources(path: str | Path) -> list[Source]:
                 issn=list(raw.get("issn", [])),
                 allowed_domains=list(raw.get("allowed_domains", [])),
                 default_tags=list(raw.get("default_tags", [])),
+                layer=raw.get("layer", "research"),
             )
         )
     return sources

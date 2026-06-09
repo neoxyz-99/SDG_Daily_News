@@ -17,7 +17,8 @@ from bs4 import BeautifulSoup
 from .http import USER_AGENT, fetch_text
 from .models import Candidate, Source
 
-MIN_FEED_WORDS = 50
+RESEARCH_MIN_FEED_WORDS = 50
+EVENT_MIN_FEED_WORDS = 0
 TITLE_SIMILARITY_THRESHOLD = 0.85
 FULL_TEXT_TIMEOUT_SECONDS = 10
 FULL_TEXT_DELAY_SECONDS = 2
@@ -100,7 +101,7 @@ def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list
             continue
         stats.rss_items_fetched += 1
         rss_summary = _clean_text(summary)
-        if _word_count(rss_summary) < MIN_FEED_WORDS:
+        if _word_count(rss_summary) < _minimum_feed_words(source):
             continue
         full_text, text_source = _maybe_extract_full_text(link.strip(), rss_summary, source, stats)
         candidates.append(
@@ -111,10 +112,11 @@ def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list
                 published_date=_normalize_date(published, run_date),
                 url=link.strip(),
                 summary_hint=rss_summary,
-                tags=[],
+                tags=list(source.default_tags),
                 discovered_date=run_date.isoformat(),
                 full_text=full_text,
                 text_source=text_source,
+                layer=source.layer,
             )
         )
     return candidates
@@ -137,7 +139,7 @@ def _maybe_extract_full_text(
         stats.full_text_failures.append(f"{source.name}: {exc}")
         stats.rss_fallback_sources.add(source.name)
         return "", "rss"
-    if extracted and _word_count(extracted) >= MIN_FEED_WORDS:
+    if extracted and _word_count(extracted) >= RESEARCH_MIN_FEED_WORDS:
         stats.full_text_sources.add(source.name)
         return extracted, "full_text"
     stats.rss_fallback_sources.add(source.name)
@@ -186,6 +188,12 @@ def _is_full_text_whitelisted(url: str) -> bool:
     if host == "lse.ac.uk" or host.endswith(".lse.ac.uk"):
         return path.startswith("/grantham") or "/grantham" in path
     return any(host == domain or host.endswith(f".{domain}") for domain in FULL_TEXT_WHITELIST if domain != "lse.ac.uk")
+
+
+def _minimum_feed_words(source: Source) -> int:
+    if source.layer in {"event", "news"}:
+        return EVENT_MIN_FEED_WORDS
+    return RESEARCH_MIN_FEED_WORDS
 
 
 def _entry_link(entry: ElementTree.Element) -> str:

@@ -8,7 +8,7 @@ from .archive import write_archive
 from .collect import CollectionStats, collect_candidates, deduplicate_candidates, rank_candidates
 from .config import load_bibliography, load_sources
 from .emailer import send_email
-from .generate import filter_relevant_candidates, generate_digest
+from .generate import filter_relevant_candidates, generate_digest, is_recent_news_candidate
 from .render import render_html, render_markdown
 from .sent_articles import filter_sent_candidates, load_sent_articles, update_sent_articles
 
@@ -23,8 +23,10 @@ SOURCE_SUGGESTIONS = [
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate The Governance Brief")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
-    parser.add_argument("--lookback-days", type=int, default=3)
-    parser.add_argument("--max-items", type=int, default=5)
+    parser.add_argument("--lookback-days", type=int, default=7)
+    parser.add_argument("--max-items", type=int, default=5, help="Backward-compatible alias for research signals")
+    parser.add_argument("--max-recent-news", type=int, default=8)
+    parser.add_argument("--max-research-signals", type=int, default=None)
     parser.add_argument("--candidate-pool", type=int, default=30)
     parser.add_argument("--sources", default="sources.yml")
     parser.add_argument("--bibliography", default="bibliography.yml")
@@ -47,26 +49,39 @@ def main() -> None:
     candidates, filtered_by_sent = filter_sent_candidates(candidates, sent_record)
     print(f"Collected {len(candidates)} candidate(s) after source, run-level deduplication, and sent-history checks")
     candidates = filter_relevant_candidates(candidates, use_openai=not args.skip_openai)
-    print(f"{len(candidates)} candidate(s) passed AI relevance check")
+    recent_candidates = [candidate for candidate in candidates if is_recent_news_candidate(candidate)]
+    research_candidates = [candidate for candidate in candidates if not is_recent_news_candidate(candidate)]
+    print(
+        f"{len(recent_candidates)} recent-news candidate(s) and "
+        f"{len(research_candidates)} research candidate(s) remain after filtering"
+    )
     if args.lookback_days >= 7 and len(candidates) < 10:
         print("Source expansion suggestion: fewer than 10 relevant candidates after a 7-day window.")
         print("Consider adding RSS/Atom feeds that meet the source policy criteria:")
         for suggestion in SOURCE_SUGGESTIONS:
             print(f"- {suggestion}")
-    selected = rank_candidates(candidates, args.candidate_pool)
+    selected_recent = rank_candidates(recent_candidates, args.max_recent_news)
+    selected_research = rank_candidates(research_candidates, args.candidate_pool)
+    selected = selected_recent + selected_research
     digest = generate_digest(
         selected,
         bibliography,
         run_date,
         max_items=args.max_items,
         use_openai=not args.skip_openai,
+        max_recent_news=args.max_recent_news,
+        max_research_signals=args.max_research_signals or args.max_items,
     )
     if args.dry_run:
         print(render_markdown(digest))
     else:
         archive_dir = write_archive(digest, args.output_dir)
         print(f"Archived digest to {archive_dir}")
-    print(f"Selected {len(digest.items)} item(s)")
+    print(
+        f"Selected {len(digest.recent_news)} recent-news item(s), "
+        f"{len(digest.research_signals or digest.items)} research signal(s), "
+        f"and {len(digest.classic_readings or digest.readings)} classic reading(s)"
+    )
 
     if args.send_email and not args.dry_run:
         response = send_email(digest, render_html(digest))
@@ -80,6 +95,8 @@ def main() -> None:
         filtered_by_sent=filtered_by_sent,
         before_sent_filter=before_sent_filter,
         passed_to_ai=len(selected),
+        recent_candidates=len(selected_recent),
+        research_candidates=len(selected_research),
     )
 
 
@@ -88,12 +105,16 @@ def _print_dry_run_summary(
     filtered_by_sent: int,
     before_sent_filter: int,
     passed_to_ai: int,
+    recent_candidates: int,
+    research_candidates: int,
 ) -> None:
     print("")
     print("Dry run summary")
     print(f"- Number of RSS items fetched: {stats.rss_items_fetched}")
     print(f"- Number filtered by persistent deduplication: {filtered_by_sent} of {before_sent_filter}")
     print(f"- Number passed to AI: {passed_to_ai}")
+    print(f"- Recent-news candidates passed to AI: {recent_candidates}")
+    print(f"- Research candidates passed to AI: {research_candidates}")
     print(f"- Sources using full-text extraction: {', '.join(sorted(stats.full_text_sources)) or 'none'}")
     print(f"- Sources using RSS fallback: {', '.join(sorted(stats.rss_fallback_sources)) or 'none'}")
     if stats.full_text_failures:
@@ -104,6 +125,7 @@ def _print_dry_run_summary(
 
 # CHANGE 1 DONE: CLI loads sent history, filters old URLs, and updates it only after successful email sends.
 # CHANGE 2 DONE: CLI reports full-text extraction vs RSS fallback sources in the run summary.
+# WEEKLY MODULE ROUTING DONE: CLI now defaults to a 7-day window and sends separate recent-news/research pools to generation.
 
 
 if __name__ == "__main__":

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from datetime import date
 import os
 import unittest
+from unittest.mock import patch
 
 from sdg_digest.generate import fallback_digest, filter_relevant_candidates, generate_digest, validate_digest_payload
 from sdg_digest.models import Candidate, DeepRead
@@ -29,6 +31,36 @@ class GenerateTests(unittest.TestCase):
 
         self.assertEqual(result, [candidate])
 
+    def test_stage_one_excludes_only_obvious_noise(self) -> None:
+        noisy = replace(_candidate(), title="World Cup NBA match result")
+        substantive = _candidate_two()
+
+        result = filter_relevant_candidates([noisy, substantive], use_openai=False)
+
+        self.assertEqual(result, [substantive])
+
+    def test_semantic_filter_keeps_borderline_items_when_clear_passes_are_few(self) -> None:
+        clear = _candidate()
+        borderline = _candidate_two()
+        rejected = replace(_candidate(), title="Lifestyle product launch", url="https://example.org/lifestyle")
+
+        def score(candidate: Candidate) -> Candidate:
+            if candidate is clear:
+                return replace(candidate, semantic_score=2, semantic_domain="D", semantic_reason="Substantive finance item", tags=["#可持续金融与ESG"])
+            if candidate is borderline:
+                return replace(candidate, semantic_score=1, semantic_domain="B", semantic_reason="Thin but relevant", tags=["#发展与不平等"])
+            return replace(candidate, semantic_score=0, semantic_domain="mixed", semantic_reason="Not relevant", tags=["#综合治理议题"])
+
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
+            "sdg_digest.generate._score_candidate_semantically",
+            side_effect=score,
+        ):
+            result = filter_relevant_candidates([clear, borderline, rejected], use_openai=True)
+
+        self.assertEqual([candidate.title for candidate in result], [clear.title, borderline.title])
+        self.assertEqual([candidate.semantic_score for candidate in result], [2, 1])
+        self.assertEqual(result[0].tags[0], "#可持续金融与ESG")
+
     def test_validation_rejects_invented_url(self) -> None:
         candidate = _candidate()
         payload = _payload(candidate)
@@ -37,13 +69,15 @@ class GenerateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
 
-    def test_validation_rejects_broad_tags(self) -> None:
+    def test_validation_filters_broad_tags_without_failing_issue(self) -> None:
         candidate = _candidate()
         payload = _payload(candidate)
         payload["items"][0]["tags"] = ["#气候变化"]
 
-        with self.assertRaises(ValueError):
-            validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
+        digest = validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
+
+        self.assertNotIn("#气候变化", digest.items[0].tags)
+        self.assertEqual(digest.items[0].tags, ["#综合治理议题"])
 
     def test_daily_note_is_omitted_when_only_one_news_item_is_selected(self) -> None:
         candidate = _candidate()
@@ -53,6 +87,15 @@ class GenerateTests(unittest.TestCase):
 
         self.assertEqual(digest.overview_zh, "")
         self.assertEqual(len(digest.items), 1)
+
+    def test_validation_includes_semantic_domain_tag(self) -> None:
+        candidate = replace(_candidate(), tags=["#可持续金融与ESG"], semantic_score=2, semantic_domain="D")
+        payload = _payload(candidate)
+        payload["items"][0]["tags"] = ["#气候金融"]
+
+        digest = validate_digest_payload(payload, [candidate], {}, date(2026, 6, 9))
+
+        self.assertEqual(digest.items[0].tags[:2], ["#可持续金融与ESG", "#气候金融"])
 
     def test_validation_preserves_approved_reading_brief_and_adds_research_directions(self) -> None:
         first = _candidate()

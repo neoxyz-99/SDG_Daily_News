@@ -3,50 +3,101 @@
     {
       "name": "IISD SDG Knowledge Hub",
       "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
       "url": "https://sdg.iisd.org/feed/",
       "allowed_domains": ["sdg.iisd.org", "iisd.org"],
-      "default_tags": []
+      "default_tags": ["#SDG进展", "#多边治理"]
     },
     {
       "name": "Carbon Brief",
       "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
       "url": "https://www.carbonbrief.org/feed/",
       "allowed_domains": ["carbonbrief.org", "www.carbonbrief.org"],
-      "default_tags": []
+      "default_tags": ["#环境治理与气候"]
     },
     {
       "name": "Climate Policy Initiative",
       "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
       "url": "https://climatepolicyinitiative.org/feed/",
       "allowed_domains": ["climatepolicyinitiative.org", "www.climatepolicyinitiative.org"],
-      "default_tags": []
+      "default_tags": ["#气候金融", "#可持续金融与ESG"]
     },
     {
-      "name": "UN News Climate Change",
-      "type": "international_org",
+      "name": "ODI Insights",
+      "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
-      "url": "https://news.un.org/feed/subscribe/en/news/topic/climate-change/feed/rss.xml",
-      "allowed_domains": ["news.un.org"],
-      "default_tags": []
+      "url": "https://odi.org/en/insights/rss.xml",
+      "allowed_domains": ["odi.org", "www.odi.org"],
+      "default_tags": ["#发展不平等", "#Global South"]
     },
     {
-      "name": "Nature Climate Change",
-      "type": "journal",
+      "name": "World Resources Institute",
+      "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
-      "url": "https://www.nature.com/nclimate.rss",
-      "allowed_domains": ["nature.com", "www.nature.com"],
-      "default_tags": []
+      "url": "https://www.wri.org/rss.xml",
+      "allowed_domains": ["wri.org", "www.wri.org"],
+      "default_tags": ["#环境治理与气候", "#绿色转型"]
     },
     {
       "name": "Brookings",
       "type": "think_tank",
+      "layer": "research",
       "strategy": "rss",
       "url": "https://www.brookings.edu/feed/",
       "allowed_domains": ["brookings.edu", "www.brookings.edu"],
-      "default_tags": []
+      "default_tags": ["#多边治理", "#发展不平等"]
+    },
+    {
+      "name": "Nature Climate Change",
+      "type": "journal",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.nature.com/nclimate.rss",
+      "allowed_domains": ["nature.com", "www.nature.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "UN News Climate Change",
+      "type": "international_org",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://news.un.org/feed/subscribe/en/news/topic/climate-change/feed/rss.xml",
+      "allowed_domains": ["news.un.org"],
+      "default_tags": ["#多边治理", "#环境治理与气候"]
+    },
+    {
+      "name": "The Guardian Environment",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://www.theguardian.com/environment/rss",
+      "allowed_domains": ["theguardian.com", "www.theguardian.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Xinhua World News",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://english.news.cn/rss/world.xml",
+      "allowed_domains": ["english.news.cn", "news.cn"],
+      "default_tags": ["#地缘政治与治理"]
+    },
+    {
+      "name": "Reuters Agency Climate",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://www.reutersagency.com/feed/?best-topics=climate-change&post_type=best",
+      "allowed_domains": ["reutersagency.com", "www.reutersagency.com", "reuters.com", "www.reuters.com"],
+      "default_tags": ["#环境治理与气候"]
     }
   ]
 }

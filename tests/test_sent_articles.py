@@ -19,7 +19,15 @@ class SentArticlesTests(unittest.TestCase):
             record = load_sent_articles(path)
 
             self.assertTrue(path.exists())
-            self.assertEqual(record, {"sent_urls": [], "last_updated": ""})
+            self.assertEqual(
+                record,
+                {
+                    "sent_urls": [],
+                    "recent_news_urls": [],
+                    "research_signal_urls": [],
+                    "last_updated": "",
+                },
+            )
 
     def test_filter_sent_candidates_removes_previously_sent_urls(self) -> None:
         first = _candidate()

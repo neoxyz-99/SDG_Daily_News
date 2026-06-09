@@ -36,7 +36,7 @@ def _update_index(root: Path, digest: Digest) -> None:
     entry = {
         "date": digest_date,
         "subject": digest.subject,
-        "item_count": len(digest.items),
+        "item_count": len(digest.recent_news) + len(digest.research_signals or digest.items) + len(digest.classic_readings or digest.readings),
         "html": f"{digest_date}/digest.html",
         "markdown": f"{digest_date}/digest.md",
         "json": f"{digest_date}/digest.json",

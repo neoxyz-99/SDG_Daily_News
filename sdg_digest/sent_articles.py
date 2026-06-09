@@ -6,7 +6,12 @@ from pathlib import Path
 
 from .models import Candidate, Digest
 
-DEFAULT_SENT_ARTICLES = {"sent_urls": [], "last_updated": ""}
+DEFAULT_SENT_ARTICLES = {
+    "sent_urls": [],
+    "recent_news_urls": [],
+    "research_signal_urls": [],
+    "last_updated": "",
+}
 MAX_SENT_URLS = 500
 
 
@@ -17,18 +22,27 @@ def load_sent_articles(path: str | Path = "sent_articles.json") -> dict:
         return dict(DEFAULT_SENT_ARTICLES)
     with record_path.open("r", encoding="utf-8") as handle:
         data = json.load(handle)
-    sent_urls = data.get("sent_urls", [])
-    if not isinstance(sent_urls, list):
-        sent_urls = []
+    sent_urls = _as_url_list(data.get("sent_urls", []))
+    recent_news_urls = _as_url_list(data.get("recent_news_urls", []))
+    research_signal_urls = _as_url_list(data.get("research_signal_urls", []))
     return {
-        "sent_urls": [str(url) for url in sent_urls],
+        "sent_urls": sent_urls,
+        "recent_news_urls": recent_news_urls,
+        "research_signal_urls": research_signal_urls,
         "last_updated": str(data.get("last_updated", "")),
     }
 
 
 def filter_sent_candidates(candidates: list[Candidate], record: dict) -> tuple[list[Candidate], int]:
-    sent_urls = set(record.get("sent_urls", []))
-    unseen = [candidate for candidate in candidates if candidate.url not in sent_urls]
+    legacy_urls = set(record.get("sent_urls", []))
+    recent_news_urls = set(record.get("recent_news_urls", []))
+    research_signal_urls = set(record.get("research_signal_urls", []))
+    unseen = [
+        candidate
+        for candidate in candidates
+        if candidate.url not in legacy_urls
+        and candidate.url not in (recent_news_urls if candidate.layer in {"event", "news"} else research_signal_urls)
+    ]
     return unseen, len(candidates) - len(unseen)
 
 
@@ -39,13 +53,16 @@ def update_sent_articles(
 ) -> dict:
     record = load_sent_articles(path)
     sent_urls = list(record.get("sent_urls", []))
-    seen = set(sent_urls)
-    for item in digest.items:
-        if item.url not in seen:
-            sent_urls.append(item.url)
-            seen.add(item.url)
+    recent_news_urls = list(record.get("recent_news_urls", []))
+    research_signal_urls = list(record.get("research_signal_urls", []))
+
+    _append_unique(sent_urls, [item.url for item in [*digest.recent_news, *digest.research_signals, *digest.items]])
+    _append_unique(recent_news_urls, [item.url for item in digest.recent_news])
+    _append_unique(research_signal_urls, [item.url for item in [*digest.research_signals, *digest.items]])
     record = {
         "sent_urls": sent_urls[-MAX_SENT_URLS:],
+        "recent_news_urls": recent_news_urls[-MAX_SENT_URLS:],
+        "research_signal_urls": research_signal_urls[-MAX_SENT_URLS:],
         "last_updated": run_date.isoformat(),
     }
     Path(path).write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -53,3 +70,18 @@ def update_sent_articles(
 
 
 # CHANGE 1 DONE: sent_articles.json is loaded, used for filtering, and updated after successful sends.
+# WEEKLY MODULE DEDUP DONE: sent history is stored separately for recent-news and research-signal modules.
+
+
+def _as_url_list(value: object) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    return [str(url) for url in value if str(url).strip()]
+
+
+def _append_unique(target: list[str], urls: list[str]) -> None:
+    seen = set(target)
+    for url in urls:
+        if url and url not in seen:
+            target.append(url)
+            seen.add(url)
