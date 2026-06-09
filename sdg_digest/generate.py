@@ -75,7 +75,8 @@ def generate_digest(
                 last_exc = exc
                 feedback = (
                     f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
-                    "If a selected item has too little source detail to support a substantive brief, replace it with "
+                    "The summary_hint/source_excerpt fields are extracted source text, not prewritten summaries. "
+                    "If a selected item has too little extracted source text to support a substantive brief, replace it with "
                     "a richer candidate from the list instead of padding generic text. Make every summary_zh at least "
                     "120 Chinese characters, every summary_en at least 60 words, select at least 3 news items when "
                     "3 credible candidates exist, and select 3 readings."
@@ -124,7 +125,8 @@ def _call_openai(
         "instructions": [
             "Return a JSON object that follows the schema.",
             "Select the strongest 3-5 news items. Prefer 4-5 when enough credible candidates exist.",
-            "Prioritize candidates with richer source detail and longer summary_hint fields. Avoid thin landing-page items when richer candidates are available.",
+            "The summary_hint/source_excerpt fields are extracted source text for you to summarize, not prewritten summaries.",
+            "Prioritize candidates with richer extracted source text. Avoid thin landing-page items when richer candidates are available.",
             "Write overview_zh and overview_en as reader-facing editorial summaries. Do not mention model, automation, fallback, or whitelist.",
             "For each item, write summary_zh as a substantive Chinese brief of 120-180 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
             "For each item, write summary_en as a substantive English brief of 60-100 words. It must summarize the item itself, not tell readers to check the original.",
@@ -178,8 +180,9 @@ def _call_openai(
 
 def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
     payload = candidate.__dict__.copy()
-    payload["summary_hint_chars"] = _compact_len(candidate.summary_hint)
-    payload["has_rich_source_detail"] = _compact_len(candidate.summary_hint) >= 160
+    payload["source_excerpt"] = candidate.summary_hint
+    payload["source_excerpt_chars"] = _compact_len(candidate.summary_hint)
+    payload["has_rich_source_text"] = _compact_len(candidate.summary_hint) >= 160
     return payload
 
 

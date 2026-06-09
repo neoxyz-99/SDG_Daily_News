@@ -224,12 +224,12 @@ def _score_candidate(candidate: Candidate) -> tuple[int, str]:
     keyword_score = sum(2 for keyword in KEYWORDS if keyword in text)
     tag_score = len(candidate.tags)
     source_score = {"journal": 4, "international_org": 3, "think_tank": 2}.get(candidate.source_type, 1)
-    hint_score = _summary_hint_score(candidate.summary_hint)
+    hint_score = _source_excerpt_score(candidate.summary_hint)
     return (keyword_score + tag_score + source_score + hint_score, candidate.published_date)
 
 
-def _summary_hint_score(summary_hint: str) -> int:
-    length = len(" ".join((summary_hint or "").split()))
+def _source_excerpt_score(source_excerpt: str) -> int:
+    length = len(" ".join((source_excerpt or "").split()))
     if length >= 500:
         return 5
     if length >= 300:
@@ -310,7 +310,24 @@ def _fetch_page_summary(url: str) -> str:
     return _extract_page_summary(text)
 
 
-def _extract_page_summary(text: str, max_chars: int = 700) -> str:
+def _extract_page_summary(text: str, max_chars: int = 1800) -> str:
+    clean_html = re.sub(r"<(script|style|noscript)\b[^>]*>.*?</\1>", " ", text, flags=re.I | re.S)
+    paragraphs = []
+    article_matches = re.findall(r"<article\b[^>]*>(.*?)</article>", clean_html, re.I | re.S)
+    paragraph_sources = article_matches or [clean_html]
+    for source in paragraph_sources:
+        for raw in re.findall(r"<p\b[^>]*>(.*?)</p>", source, re.I | re.S):
+            paragraph = _clean_text(re.sub(r"<[^>]+>", " ", raw))
+            lower = paragraph.lower()
+            if len(paragraph) >= 50 and not lower.startswith(("cookie", "subscribe", "sign up", "share this")):
+                paragraphs.append(paragraph)
+            if len(" ".join(paragraphs)) >= max_chars:
+                break
+        if paragraphs:
+            break
+
+    body_excerpt = " ".join(paragraphs)
+    meta_excerpt = ""
     for pattern in (
         r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
         r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)["\']',
@@ -319,18 +336,12 @@ def _extract_page_summary(text: str, max_chars: int = 700) -> str:
     ):
         match = re.search(pattern, text, re.I | re.S)
         if match:
-            summary = _clean_text(match.group(1))
-            if len(summary) >= 40:
-                return summary[:max_chars]
-
-    paragraphs = []
-    for raw in re.findall(r"<p\b[^>]*>(.*?)</p>", text, re.I | re.S):
-        paragraph = _clean_text(re.sub(r"<[^>]+>", " ", raw))
-        if len(paragraph) >= 50 and not paragraph.lower().startswith(("cookie", "subscribe", "sign up")):
-            paragraphs.append(paragraph)
-        if len(" ".join(paragraphs)) >= max_chars:
+            meta_excerpt = _clean_text(match.group(1))
             break
-    return " ".join(paragraphs)[:max_chars]
+
+    if body_excerpt and meta_excerpt and meta_excerpt not in body_excerpt:
+        return f"{meta_excerpt} {body_excerpt}"[:max_chars]
+    return (body_excerpt or meta_excerpt)[:max_chars]
 
 
 def _canonical_url(url: str) -> str:
