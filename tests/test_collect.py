@@ -39,6 +39,27 @@ class CollectTests(unittest.TestCase):
 
         self.assertEqual(result[0].url, rich.url)
 
+    def test_rank_prefers_richer_summary_hint(self) -> None:
+        thin = _candidate(
+            "Climate finance update",
+            "https://example.org/thin",
+            summary_hint="Short update.",
+        )
+        rich = _candidate(
+            "Climate finance update",
+            "https://example.org/rich",
+            summary_hint=(
+                "This update explains how a climate finance facility supports developing countries "
+                "through concessional finance, technical assistance, results-based payments, and "
+                "policy reforms that connect emissions reduction with resilience and fiscal capacity. "
+                "It identifies implementing agencies, funding mechanisms, and implications for NDC delivery."
+            ),
+        )
+
+        result = rank_candidates([thin, rich], max_items=1)
+
+        self.assertEqual(result[0].url, rich.url)
+
     def test_extract_page_summary_prefers_meta_description(self) -> None:
         html = """
         <html>
@@ -58,6 +79,7 @@ def _candidate(
     doi: str | None = None,
     source_type: str = "journal",
     tags: list[str] | None = None,
+    summary_hint: str = "",
 ) -> Candidate:
     return Candidate(
         title=title,
@@ -65,7 +87,7 @@ def _candidate(
         source_type=source_type,
         published_date="2026-06-09",
         url=url,
-        summary_hint="",
+        summary_hint=summary_hint,
         tags=tags or ["#气候金融"],
         discovered_date="2026-06-09",
         doi=doi,
