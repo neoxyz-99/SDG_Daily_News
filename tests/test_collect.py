@@ -39,7 +39,7 @@ class CollectTests(unittest.TestCase):
 
         self.assertEqual(result[0].url, rich.url)
 
-    def test_rank_prefers_richer_summary_hint(self) -> None:
+    def test_rank_prefers_richer_source_excerpt(self) -> None:
         thin = _candidate(
             "Climate finance update",
             "https://example.org/thin",
@@ -60,17 +60,22 @@ class CollectTests(unittest.TestCase):
 
         self.assertEqual(result[0].url, rich.url)
 
-    def test_extract_page_summary_prefers_meta_description(self) -> None:
+    def test_extract_page_summary_combines_meta_description_and_body_text(self) -> None:
         html = """
         <html>
           <head>
             <meta name="description" content="A climate policy update with concrete finance and resilience implications for developing countries.">
           </head>
-          <body><p>Fallback paragraph that should not be used first.</p></body>
+          <body><article>
+            <p>The policy creates a new funding mechanism for adaptation planning, fiscal resilience, and locally led implementation in climate-vulnerable countries.</p>
+          </article></body>
         </html>
         """
 
-        self.assertIn("climate policy update", _extract_page_summary(html))
+        result = _extract_page_summary(html)
+
+        self.assertIn("climate policy update", result)
+        self.assertIn("funding mechanism", result)
 
 
 def _candidate(
