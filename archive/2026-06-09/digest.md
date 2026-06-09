@@ -4,75 +4,119 @@ Issue week: 2026-06-09
 
 ## 本周导语 / Editorial Note
 
-极端天气的频发对各国公共卫生产生深远影响，迫切需要政策应对。
+气候治理中的制度变革与生态保护日益交织，如何平衡二者？
 
-The increasing frequency of extreme weather poses profound public health challenges globally, necessitating urgent policy responses.
+The interplay between institutional change and ecological protection in climate governance raises important balances to consider.
 
 ## 近期要闻 / Recent News
 
-### 1. Deprivation, resilience and a giant bunny: Polly Braden on capturing the ‘beauty and bleakness’ of young lives on the coast
+### 1. Diver captures rare footage of great white shark in the Mediterranean Sea – video
 
-The Guardian Environment · 2026-06-03
+The Guardian Environment · 2026-06-08
 
-Polly Braden 的新展览展示了贫困和韧性交织的年轻人生存现状。
+潜水员在地中海捕捉到了稀有的白鲨影像，该物种面临灭绝威胁。
 
-Polly Braden's new exhibition captures the intertwined realities of deprivation and resilience in the lives of young people.
+A diver captured rare footage of a great white shark in the Mediterranean, highlighting the species' extinction threat.
 
 Tags: #环境治理与气候
 
-Original: https://www.theguardian.com/environment/2026/jun/03/polly-braden-photography-young-people-coastal-communities-england-wales-against-the-tide
+Original: https://www.theguardian.com/environment/video/2026/jun/08/rare-footage-great-white-shark-mediterranean-sea-video
 
-### 2. This LA neighborhood is choked by smog. The solution: a network of sensors on offices, homes and bags
+### 2. The Trump administration is trying to kill a rule that protects millions of acres of national forests | Charles F Sams III
+
+The Guardian Environment · 2026-06-05
+
+特朗普政府正试图废除保护数百万英亩国家森林的规定，反映出对环境政策的重大挑战。
+
+The Trump administration's attempt to repeal a rule protecting millions of acres of national forests reflects a significant challenge to environmental policy.
+
+Tags: #环境治理与气候
+
+Original: https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection
+
+### 3. ‘To them a power line is a line of trees’: Costa Rica moves to protect howler monkeys from electrocution
+
+The Guardian Environment · 2026-06-04
+
+哥斯达黎加通过法院裁决，开始保护吼猴免受电力线电击，彰显动物保护政策的必要性。
+
+Costa Rica moves to protect howler monkeys from electrocution through a court ruling, highlighting the need for animal protection policies.
+
+Tags: #环境治理与气候
+
+Original: https://www.theguardian.com/environment/2026/jun/04/costa-rica-monkey-electrocution-power-line-court-ruling-animals-deforestation-aoe
+
+### 4. Florida shaken by 6.1-magnitude earthquake off coast of Cuba
 
 The Guardian Environment · 2026-06-09
 
-洛杉矶的Pacoima社区通过网络传感器对抗严重的空气污染。
+佛罗里达州感受到了来自古巴海岸的6.1级地震，显示出自然灾害风险的增加。
 
-The Pacoima community in Los Angeles combats severe air pollution through a network of sensors.
+Florida felt a 6.1-magnitude earthquake from off the coast of Cuba, indicating an increasing risk of natural disasters.
 
 Tags: #环境治理与气候
 
-Original: https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring
+Original: https://www.theguardian.com/us-news/2026/jun/09/florida-earthquake-cuba-coast-mexico
 
-### 3. ‘Woefully unprepared’: extreme heat will double US hospitalizations by 2040, study finds
+### 5. ‘Electrify daily life’, urges Cop31 host
 
 The Guardian Environment · 2026-06-09
 
-研究显示，极端高温将使美国的医院住院人数在2040年前翻倍。
+COP31主办国呼吁到2035年全球三分之一的能源应来源于电力，以减少温室气体排放。
 
-A study shows that extreme heat will double hospitalizations in the U.S. by 2040.
+The COP31 host urges that a third of the world's energy should come from electricity by 2035, to reduce greenhouse gas emissions.
 
 Tags: #环境治理与气候
 
-Original: https://www.theguardian.com/environment/2026/jun/09/extreme-heat-double-hospitalizations-2040-study
+Original: https://www.theguardian.com/environment/2026/jun/09/third-of-world-energy-electricity-by-2035-says-turkey-cop31-host
 
 ## 研究动向 / Research Signals
 
-### 1. Analysis: China’s CO2 climbs 2% in early 2026 due to ‘wasted’ wind and solar
+### 1. Q&A: How UK’s seventh carbon budget will deliver ‘£865bn’ in economic benefits
 
 Carbon Brief · 2026-06-03
 
-Tags: #环境治理与气候 #气候金融
+Tags: #环境治理与气候 #多边治理 #绿色转型
 
-**核心论点 / Core Argument**: 研究表明，中国早期的二氧化碳排放在2026年增长了2%，主要由于未能有效利用风能和太阳能，强调了政策制定者需要加强可再生能源的投资与规划。
+**核心论点 / Core Argument**: 英国第七个碳预算旨在通过严格的温室气体减排政策，实现经济效益最大化，这一政策不仅能减少排放，还能为绿色产业发展提供支持。
 
-The study indicates that China’s CO2 emissions increased by 2% in early 2026 primarily due to ineffective utilization of wind and solar energy, highlighting the need for policymakers to enhance investment and planning in renewable energy.
+The UK's seventh carbon budget aims to maximize economic benefits through stringent greenhouse gas reduction policies, which will both cut emissions and support green industry development.
 
-**为什么此刻重要 / Why Now**: 当前的气候危机促使各国需重新审视其能源政策，确保实现减排目标。
+**为什么此刻重要 / Why Now**: 在应对气候危机和实现净零目标的背景下，此预算为经济转型提供了紧迫的激励。
 
-The current climate crisis compels countries to reassess their energy policies to ensure emission reduction targets are met.
+In the context of tackling the climate crisis and achieving net-zero goals, this budget offers timely incentives for economic transformation.
 
-**议程位置 / Agenda Position**: 在气候治理的框架内，这一研究对中国的能源转型策略提供了重要见解。
+**议程位置 / Agenda Position**: 该研究加强了关于如何通过预算政策实现环境目标与经济利益的辩论。
 
-Within the framework of climate governance, this research offers critical insights into China's energy transition strategy.
+This research enriches the debate on how to align budget policies with environmental goals and economic benefits.
 
-Original: https://www.carbonbrief.org/analysis-chinas-co2-climbs-2-in-early-2026-due-to-wasted-wind-and-solar/
+Original: https://www.carbonbrief.org/qa-how-uks-seventh-carbon-budget-will-deliver-865bn-in-economic-benefits/
+
+### 2. Q&A: The current state of ‘carbon dioxide removal’ around the world
+
+Carbon Brief · 2026-06-02
+
+Tags: #环境治理与气候
+
+**核心论点 / Core Argument**: 全球各国亟需加快碳 dioxide removal（CDR）技术的部署，以应对气候变化带来的持续威胁，从而确保实现减排承诺和气候适应目标。
+
+Countries worldwide urgently need to accelerate the deployment of carbon dioxide removal (CDR) technologies to address ongoing climate threats and fulfill emission reduction commitments and adaptation goals.
+
+**为什么此刻重要 / Why Now**: 气候变化日益严峻，各国承诺增强减排与适应能力，此时CDR的探索意义重大。
+
+As climate change threatens intensifies, nations commit to enhancing mitigation and adaptation efforts, making the exploration of CDR increasingly significant.
+
+**议程位置 / Agenda Position**: 该项研究为全球在气候治理中引入新技术及其治理框架的讨论提供了时效性。
+
+This research offers timely insights into introducing new technologies and governance frameworks for climate governance.
+
+Original: https://www.carbonbrief.org/qa-the-current-state-of-carbon-dioxide-removal-around-the-world/
 
 ## 本周议题线索 / Weekly Thread
 
-近期的新闻表明，气候变化的影响正在深刻改变社会生态系统的韧性与公共健康状况，亟待政策制定者积极应对。
+近期气候治理中，针对生态保护与制度变革的议题愈发显露出紧迫性。
 
-Recent news indicates that the impacts of climate change are profoundly altering social-ecological resilience and public health conditions, requiring proactive policymaker responses.
+Recent discussions reveal an urgent intersection of ecological protection and institutional change in climate governance.
 
 ## 经典研读 / Classic Reading
 
@@ -92,15 +136,15 @@ Krasner asks whether international regimes are merely by-products of power or wh
 
 **今日关联 / Today's Connection**
 
-本期暂无直接关联，建议结合气候治理与金融议题阅读。
+本期讨论的特朗普政府对国家森林的政策挑战正是制度变革的一个例证。
 
-No direct connection in this issue; read alongside climate governance and finance topics.
+The Trump administration's policy challenges to national forests discussed this issue exemplify institutional change.
 
 **研究方向 / Research Directions**
 
-- 国际制度如何影响气候谈判？ (international regimes, climate negotiations, policy influence)
-  How do international regimes influence climate negotiations?
-- 权力与规则在气候金融中的关系？ (power, rules, climate finance)
-  What is the relationship between power and rules in climate finance?
+- 如何定义国际制度的影响？ (international regimes, governance, power dynamics)
+  How to define the impact of international regimes?
+- 气候融资如何受到制度安排的影响？ (climate finance, institutional arrangements, governance)
+  How is climate finance influenced by institutional arrangements?
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018920
