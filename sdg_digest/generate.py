@@ -15,6 +15,7 @@ MIN_SUMMARY_ZH_CHARS = 150
 MIN_SUMMARY_EN_WORDS = 70
 MIN_READING_ITEMS = 3
 MIN_READING_NOTE_ZH_CHARS = 120
+OPENAI_MAX_ATTEMPTS = 2
 
 TERM_LIBRARY = {
     "#NDC": DigestTerm(
@@ -63,14 +64,31 @@ def generate_digest(
             if allow_fallback:
                 return fallback_digest(candidates[:max_items], bibliography, run_date)
             raise RuntimeError("OPENAI_API_KEY is not set; refusing to publish fallback digest")
-        try:
-            raw = _call_openai(candidates, bibliography, run_date, max_items)
-            return validate_digest_payload(raw, candidates, bibliography, run_date)
-        except Exception as exc:
-            if allow_fallback:
-                print(f"OpenAI generation failed, using deterministic fallback: {exc}")
-                return fallback_digest(candidates[:max_items], bibliography, run_date)
-            raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
+        feedback = ""
+        last_exc: Exception | None = None
+        for attempt in range(OPENAI_MAX_ATTEMPTS):
+            try:
+                raw = _call_openai(candidates, bibliography, run_date, max_items, feedback=feedback)
+                return validate_digest_payload(raw, candidates, bibliography, run_date)
+            except ValueError as exc:
+                last_exc = exc
+                feedback = (
+                    f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
+                    "Make every summary_zh at least 180 Chinese characters, every summary_en at least 90 words, "
+                    "select at least 3 news items when 3 credible candidates exist, and select 3 readings."
+                )
+                if attempt + 1 < OPENAI_MAX_ATTEMPTS:
+                    print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
+                    continue
+                break
+            except Exception as exc:
+                last_exc = exc
+                break
+        exc = last_exc or RuntimeError("OpenAI generation failed for an unknown reason")
+        if allow_fallback:
+            print(f"OpenAI generation failed, using deterministic fallback: {exc}")
+            return fallback_digest(candidates[:max_items], bibliography, run_date)
+        raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
     return fallback_digest(candidates[:max_items], bibliography, run_date)
 
 
@@ -79,6 +97,7 @@ def _call_openai(
     bibliography: dict[str, list[DeepRead]],
     run_date: date,
     max_items: int,
+    feedback: str = "",
 ) -> dict[str, Any]:
     prompt = {
         "run_date": run_date.isoformat(),
@@ -91,7 +110,7 @@ def _call_openai(
             "Return a JSON object that follows the schema.",
             "Select the strongest 3-5 news items. Prefer 4-5 when enough credible candidates exist.",
             "Write overview_zh and overview_en as reader-facing editorial summaries. Do not mention model, automation, fallback, or whitelist.",
-            "For each item, write summary_zh as a substantive Chinese brief of at least 150 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
+            "For each item, write summary_zh as a substantive Chinese brief of 180-240 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
             "For each item, write summary_en as a substantive English brief of 90-130 words. It must summarize the item itself, not tell readers to check the original.",
             "For each item, write why_it_matters_zh and why_it_matters_en explaining specific SDG, climate, finance, or resilience implications.",
             "Explain 1-2 professional terms per item.",
@@ -108,6 +127,8 @@ def _call_openai(
             for tag, readings in bibliography.items()
         },
     }
+    if feedback:
+        prompt["validation_feedback"] = feedback
     payload = {
         "model": os.getenv("OPENAI_MODEL", DEFAULT_MODEL),
         "input": [
