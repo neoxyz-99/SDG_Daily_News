@@ -4,6 +4,37 @@
   "overview_zh": "今日关注气候政策、转型金融与可持续发展风险中的关键变化。",
   "items": [
     {
+      "title_en": "Early signs that the EU carbon border adjustment mechanism is reshaping EU–India steel trade",
+      "source_org": "Nature Climate Change",
+      "published_date": "2026-06-08",
+      "summary_zh": "这条更新聚焦《Early signs that the EU carbon border adjustment mechanism is reshaping EU–India steel trade》。来源摘要显示：Abstract The EU Carbon Border Adjustment Mechanism (CBAM) aims to level carbon-related costs between domestic and forei…",
+      "terms": [
+        {
+          "term_en": "green transition",
+          "term_zh": "绿色转型",
+          "explanation_zh": "经济结构、产业政策和投资方向向低碳、资源高效和韧性发展转变的过程。"
+        },
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        }
+      ],
+      "tags": [
+        "#绿色转型",
+        "#气候金融"
+      ],
+      "url": "https://doi.org/10.1038/s41558-026-02607-y",
+      "summary_en": "This update focuses on \"Early signs that the EU carbon border adjustment mechanism is reshaping EU–India steel trade\". The source summary indicates: Abstract The EU Carbon Border Adjustment Mechanism (CBAM) aims to level carbon-related costs between domestic and forei…",
+      "why_it_matters_zh": "它与绿色转型、气候金融相关，可作为观察政策执行、资金流向、发展韧性或区域风险变化的线索。",
+      "why_it_matters_en": "It is relevant to 绿色转型, 气候金融 and can be read as a signal for policy implementation, finance flows, resilience, or regional risk.",
+      "sdg_links": [
+        "SDG 13 Climate Action",
+        "SDG 17 Partnerships"
+      ],
+      "deep_reads": []
+    },
+    {
       "title_en": "Cooperative activities and SDGs",
       "source_org": "UNFCCC News",
       "published_date": "2026-06-09",
@@ -133,77 +164,46 @@
         "SDG 8 Decent Work and Growth"
       ],
       "deep_reads": []
-    },
-    {
-      "title_en": "AR7 Climate Change: Mitigation of Climate Change",
-      "source_org": "IPCC News",
-      "published_date": "2026-06-09",
-      "summary_zh": "这条更新聚焦《AR7 Climate Change: Mitigation of Climate Change》，来自IPCC News。当前来源提供的可抽取信息有限，需结合原文进一步判断具体内容。",
-      "terms": [
-        {
-          "term_en": "green transition",
-          "term_zh": "绿色转型",
-          "explanation_zh": "经济结构、产业政策和投资方向向低碳、资源高效和韧性发展转变的过程。"
-        },
-        {
-          "term_en": "climate finance",
-          "term_zh": "气候金融",
-          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
-        }
-      ],
-      "tags": [
-        "#绿色转型",
-        "#气候金融"
-      ],
-      "url": "https://www.ipcc.ch/report/seventh-assessment-report-working-group-iii/",
-      "summary_en": "This update focuses on \"AR7 Climate Change: Mitigation of Climate Change\" from IPCC News. The source exposes limited extractable detail, so the original item should be checked for specifics.",
-      "why_it_matters_zh": "它与绿色转型、气候金融相关，可作为观察政策执行、资金流向、发展韧性或区域风险变化的线索。",
-      "why_it_matters_en": "It is relevant to 绿色转型, 气候金融 and can be read as a signal for policy implementation, finance flows, resilience, or regional risk.",
-      "sdg_links": [
-        "SDG 13 Climate Action",
-        "SDG 17 Partnerships"
-      ],
-      "deep_reads": []
     }
   ],
   "readings": [
     {
-      "title": "The Paris Agreement: resolving the inconsistency between global goals and national contributions",
-      "authors": "Rogelj et al.",
-      "year": 2016,
-      "url": "https://doi.org/10.1038/nclimate3031",
-      "note_zh": "适合作为理解国家气候承诺与执行差距的背景材料。",
-      "note_en": "Useful background for understanding national climate pledges and implementation gaps.",
-      "argument_zh": "这篇材料帮助建立关于国家气候承诺与执行差距的基本分析框架。",
-      "argument_en": "This reading helps frame national climate pledges and implementation gaps.",
-      "method_zh": "以政策分析、文献讨论或案例比较为主，适合作为概念和判断框架。",
-      "method_en": "It mainly uses policy analysis, literature discussion, or comparative examples as a conceptual frame.",
-      "evidence_zh": "可结合文中涉及的政策案例、制度设计或资金安排理解其论证。",
-      "evidence_en": "Its argument can be read through the policy cases, institutional designs, or finance arrangements it discusses.",
-      "relevance_zh": "可用来把今日新闻放进更长周期的政策、融资和发展议程中理解。",
-      "relevance_en": "It helps place today's news in a longer policy, finance, and development agenda.",
+      "title": "A green industrial policy for Europe",
+      "authors": "Rodrik",
+      "year": 2014,
+      "url": "https://doi.org/10.1093/oxrep/gru025",
+      "note_zh": "讨论为什么绿色转型需要产业政策而不只是碳价。",
+      "note_en": "Explains why green transition requires industrial policy, not only carbon pricing.",
+      "argument_zh": "文章认为，绿色技术和产业转型面临创新外部性、协调失败和市场不确定性，因此政府需要通过产业政策主动塑造投资方向。",
+      "argument_en": "The paper argues that green technologies face innovation externalities, coordination failures, and uncertainty, requiring governments to shape investment through industrial policy.",
+      "method_zh": "以理论经济学和政策分析为主，讨论绿色产业政策的理由、工具和治理风险。",
+      "method_en": "It uses economic theory and policy analysis to examine the rationale, tools, and governance risks of green industrial policy.",
+      "evidence_zh": "文章讨论补贴、公共研发、采购、标准和部门合作等工具，并强调政策设计需要避免寻租和低效保护。",
+      "evidence_en": "It discusses subsidies, public R&D, procurement, standards, and sectoral coordination while warning against rent-seeking and inefficient protection.",
+      "relevance_zh": "适合分析欧盟 CBAM、绿色产业补贴、清洁技术供应链和转型竞争政策。",
+      "relevance_en": "Useful for interpreting the EU CBAM, green subsidies, clean-tech supply chains, and transition competitiveness policy.",
       "tags": [
-        "#NDC"
+        "#绿色转型"
       ],
       "kind": "paper"
     },
     {
-      "title": "Nationally determined contributions under the Paris Agreement",
-      "authors": "Falkner",
-      "year": 2016,
-      "url": "https://doi.org/10.1080/14693062.2016.1218325",
-      "note_zh": "适合作为理解国家气候承诺与执行差距的背景材料。",
-      "note_en": "Useful background for understanding national climate pledges and implementation gaps.",
-      "argument_zh": "这篇材料帮助建立关于国家气候承诺与执行差距的基本分析框架。",
-      "argument_en": "This reading helps frame national climate pledges and implementation gaps.",
-      "method_zh": "以政策分析、文献讨论或案例比较为主，适合作为概念和判断框架。",
-      "method_en": "It mainly uses policy analysis, literature discussion, or comparative examples as a conceptual frame.",
-      "evidence_zh": "可结合文中涉及的政策案例、制度设计或资金安排理解其论证。",
-      "evidence_en": "Its argument can be read through the policy cases, institutional designs, or finance arrangements it discusses.",
-      "relevance_zh": "可用来把今日新闻放进更长周期的政策、融资和发展议程中理解。",
-      "relevance_en": "It helps place today's news in a longer policy, finance, and development agenda.",
+      "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
+      "authors": "Kattel and Mazzucato",
+      "year": 2018,
+      "url": "https://doi.org/10.1093/icc/dty032",
+      "note_zh": "解释公共部门如何为任务导向创新建立能力。",
+      "note_en": "Explains how the public sector can build capabilities for mission-oriented innovation.",
+      "argument_zh": "文章认为，应对气候和发展挑战需要公共部门具备设定任务、协调市场、学习调整和承担风险的动态能力。",
+      "argument_en": "The paper argues that climate and development challenges require public agencies with dynamic capabilities to set missions, coordinate markets, learn, and take risks.",
+      "method_zh": "通过创新理论、公共管理和制度能力分析，提出公共部门能力建设框架。",
+      "method_en": "It draws on innovation theory, public management, and institutional-capability analysis to build a public-sector capability framework.",
+      "evidence_zh": "文章参考任务导向政策和公共投资实践，说明政府不仅是修补市场失败者，也可以是市场塑造者。",
+      "evidence_en": "It draws on mission-oriented policy and public investment practice to show that governments can shape markets, not merely fix failures.",
+      "relevance_zh": "适合解读绿色转型中政府如何设计产业任务、公共投资和跨部门协调。",
+      "relevance_en": "Useful for reading news about industrial missions, public investment, and cross-sector coordination in green transition.",
       "tags": [
-        "#NDC"
+        "#绿色转型"
       ],
       "kind": "paper"
     },
@@ -212,16 +212,16 @@
       "authors": "Roberts et al.",
       "year": 2021,
       "url": "https://doi.org/10.1038/s41558-021-01041-6",
-      "note_zh": "适合作为理解气候资金口径、核算边界与融资动员的背景材料。",
-      "note_en": "Useful background for understanding climate finance definitions, accounting boundaries, and mobilization.",
-      "argument_zh": "这篇材料帮助建立关于气候资金口径、核算边界与融资动员的基本分析框架。",
-      "argument_en": "This reading helps frame climate finance definitions, accounting boundaries, and mobilization.",
-      "method_zh": "以政策分析、文献讨论或案例比较为主，适合作为概念和判断框架。",
-      "method_en": "It mainly uses policy analysis, literature discussion, or comparative examples as a conceptual frame.",
-      "evidence_zh": "可结合文中涉及的政策案例、制度设计或资金安排理解其论证。",
-      "evidence_en": "Its argument can be read through the policy cases, institutional designs, or finance arrangements it discusses.",
-      "relevance_zh": "可用来把今日新闻放进更长周期的政策、融资和发展议程中理解。",
-      "relevance_en": "It helps place today's news in a longer policy, finance, and development agenda.",
+      "note_zh": "提出判断气候资金是否真实、额外和公平的核算框架。",
+      "note_en": "Proposes an accounting framework for assessing whether climate finance is real, additional, and fair.",
+      "argument_zh": "文章认为，气候资金争议的核心在于口径不清：贷款、赠款、私营动员资金和重新标记的发展援助不能被简单相加，否则会夸大实际支持。",
+      "argument_en": "The article argues that disputes over climate finance stem from unclear accounting: loans, grants, private mobilization, and relabelled aid cannot be treated as equivalent support.",
+      "method_zh": "通过规范性核算框架区分资金来源、工具、赠款等价额、额外性和受援方实际获得的净支持。",
+      "method_en": "It develops a normative accounting framework distinguishing sources, instruments, grant-equivalent value, additionality, and net support received.",
+      "evidence_zh": "文章以发达国家气候资金承诺和 1000 亿美元目标的核算争议为背景，说明不同口径会得出截然不同的资金规模。",
+      "evidence_en": "Using debates around developed-country finance pledges and the USD 100 billion goal, it shows how accounting choices can radically change reported finance levels.",
+      "relevance_zh": "适合分析 MDB 气候融资、适应资金、损失与损害资金以及绿色贷款是否真正增加发展中国家财政空间。",
+      "relevance_en": "Useful for assessing whether MDB climate finance, adaptation finance, loss-and-damage finance, or green lending genuinely expands fiscal space.",
       "tags": [
         "#气候金融"
       ],
