@@ -1,6 +1,6 @@
 # SDG / ESG / Climate Finance Daily Digest
 
-Daily automated digest for SDG, ESG, and climate finance updates. The pipeline gathers trusted-source candidates, ranks 5-8 items, generates Chinese summaries with English titles, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
+Daily automated digest for SDG, ESG, and climate finance updates. The pipeline gathers trusted-source candidates, ranks 3-5 news items, pairs them with 2-3 approved classic readings, generates Chinese summaries with English titles, sends an email through Resend, and stores Markdown, HTML, and JSON archives.
 
 ## Quick Start
 
@@ -47,7 +47,7 @@ Each run writes:
 ## Configuration
 
 - `sources.yml` defines trusted sources, allowed domains, tags, and fetch strategy.
-- `bibliography.yml` defines approved classic readings by topic tag. Deep reads are selected from this file, not invented by the model.
+- `bibliography.yml` defines approved classic readings by topic tag. The reading section is selected from this file, not invented by the model.
 
 ## Notes
 
