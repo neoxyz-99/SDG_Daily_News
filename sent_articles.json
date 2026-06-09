@@ -1,6 +1,17 @@
 {
-  "sent_urls": [],
-  "recent_news_urls": [],
-  "research_signal_urls": [],
-  "last_updated": ""
+  "sent_urls": [
+    "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
+    "https://www.theguardian.com/commentisfree/2026/jun/04/a-good-life-for-the-99-isnt-a-pipe-dream-it-can-be-done-heres-how",
+    "https://www.theguardian.com/environment/2026/jun/09/world-banks-pledge-billions-fossil-fuel-industry-2025",
+    "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/"
+  ],
+  "recent_news_urls": [
+    "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
+    "https://www.theguardian.com/commentisfree/2026/jun/04/a-good-life-for-the-99-isnt-a-pipe-dream-it-can-be-done-heres-how",
+    "https://www.theguardian.com/environment/2026/jun/09/world-banks-pledge-billions-fossil-fuel-industry-2025"
+  ],
+  "research_signal_urls": [
+    "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/"
+  ],
+  "last_updated": "2026-06-09"
 }
