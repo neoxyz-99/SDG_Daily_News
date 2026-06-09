@@ -15,6 +15,10 @@ OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_FILTER_MODEL = "gpt-4o-mini"
+MODEL_CONFIG = {
+    "generation": ("OPENAI_MODEL", DEFAULT_MODEL),
+    "filter": ("OPENAI_FILTER_MODEL", DEFAULT_FILTER_MODEL),
+}
 DEFAULT_OPENAI_TIMEOUT_SECONDS = 180
 OPENAI_MAX_ATTEMPTS = 2
 MIN_RELEVANT_RESEARCH_CANDIDATES = 5
@@ -227,7 +231,7 @@ def _score_candidate_semantically(candidate: Candidate) -> Candidate:
         description=candidate.full_text or candidate.summary_hint,
     )
     payload = {
-        "model": os.getenv("OPENAI_FILTER_MODEL", DEFAULT_FILTER_MODEL),
+        "model": _model_for("filter"),
         "messages": [
             {"role": "system", "content": "Return only the requested JSON object."},
             {"role": "user", "content": prompt},
@@ -275,7 +279,7 @@ def _call_openai(
         ),
         "editorial_logic": [
             "The issue has three modules: 近期要闻, 研究动向, 经典研读.",
-            "近期要闻 is low-density: tell the reader what happened using the title/source and one Chinese sentence.",
+            "近期要闻 is low-density: tell the reader what happened using the title/source and one Chinese sentence; do not force topic tags into the visible copy.",
             "研究动向 is high-density: extract institutional arguments, policy timing, and agenda position.",
             "经典研读 comes only from the supplied bibliography.",
         ],
@@ -283,11 +287,11 @@ def _call_openai(
             "Return a JSON object that follows the schema.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
             "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize. weekly_editorial_note_en should carry the same meaning in one concise English sentence.",
-            "recent_news: select up to the requested maximum from recent_news_candidates. Write one_sentence_zh and one_sentence_en for each item.",
+            "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
             "research_signals: select up to the requested maximum from research_candidates. These require core_argument_zh/core_argument_en, why_now_zh/why_now_en, agenda_position_zh/agenda_position_en, and tags.",
             "Core Argument: write 1 dense Chinese sentence, 70-120 Chinese characters. It must name a specific actor, institution, policy instrument, or negotiating party; state the concrete problem or mechanism identified by the article; explain why that mechanism matters; and indicate what policy, financing, governance, or institutional change the article argues for or implies. Do not write vague sentences such as 'X is important' or 'cannot be ignored'. Do not restate the title or use statistics as the core of the argument.",
             "Why Now: 1-2 Chinese sentences with a temporal anchor: what this responds to, advances, or challenges. If timing is unclear, say so plainly.",
-            "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process. If unclear, output exactly: 议程背景不明确",
+            "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process, such as a negotiation, summit, institutional work program, actor timing, or challenge to a policy framework. If the source text does not support a specific agenda anchor, output exactly: 议程背景不明确. Do not use generic phrases such as 这是政策讨论的重要参考.",
             "Tags are post-selection labels only. Use 1-3 specific Chinese tags from the tag registry when possible, and avoid broad tags like 气候变化 or 可持续发展.",
             "weekly_thread_zh: only if at least 2 selected items share an issue line; 1-2 Chinese sentences explaining the shared agenda question or disagreement.",
             "Select up to 3 classic readings from bibliography. Preserve note_zh, note_en, methodology_zh, method_en, authors, year, journal, DOI, and URL exactly. The selected readings should be the ones whose preserved prose gives the most concrete analytical leverage for this issue.",
@@ -315,7 +319,7 @@ def _call_openai(
     if feedback:
         prompt["validation_feedback"] = feedback
     payload = {
-        "model": os.getenv("OPENAI_MODEL", DEFAULT_MODEL),
+        "model": _model_for("generation"),
         "input": [
             {
                 "role": "system",
@@ -787,6 +791,14 @@ def _openai_timeout_seconds() -> int:
         return max(60, int(raw))
     except ValueError:
         return DEFAULT_OPENAI_TIMEOUT_SECONDS
+
+
+def _model_for(task: str) -> str:
+    env_name, fallback = MODEL_CONFIG[task]
+    return os.getenv(env_name, fallback)
+
+
+# MODEL CONFIG DONE: OpenAI model names are centralized and overridable by environment variables.
 
 
 def _is_timeout_exception(exc: BaseException) -> bool:

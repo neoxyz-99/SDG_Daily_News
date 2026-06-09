@@ -22,10 +22,15 @@ FULL_TEXT_MIN_WORDS = 50
 EVENT_MIN_FEED_WORDS = 0
 TITLE_SIMILARITY_THRESHOLD = 0.85
 FULL_TEXT_TIMEOUT_SECONDS = 10
-FULL_TEXT_DELAY_SECONDS = 2
-FULL_TEXT_WORD_LIMIT = 400
+FULL_TEXT_DELAY_SECONDS = 1.5
+SUMMARY_TEXT_WORD_LIMIT = 600
+ARTICLE_TEXT_WORD_LIMIT = 400
 FULL_TEXT_WHITELIST = [
+    "carbonbrief.org",
     "climatepolicyinitiative.org",
+    "cgdev.org",
+    "cepr.org",
+    "e3g.org",
     "iisd.org",
     "odi.org",
     "wri.org",
@@ -33,8 +38,18 @@ FULL_TEXT_WHITELIST = [
     "lse.ac.uk",
     "brookings.edu",
     "chathamhouse.org",
+    "voxdev.org",
 ]
-SUMMARY_SELECTORS = ["executive-summary", "summary", "abstract", "lead", "intro"]
+SUMMARY_SELECTORS = [
+    "executive-summary",
+    "summary",
+    "abstract",
+    "lead",
+    "intro",
+    "article-body",
+    "entry-content",
+    "post-content",
+]
 
 
 @dataclass
@@ -46,6 +61,8 @@ class CollectionStats:
     full_text_sources: set[str] = field(default_factory=set)
     rss_fallback_sources: set[str] = field(default_factory=set)
     full_text_failures: list[str] = field(default_factory=list)
+    source_items_fetched: Counter[str] = field(default_factory=Counter)
+    source_items_after_text_check: Counter[str] = field(default_factory=Counter)
 
 
 def collect_candidates(
@@ -106,6 +123,7 @@ def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list
         if not title or not link:
             continue
         stats.rss_items_fetched += 1
+        stats.source_items_fetched[source.name] += 1
         rss_summary = _clean_text(summary)
         full_text, text_source = _maybe_extract_full_text(link.strip(), rss_summary, source, stats)
         if _word_count(full_text or rss_summary) < _minimum_candidate_words(source):
@@ -113,6 +131,7 @@ def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list
             print(f"Skipping item with too little extractable text: {source.name} - {_clean_text(title)}")
             continue
         stats.rss_items_after_text_check += 1
+        stats.source_items_after_text_check[source.name] += 1
         candidates.append(
             Candidate(
                 title=_clean_text(title),
@@ -175,7 +194,7 @@ def extract_full_text(url: str) -> str:
     container = soup.find("article") or soup.find("main")
     if not container:
         return ""
-    return _first_words(_clean_text(container.get_text(" ")), FULL_TEXT_WORD_LIMIT)
+    return _first_words(_clean_text(container.get_text(" ")), ARTICLE_TEXT_WORD_LIMIT)
 
 
 def _find_summary_element_text(soup: BeautifulSoup) -> str:
@@ -186,7 +205,7 @@ def _find_summary_element_text(soup: BeautifulSoup) -> str:
         if element:
             text = _clean_text(element.get_text(" "))
             if text:
-                return _first_words(text, FULL_TEXT_WORD_LIMIT)
+                return _first_words(text, SUMMARY_TEXT_WORD_LIMIT)
     return ""
 
 
@@ -332,5 +351,5 @@ def _cosine_similarity(first: Counter[str], second: Counter[str]) -> float:
     return numerator / (first_norm * second_norm)
 
 
-# CHANGE 2 DONE: whitelist sources attempt full-text extraction with RSS fallback and collection stats.
+# CHANGE 2 DONE: whitelist sources attempt expanded full-text extraction with RSS fallback and collection stats.
 # ZERO-CANDIDATE FIX DONE: research items are no longer rejected for short RSS summaries before full-text extraction is attempted.

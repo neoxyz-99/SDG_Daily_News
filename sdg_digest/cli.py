@@ -17,6 +17,10 @@ SOURCE_SUGGESTIONS = [
     "World Bank Blogs RSS (international organization; development finance and climate policy)",
     "Brookings RSS by topic (registered policy research center; global development and governance)",
     "Nature Climate Change RSS (academic journal; peer review; climate policy and science)",
+    "E3G RSS (institutional policy research; climate diplomacy and energy transition)",
+    "Center for Global Development RSS (registered policy research center; development finance)",
+    "VoxDev RSS (academic policy platform; development economics)",
+    "CEPR RSS (academic policy research network; political economy and development)",
 ]
 
 
@@ -90,7 +94,7 @@ def main() -> None:
         print(f"Updated sent articles record: {args.sent_articles}")
     else:
         print("Email sending skipped")
-    _print_dry_run_summary(
+    _print_pipeline_report(
         stats=stats,
         filtered_by_sent=filtered_by_sent,
         before_sent_filter=before_sent_filter,
@@ -100,7 +104,7 @@ def main() -> None:
     )
 
 
-def _print_dry_run_summary(
+def _print_pipeline_report(
     stats: CollectionStats,
     filtered_by_sent: int,
     before_sent_filter: int,
@@ -109,7 +113,7 @@ def _print_dry_run_summary(
     research_candidates: int,
 ) -> None:
     print("")
-    print("Dry run summary")
+    print("Pipeline diagnostic report")
     print(f"- Number of RSS items fetched: {stats.rss_items_fetched}")
     print(f"- Number after text availability check: {stats.rss_items_after_text_check}")
     print(f"- Number after date/domain check: {stats.rss_items_after_date_domain_check}")
@@ -120,6 +124,12 @@ def _print_dry_run_summary(
     print(f"- Research candidates passed to AI: {research_candidates}")
     print(f"- Sources using full-text extraction: {', '.join(sorted(stats.full_text_sources)) or 'none'}")
     print(f"- Sources using RSS fallback: {', '.join(sorted(stats.rss_fallback_sources)) or 'none'}")
+    if stats.source_items_fetched:
+        print("- Source breakdown:")
+        for source_name in sorted(stats.source_items_fetched):
+            fetched = stats.source_items_fetched[source_name]
+            after_text = stats.source_items_after_text_check.get(source_name, 0)
+            print(f"  - {source_name}: fetched {fetched}, after text check {after_text}")
     if stats.full_text_failures:
         print("- Full-text extraction failures:")
         for failure in stats.full_text_failures:
@@ -129,6 +139,7 @@ def _print_dry_run_summary(
 # CHANGE 1 DONE: CLI loads sent history, filters old URLs, and updates it only after successful email sends.
 # CHANGE 2 DONE: CLI reports full-text extraction vs RSS fallback sources in the run summary.
 # WEEKLY MODULE ROUTING DONE: CLI now defaults to a 7-day window and sends separate recent-news/research pools to generation.
+# PIPELINE LOGGING DONE: CLI prints a source-level diagnostic report for every run.
 
 
 if __name__ == "__main__":

@@ -33,8 +33,6 @@ def render_markdown(digest: Digest) -> str:
                     "",
                     f"{item.one_sentence_en}",
                     "",
-                    f"Tags: {' '.join(item.tags)}",
-                    "",
                     f"Original: {item.url}",
                     "",
                 ]
@@ -247,13 +245,11 @@ def render_html(digest: Digest) -> str:
 
 
 def _render_recent_news_html(index: int, item: NewsBrief) -> str:
-    tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in item.tags)
     return f"""<article class="card compact-card recent-card">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="body-text">{html.escape(item.one_sentence_zh)}</p>
   {_paragraph_en(item.one_sentence_en)}
-  <p class="tags">{tags}</p>
 </article>"""
 
 
