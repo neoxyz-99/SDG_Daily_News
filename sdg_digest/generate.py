@@ -11,8 +11,8 @@ from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 DEFAULT_MODEL = "gpt-4o-mini"
 MIN_NEWS_ITEMS = 3
-MIN_SUMMARY_ZH_CHARS = 150
-MIN_SUMMARY_EN_WORDS = 70
+MIN_SUMMARY_ZH_CHARS = 100
+MIN_SUMMARY_EN_WORDS = 50
 MIN_READING_ITEMS = 3
 MIN_READING_NOTE_ZH_CHARS = 120
 OPENAI_MAX_ATTEMPTS = 3
@@ -75,8 +75,10 @@ def generate_digest(
                 last_exc = exc
                 feedback = (
                     f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
-                    "Make every summary_zh at least 180 Chinese characters, every summary_en at least 90 words, "
-                    "select at least 3 news items when 3 credible candidates exist, and select 3 readings."
+                    "If a selected item has too little source detail to support a substantive brief, replace it with "
+                    "a richer candidate from the list instead of padding generic text. Make every summary_zh at least "
+                    "120 Chinese characters, every summary_en at least 60 words, select at least 3 news items when "
+                    "3 credible candidates exist, and select 3 readings."
                 )
                 if attempt + 1 < OPENAI_MAX_ATTEMPTS:
                     print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
@@ -122,9 +124,10 @@ def _call_openai(
         "instructions": [
             "Return a JSON object that follows the schema.",
             "Select the strongest 3-5 news items. Prefer 4-5 when enough credible candidates exist.",
+            "Prioritize candidates with richer source detail and longer summary_hint fields. Avoid thin landing-page items when richer candidates are available.",
             "Write overview_zh and overview_en as reader-facing editorial summaries. Do not mention model, automation, fallback, or whitelist.",
-            "For each item, write summary_zh as a substantive Chinese brief of 180-240 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
-            "For each item, write summary_en as a substantive English brief of 90-130 words. It must summarize the item itself, not tell readers to check the original.",
+            "For each item, write summary_zh as a substantive Chinese brief of 120-180 Chinese characters. It must explain what happened, who is involved, the mechanism or policy issue, and the concrete climate/SDG/finance implication. Do not use generic advice.",
+            "For each item, write summary_en as a substantive English brief of 60-100 words. It must summarize the item itself, not tell readers to check the original.",
             "For each item, write why_it_matters_zh and why_it_matters_en explaining specific SDG, climate, finance, or resilience implications.",
             "Explain 1-2 professional terms per item.",
             "Select 3 readings from the bibliography when possible, using different tags or viewpoints when the candidate themes allow it.",
@@ -134,7 +137,7 @@ def _call_openai(
             "Use readings only from the provided bibliography entries.",
             "Do not invent authors, years, links, organizations, or dates.",
         ],
-        "candidates": [candidate.__dict__ for candidate in candidates[:24]],
+        "candidates": [_candidate_payload(candidate) for candidate in candidates[:30]],
         "bibliography": {
             tag: [reading.__dict__ for reading in readings]
             for tag, readings in bibliography.items()
@@ -171,6 +174,13 @@ def _call_openai(
     )
     text = _extract_response_text(response)
     return json.loads(text)
+
+
+def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
+    payload = candidate.__dict__.copy()
+    payload["summary_hint_chars"] = _compact_len(candidate.summary_hint)
+    payload["has_rich_source_detail"] = _compact_len(candidate.summary_hint) >= 160
+    return payload
 
 
 def _openai_timeout_seconds() -> int:

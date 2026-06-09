@@ -224,8 +224,23 @@ def _score_candidate(candidate: Candidate) -> tuple[int, str]:
     keyword_score = sum(2 for keyword in KEYWORDS if keyword in text)
     tag_score = len(candidate.tags)
     source_score = {"journal": 4, "international_org": 3, "think_tank": 2}.get(candidate.source_type, 1)
-    hint_score = 1 if candidate.summary_hint else 0
+    hint_score = _summary_hint_score(candidate.summary_hint)
     return (keyword_score + tag_score + source_score + hint_score, candidate.published_date)
+
+
+def _summary_hint_score(summary_hint: str) -> int:
+    length = len(" ".join((summary_hint or "").split()))
+    if length >= 500:
+        return 5
+    if length >= 300:
+        return 4
+    if length >= 160:
+        return 3
+    if length >= 80:
+        return 2
+    if length > 0:
+        return 1
+    return 0
 
 
 def _is_relevant(candidate: Candidate) -> bool:
