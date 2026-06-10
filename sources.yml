@@ -55,13 +55,13 @@
       "default_tags": ["#多边治理", "#发展不平等"]
     },
     {
-      "name": "Nature Climate Change",
+      "name": "Nature Sustainability",
       "type": "journal",
       "layer": "research",
       "strategy": "rss",
-      "url": "https://www.nature.com/nclimate.rss",
+      "url": "https://www.nature.com/natsustain.rss",
       "allowed_domains": ["nature.com", "www.nature.com"],
-      "default_tags": ["#环境治理与气候"]
+      "default_tags": ["#环境治理与气候", "#可持续金融与ESG"]
     },
     {
       "name": "UN News Climate Change",
@@ -86,17 +86,17 @@
       "type": "news",
       "layer": "event",
       "strategy": "rss",
-      "url": "https://english.news.cn/rss/world.xml",
+      "url": "https://english.news.cn/rss/worldrss.xml",
       "allowed_domains": ["english.news.cn", "news.cn"],
       "default_tags": ["#地缘政治与治理"]
     },
     {
-      "name": "Reuters Agency Climate",
+      "name": "Reuters Environment",
       "type": "news",
       "layer": "event",
       "strategy": "rss",
-      "url": "https://www.reutersagency.com/feed/?best-topics=climate-change&post_type=best",
-      "allowed_domains": ["reutersagency.com", "www.reutersagency.com", "reuters.com", "www.reuters.com"],
+      "url": "https://feeds.reuters.com/reuters/environment",
+      "allowed_domains": ["reuters.com", "www.reuters.com"],
       "default_tags": ["#环境治理与气候"]
     }
   ]
