@@ -84,8 +84,10 @@ BANNED_EMPTY_PHRASES = ["至关重要", "意义深远", "备受关注", "在全�
 BROAD_TAGS = {"#气候变化", "气候变化", "#可持续发展", "可持续发展"}
 GENERIC_RESEARCH_KEYWORDS = {"climate change", "governance", "sustainable development", "policy"}
 
+NEWSLETTER_NAME = "SDG Weekly Compass"
+
 SEMANTIC_FILTER_PROMPT = """
-You are screening policy research items for The Governance Brief.
+You are screening policy research items for SDG Weekly Compass.
 
 Return whether this research/policy item contains a substantive argument, policy finding, or research result related to any of:
 sustainable development, climate policy, development finance, global governance, green transition, inequality, or multilateral institutions.
@@ -271,7 +273,7 @@ def _call_openai(
     recent_news, research = _split_candidates(candidates)
     prompt = {
         "run_date": run_date.isoformat(),
-        "newsletter": "The Governance Brief",
+        "newsletter": NEWSLETTER_NAME,
         "format": "weekly",
         "reader_profile": (
             "Policy researchers and graduate students with background knowledge in global governance, "
@@ -286,6 +288,7 @@ def _call_openai(
         "instructions": [
             "Return a JSON object that follows the schema.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
+            "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use bibliography DOI links, paper URLs, or invented URLs as news/research item URLs.",
             "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize. weekly_editorial_note_en should carry the same meaning in one concise English sentence.",
             "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
             "research_signals: select up to the requested maximum from research_candidates. These require core_argument_zh/core_argument_en, why_now_zh/why_now_en, agenda_position_zh/agenda_position_en, and tags.",
@@ -324,7 +327,7 @@ def _call_openai(
             {
                 "role": "system",
                 "content": (
-                    "You are the editorial AI for The Governance Brief. You separate low-density event awareness "
+                    "You are the editorial AI for SDG Weekly Compass. You separate low-density event awareness "
                     "from high-density policy/research analysis and preserve curated bibliography prose."
                 ),
             },
@@ -485,13 +488,16 @@ def validate_digest_payload(
     for raw in payload.get("recent_news", []):
         url = str(raw.get("url", "")).strip()
         title = str(raw.get("title_en", "")).strip()
-        _validate_candidate_reference(url, str(raw.get("source_org", "")).strip(), candidate_urls, candidate_sources)
+        source_org = str(raw.get("source_org", "")).strip()
+        if not _is_approved_candidate_reference(url, source_org, candidate_urls, candidate_sources):
+            print(f"Warning: skipped recent-news item with unapproved candidate reference: {title or url}")
+            continue
         one_sentence_zh = str(raw.get("one_sentence_zh", "")).strip()
         _validate_required_text(one_sentence_zh, f"one_sentence_zh for {title}")
         recent_news.append(
             NewsBrief(
                 title_en=title,
-                source_org=str(raw["source_org"]).strip(),
+                source_org=source_org,
                 published_date=str(raw["published_date"]).strip(),
                 url=url,
                 one_sentence_zh=one_sentence_zh,
@@ -505,7 +511,10 @@ def validate_digest_payload(
     for raw in raw_research_signals:
         url = str(raw.get("url", "")).strip()
         title = str(raw.get("title_en", "")).strip()
-        _validate_candidate_reference(url, str(raw.get("source_org", "")).strip(), candidate_urls, candidate_sources)
+        source_org = str(raw.get("source_org", "")).strip()
+        if not _is_approved_candidate_reference(url, source_org, candidate_urls, candidate_sources):
+            print(f"Warning: skipped research signal with unapproved candidate reference: {title or url}")
+            continue
         source_candidate = candidate_by_url[url]
         tags = _clean_tags(raw.get("tags", []), source_candidate.tags)
         if not tags:
@@ -525,7 +534,7 @@ def validate_digest_payload(
         research_signals.append(
             DigestItem(
                 title_en=title,
-                source_org=str(raw["source_org"]).strip(),
+                source_org=source_org,
                 published_date=str(raw["published_date"]).strip(),
                 summary_zh=core_argument_zh,
                 terms=_terms_for_tags(tags),
@@ -562,7 +571,7 @@ def validate_digest_payload(
 
     return Digest(
         digest_date=run_date,
-        subject=f"The Governance Brief - Week of {run_date.isoformat()}",
+        subject=f"{NEWSLETTER_NAME} - Week of {run_date.isoformat()}",
         overview_zh=editorial_note,
         overview_en=editorial_note_en,
         items=research_signals,
@@ -619,7 +628,7 @@ def fallback_digest(
     readings = _fallback_readings(candidates, bibliography)
     return Digest(
         digest_date=run_date,
-        subject=f"The Governance Brief - Week of {run_date.isoformat()}",
+        subject=f"{NEWSLETTER_NAME} - Week of {run_date.isoformat()}",
         overview_zh="",
         overview_en="",
         items=research_signals,
@@ -681,10 +690,19 @@ def _validate_candidate_reference(
     candidate_urls: set[str],
     candidate_sources: set[str],
 ) -> None:
-    if url not in candidate_urls:
-        raise ValueError(f"Digest item has unapproved URL: {url}")
-    if source_org not in candidate_sources:
+    if not _is_approved_candidate_reference(url, source_org, candidate_urls, candidate_sources):
+        if url not in candidate_urls:
+            raise ValueError(f"Digest item has unapproved URL: {url}")
         raise ValueError(f"Digest item has unapproved source: {source_org}")
+
+
+def _is_approved_candidate_reference(
+    url: str,
+    source_org: str,
+    candidate_urls: set[str],
+    candidate_sources: set[str],
+) -> bool:
+    return url in candidate_urls and source_org in candidate_sources
 
 
 def _validate_readings(

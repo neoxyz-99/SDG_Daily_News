@@ -61,13 +61,15 @@ class GenerateTests(unittest.TestCase):
         self.assertEqual([candidate.semantic_score for candidate in result], [2, 1])
         self.assertEqual(result[0].tags[0], "#可持续金融与ESG")
 
-    def test_validation_rejects_invented_url(self) -> None:
+    def test_validation_skips_invented_candidate_url_without_failing_issue(self) -> None:
         candidate = _candidate()
         payload = _payload(candidate)
         payload["items"][0]["url"] = "https://invented.example/article"
 
-        with self.assertRaises(ValueError):
-            validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
+        digest = validate_digest_payload(payload, [candidate, _candidate_two()], {}, date(2026, 6, 9))
+
+        self.assertEqual(digest.items, [])
+        self.assertEqual(digest.overview_zh, "")
 
     def test_validation_filters_broad_tags_without_failing_issue(self) -> None:
         candidate = _candidate()

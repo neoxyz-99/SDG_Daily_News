@@ -11,7 +11,7 @@ class RenderTests(unittest.TestCase):
     def test_render_markdown_and_html_include_editorial_brief_structure(self) -> None:
         digest = Digest(
             digest_date=date(2026, 6, 9),
-            subject="The Governance Brief - 2026-06-09",
+            subject="SDG Weekly Compass - 2026-06-09",
             overview_zh="公共资金承诺与执行能力之间的落差，正在重塑气候融资议程的责任边界。",
             overview_en="The gap between public finance pledges and implementation capacity is reshaping climate finance responsibility.",
             weekly_thread_zh="两条新闻共同指向气候融资从承诺规模转向执行能力的议题线索。",
@@ -68,7 +68,7 @@ class RenderTests(unittest.TestCase):
         markdown = render_markdown(digest)
         html = render_html(digest)
 
-        self.assertIn("The Governance Brief", markdown)
+        self.assertIn("SDG Weekly Compass", markdown)
         self.assertIn("本周导语", markdown)
         self.assertIn("近期要闻", markdown)
         self.assertIn("研究动向", markdown)
@@ -93,6 +93,7 @@ class RenderTests(unittest.TestCase):
         self.assertNotIn("/ Research Signals ·", html)
         self.assertNotIn("/ Classic Reading ·", html)
         self.assertNotIn("SDG Daily Digest", html)
+        self.assertNotIn("The Governance Brief", html)
         self.assertNotIn("English Brief", html)
 
 

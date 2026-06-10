@@ -48,7 +48,7 @@ class SentArticlesTests(unittest.TestCase):
             )
             digest = Digest(
                 digest_date=date(2026, 6, 9),
-                subject="The Governance Brief - 2026-06-09",
+                subject="SDG Weekly Compass - 2026-06-09",
                 overview_zh="",
                 items=[
                     DigestItem(

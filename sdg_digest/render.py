@@ -10,7 +10,7 @@ def render_markdown(digest: Digest) -> str:
     research_signals = digest.research_signals or digest.items
     readings = digest.classic_readings or digest.readings
     lines = [
-        "# The Governance Brief",
+        "# SDG Weekly Compass",
         "",
         f"Issue week: {digest.digest_date.isoformat()}",
         "",
@@ -222,7 +222,7 @@ def render_html(digest: Digest) -> str:
       </svg>
       <div class="header-row">
         <div class="issue-date">{digest.digest_date.isoformat()}</div>
-        <div class="masthead">The Governance Brief</div>
+        <div class="masthead">SDG Weekly Compass</div>
       </div>
     </header>
 

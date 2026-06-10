@@ -25,7 +25,7 @@ SOURCE_SUGGESTIONS = [
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate The Governance Brief")
+    parser = argparse.ArgumentParser(description="Generate SDG Weekly Compass")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
     parser.add_argument("--lookback-days", type=int, default=7)
     parser.add_argument("--max-items", type=int, default=5, help="Backward-compatible alias for research signals")
