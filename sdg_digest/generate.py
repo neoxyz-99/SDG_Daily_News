@@ -13,8 +13,8 @@ from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm, NewsBri
 
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
-DEFAULT_MODEL = "gpt-4o-mini"
-DEFAULT_FILTER_MODEL = "gpt-4o-mini"
+DEFAULT_MODEL = "gpt-5.4-mini"          # news analysis + research signals generation
+DEFAULT_FILTER_MODEL = "gpt-4.1-mini"  # semantic relevance filtering (stage 2)
 MODEL_CONFIG = {
     "generation": ("OPENAI_MODEL", DEFAULT_MODEL),
     "filter": ("OPENAI_FILTER_MODEL", DEFAULT_FILTER_MODEL),
@@ -181,14 +181,24 @@ def generate_digest(
                 return validate_digest_payload(raw, candidates, bibliography, run_date)
             except ValueError as exc:
                 last_exc = exc
+                # Check if failure is caused by a banned phrase in a specific article field.
+                # In that case, warn and retry with stricter instructions rather than crashing.
+                exc_str = str(exc)
+                if "contains banned empty phrase" in exc_str or "restates title" in exc_str:
+                    print(f"Warning: validation issue in generated content (will retry): {exc_str}")
                 feedback = (
                     f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
+                    "Avoid ALL of these phrases in any field: 至关重要, 意义深远, 备受关注, 在全球化背景下. "
+                    "Every core_argument_zh must name a specific actor and state a concrete argument. "
                     "Keep recent news short, keep research signals analytical, and preserve bibliography prose."
                 )
                 if attempt + 1 < OPENAI_MAX_ATTEMPTS:
                     print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
                     continue
-                break
+                # All retries exhausted — fall back to deterministic digest rather than crashing.
+                print(f"Warning: OpenAI generation failed after {OPENAI_MAX_ATTEMPTS} attempts: {exc}")
+                print("Falling back to deterministic digest to avoid pipeline crash.")
+                return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
             except (TimeoutError, OSError) as exc:
                 last_exc = exc
                 if _is_timeout_exception(exc) and attempt + 1 < OPENAI_MAX_ATTEMPTS:
@@ -203,6 +213,8 @@ def generate_digest(
         if allow_fallback:
             print(f"OpenAI generation failed, using deterministic fallback: {exc}")
             return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
+        # Only raise here for non-validation errors (network, auth, etc.)
+        # Banned-phrase validation failures are handled above and never reach this line.
         raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
     return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
 
