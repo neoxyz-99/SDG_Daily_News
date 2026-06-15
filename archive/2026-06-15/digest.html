@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-06-15</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">当气候否认回潮与电动化、极地保护并行推进时，谁在定义“务实”议程？</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-06-15</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>当气候否认回潮与电动化、极地保护并行推进时，谁在定义“务实”议程？</p><p class="en-text">As climate denial resurges while electrification and polar protection advance, who gets to define the “pragmatic” agenda?</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/environment/2026/jun/14/climate-denial-in-vogue-pauline-hanson-australia-cop31-ntwnfb">Denial is back in vogue. As Australia leads climate talks, it’s beyond time we took the issue seriously</a></h3>
+  <p class="meta">The Guardian Environment · 2026-06-13</p>
+  <p class="body-text">澳大利亚气候谈判之际，保守派否认气候科学的政治话语重新抬头，折射出选举竞争正在重塑气候议题边界。</p>
+  <p class="en-text">As Australia leads climate talks, climate denial is re-entering mainstream politics, showing how electoral competition is redrawing the boundaries of climate debate.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.theguardian.com/environment/2026/jun/10/pollinators-in-peril-scientists-reveal-the-hidden-human-health-costs-of-the-worlds-disappearing-bees-aoe">Pollinators in peril: scientists reveal the hidden human health costs of the world’s disappearing bees</a></h3>
+  <p class="meta">The Guardian Environment · 2026-06-10</p>
+  <p class="body-text">研究指出野蜂衰退不仅影响授粉体系，还会通过营养流失把生态退化转化为人类健康风险。</p>
+  <p class="en-text">The piece argues that wild-bee decline is not only an ecosystem problem but also a human-health risk through lost dietary nutrients.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://www.theguardian.com/us-news/2026/jun/15/trump-public-lands-wildlife-off-roading">Critics say Trump’s opening of public lands to off-road vehicles is ‘reckless and nonsensical’</a></h3>
+  <p class="meta">The Guardian Environment · 2026-06-15</p>
+  <p class="body-text">特朗普政府扩大越野车辆进入公共土地与国家公园的计划，被批评会加剧栖息地破坏并放大人兽冲突。</p>
+  <p class="en-text">The Trump administration’s plan to widen off-road access to public lands and parks is drawing criticism for intensifying habitat loss and human–wildlife conflict.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://www.theguardian.com/environment/2026/jun/15/shackleton-endurance-shipwrecks-global-heating-antarctic-underwater-protected-area">‘The Antarctic is the last frontier’: the quest to save Shackleton’s Endurance</a></h3>
+  <p class="meta">The Guardian Environment · 2026-06-15</p>
+  <p class="body-text">随着变暖提高南极威德尔海的可达性，保护者开始推动将“坚忍号”沉船及周边海域纳入海底保护区。</p>
+  <p class="en-text">As warming makes the Weddell Sea more accessible, conservationists are pushing to protect Shackleton’s Endurance wreck and surrounding waters as an underwater reserve.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://www.theguardian.com/commentisfree/2026/jun/14/amoc-collapse-europe-climate">Amoc collapse could change Europe’s climate 10x faster than expected. We aren’t ready | Penny Holliday, Femke de Jong and Sjoerd Groeskamp</a></h3>
+  <p class="meta">The Guardian Environment · 2026-06-14</p>
+  <p class="body-text">作者警告，AMOC若失稳，欧洲气候变化速度可能远快于预期，而现有监测经费却面临中断。</p>
+  <p class="en-text">The authors warn that an AMOC collapse could accelerate Europe’s climate shift far faster than expected while monitoring funding is at risk.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/analysis-uks-ev-drivers-are-now-saving-1100-each-a-year-and-3bn-in-total/">Analysis: UK’s EV drivers are now saving £1,100 each a year – and £3bn in total</a></h3>
+  <p class="meta">Carbon Brief · 2026-06-15</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#绿色转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">英国电动车驾驶者因燃料与维护成本下降而获得显著年度净节省，这意味着围绕EV目标的争论不再只是减排成本问题，而是消费者福利、能源价格暴露与政策退坡风险的分配问题。</p>
+  <p class="en-text">UK EV drivers are seeing substantial annual net savings from lower fuel and maintenance costs, so the fight over EV targets is no longer just about decarbonisation costs; it is about consumer welfare, exposure to energy prices, and the distributional risks of policy rollbacks.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇分析直接回应英国政府可能削弱电动车目标的讨论，试图用家庭账单层面的收益对冲“转型太贵”的政治叙事。它把政策争论从抽象排放目标拉回到谁实际受益、谁承担过渡成本。</p>
+  <p class="en-text">The analysis responds directly to reports that the UK government may weaken EV targets, using household-level savings to counter the political claim that transition is too costly. It shifts the debate from abstract emissions goals to who benefits and who bears transition costs.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是英国交通脱碳与产业政策修正阶段的争论材料，尤其嵌入EV目标、消费者成本和政策可信度的国内政策窗口。</p>
+    <p class="en-text">This sits in the UK’s transport decarbonisation and industrial-policy recalibration, especially the domestic policy window around EV targets, consumer costs, and policy credibility.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/debriefed-12-june-2026-el-nino-begins-cop31-hosts-eye-electrification-atlantic-current-monitoring-at-risk/">DeBriefed 12 June 2026: El Niño begins | COP31 hosts eye electrification | Atlantic current monitoring at risk</a></h3>
+  <p class="meta">Carbon Brief · 2026-06-12</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief 将厄尔尼诺启动、COP31主办方电气化议程与大西洋环流监测风险并置，强调气候政策已从减排承诺进入“适应、系统监测与主办国示范”并行的多线程序。</p>
+  <p class="en-text">By juxtaposing the onset of El Niño, COP31 hosts’ electrification agenda, and the risk to Atlantic current monitoring, Carbon Brief argues that climate policy has moved into a multi-track phase of mitigation, adaptation, system monitoring, and host-country signalling.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这期简报抓住了气候系统信号与谈判政治同时变化的窗口：一边是极端气候背景更复杂，一边是COP31主办方试图用电气化塑造议程。它提醒读者，谈判前期的议程设置已经在塑造之后的政策空间。</p>
+  <p class="en-text">The briefing captures a window in which climate-system signals and negotiation politics are changing at the same time: extreme-weather conditions are intensifying while COP31 hosts try to shape the agenda through electrification. It reminds readers that pre-summit agenda setting already constrains later policy space.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP31前的议程预设材料，连接主办国示范、气候监测能力与全球适应讨论。</p>
+    <p class="en-text">This is pre-COP31 agenda-setting material linking host-country signalling, climate-monitoring capacity, and global adaptation discussions.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.carbonbrief.org/analysis-solar-overtakes-gas-power-in-asia-for-first-time-ever/">Analysis: Solar overtakes gas power in Asia for first time ever</a></h3>
+  <p class="meta">Carbon Brief · 2026-06-12</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#绿色转型</span><span class="tag">#能源转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">亚洲太阳能发电首次超过天然气，表明电力系统扩张的边际供给逻辑正在从化石燃料转向可再生能源，但这一转折能否稳定下来取决于电网、储能和区域市场规则是否同步调整。</p>
+  <p class="en-text">Solar has overtaken gas power in Asia, showing that the marginal logic of power-system expansion is shifting from fossil fuels to renewables, but whether this pivot stabilises depends on simultaneous changes in grids, storage, and regional market rules.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇分析利用最新电力结构变化，回应“能源转型已到临界点还是仍脆弱”的判断争议。它把技术替代问题推进到制度配套是否跟上的层面。</p>
+  <p class="en-text">The analysis uses the latest power-mix shift to test whether the energy transition has reached a tipping point or remains fragile. It moves the discussion from technology substitution to whether institutional complements are keeping pace.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是区域电力市场重构与绿色转型比较研究的信号，尤其适合放在亚洲能源安全与电网投资议程中。</p>
+    <p class="en-text">This is a signal for regional power-market restructuring and comparative green-transition research, especially within Asia’s energy-security and grid-investment agenda.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>4. <a href="https://www.carbonbrief.org/guest-post-how-a-record-high-energy-imbalance-is-driving-global-warming/">Guest post: How a record-high ‘energy imbalance’ is driving global warming</a></h3>
+  <p class="meta">Carbon Brief · 2026-06-10</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">作者把全球变暖解释为地球能量收支持续失衡的结果，强调问题不只是温室气体累积，而是海洋与大气吸热能力被推向新状态，这意味着监测、归因和风险沟通都需要以系统能量预算为核心。</p>
+  <p class="en-text">The author frames global warming as the outcome of a sustained planetary energy imbalance, stressing that the issue is not only greenhouse-gas accumulation but also a shift in the ocean–atmosphere heat budget, which requires monitoring, attribution, and risk communication built around the system’s energy balance.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章回应了近期围绕极端天气、海洋热含量和长期升温速度的再讨论。它把抽象的变暖争论转化为可监测的物理机制问题。</p>
+  <p class="en-text">The piece responds to renewed debate over extreme weather, ocean heat content, and the pace of long-term warming. It turns a diffuse warming debate into a measurable physical-mechanism question.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">议程背景不明确.</p>
+    <p class="en-text">Agenda context is unclear.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>澳大利亚气候谈判、美国公共土地开放与欧洲AMOC监测之争指向同一问题：风险治理正被“成本—自由—产业”叙事重新排序。</p><p class="en-text">Australia’s climate talks, U.S. public-land opening, and the dispute over AMOC monitoring all point to one question: risk governance is being reordered by cost–freedom–industry narratives.</p></section>
+
+    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018920">Structural Causes and Regime Consequences: Regimes as Intervening Variables</a></h3>
+  <p class="meta">Stephen D. Krasner · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span></p>
+  <p class="reading-text">Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。</p>
+  <p class="en-text">Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">本期关于澳大利亚气候谈判与AMOC监测争议的报道，可用来检验国际制度（international regimes）如何把风险感知转化为可接受的合作边界。</p>
+  <p class="en-text">This issue’s pieces on Australia’s climate talks and the AMOC monitoring dispute help test how international regimes translate risk perception into acceptable cooperation boundaries.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>制度何时约束退缩？ <span class="keywords">(international regimes, climate negotiations, institutional constraint, policy rollback)</span><br><span class="en-text">When do institutions constrain retreat?</span></li><li>监测资金如何制度化？ <span class="keywords">(climate monitoring, institutional design, global governance, funding commitments)</span><br><span class="en-text">How is monitoring finance institutionalized?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018920">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018993">International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order</a></h3>
+  <p class="meta">John Gerard Ruggie · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#发展不平等</span><span class="tag">#绿色转型</span></p>
+  <p class="reading-text">Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。</p>
+  <p class="en-text">Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">英国EV成本节省的报道与这篇关于嵌入式自由主义（embedded liberalism）的经典文献直接相关，因为两者都在问开放体系如何通过国内补偿维持政治合法性。</p>
+  <p class="en-text">The UK EV savings story connects directly to this classic on embedded liberalism because both ask how openness can remain politically legitimate through domestic compensation.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>补偿何时稳住转型？ <span class="keywords">(embedded liberalism, just transition, political legitimacy, consumer compensation)</span><br><span class="en-text">When do compensations stabilise transitions?</span></li><li>绿色开放秩序如何续命？ <span class="keywords">(green industrial policy, trade openness, domestic politics, policy space)</span><br><span class="en-text">How is a green open order sustained?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018993">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep.2010.10.1.60">Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees</a></h3>
+  <p class="meta">Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#Global South</span><span class="tag">#发展不平等</span></p>
+  <p class="reading-text">Biermann 与 Boas 以气候流离失所为切口，指出现有难民法主要围绕迫害和跨境庇护设计，无法处理海平面上升、干旱和灾害累积造成的长期迁移风险。文章主张建立面向未来的全球保护制度，将预防性迁移、资金支持、责任分担和机构协调纳入同一框架。它的贡献不只是提出“气候难民”概念，而是揭示气候影响如何把人道保护、适应融资、主权边界和发展脆弱性连成一个治理缺口。</p>
+  <p class="en-text">Biermann and Boas start from climate displacement to show that existing refugee law is poorly suited to long-term migration driven by sea-level rise, drought, and cumulative climate shocks. They argue for a forward-looking global protection system that links planned relocation, financing, responsibility-sharing, and institutional coordination. The article is valuable not only because it popularizes the problem of climate refugees, but because it identifies a governance gap between humanitarian protection, adaptation finance, sovereignty, and development vulnerability.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">当本期新闻提到海洋变暖、极地可达性上升与生态系统压力时，这篇关于气候流离失所治理的文章提醒我们，适应融资和人口流动正在相互缠绕。</p>
+  <p class="en-text">With this issue’s news on ocean warming, rising polar accessibility, and ecosystem stress, this piece reminds us that adaptation finance and human mobility are increasingly intertwined.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>迁移保护应由谁出资？ <span class="keywords">(climate displacement, responsibility sharing, adaptation finance, global governance)</span><br><span class="en-text">Who should fund climate mobility protection?</span></li><li>预防性迁移如何设计？ <span class="keywords">(planned relocation, human mobility, institutional design, climate adaptation)</span><br><span class="en-text">How should planned relocation be designed?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1162/glep.2010.10.1.60">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
