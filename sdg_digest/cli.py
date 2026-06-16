@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -31,6 +32,8 @@ def main() -> None:
     parser.add_argument("--max-items", type=int, default=5, help="Backward-compatible alias for research signals")
     parser.add_argument("--max-recent-news", type=int, default=8)
     parser.add_argument("--max-research-signals", type=int, default=None)
+    parser.add_argument("--max-per-source-recent", type=int, default=2)
+    parser.add_argument("--max-per-source-research", type=int, default=2)
     parser.add_argument("--candidate-pool", type=int, default=30)
     parser.add_argument("--sources", default="sources.yml")
     parser.add_argument("--bibliography", default="bibliography.yml")
@@ -64,8 +67,16 @@ def main() -> None:
         print("Consider adding RSS/Atom feeds that meet the source policy criteria:")
         for suggestion in SOURCE_SUGGESTIONS:
             print(f"- {suggestion}")
-    selected_recent = rank_candidates(recent_candidates, args.max_recent_news)
-    selected_research = rank_candidates(research_candidates, args.candidate_pool)
+    selected_recent = rank_candidates(
+        recent_candidates,
+        args.max_recent_news,
+        max_per_source=args.max_per_source_recent,
+    )
+    selected_research = rank_candidates(
+        research_candidates,
+        args.candidate_pool,
+        max_per_source=args.max_per_source_research,
+    )
     selected = selected_recent + selected_research
     digest = generate_digest(
         selected,
@@ -101,6 +112,8 @@ def main() -> None:
         passed_to_ai=len(selected),
         recent_candidates=len(selected_recent),
         research_candidates=len(selected_research),
+        selected_recent_sources=_source_counts(selected_recent),
+        selected_research_sources=_source_counts(selected_research),
     )
 
 
@@ -111,6 +124,8 @@ def _print_pipeline_report(
     passed_to_ai: int,
     recent_candidates: int,
     research_candidates: int,
+    selected_recent_sources: Counter[str],
+    selected_research_sources: Counter[str],
 ) -> None:
     print("")
     print("Pipeline diagnostic report")
@@ -122,6 +137,8 @@ def _print_pipeline_report(
     print(f"- Number passed to AI: {passed_to_ai}")
     print(f"- Recent-news candidates passed to AI: {recent_candidates}")
     print(f"- Research candidates passed to AI: {research_candidates}")
+    print(f"- Selected recent-news source mix: {_format_source_counts(selected_recent_sources)}")
+    print(f"- Selected research source mix: {_format_source_counts(selected_research_sources)}")
     print(f"- Sources using full-text extraction: {', '.join(sorted(stats.full_text_sources)) or 'none'}")
     print(f"- Sources using RSS fallback: {', '.join(sorted(stats.rss_fallback_sources)) or 'none'}")
     if stats.source_items_fetched:
@@ -136,10 +153,21 @@ def _print_pipeline_report(
             print(f"  - {failure}")
 
 
+def _source_counts(candidates) -> Counter[str]:
+    return Counter(candidate.source_org for candidate in candidates)
+
+
+def _format_source_counts(counts: Counter[str]) -> str:
+    if not counts:
+        return "none"
+    return ", ".join(f"{source}={count}" for source, count in counts.most_common())
+
+
 # CHANGE 1 DONE: CLI loads sent history, filters old URLs, and updates it only after successful email sends.
 # CHANGE 2 DONE: CLI reports full-text extraction vs RSS fallback sources in the run summary.
 # WEEKLY MODULE ROUTING DONE: CLI now defaults to a 7-day window and sends separate recent-news/research pools to generation.
 # PIPELINE LOGGING DONE: CLI prints a source-level diagnostic report for every run.
+# SOURCE DIVERSITY DONE: CLI applies per-source caps before passing candidates to the AI selector.
 
 
 if __name__ == "__main__":

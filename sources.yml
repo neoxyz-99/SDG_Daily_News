@@ -55,6 +55,33 @@
       "default_tags": ["#多边治理", "#发展不平等"]
     },
     {
+      "name": "LSE Grantham Research Institute",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.lse.ac.uk/granthaminstitute/feed/",
+      "allowed_domains": ["lse.ac.uk", "www.lse.ac.uk"],
+      "default_tags": ["#环境治理与气候", "#气候金融"]
+    },
+    {
+      "name": "E3G",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.e3g.org/feed/",
+      "allowed_domains": ["e3g.org", "www.e3g.org"],
+      "default_tags": ["#能源转型", "#多边治理"]
+    },
+    {
+      "name": "Center for Global Development",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.cgdev.org/feeds/blog.xml",
+      "allowed_domains": ["cgdev.org", "www.cgdev.org"],
+      "default_tags": ["#发展不平等", "#气候金融"]
+    },
+    {
       "name": "Nature Sustainability",
       "type": "journal",
       "layer": "research",
@@ -82,11 +109,47 @@
       "default_tags": ["#环境治理与气候"]
     },
     {
+      "name": "Associated Press Climate and Environment",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://apnews.com/hub/climate-and-environment?output=rss",
+      "allowed_domains": ["apnews.com", "www.apnews.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "New York Times Climate",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Climate.xml",
+      "allowed_domains": ["nytimes.com", "www.nytimes.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Inside Climate News",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://insideclimatenews.org/feed/",
+      "allowed_domains": ["insideclimatenews.org", "www.insideclimatenews.org"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Yale Climate Connections",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://yaleclimateconnections.org/feed/",
+      "allowed_domains": ["yaleclimateconnections.org", "www.yaleclimateconnections.org"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
       "name": "Xinhua World News",
       "type": "news",
       "layer": "event",
       "strategy": "rss",
-      "url": "https://english.news.cn/rss/worldrss.xml",
+      "url": "https://english.news.cn/rss/world.xml",
       "allowed_domains": ["english.news.cn", "news.cn"],
       "default_tags": ["#地缘政治与治理"]
     },

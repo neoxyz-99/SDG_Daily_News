@@ -274,9 +274,36 @@ def deduplicate_candidates(candidates: list[Candidate]) -> list[Candidate]:
     return unique
 
 
-def rank_candidates(candidates: list[Candidate], max_items: int = 30) -> list[Candidate]:
+def rank_candidates(
+    candidates: list[Candidate],
+    max_items: int = 30,
+    max_per_source: int | None = None,
+) -> list[Candidate]:
     scored = sorted(candidates, key=_score_candidate, reverse=True)
-    return scored[:max_items]
+    if not max_per_source or max_per_source <= 0:
+        return scored[:max_items]
+
+    selected: list[Candidate] = []
+    selected_urls: set[str] = set()
+    source_counts: Counter[str] = Counter()
+    for candidate in scored:
+        if len(selected) >= max_items:
+            break
+        if source_counts[candidate.source_org] >= max_per_source:
+            continue
+        selected.append(candidate)
+        selected_urls.add(candidate.url)
+        source_counts[candidate.source_org] += 1
+
+    if len(selected) < max_items:
+        for candidate in scored:
+            if len(selected) >= max_items:
+                break
+            if candidate.url in selected_urls:
+                continue
+            selected.append(candidate)
+            selected_urls.add(candidate.url)
+    return selected
 
 
 def _score_candidate(candidate: Candidate) -> tuple[int, str]:

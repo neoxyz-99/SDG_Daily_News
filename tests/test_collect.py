@@ -78,6 +78,43 @@ class CollectTests(unittest.TestCase):
 
         self.assertEqual(result[0].url, rich.url)
 
+    def test_rank_can_limit_items_per_source_for_diversity(self) -> None:
+        first_guardian = _candidate(
+            "Guardian rich climate item one",
+            "https://example.org/guardian-1",
+            source_org="The Guardian Environment",
+            summary_hint=" ".join(["climate"] * 100),
+        )
+        second_guardian = _candidate(
+            "Guardian rich climate item two",
+            "https://example.org/guardian-2",
+            source_org="The Guardian Environment",
+            summary_hint=" ".join(["climate"] * 90),
+        )
+        third_guardian = _candidate(
+            "Guardian rich climate item three",
+            "https://example.org/guardian-3",
+            source_org="The Guardian Environment",
+            summary_hint=" ".join(["climate"] * 80),
+        )
+        ap_item = _candidate(
+            "AP climate item",
+            "https://example.org/ap",
+            source_org="Associated Press Climate and Environment",
+            summary_hint=" ".join(["climate"] * 20),
+        )
+
+        result = rank_candidates(
+            [first_guardian, second_guardian, third_guardian, ap_item],
+            max_items=3,
+            max_per_source=2,
+        )
+
+        self.assertEqual(
+            [item.source_org for item in result],
+            ["The Guardian Environment", "The Guardian Environment", "Associated Press Climate and Environment"],
+        )
+
     def test_whitelisted_source_attempts_full_text_extraction(self) -> None:
         source = Source(
             name="IISD SDG Knowledge Hub",
@@ -156,10 +193,10 @@ class CollectTests(unittest.TestCase):
         self.assertEqual(result[0].layer, "research")
 
 
-def _candidate(title: str, url: str, summary_hint: str = "") -> Candidate:
+def _candidate(title: str, url: str, summary_hint: str = "", source_org: str = "Source") -> Candidate:
     return Candidate(
         title=title,
-        source_org="Source",
+        source_org=source_org,
         source_type="think_tank",
         published_date="2026-06-09",
         url=url,
