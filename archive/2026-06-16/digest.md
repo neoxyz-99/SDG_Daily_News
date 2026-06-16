@@ -4,159 +4,109 @@ Issue week: 2026-06-16
 
 ## 本周导语 / Editorial Note
 
-能源安全、企业承诺与气候规则修订同时推进，谁来为转型成本定价？
+同一张议程表上，市场重定价、气候合作与制度叙事正在争夺谁来定义“转型”成本。
 
-Energy security, corporate commitments, and climate-rule revisions are moving at once; who gets to price the costs of transition?
+On the same agenda, market repricing, climate cooperation, and institutional narratives are competing over who gets to define the costs of transition.
 
 ## 近期要闻 / Recent News
 
-### 1. Trump Administration Abandons Fight Against Wind Energy as Clean Energy Output Surges
-
-Inside Climate News · 2026-06-16
-
-特朗普政府放弃阻止美国风电项目的法律努力，同时法院对联邦风电许可冻结令的裁决继续生效。
-
-The Trump administration has dropped its effort to block U.S. wind projects, leaving the court ruling against its permitting freeze in place.
-
-Original: https://insideclimatenews.org/news/15062026/trump-administration-abandons-fight-against-wind-energy/
-
-### 2. Microsoft’s Clean Energy Reversal Collides With Virginia’s Climate Goals
-
-Inside Climate News · 2026-06-15
-
-微软在弗吉尼亚扩张高耗电数据中心之际，被指可能放弃当地清洁能源目标，与州级气候承诺发生直接冲突。
-
-Microsoft’s data-center expansion in Virginia is colliding with the state’s climate goals as the company appears to back away from its clean-power target.
-
-Original: https://insideclimatenews.org/news/15062026/microsoft-backpedals-on-climate-promises/
-
-### 3. Deal to Reopen Hormuz Kicks Off Long Effort to Ease Energy Crisis
+### 1. China Moves the Price of Oil, Even When It Buys Less
 
 New York Times Climate · 2026-06-15
 
-美伊达成重新开放霍尔木兹海峡的协议后，能源市场的恢复仍取决于市场是否相信协议能延续。
+中国即便减少原油进口，仍因其全球最大买方地位影响油价，这说明需求收缩并不自动削弱其在市场定价中的结构性权重。
 
-After the U.S.-Iran deal to reopen Hormuz, market recovery still depends on whether firms believe the agreement will last.
+Even when China cuts crude imports, its status as the largest buyer still shapes oil prices, showing that lower demand does not automatically reduce structural market power.
 
-Original: https://www.nytimes.com/2026/06/15/business/energy-environment/iran-deal-oil-natural-gas.html
+Original: https://www.nytimes.com/2026/06/15/business/china-oil-iran.html
 
-### 4. World News in Brief: Turk condemns Northern Ireland riots, jobs at risk over animal disease spread, heatwaves spark public health crisis in Europe
+### 2. In Alabama, Opposition to Renewable Solar Energy Joins a Data Center Battle
 
-UN News Climate Change · 2026-06-11
+New York Times Climate · 2026-06-15
 
-联合国新闻简报提到欧洲热浪引发公共卫生危机，并同时触及多条与脆弱性和风险扩散相关的议题。
+阿拉巴马州公用事业委员会初选把数据中心负荷、电价与太阳能反对合并进同一场地方政治争夺，电力转型因此被重新编码为成本与控制问题。
 
-The UN News brief flags Europe’s heatwaves as a public-health crisis while also noting several other vulnerability and spillover risks.
+An Alabama utility commission runoff folds data-center load, electricity prices, and opposition to solar power into one local struggle, recoding the energy transition as a question of cost and control.
 
-Original: https://news.un.org/feed/view/en/story/2026/06/1167701
+Original: https://www.nytimes.com/2026/06/15/us/elections/alabama-election-data-centers-solar-power.html
 
-### 5. El Niño is officially here, raising confidence in a quiet 2026 Atlantic hurricane season
+### 3. What Americans can learn from London’s war on cars
 
-Yale Climate Connections · 2026-06-11
+Yale Climate Connections · 2026-06-15
 
-厄尔尼诺正式到来，提升了2026年大西洋飓风季偏弱的预期，但单次登陆风暴仍可能造成重大损失。
+伦敦通过限制汽车依赖推进城市治理，但批评者认为其减车措施仍未触及空间分配与可达性的不平等。
 
-El Niño has arrived, raising expectations of a quieter 2026 Atlantic hurricane season, though a single landfalling storm can still be costly.
+London has pushed car-reduction through urban governance, but critics argue the measures still fall short of addressing inequality in space allocation and accessibility.
 
-Original: https://yaleclimateconnections.org/2026/06/el-nino-is-officially-here-raising-confidence-in-a-quiet-2026-atlantic-hurricane-season/
-
-### 6. Esta Copa Mundial podría ser la más calurosa en la historia del juego
-
-Yale Climate Connections · 2026-06-10
-
-一项新分析显示，气候变暖正提高2026年世界杯多场比赛出现危险高温的概率。
-
-A new analysis finds climate change is raising the odds of dangerous heat across many 2026 World Cup matches.
-
-Original: https://yaleclimateconnections.org/2026/06/esta-copa-mundial-podria-ser-la-mas-calurosa-en-la-historia-del-juego/
+Original: https://yaleclimateconnections.org/2026/06/what-americans-can-learn-from-londons-war-on-cars/
 
 ## 研究动向 / Research Signals
 
-### 1. E3G’s response to the consultation on the revised European Sustainability Reporting Standards (ESRS)
+### 1. E3G at London Climate Action Week 2026
 
-E3G · 2026-06-09
+E3G · 2026-06-12
 
-Tags: #可持续金融与ESG #能源转型 #多边治理
+Tags: #环境治理与气候 #能源转型 #多边治理
 
-**核心论点 / Core Argument**: E3G认为，欧盟在修订欧洲可持续性报告标准（ESRS）时若过度简化披露，将削弱企业对转型风险、供应链影响与减排路径的可比性，进而让CSRD从问责工具退化为合规清单；它实际上是在为保留实质性披露、统一口径和可审计性争取监管修订。
+**核心论点 / Core Argument**: E3G借伦敦气候行动周提出，在“分裂的世界”里，气候合作不能只靠宣示性承诺，而要把政府、投资者、企业与公众的协作嵌入可执行的伙伴关系、联盟和融资安排之中，否则气候议程会被地缘政治碎片化拖回口号层面。
 
-E3G argues that if the EU simplifies the European Sustainability Reporting Standards too aggressively, firms will disclose less comparable information on transition risk, supply-chain impacts, and decarbonization pathways, turning the CSRD from an accountability tool into a compliance checklist; the response is effectively a push to preserve material disclosures, consistent metrics, and auditability in the revision.
+E3G uses London Climate Action Week to argue that in a fractured world, climate cooperation cannot rely on declaratory commitments alone; governments, investors, firms, and citizens must be tied into workable partnerships, coalitions, and financing arrangements, or the agenda will collapse back into slogans under geopolitical fragmentation.
 
-**为什么此刻重要 / Why Now**: 这份意见提交于欧盟开放咨询期内，直接回应修订Delegated Act的窗口。它试图在Omnibus I简化包之后，阻止报告标准进一步被“去实质化”。
+**为什么此刻重要 / Why Now**: 这篇文章对应2026年伦敦气候行动周的时点，试图把气候议程重新锚定在跨部门协作上。它回应的是合作环境恶化而非单一政策争论。
 
-The submission lands during the EU consultation on the revised Delegated Act, directly engaging the post-Omnibus I rewrite window. It aims to prevent the reporting standards from being hollowed out after the simplification package.
+The piece is timed to London Climate Action Week 2026 and tries to re-anchor the climate agenda in cross-sector cooperation. It responds to deteriorating conditions for collaboration rather than to a single policy dispute.
 
-**议程位置 / Agenda Position**: 这是CSRD/ESRS修订进程中的技术争夺点，决定企业可持续信息披露究竟是市场纪律还是最低限度报送。
+**议程位置 / Agenda Position**: 这是把民间与市场联盟嵌入气候治理叙事的周边议程，而非正式谈判文本。
 
-This is a technical contest inside the CSRD/ESRS revision process, determining whether sustainability disclosure remains market discipline or degrades into minimal reporting.
+This is a side agenda that embeds civil-society and market coalitions into the climate-governance narrative, not a formal negotiating text.
 
-Original: https://www.e3g.org/news/e3g-s-response-to-the-consultation-on-the-revised-european-sustainability-reporting-standards-esrs/?utm_source=rss&utm_medium=rss&utm_campaign=e3g-s-response-to-the-consultation-on-the-revised-european-sustainability-reporting-standards-esrs
+Original: https://www.e3g.org/news/e3g-at-london-climate-action-week-2026/?utm_source=rss&utm_medium=rss&utm_campaign=e3g-at-london-climate-action-week-2026
 
-### 2. Why the G7 summit still matters for climate
+### 2. EU Leaders face mounting geopolitical pressures at June European Council
 
 E3G · 2026-06-11
 
-Tags: #环境治理与气候 #能源转型 #多边治理
+Tags: #地缘政治与治理 #能源转型 #多边治理
 
-**核心论点 / Core Argument**: E3G指出，尽管法国在G7议程中刻意淡化“气候”字样，G7仍是协调能源安全、产业政策与国际气候合作的关键场域；若成员国只用危机管理替代长期规则安排，气候议题就会被分散到各自的短期能源应对中。
+**核心论点 / Core Argument**: E3G指出，欧洲理事会在乌克兰战争、中东冲突、竞争力和下一轮欧盟预算的挤压下，已不再只是安全议题协调场，而是必须同时处理危机应对、产业能力与财政资源再分配的治理枢纽。
 
-E3G argues that even though France has muted the word “climate” in the G7 agenda, the G7 remains a key venue for coordinating energy security, industrial policy, and international climate cooperation; if members substitute crisis management for durable rule-setting, climate action will fragment into short-term national energy responses.
+E3G argues that the European Council is no longer merely a coordination venue for security questions; under pressure from the war in Ukraine, Middle East conflict, competitiveness, and the next EU budget, it has become a governance hinge that must reconcile crisis response, industrial capacity, and fiscal reallocation.
 
-**为什么此刻重要 / Why Now**: 这篇文章对应Evian峰会召开前的议程塑形阶段，试图把气候重新嵌入G7讨论。它的时点性很强，因为峰会话语将影响后续联合声明的边界。
+**为什么此刻重要 / Why Now**: 这篇文章直接对应6月18—19日的欧洲理事会会议窗口，属于会前议程塑形。它把地缘政治压力与预算谈判绑在一起。
 
-The piece is timed to shape the agenda before the Evian summit, aiming to reinsert climate into G7 discussions. Its timing matters because summit language will shape the limits of the joint communiqué.
+The piece directly precedes the June 18–19 European Council and is aimed at shaping the pre-summit agenda. It links geopolitical pressure to budget bargaining.
 
-**议程位置 / Agenda Position**: 这是G7峰会前的议程设置文章，服务于首脑声明和部长轨道的气候措辞博弈。
+**议程位置 / Agenda Position**: 这是欧洲理事会议程中的前置形势判断，服务于峰会前的议程设定。
 
-This is a pre-summit agenda-setting piece geared toward bargaining over climate language in the leaders’ statement and ministerial tracks.
+This is a pre-summit framing note for the European Council agenda-setting process.
 
-Original: https://www.e3g.org/news/why-the-g7-summit-still-matters-for-climate/?utm_source=rss&utm_medium=rss&utm_campaign=why-the-g7-summit-still-matters-for-climate
+Original: https://www.e3g.org/news/eu-leaders-face-mounting-geopolitical-pressures-at-june-european-council/?utm_source=rss&utm_medium=rss&utm_campaign=eu-leaders-face-mounting-geopolitical-pressures-at-june-european-council
 
-### 3. Cross-sector coalition calls on European Council to end fossil fuel dependence
+### 3. China Briefing 11 June 2026: Tech clampdown | Extreme weather | Provinces’ energy plans
 
-E3G · 2026-06-11
+Carbon Brief · 2026-06-11
 
-Tags: #环境治理与气候 #能源转型 #多边治理
+Tags: #环境治理与气候 #能源转型
 
-**核心论点 / Core Argument**: 这封面向欧洲理事会的公开信主张，欧盟不应继续以应急补贴和临时调节对冲能源危机，而应把摆脱化石燃料依赖写入长期供给与需求侧转型框架，从而减少价格冲击对工业、家庭与公共财政的反复侵蚀。
+**核心论点 / Core Argument**: Carbon Brief将中国的技术监管收紧、极端天气和省级能源规划并置，暗示中央目标与地方执行之间存在耦合失灵：如果省级能源方案不能与气候风险和产业约束同步，政策效果就会在层级间被稀释。
 
-The open letter to the European Council argues that the EU should stop relying on emergency subsidies and ad hoc fixes to absorb energy crises, and instead embed fossil-fuel exit in a long-term supply-and-demand transition framework that reduces repeated price shocks to industry, households, and public budgets.
+Carbon Brief places China’s tech clampdown, extreme weather, and provincial energy plans side by side, implying a coupling failure between central targets and local execution: if provincial energy plans are not aligned with climate risk and industrial constraints, policy impact is diluted across administrative levels.
 
-**为什么此刻重要 / Why Now**: 这份呼吁直接回应又一轮能源危机，并在6月18—19日欧洲理事会峰会前施压。它把“最后一次化石燃料危机”变成政策窗口。
+**为什么此刻重要 / Why Now**: 这是一则把多项六月政策与天气压力并读的周报式梳理，时间上对应地方能源计划调整期。它强调的是政策协调而非单一新规。
 
-The call responds directly to yet another energy crisis and pressures leaders ahead of the 18–19 June European Council summit. It tries to turn “the final fossil-fuel crisis” into a policy window.
-
-**议程位置 / Agenda Position**: 这是欧洲理事会峰会前的跨部门游说文本，试图影响成员国对能源安全与转型节奏的共同表述。
-
-This is a cross-sector lobbying text ahead of the European Council summit, aimed at shaping member states’ common framing of energy security and transition pace.
-
-Original: https://www.e3g.org/news/cross-sector-coalition-calls-on-european-council-to-end-fossil-fuel-dependence/?utm_source=rss&utm_medium=rss&utm_campaign=cross-sector-coalition-calls-on-european-council-to-end-fossil-fuel-dependence
-
-### 4. New polling shows overwhelming global business support for clean electrification amid fossil fuel volatility
-
-E3G · 2026-06-15
-
-Tags: #环境治理与气候 #能源转型 #多边治理
-
-**核心论点 / Core Argument**: E3G借全球18国企业高管民调说明，电气化与以可再生电力为主的系统并非只受气候倡议者支持，而正在被企业视为降低化石燃料波动风险、稳定投资预期与重构竞争优势的治理方案；这为政策制定者提供了推动电网、需求侧和工业电气化的产业联盟基础。
-
-E3G uses a 18-country executive survey to show that electrification and renewables-based power are not only backed by climate advocates, but are increasingly seen by business as a governance solution for reducing fossil-fuel volatility, stabilizing investment expectations, and reshaping competitive advantage; this gives policymakers an industrial coalition basis for grids, demand-side measures, and industrial electrification.
-
-**为什么此刻重要 / Why Now**: 这项民调出现在化石燃料价格和供给不确定性仍高的时点，意在把企业偏好转化为政策授权。它为近期能源安全争论提供了市场侧证据。
-
-The polling arrives amid continuing fossil-fuel price and supply uncertainty, aiming to turn business preferences into policy authorization. It offers market-side evidence for the current energy-security debate.
+This is a weekly briefing that reads several June policy and weather pressures together, timed to a period of provincial energy-plan adjustment. It is about policy coordination rather than a single new rule.
 
 **议程位置 / Agenda Position**: 议程背景不明确.
 
 Agenda context is unclear.
 
-Original: https://www.e3g.org/news/new-business-polling-electrification-support/?utm_source=rss&utm_medium=rss&utm_campaign=new-business-polling-electrification-support
+Original: https://www.carbonbrief.org/china-briefing-11-june-2026-tech-clampdown-extreme-weather-provinces-energy-plans/
 
 ## 本周议题线索 / Weekly Thread
 
-本期多条线索都在问同一件事：当危机驱动“务实转向”时，规则修订会强化问责，还是为既有利益让路？
+本期多条线索都指向一个问题：转型成本究竟由谁承担、通过何种制度被分摊。无论是气候合作、能源与数据中心冲突，还是气候融资叙事，核心都在分配规则。
 
-Several items ask the same question: when crises drive a “pragmatic turn,” do rule revisions strengthen accountability or make room for incumbents?
+Several items converge on one question: who bears transition costs, and through which institutions are they distributed? Whether the issue is climate cooperation, energy and data-center conflict, or climate-finance narratives, the core is the rule of allocation.
 
 ## 经典研读 / Classic Reading
 
@@ -176,16 +126,16 @@ Krasner asks whether international regimes are merely by-products of power or wh
 
 **今日关联 / Today's Connection**
 
-本期关于欧盟ESRS修订与G7气候议程的分歧，正适合用Krasner关于制度如何把权力转化为规则约束的视角来读。
+本期关于伦敦气候合作与欧盟议程压力的报道，可与Krasner对国际制度（regime）作为中介变量的分析并读：关键不是有没有承诺，而是规则、程序与合法性如何改变承诺的约束力。
 
-The ESRS revision and the G7 climate agenda in this issue are well read through Krasner’s lens on how power becomes rule-based constraint.
+Read this alongside the pieces on London climate cooperation and EU agenda pressure: the issue is not whether commitments exist, but how rules, procedures, and legitimacy alter their binding force.
 
 **研究方向 / Research Directions**
 
-- 规则修订如何改变约束力？ (institutional design, reporting standards, policy revision, compliance)
-  How do rule revisions change institutional constraint?
-- 议程设置何时重塑权力？ (agenda-setting, multilateral governance, summit politics, institutional change)
-  When does agenda-setting reshape power?
+- 气候合作如何受制度约束 (climate regimes, institutional constraint, legitimacy, decision rules)
+  How do regimes alter climate cooperation?
+- 危机时期规则为何更重要 (crisis governance, regime change, international institutions, rule legitimacy)
+  Why do rules matter more in crisis?
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018920
 
@@ -205,44 +155,44 @@ Ruggie explains why the postwar economic order did not simply restore laissez-fa
 
 **今日关联 / Today's Connection**
 
-微软数据中心扩张与弗吉尼亚气候目标的冲突，像是嵌入式自由主义（embedded liberalism）在数字基础设施时代的新版本。
+本期关于阿拉巴马州太阳能与数据中心之争、以及伦敦的汽车治理，都可借“嵌入式自由主义（embedded liberalism）”理解：开放转型要获得支持，必须同时处理分配冲突和社会保护。
 
-The clash between Microsoft’s data-center expansion and Virginia’s climate goals looks like a new version of embedded liberalism in the age of digital infrastructure.
+The Alabama solar-data-center dispute and London’s car-governance debate can both be read through embedded liberalism: open transition gains support only when distributional conflict and social protection are addressed together.
 
 **研究方向 / Research Directions**
 
-- 开放投资与国内保护如何兼容？ (embedded liberalism, industrial policy, policy space, investment governance)
-  How can open investment coexist with domestic protection?
-- 企业转型承诺如何被制度化？ (corporate climate commitments, governance, reporting standards, state capacity)
-  How are corporate transition pledges institutionalized?
+- 绿色转型如何争取社会许可 (embedded liberalism, green industrial policy, distributional conflict, policy space)
+  How does green transition gain social consent?
+- 开放秩序与本地保护如何平衡 (open economy, social protection, policy space, transition politics)
+  How are openness and protection balanced?
 
 DOI / 原文链接: https://doi.org/10.1017/S0020818300018993
 
-### Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees
+### Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid
 
-Frank Biermann and Ingrid Boas · 2010 · Global Environmental Politics
+Axel Michaelowa and Katharina Michaelowa · 2011 · World Development
 
-#多边治理 #Global South #发展不平等
+#气候金融 #发展不平等 #多边治理
 
-Biermann 与 Boas 以气候流离失所为切口，指出现有难民法主要围绕迫害和跨境庇护设计，无法处理海平面上升、干旱和灾害累积造成的长期迁移风险。文章主张建立面向未来的全球保护制度，将预防性迁移、资金支持、责任分担和机构协调纳入同一框架。它的贡献不只是提出“气候难民”概念，而是揭示气候影响如何把人道保护、适应融资、主权边界和发展脆弱性连成一个治理缺口。
+Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。
 
-Biermann and Boas start from climate displacement to show that existing refugee law is poorly suited to long-term migration driven by sea-level rise, drought, and cumulative climate shocks. They argue for a forward-looking global protection system that links planned relocation, financing, responsibility-sharing, and institutional coordination. The article is valuable not only because it popularizes the problem of climate refugees, but because it identifies a governance gap between humanitarian protection, adaptation finance, sovereignty, and development vulnerability.
+Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.
 
 **方法论 / Methodology**
 
-文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。
+文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。
 
 **今日关联 / Today's Connection**
 
-欧洲热浪与世界杯高温风险提醒我们，气候流离失所之外，劳动、公共健康和临时迁移治理也在扩张。
+本期凡涉及气候合作与融资联盟的报道，尤其是E3G围绕伦敦气候行动周的叙事，都可与这篇关于气候援助报告激励的研究对照，检视资金承诺如何被分类规则塑形。
 
-Europe’s heatwaves and World Cup heat risk remind us that beyond displacement, labor, public health, and temporary mobility governance are also expanding.
+Any coverage of climate cooperation and finance coalitions in this issue, especially E3G’s framing around London Climate Action Week, can be read against this study of reporting incentives in climate aid to see how pledges are shaped by classification rules.
 
 **研究方向 / Research Directions**
 
-- 极端高温如何触发保护义务？ (climate displacement, heat governance, human mobility, protection regime)
-  How does extreme heat trigger protection duties?
-- 预防性迁移可否制度化？ (planned relocation, adaptation finance, responsibility sharing, governance)
-  Can planned relocation be institutionalized?
+- 气候资金为何易被高估 (climate finance, reporting incentives, aid marking, additionality)
+  Why is climate finance often overreported?
+- 分类规则如何影响承诺可信度 (taxonomy, climate aid, credibility, political economy)
+  How do classification rules affect pledge credibility?
 
-DOI / 原文链接: https://doi.org/10.1162/glep.2010.10.1.60
+DOI / 原文链接: https://doi.org/10.1016/j.worlddev.2011.07.020
