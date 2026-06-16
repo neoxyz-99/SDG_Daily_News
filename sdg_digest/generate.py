@@ -26,6 +26,8 @@ SEMANTIC_KEEP_THRESHOLD = 2
 SEMANTIC_FALLBACK_MIN_COUNT = 5
 SEMANTIC_FILTER_WORKERS = 8
 EVENT_LAYERS = {"event", "news"}
+MAX_RECENT_NEWS_PER_SOURCE = 2
+MAX_RESEARCH_SIGNALS_PER_SOURCE = 2
 
 EXCLUDE_PATTERNS = [
     "match result",
@@ -498,12 +500,16 @@ def validate_digest_payload(
     }
 
     recent_news: list[NewsBrief] = []
+    recent_source_counts: dict[str, int] = {}
     for raw in payload.get("recent_news", []):
         url = str(raw.get("url", "")).strip()
         title = str(raw.get("title_en", "")).strip()
         source_org = str(raw.get("source_org", "")).strip()
         if not _is_approved_candidate_reference(url, source_org, candidate_urls, candidate_sources):
             print(f"Warning: skipped recent-news item with unapproved candidate reference: {title or url}")
+            continue
+        if recent_source_counts.get(source_org, 0) >= MAX_RECENT_NEWS_PER_SOURCE:
+            print(f"Warning: skipped extra recent-news item from {source_org} to preserve source diversity: {title}")
             continue
         one_sentence_zh = str(raw.get("one_sentence_zh", "")).strip()
         _validate_required_text(one_sentence_zh, f"one_sentence_zh for {title}")
@@ -518,8 +524,10 @@ def validate_digest_payload(
                 tags=_clean_tags(raw.get("tags", []), candidate_by_url[url].tags),
             )
         )
+        recent_source_counts[source_org] = recent_source_counts.get(source_org, 0) + 1
 
     research_signals: list[DigestItem] = []
+    research_source_counts: dict[str, int] = {}
     raw_research_signals = payload.get("research_signals", payload.get("items", []))
     for raw in raw_research_signals:
         url = str(raw.get("url", "")).strip()
@@ -527,6 +535,9 @@ def validate_digest_payload(
         source_org = str(raw.get("source_org", "")).strip()
         if not _is_approved_candidate_reference(url, source_org, candidate_urls, candidate_sources):
             print(f"Warning: skipped research signal with unapproved candidate reference: {title or url}")
+            continue
+        if research_source_counts.get(source_org, 0) >= MAX_RESEARCH_SIGNALS_PER_SOURCE:
+            print(f"Warning: skipped extra research signal from {source_org} to preserve source diversity: {title}")
             continue
         source_candidate = candidate_by_url[url]
         tags = _clean_tags(raw.get("tags", []), source_candidate.tags)
@@ -563,6 +574,7 @@ def validate_digest_payload(
                 why_it_matters_en=why_now_en,
             )
         )
+        research_source_counts[source_org] = research_source_counts.get(source_org, 0) + 1
 
     readings = _validate_readings(payload, approved_reads)
     editorial_note = _optional_text(payload.get("weekly_editorial_note_zh", payload.get("daily_editorial_note_zh")))

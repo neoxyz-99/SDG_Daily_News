@@ -278,6 +278,7 @@ def rank_candidates(
     candidates: list[Candidate],
     max_items: int = 30,
     max_per_source: int | None = None,
+    fill_to_max: bool = True,
 ) -> list[Candidate]:
     scored = sorted(candidates, key=_score_candidate, reverse=True)
     if not max_per_source or max_per_source <= 0:
@@ -295,7 +296,7 @@ def rank_candidates(
         selected_urls.add(candidate.url)
         source_counts[candidate.source_org] += 1
 
-    if len(selected) < max_items:
+    if fill_to_max and len(selected) < max_items:
         for candidate in scored:
             if len(selected) >= max_items:
                 break

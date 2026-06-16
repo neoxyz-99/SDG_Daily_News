@@ -115,6 +115,22 @@ class CollectTests(unittest.TestCase):
             ["The Guardian Environment", "The Guardian Environment", "Associated Press Climate and Environment"],
         )
 
+    def test_rank_can_disable_same_source_backfill(self) -> None:
+        candidates = [
+            _candidate(
+                f"Carbon Brief item {index}",
+                f"https://example.org/carbon-{index}",
+                source_org="Carbon Brief",
+                summary_hint=" ".join(["climate"] * (100 - index)),
+            )
+            for index in range(5)
+        ]
+
+        result = rank_candidates(candidates, max_items=5, max_per_source=2, fill_to_max=False)
+
+        self.assertEqual(len(result), 2)
+        self.assertTrue(all(item.source_org == "Carbon Brief" for item in result))
+
     def test_whitelisted_source_attempts_full_text_extraction(self) -> None:
         source = Source(
             name="IISD SDG Knowledge Hub",

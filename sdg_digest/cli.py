@@ -71,11 +71,13 @@ def main() -> None:
         recent_candidates,
         args.max_recent_news,
         max_per_source=args.max_per_source_recent,
+        fill_to_max=False,
     )
     selected_research = rank_candidates(
         research_candidates,
         args.candidate_pool,
         max_per_source=args.max_per_source_research,
+        fill_to_max=False,
     )
     selected = selected_recent + selected_research
     digest = generate_digest(

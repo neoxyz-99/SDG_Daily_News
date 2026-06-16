@@ -99,6 +99,18 @@ class GenerateTests(unittest.TestCase):
 
         self.assertEqual(digest.items[0].tags[:2], ["#可持续金融与ESG", "#气候金融"])
 
+    def test_validation_limits_research_signals_per_source(self) -> None:
+        first = replace(_candidate(), title="Carbon Brief item one", source_org="Carbon Brief", url="https://www.carbonbrief.org/one")
+        second = replace(_candidate(), title="Carbon Brief item two", source_org="Carbon Brief", url="https://www.carbonbrief.org/two")
+        third = replace(_candidate(), title="Carbon Brief item three", source_org="Carbon Brief", url="https://www.carbonbrief.org/three")
+        payload = _payload(first)
+        payload["items"] = [_item(first), _item(second), _item(third)]
+
+        digest = validate_digest_payload(payload, [first, second, third], {}, date(2026, 6, 9))
+
+        self.assertEqual(len(digest.items), 2)
+        self.assertEqual([item.source_org for item in digest.items], ["Carbon Brief", "Carbon Brief"])
+
     def test_validation_preserves_approved_reading_brief_and_adds_research_directions(self) -> None:
         first = _candidate()
         second = _candidate_two()
