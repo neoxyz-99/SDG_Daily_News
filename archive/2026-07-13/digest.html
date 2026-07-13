@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-07-13</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">技术扩张与地方生计、国家规则与公众成本，谁来定义“转型收益”？</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-07-13</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>技术扩张与地方生计、国家规则与公众成本，谁来定义“转型收益”？</p><p class="en-text">Who gets to define the gains from transition: technology expansion, or the communities and states paying the costs?</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/commentisfree/2026/jul/09/ai-datacenter-company-politics">The fight against AI data centers is important – but it’s just a starting point | Bruce Schneier and Nathan E Sanders</a></h3>
+  <p class="meta">The Guardian Environment · 2026-07-09</p>
+  <p class="body-text">作者认为，反对 AI 数据中心只是开端，更大的问题在于少数科技公司借由资源、土地与能源扩张积累权力，却把成本留给地方社区。</p>
+  <p class="en-text">The authors argue that opposition to AI data centers is only the opening move; the larger issue is how a few tech firms accumulate power by drawing on land and energy while leaving costs to local communities.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.theguardian.com/commentisfree/2026/jul/12/britain-car-suv-big-large-vehicle-road-pedestrians">Britain’s cars and SUVs are growing bigger – but there is a way to stop this deadly ‘carspreading’ | Christian Wolmar</a></h3>
+  <p class="meta">The Guardian Environment · 2026-07-12</p>
+  <p class="body-text">文章指出，英国和欧洲汽车持续变宽正在挤压道路和停车空间，并对行人安全构成更高风险，而监管缺位使这一趋势几乎没有刹车。</p>
+  <p class="en-text">The piece argues that cars and SUVs in Britain and Europe keep getting wider, crowding roads and parking, raising pedestrian risk, and proceeding with little regulatory restraint.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://insideclimatenews.org/news/13072026/corpus-christi-water-rates-case/">Corpus Christi Residents and Businesses Subsidized Industrial Water Bills for Years, Officials Say</a></h3>
+  <p class="meta">Inside Climate News · 2026-07-13</p>
+  <p class="body-text">得州科珀斯克里斯蒂长期以低价向少数工业企业供水，居民和本地商户则承担了更高水费，地方公共资源定价被指向工业利益倾斜。</p>
+  <p class="en-text">For years, Corpus Christi reportedly sold water to a handful of industrial plants at a discount, shifting the higher bill to residents and local businesses through a skewed public pricing structure.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://insideclimatenews.org/news/13072026/colorado-right-to-natural-gas-amendment/">Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution</a></h3>
+  <p class="meta">Inside Climate News · 2026-07-13</p>
+  <p class="body-text">科罗拉多州的公投提案试图把化石燃料企业销售天然气的权利写入州宪法，并可能反向约束地方政府逐步淘汰燃气设备的政策。</p>
+  <p class="en-text">A Colorado ballot measure seeks to constitutionalize fossil-fuel companies’ right to sell gas and could constrain local efforts to phase out gas appliances.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://yaleclimateconnections.org/2026/07/why-sunrise-movement-reorganized-to-fight-authoritarianism/">Why the Sunrise Movement reorganized to fight authoritarianism</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-07-13</p>
+  <p class="body-text">Sunrise Movement 重新组织战线，把反威权与气候行动并置，显示气候动员正在转向更广泛的民主防御框架。</p>
+  <p class="en-text">Sunrise Movement has reorganized to place anti-authoritarian politics alongside climate action, signaling a shift toward a broader democratic-defense frame.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://yaleclimateconnections.org/2026/07/indigenous-earth-fund-distributes-5-million-to-indigenous-led-projects/">Indigenous Earth Fund distributes $5 million to Indigenous-led projects</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-07-13</p>
+  <p class="body-text">Indigenous Earth Fund 向原住民主导项目分配 500 万美元，强调原住民社区有环境方案，但长期面临融资进入门槛。</p>
+  <p class="en-text">The Indigenous Earth Fund is distributing $5 million to Indigenous-led projects, underscoring that Indigenous communities have environmental solutions but face persistent funding barriers.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://www.nytimes.com/2026/07/12/world/europe/spain-wildfire-almeria-province.html">Residents of Spanish Towns Caught in Fierce Blazes Recount Harrowing Escapes</a></h3>
+  <p class="meta">New York Times Climate · 2026-07-12</p>
+  <p class="body-text">西班牙多地野火造成严重伤亡，受灾居民回忆疏散混乱甚至失联，暴露出高温与火灾情境下的应急沟通脆弱性。</p>
+  <p class="en-text">Deadly wildfires in parts of Spain left residents describing chaotic evacuations and poor communication, exposing weak emergency coordination under heat and fire stress.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>8. <a href="https://www.nytimes.com/2026/07/10/weather/missouri-rain-flooding.html">Flooding in Missouri Prompts State of Emergency and at Least 100 Rescues</a></h3>
+  <p class="meta">New York Times Climate · 2026-07-11</p>
+  <p class="body-text">密苏里州暴雨引发洪水并触发紧急状态，至少 100 次救援显示极端降雨正持续测试地方应急系统。</p>
+  <p class="en-text">Heavy rain in Missouri triggered flooding, a state of emergency, and at least 100 rescues, showing how extreme precipitation keeps testing local response systems.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/interview-cop31-president-says-electrification-is-surest-way-to-protect-citizens/">Interview: COP31 president says electrification is ‘surest way to protect citizens’</a></h3>
+  <p class="meta">Carbon Brief · 2026-07-10</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">COP31 候任主席 Murat Kurum 将电气化（electrification）框定为保护公众的最稳妥路径，等于把终端用能、产业更新与电力系统扩容绑定在同一套气候治理逻辑中；这要求各国超越单点减排，转向围绕电网、热泵、交通与工业替代的投资安排，以及更明确的分配与可负担性机制。</p>
+  <p class="en-text">COP31 president-designate Murat Kurum frames electrification as the safest route to protect citizens, tying end-use energy, industrial upgrading, and power-system expansion into one climate-governance logic; that implies moving beyond isolated emissions cuts toward investment in grids, heat pumps, transport, and industrial substitution, with clearer rules on distribution and affordability.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这回应的是 COP31 议程成形阶段对“可交付”行动的强调，也与欧洲电气化泄露和能源安全讨论同步。它把减排争论从目标表述推进到基础设施与家庭承受能力的配置问题。</p>
+  <p class="en-text">This responds to the shaping of the COP31 agenda around ‘deliverable’ action and lands alongside European electrification leaks and energy-security debates. It shifts the climate discussion from target-setting to infrastructure and household affordability.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">处在 COP31 主席设定会议框架与各国提交实施路径之间的中间位置。</p>
+    <p class="en-text">It sits between the COP31 presidency’s framing power and countries’ preparation of implementation pathways.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/debriefed-10-july-2026-deadly-europe-heat-eu-electrification-leak-cop31-president-interview/">DeBriefed 10 July 2026: Deadly Europe heat | EU electrification leak | COP31 president interview</a></h3>
+  <p class="meta">Carbon Brief · 2026-07-10</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief 这期综述把欧洲致命热浪、欧盟电气化内部流出文件与 COP31 主席访谈并置，传递出的核心判断是：欧洲正在把热风险、终端电气化和外交议程捆绑为一个政策窗口，而真正的难点不在目标口径，而在如何让电网投资、需求侧改造与政治叙事同步。</p>
+  <p class="en-text">This Carbon Brief roundup juxtaposes Europe’s deadly heat, an EU electrification leak, and the COP31 president interview to advance a single judgment: Europe is bundling heat risk, end-use electrification, and diplomacy into one policy window, and the hard part is not target language but aligning grid investment, demand-side change, and political narrative.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">它抓住的是七月高温冲击下政策叙事快速收束的时点，显示“适应—减排—产业政策”正在被整合进同一轮讨论。由于是简报综述，具体制度细节仍需回到原始政策文本核验。</p>
+  <p class="en-text">It captures the moment when policy narratives are converging under July heat stress, showing adaptation, mitigation, and industrial policy being folded into one discussion. Because this is a roundup, the institutional details still need checking against primary policy texts.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">位于欧盟电气化政策外溢与 COP31 预热之间的议程交叉点。</p>
+    <p class="en-text">It sits at the intersection of EU electrification policy spillovers and COP31 pre-negotiation agenda setting.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期多条线索都在问：能源与基础设施转型究竟是由市场扩张主导，还是要被公共规则重新定价？从数据中心、电网电气化到天然气权利之争，争点都落在谁承担外部性、谁获得收益。</p><p class="en-text">Several items ask whether transition is being driven by market expansion or re-priced by public rules. Across data centers, electrification, and the gas-rights fight, the core dispute is who bears externalities and who captures the gains.</p></section>
+
+    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018920">Structural Causes and Regime Consequences: Regimes as Intervening Variables</a></h3>
+  <p class="meta">Stephen D. Krasner · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span></p>
+  <p class="reading-text">Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。</p>
+  <p class="en-text">Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可用来理解本期《Interview: COP31 president says electrification is ‘surest way to protect citizens’》如何试图把电气化从技术命题提升为一套可执行的 regime 规则。</p>
+  <p class="en-text">Useful for reading how ‘Interview: COP31 president says electrification is ‘surest way to protect citizens’’ tries to elevate electrification from a technical fix into a set of enforceable regime rules.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>电气化如何制度化？ <span class="keywords">(electrification, regime, climate governance, institutional design)</span><br><span class="en-text">How does electrification become institutionalized?</span></li><li>规则何时改变权力？ <span class="keywords">(international regimes, power distribution, decision rules, climate negotiations)</span><br><span class="en-text">When do rules reshape power?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018920">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018993">International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order</a></h3>
+  <p class="meta">John Gerard Ruggie · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#发展不平等</span><span class="tag">#绿色转型</span></p>
+  <p class="reading-text">Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。</p>
+  <p class="en-text">Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">读本期《Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution》时，可借“嵌入式自由主义（embedded liberalism）”观察市场开放与地方保护如何被重新缝合。</p>
+  <p class="en-text">Read with ‘Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution’ to see, through embedded liberalism, how market openness and local protection are being refastened.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>开放秩序如何容纳转型？ <span class="keywords">(embedded liberalism, policy space, energy transition, domestic compromise)</span><br><span class="en-text">How can open order absorb transition?</span></li><li>地方保护如何反制转型？ <span class="keywords">(state constitutionalism, fossil fuels, policy lock-in, political settlement)</span><br><span class="en-text">How does local protection resist transition?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018993">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1016/j.worlddev.2011.07.020">Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid</a></h3>
+  <p class="meta">Axel Michaelowa and Katharina Michaelowa · 2011 · World Development</p>
+  <p class="tags"><span class="tag">#气候金融</span><span class="tag">#发展不平等</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。</p>
+  <p class="en-text">Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">与本期《Indigenous Earth Fund distributes $5 million to Indigenous-led projects》并读，可追问资金标签、真实可得性与“被看见的融资”之间是否存在统计偏差。</p>
+  <p class="en-text">Paired with ‘Indigenous Earth Fund distributes $5 million to Indigenous-led projects,’ it helps question whether funding labels, real accessibility, and ‘visible finance’ diverge statistically.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>气候资金如何被高估？ <span class="keywords">(climate finance, reporting bias, aid marking, additionality)</span><br><span class="en-text">How is climate finance overstated?</span></li><li>谁能进入融资？ <span class="keywords">(funding access, Indigenous finance, distributional politics, climate aid)</span><br><span class="en-text">Who can access finance?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1016/j.worlddev.2011.07.020">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,516 @@
+{
+  "digest_date": "2026-07-13",
+  "subject": "SDG Weekly Compass - Week of 2026-07-13",
+  "overview_zh": "技术扩张与地方生计、国家规则与公众成本，谁来定义“转型收益”？",
+  "items": [
+    {
+      "title_en": "Interview: COP31 president says electrification is ‘surest way to protect citizens’",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-07-10",
+      "summary_zh": "COP31 候任主席 Murat Kurum 将电气化（electrification）框定为保护公众的最稳妥路径，等于把终端用能、产业更新与电力系统扩容绑定在同一套气候治理逻辑中；这要求各国超越单点减排，转向围绕电网、热泵、交通与工业替代的投资安排，以及更明确的分配与可负担性机制。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.carbonbrief.org/interview-cop31-president-says-electrification-is-surest-way-to-protect-citizens/",
+      "core_argument_zh": "COP31 候任主席 Murat Kurum 将电气化（electrification）框定为保护公众的最稳妥路径，等于把终端用能、产业更新与电力系统扩容绑定在同一套气候治理逻辑中；这要求各国超越单点减排，转向围绕电网、热泵、交通与工业替代的投资安排，以及更明确的分配与可负担性机制。",
+      "core_argument_en": "COP31 president-designate Murat Kurum frames electrification as the safest route to protect citizens, tying end-use energy, industrial upgrading, and power-system expansion into one climate-governance logic; that implies moving beyond isolated emissions cuts toward investment in grids, heat pumps, transport, and industrial substitution, with clearer rules on distribution and affordability.",
+      "why_now_zh": "这回应的是 COP31 议程成形阶段对“可交付”行动的强调，也与欧洲电气化泄露和能源安全讨论同步。它把减排争论从目标表述推进到基础设施与家庭承受能力的配置问题。",
+      "why_now_en": "This responds to the shaping of the COP31 agenda around ‘deliverable’ action and lands alongside European electrification leaks and energy-security debates. It shifts the climate discussion from target-setting to infrastructure and household affordability.",
+      "agenda_position_zh": "处在 COP31 主席设定会议框架与各国提交实施路径之间的中间位置。",
+      "agenda_position_en": "It sits between the COP31 presidency’s framing power and countries’ preparation of implementation pathways.",
+      "summary_en": "",
+      "why_it_matters_zh": "这回应的是 COP31 议程成形阶段对“可交付”行动的强调，也与欧洲电气化泄露和能源安全讨论同步。它把减排争论从目标表述推进到基础设施与家庭承受能力的配置问题。",
+      "why_it_matters_en": "This responds to the shaping of the COP31 agenda around ‘deliverable’ action and lands alongside European electrification leaks and energy-security debates. It shifts the climate discussion from target-setting to infrastructure and household affordability.",
+      "sdg_links": [],
+      "deep_reads": []
+    },
+    {
+      "title_en": "DeBriefed 10 July 2026: Deadly Europe heat | EU electrification leak | COP31 president interview",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-07-10",
+      "summary_zh": "Carbon Brief 这期综述把欧洲致命热浪、欧盟电气化内部流出文件与 COP31 主席访谈并置，传递出的核心判断是：欧洲正在把热风险、终端电气化和外交议程捆绑为一个政策窗口，而真正的难点不在目标口径，而在如何让电网投资、需求侧改造与政治叙事同步。",
+      "terms": [],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#国际治理与多边主义"
+      ],
+      "url": "https://www.carbonbrief.org/debriefed-10-july-2026-deadly-europe-heat-eu-electrification-leak-cop31-president-interview/",
+      "core_argument_zh": "Carbon Brief 这期综述把欧洲致命热浪、欧盟电气化内部流出文件与 COP31 主席访谈并置，传递出的核心判断是：欧洲正在把热风险、终端电气化和外交议程捆绑为一个政策窗口，而真正的难点不在目标口径，而在如何让电网投资、需求侧改造与政治叙事同步。",
+      "core_argument_en": "This Carbon Brief roundup juxtaposes Europe’s deadly heat, an EU electrification leak, and the COP31 president interview to advance a single judgment: Europe is bundling heat risk, end-use electrification, and diplomacy into one policy window, and the hard part is not target language but aligning grid investment, demand-side change, and political narrative.",
+      "why_now_zh": "它抓住的是七月高温冲击下政策叙事快速收束的时点，显示“适应—减排—产业政策”正在被整合进同一轮讨论。由于是简报综述，具体制度细节仍需回到原始政策文本核验。",
+      "why_now_en": "It captures the moment when policy narratives are converging under July heat stress, showing adaptation, mitigation, and industrial policy being folded into one discussion. Because this is a roundup, the institutional details still need checking against primary policy texts.",
+      "agenda_position_zh": "位于欧盟电气化政策外溢与 COP31 预热之间的议程交叉点。",
+      "agenda_position_en": "It sits at the intersection of EU electrification policy spillovers and COP31 pre-negotiation agenda setting.",
+      "summary_en": "",
+      "why_it_matters_zh": "它抓住的是七月高温冲击下政策叙事快速收束的时点，显示“适应—减排—产业政策”正在被整合进同一轮讨论。由于是简报综述，具体制度细节仍需回到原始政策文本核验。",
+      "why_it_matters_en": "It captures the moment when policy narratives are converging under July heat stress, showing adaptation, mitigation, and industrial policy being folded into one discussion. Because this is a roundup, the institutional details still need checking against primary policy texts.",
+      "sdg_links": [],
+      "deep_reads": []
+    }
+  ],
+  "readings": [
+    {
+      "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
+      "authors": "Stephen D. Krasner",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018920",
+      "note_zh": "Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。",
+      "note_en": "Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018920",
+      "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可用来理解本期《Interview: COP31 president says electrification is ‘surest way to protect citizens’》如何试图把电气化从技术命题提升为一套可执行的 regime 规则。",
+      "today_connection_en": "Useful for reading how ‘Interview: COP31 president says electrification is ‘surest way to protect citizens’’ tries to elevate electrification from a technical fix into a set of enforceable regime rules.",
+      "research_directions": [
+        {
+          "question_zh": "电气化如何制度化？",
+          "keywords": [
+            "electrification",
+            "regime",
+            "climate governance",
+            "institutional design"
+          ],
+          "question_en": "How does electrification become institutionalized?"
+        },
+        {
+          "question_zh": "规则何时改变权力？",
+          "keywords": [
+            "international regimes",
+            "power distribution",
+            "decision rules",
+            "climate negotiations"
+          ],
+          "question_en": "When do rules reshape power?"
+        }
+      ],
+      "tags": [
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    },
+    {
+      "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
+      "authors": "John Gerard Ruggie",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018993",
+      "note_zh": "Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。",
+      "note_en": "Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018993",
+      "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "读本期《Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution》时，可借“嵌入式自由主义（embedded liberalism）”观察市场开放与地方保护如何被重新缝合。",
+      "today_connection_en": "Read with ‘Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution’ to see, through embedded liberalism, how market openness and local protection are being refastened.",
+      "research_directions": [
+        {
+          "question_zh": "开放秩序如何容纳转型？",
+          "keywords": [
+            "embedded liberalism",
+            "policy space",
+            "energy transition",
+            "domestic compromise"
+          ],
+          "question_en": "How can open order absorb transition?"
+        },
+        {
+          "question_zh": "地方保护如何反制转型？",
+          "keywords": [
+            "state constitutionalism",
+            "fossil fuels",
+            "policy lock-in",
+            "political settlement"
+          ],
+          "question_en": "How does local protection resist transition?"
+        }
+      ],
+      "tags": [
+        "#多边治理",
+        "#发展不平等",
+        "#绿色转型"
+      ],
+      "kind": "journal article"
+    },
+    {
+      "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
+      "authors": "Axel Michaelowa and Katharina Michaelowa",
+      "year": 2011,
+      "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
+      "note_zh": "Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。",
+      "note_en": "Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.",
+      "journal": "World Development",
+      "doi": "10.1016/j.worlddev.2011.07.020",
+      "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "与本期《Indigenous Earth Fund distributes $5 million to Indigenous-led projects》并读，可追问资金标签、真实可得性与“被看见的融资”之间是否存在统计偏差。",
+      "today_connection_en": "Paired with ‘Indigenous Earth Fund distributes $5 million to Indigenous-led projects,’ it helps question whether funding labels, real accessibility, and ‘visible finance’ diverge statistically.",
+      "research_directions": [
+        {
+          "question_zh": "气候资金如何被高估？",
+          "keywords": [
+            "climate finance",
+            "reporting bias",
+            "aid marking",
+            "additionality"
+          ],
+          "question_en": "How is climate finance overstated?"
+        },
+        {
+          "question_zh": "谁能进入融资？",
+          "keywords": [
+            "funding access",
+            "Indigenous finance",
+            "distributional politics",
+            "climate aid"
+          ],
+          "question_en": "Who can access finance?"
+        }
+      ],
+      "tags": [
+        "#气候金融",
+        "#发展不平等",
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    }
+  ],
+  "overview_en": "Who gets to define the gains from transition: technology expansion, or the communities and states paying the costs?",
+  "weekly_thread_zh": "本期多条线索都在问：能源与基础设施转型究竟是由市场扩张主导，还是要被公共规则重新定价？从数据中心、电网电气化到天然气权利之争，争点都落在谁承担外部性、谁获得收益。",
+  "weekly_thread_en": "Several items ask whether transition is being driven by market expansion or re-priced by public rules. Across data centers, electrification, and the gas-rights fight, the core dispute is who bears externalities and who captures the gains.",
+  "recent_news": [
+    {
+      "title_en": "The fight against AI data centers is important – but it’s just a starting point | Bruce Schneier and Nathan E Sanders",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-07-09",
+      "url": "https://www.theguardian.com/commentisfree/2026/jul/09/ai-datacenter-company-politics",
+      "one_sentence_zh": "作者认为，反对 AI 数据中心只是开端，更大的问题在于少数科技公司借由资源、土地与能源扩张积累权力，却把成本留给地方社区。",
+      "one_sentence_en": "The authors argue that opposition to AI data centers is only the opening move; the larger issue is how a few tech firms accumulate power by drawing on land and energy while leaving costs to local communities.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Britain’s cars and SUVs are growing bigger – but there is a way to stop this deadly ‘carspreading’ | Christian Wolmar",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-07-12",
+      "url": "https://www.theguardian.com/commentisfree/2026/jul/12/britain-car-suv-big-large-vehicle-road-pedestrians",
+      "one_sentence_zh": "文章指出，英国和欧洲汽车持续变宽正在挤压道路和停车空间，并对行人安全构成更高风险，而监管缺位使这一趋势几乎没有刹车。",
+      "one_sentence_en": "The piece argues that cars and SUVs in Britain and Europe keep getting wider, crowding roads and parking, raising pedestrian risk, and proceeding with little regulatory restraint.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Corpus Christi Residents and Businesses Subsidized Industrial Water Bills for Years, Officials Say",
+      "source_org": "Inside Climate News",
+      "published_date": "2026-07-13",
+      "url": "https://insideclimatenews.org/news/13072026/corpus-christi-water-rates-case/",
+      "one_sentence_zh": "得州科珀斯克里斯蒂长期以低价向少数工业企业供水，居民和本地商户则承担了更高水费，地方公共资源定价被指向工业利益倾斜。",
+      "one_sentence_en": "For years, Corpus Christi reportedly sold water to a handful of industrial plants at a discount, shifting the higher bill to residents and local businesses through a skewed public pricing structure.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution",
+      "source_org": "Inside Climate News",
+      "published_date": "2026-07-13",
+      "url": "https://insideclimatenews.org/news/13072026/colorado-right-to-natural-gas-amendment/",
+      "one_sentence_zh": "科罗拉多州的公投提案试图把化石燃料企业销售天然气的权利写入州宪法，并可能反向约束地方政府逐步淘汰燃气设备的政策。",
+      "one_sentence_en": "A Colorado ballot measure seeks to constitutionalize fossil-fuel companies’ right to sell gas and could constrain local efforts to phase out gas appliances.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Why the Sunrise Movement reorganized to fight authoritarianism",
+      "source_org": "Yale Climate Connections",
+      "published_date": "2026-07-13",
+      "url": "https://yaleclimateconnections.org/2026/07/why-sunrise-movement-reorganized-to-fight-authoritarianism/",
+      "one_sentence_zh": "Sunrise Movement 重新组织战线，把反威权与气候行动并置，显示气候动员正在转向更广泛的民主防御框架。",
+      "one_sentence_en": "Sunrise Movement has reorganized to place anti-authoritarian politics alongside climate action, signaling a shift toward a broader democratic-defense frame.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Indigenous Earth Fund distributes $5 million to Indigenous-led projects",
+      "source_org": "Yale Climate Connections",
+      "published_date": "2026-07-13",
+      "url": "https://yaleclimateconnections.org/2026/07/indigenous-earth-fund-distributes-5-million-to-indigenous-led-projects/",
+      "one_sentence_zh": "Indigenous Earth Fund 向原住民主导项目分配 500 万美元，强调原住民社区有环境方案，但长期面临融资进入门槛。",
+      "one_sentence_en": "The Indigenous Earth Fund is distributing $5 million to Indigenous-led projects, underscoring that Indigenous communities have environmental solutions but face persistent funding barriers.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Residents of Spanish Towns Caught in Fierce Blazes Recount Harrowing Escapes",
+      "source_org": "New York Times Climate",
+      "published_date": "2026-07-12",
+      "url": "https://www.nytimes.com/2026/07/12/world/europe/spain-wildfire-almeria-province.html",
+      "one_sentence_zh": "西班牙多地野火造成严重伤亡，受灾居民回忆疏散混乱甚至失联，暴露出高温与火灾情境下的应急沟通脆弱性。",
+      "one_sentence_en": "Deadly wildfires in parts of Spain left residents describing chaotic evacuations and poor communication, exposing weak emergency coordination under heat and fire stress.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    },
+    {
+      "title_en": "Flooding in Missouri Prompts State of Emergency and at Least 100 Rescues",
+      "source_org": "New York Times Climate",
+      "published_date": "2026-07-11",
+      "url": "https://www.nytimes.com/2026/07/10/weather/missouri-rain-flooding.html",
+      "one_sentence_zh": "密苏里州暴雨引发洪水并触发紧急状态，至少 100 次救援显示极端降雨正持续测试地方应急系统。",
+      "one_sentence_en": "Heavy rain in Missouri triggered flooding, a state of emergency, and at least 100 rescues, showing how extreme precipitation keeps testing local response systems.",
+      "tags": [
+        "#环境治理与气候"
+      ]
+    }
+  ],
+  "research_signals": [
+    {
+      "title_en": "Interview: COP31 president says electrification is ‘surest way to protect citizens’",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-07-10",
+      "summary_zh": "COP31 候任主席 Murat Kurum 将电气化（electrification）框定为保护公众的最稳妥路径，等于把终端用能、产业更新与电力系统扩容绑定在同一套气候治理逻辑中；这要求各国超越单点减排，转向围绕电网、热泵、交通与工业替代的投资安排，以及更明确的分配与可负担性机制。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.carbonbrief.org/interview-cop31-president-says-electrification-is-surest-way-to-protect-citizens/",
+      "core_argument_zh": "COP31 候任主席 Murat Kurum 将电气化（electrification）框定为保护公众的最稳妥路径，等于把终端用能、产业更新与电力系统扩容绑定在同一套气候治理逻辑中；这要求各国超越单点减排，转向围绕电网、热泵、交通与工业替代的投资安排，以及更明确的分配与可负担性机制。",
+      "core_argument_en": "COP31 president-designate Murat Kurum frames electrification as the safest route to protect citizens, tying end-use energy, industrial upgrading, and power-system expansion into one climate-governance logic; that implies moving beyond isolated emissions cuts toward investment in grids, heat pumps, transport, and industrial substitution, with clearer rules on distribution and affordability.",
+      "why_now_zh": "这回应的是 COP31 议程成形阶段对“可交付”行动的强调，也与欧洲电气化泄露和能源安全讨论同步。它把减排争论从目标表述推进到基础设施与家庭承受能力的配置问题。",
+      "why_now_en": "This responds to the shaping of the COP31 agenda around ‘deliverable’ action and lands alongside European electrification leaks and energy-security debates. It shifts the climate discussion from target-setting to infrastructure and household affordability.",
+      "agenda_position_zh": "处在 COP31 主席设定会议框架与各国提交实施路径之间的中间位置。",
+      "agenda_position_en": "It sits between the COP31 presidency’s framing power and countries’ preparation of implementation pathways.",
+      "summary_en": "",
+      "why_it_matters_zh": "这回应的是 COP31 议程成形阶段对“可交付”行动的强调，也与欧洲电气化泄露和能源安全讨论同步。它把减排争论从目标表述推进到基础设施与家庭承受能力的配置问题。",
+      "why_it_matters_en": "This responds to the shaping of the COP31 agenda around ‘deliverable’ action and lands alongside European electrification leaks and energy-security debates. It shifts the climate discussion from target-setting to infrastructure and household affordability.",
+      "sdg_links": [],
+      "deep_reads": []
+    },
+    {
+      "title_en": "DeBriefed 10 July 2026: Deadly Europe heat | EU electrification leak | COP31 president interview",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-07-10",
+      "summary_zh": "Carbon Brief 这期综述把欧洲致命热浪、欧盟电气化内部流出文件与 COP31 主席访谈并置，传递出的核心判断是：欧洲正在把热风险、终端电气化和外交议程捆绑为一个政策窗口，而真正的难点不在目标口径，而在如何让电网投资、需求侧改造与政治叙事同步。",
+      "terms": [],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#国际治理与多边主义"
+      ],
+      "url": "https://www.carbonbrief.org/debriefed-10-july-2026-deadly-europe-heat-eu-electrification-leak-cop31-president-interview/",
+      "core_argument_zh": "Carbon Brief 这期综述把欧洲致命热浪、欧盟电气化内部流出文件与 COP31 主席访谈并置，传递出的核心判断是：欧洲正在把热风险、终端电气化和外交议程捆绑为一个政策窗口，而真正的难点不在目标口径，而在如何让电网投资、需求侧改造与政治叙事同步。",
+      "core_argument_en": "This Carbon Brief roundup juxtaposes Europe’s deadly heat, an EU electrification leak, and the COP31 president interview to advance a single judgment: Europe is bundling heat risk, end-use electrification, and diplomacy into one policy window, and the hard part is not target language but aligning grid investment, demand-side change, and political narrative.",
+      "why_now_zh": "它抓住的是七月高温冲击下政策叙事快速收束的时点，显示“适应—减排—产业政策”正在被整合进同一轮讨论。由于是简报综述，具体制度细节仍需回到原始政策文本核验。",
+      "why_now_en": "It captures the moment when policy narratives are converging under July heat stress, showing adaptation, mitigation, and industrial policy being folded into one discussion. Because this is a roundup, the institutional details still need checking against primary policy texts.",
+      "agenda_position_zh": "位于欧盟电气化政策外溢与 COP31 预热之间的议程交叉点。",
+      "agenda_position_en": "It sits at the intersection of EU electrification policy spillovers and COP31 pre-negotiation agenda setting.",
+      "summary_en": "",
+      "why_it_matters_zh": "它抓住的是七月高温冲击下政策叙事快速收束的时点，显示“适应—减排—产业政策”正在被整合进同一轮讨论。由于是简报综述，具体制度细节仍需回到原始政策文本核验。",
+      "why_it_matters_en": "It captures the moment when policy narratives are converging under July heat stress, showing adaptation, mitigation, and industrial policy being folded into one discussion. Because this is a roundup, the institutional details still need checking against primary policy texts.",
+      "sdg_links": [],
+      "deep_reads": []
+    }
+  ],
+  "classic_readings": [
+    {
+      "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
+      "authors": "Stephen D. Krasner",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018920",
+      "note_zh": "Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。",
+      "note_en": "Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018920",
+      "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可用来理解本期《Interview: COP31 president says electrification is ‘surest way to protect citizens’》如何试图把电气化从技术命题提升为一套可执行的 regime 规则。",
+      "today_connection_en": "Useful for reading how ‘Interview: COP31 president says electrification is ‘surest way to protect citizens’’ tries to elevate electrification from a technical fix into a set of enforceable regime rules.",
+      "research_directions": [
+        {
+          "question_zh": "电气化如何制度化？",
+          "keywords": [
+            "electrification",
+            "regime",
+            "climate governance",
+            "institutional design"
+          ],
+          "question_en": "How does electrification become institutionalized?"
+        },
+        {
+          "question_zh": "规则何时改变权力？",
+          "keywords": [
+            "international regimes",
+            "power distribution",
+            "decision rules",
+            "climate negotiations"
+          ],
+          "question_en": "When do rules reshape power?"
+        }
+      ],
+      "tags": [
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    },
+    {
+      "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
+      "authors": "John Gerard Ruggie",
+      "year": 1982,
+      "url": "https://doi.org/10.1017/S0020818300018993",
+      "note_zh": "Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。",
+      "note_en": "Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.",
+      "journal": "International Organization",
+      "doi": "10.1017/S0020818300018993",
+      "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "读本期《Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution》时，可借“嵌入式自由主义（embedded liberalism）”观察市场开放与地方保护如何被重新缝合。",
+      "today_connection_en": "Read with ‘Colorado Voters Will Decide Whether a ‘Right to Natural Gas’ is Added to the State Constitution’ to see, through embedded liberalism, how market openness and local protection are being refastened.",
+      "research_directions": [
+        {
+          "question_zh": "开放秩序如何容纳转型？",
+          "keywords": [
+            "embedded liberalism",
+            "policy space",
+            "energy transition",
+            "domestic compromise"
+          ],
+          "question_en": "How can open order absorb transition?"
+        },
+        {
+          "question_zh": "地方保护如何反制转型？",
+          "keywords": [
+            "state constitutionalism",
+            "fossil fuels",
+            "policy lock-in",
+            "political settlement"
+          ],
+          "question_en": "How does local protection resist transition?"
+        }
+      ],
+      "tags": [
+        "#多边治理",
+        "#发展不平等",
+        "#绿色转型"
+      ],
+      "kind": "journal article"
+    },
+    {
+      "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
+      "authors": "Axel Michaelowa and Katharina Michaelowa",
+      "year": 2011,
+      "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
+      "note_zh": "Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。",
+      "note_en": "Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.",
+      "journal": "World Development",
+      "doi": "10.1016/j.worlddev.2011.07.020",
+      "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "与本期《Indigenous Earth Fund distributes $5 million to Indigenous-led projects》并读，可追问资金标签、真实可得性与“被看见的融资”之间是否存在统计偏差。",
+      "today_connection_en": "Paired with ‘Indigenous Earth Fund distributes $5 million to Indigenous-led projects,’ it helps question whether funding labels, real accessibility, and ‘visible finance’ diverge statistically.",
+      "research_directions": [
+        {
+          "question_zh": "气候资金如何被高估？",
+          "keywords": [
+            "climate finance",
+            "reporting bias",
+            "aid marking",
+            "additionality"
+          ],
+          "question_en": "How is climate finance overstated?"
+        },
+        {
+          "question_zh": "谁能进入融资？",
+          "keywords": [
+            "funding access",
+            "Indigenous finance",
+            "distributional politics",
+            "climate aid"
+          ],
+          "question_en": "Who can access finance?"
+        }
+      ],
+      "tags": [
+        "#气候金融",
+        "#发展不平等",
+        "#多边治理"
+      ],
+      "kind": "journal article"
+    }
+  ]
+}
