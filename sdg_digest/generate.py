@@ -28,6 +28,8 @@ SEMANTIC_FILTER_WORKERS = 8
 EVENT_LAYERS = {"event", "news"}
 MAX_RECENT_NEWS_PER_SOURCE = 2
 MAX_RESEARCH_SIGNALS_PER_SOURCE = 2
+CLASSIC_READING_COOLDOWN_ISSUES = 5
+CLASSIC_READING_POOL_SIZE = 8
 
 EXCLUDE_PATTERNS = [
     "match result",
@@ -56,6 +58,14 @@ DOMAIN_TAGS = {
     "D": "#可持续金融与ESG",
     "E": "#地缘政治与治理",
     "mixed": "#综合治理议题",
+}
+
+CLASSIC_READING_TAG_ALIASES = {
+    "#国际治理与多边主义": {"#多边治理"},
+    "#发展与不平等": {"#发展不平等", "#Global South"},
+    "#环境治理与气候": {"#气候金融", "#绿色转型", "#生物多样性", "#粮食与土地", "#NDC"},
+    "#可持续金融与ESG": {"#气候金融", "#债务可持续性"},
+    "#地缘政治与治理": {"#多边治理"},
 }
 
 TAG_REGISTRY = [
@@ -159,13 +169,19 @@ def generate_digest(
     use_openai: bool = True,
     max_recent_news: int = 8,
     max_research_signals: int | None = None,
+    classic_reading_history: list[dict[str, Any]] | None = None,
 ) -> Digest:
     max_research_signals = max_research_signals or max_items
+    rotating_bibliography = _build_rotating_bibliography(
+        candidates,
+        bibliography,
+        classic_reading_history or [],
+    )
     allow_fallback = os.getenv("ALLOW_OPENAI_FALLBACK", "").lower() == "true"
     if use_openai and candidates:
         if not os.getenv("OPENAI_API_KEY"):
             if allow_fallback:
-                return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
+                return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
             raise RuntimeError("OPENAI_API_KEY is not set; refusing to publish fallback digest")
 
         feedback = ""
@@ -174,13 +190,13 @@ def generate_digest(
             try:
                 raw = _call_openai(
                     candidates,
-                    bibliography,
+                    rotating_bibliography,
                     run_date,
                     max_recent_news=max_recent_news,
                     max_research_signals=max_research_signals,
                     feedback=feedback,
                 )
-                return validate_digest_payload(raw, candidates, bibliography, run_date)
+                return validate_digest_payload(raw, candidates, rotating_bibliography, run_date)
             except ValueError as exc:
                 last_exc = exc
                 # Check if failure is caused by a banned phrase in a specific article field.
@@ -200,7 +216,7 @@ def generate_digest(
                 # All retries exhausted — fall back to deterministic digest rather than crashing.
                 print(f"Warning: OpenAI generation failed after {OPENAI_MAX_ATTEMPTS} attempts: {exc}")
                 print("Falling back to deterministic digest to avoid pipeline crash.")
-                return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
+                return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
             except (TimeoutError, OSError) as exc:
                 last_exc = exc
                 if _is_timeout_exception(exc) and attempt + 1 < OPENAI_MAX_ATTEMPTS:
@@ -214,11 +230,11 @@ def generate_digest(
         exc = last_exc or RuntimeError("OpenAI generation failed for an unknown reason")
         if allow_fallback:
             print(f"OpenAI generation failed, using deterministic fallback: {exc}")
-            return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
+            return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
         # Only raise here for non-validation errors (network, auth, etc.)
         # Banned-phrase validation failures are handled above and never reach this line.
         raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
-    return fallback_digest(candidates, bibliography, run_date, max_recent_news, max_research_signals)
+    return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
 
 
 def _exclude_noise_candidates(candidates: list[Candidate]) -> list[Candidate]:
@@ -312,7 +328,7 @@ def _call_openai(
             "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process, such as a negotiation, summit, institutional work program, actor timing, or challenge to a policy framework. If the source text does not support a specific agenda anchor, output exactly: 议程背景不明确. Do not use generic phrases such as 这是政策讨论的重要参考.",
             "Tags are post-selection labels only. Use 1-3 specific Chinese tags from the tag registry when possible, and avoid broad tags like 气候变化 or 可持续发展.",
             "weekly_thread_zh: only if at least 2 selected items share an issue line; 1-2 Chinese sentences explaining the shared agenda question or disagreement.",
-            "Select up to 3 classic readings from bibliography. Preserve note_zh, note_en, methodology_zh, method_en, authors, year, journal, DOI, and URL exactly. The selected readings should be the ones whose preserved prose gives the most concrete analytical leverage for this issue.",
+            "Select up to 3 classic readings from bibliography. The bibliography has already been filtered by a five-issue rotation policy, so use only this supplied shortlist and never reintroduce a reading that is absent from it. Preserve note_zh, note_en, methodology_zh, method_en, authors, year, journal, DOI, and URL exactly. The selected readings should be the ones whose preserved prose gives the most concrete analytical leverage for this issue.",
             "For each reading, generate today_connection_zh and today_connection_en as one sentence each that references a specific selected news/research title or source. If there is no genuine connection, output exactly in Chinese: 本期暂无直接关联，建议结合[填入议题方向，如气候融资谈判]阅读 and the equivalent English: No direct connection in this issue; read alongside [topic direction].",
             "For each reading, generate exactly 2 research_directions. Each direction has question_zh under 30 Chinese characters, question_en as a concise English research question, and 3-5 English search keywords. Do not cite literature, authors, or book titles.",
             "In reading generated fields, annotate key theoretical concepts on first mention with English in parentheses, such as 嵌入式自由主义（embedded liberalism） or 混合融资（blended finance）. Do not annotate common names such as 世界银行 or 联合国.",
@@ -322,6 +338,10 @@ def _call_openai(
         "tag_registry": TAG_REGISTRY,
         "max_recent_news": max_recent_news,
         "max_research_signals": max_research_signals,
+        "classic_reading_rotation": {
+            "cooldown_issues": CLASSIC_READING_COOLDOWN_ISSUES,
+            "shortlist_size": sum(len(readings) for readings in bibliography.values()),
+        },
         "recent_news_candidates": [_candidate_payload(candidate) for candidate in recent_news[:40]],
         "research_candidates": [_candidate_payload(candidate) for candidate in research[:40]],
         "selected_news_context": [
@@ -990,6 +1010,102 @@ def _select_readings_for_candidates(
             if len(selected) >= target_count:
                 return selected
     return selected
+
+
+def _build_rotating_bibliography(
+    candidates: list[Candidate],
+    bibliography: dict[str, list[DeepRead]],
+    history: list[dict[str, Any]],
+) -> dict[str, list[DeepRead]]:
+    candidate_tags = _expanded_classic_tags(
+        {tag for candidate in candidates for tag in candidate.tags}
+    )
+    rows: list[tuple[DeepRead, int, int]] = []
+    seen: set[str] = set()
+    original_index = 0
+    for group_tag, readings in bibliography.items():
+        for reading in readings:
+            identifier = _classic_reading_identifier(reading.doi, reading.url)
+            if not identifier or identifier in seen:
+                continue
+            seen.add(identifier)
+            reading_tags = _expanded_classic_tags({group_tag, *reading.tags})
+            relevance = len(candidate_tags & reading_tags)
+            rows.append((reading, relevance, original_index))
+            original_index += 1
+
+    last_used_issue: dict[str, int] = {}
+    normalized_history: list[set[str]] = []
+    for issue_index, issue in enumerate(history):
+        if not isinstance(issue, dict):
+            continue
+        raw_dois = issue.get("dois", [])
+        if not isinstance(raw_dois, list):
+            continue
+        issue_dois = {
+            _classic_reading_identifier(str(doi), "")
+            for doi in raw_dois
+            if str(doi).strip()
+        }
+        issue_dois.discard("")
+        if not issue_dois:
+            continue
+        normalized_history.append(issue_dois)
+        for identifier in issue_dois:
+            last_used_issue[identifier] = issue_index
+
+    recent_dois = set().union(*normalized_history[-CLASSIC_READING_COOLDOWN_ISSUES:]) if normalized_history else set()
+    eligible = [
+        row
+        for row in rows
+        if _classic_reading_identifier(row[0].doi, row[0].url) not in recent_dois
+    ]
+    if eligible:
+        ranked = sorted(
+            eligible,
+            key=lambda row: (
+                -row[1],
+                last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
+                row[2],
+            ),
+        )
+    else:
+        ranked = sorted(
+            rows,
+            key=lambda row: (
+                last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
+                -row[1],
+                row[2],
+            ),
+        )
+
+    shortlist = [row[0] for row in ranked[:CLASSIC_READING_POOL_SIZE]]
+    if recent_dois:
+        excluded = len(rows) - len(eligible)
+        if eligible:
+            print(
+                f"Classic reading rotation excluded {excluded} reading(s) used in the last "
+                f"{CLASSIC_READING_COOLDOWN_ISSUES} issue(s); {len(shortlist)} candidate(s) remain."
+            )
+        else:
+            print("Classic reading rotation pool is exhausted; reusing the least recently selected readings.")
+    return {"__rotation_pool__": shortlist}
+
+
+def _expanded_classic_tags(tags: set[str]) -> set[str]:
+    expanded = set(tags)
+    for tag in tags:
+        expanded.update(CLASSIC_READING_TAG_ALIASES.get(tag, set()))
+    return expanded
+
+
+def _classic_reading_identifier(doi: str, url: str) -> str:
+    value = (doi or url).strip().lower()
+    for prefix in ("https://doi.org/", "http://doi.org/", "doi:"):
+        if value.startswith(prefix):
+            value = value[len(prefix) :]
+            break
+    return value
 
 
 def _fallback_readings(

@@ -55,7 +55,7 @@ Each run writes:
 - `sources.yml` defines the RSS/Atom source whitelist and allowed item domains.
 - Feed entries with fewer than 50 words in their official summary/description are skipped.
 - Whitelisted institutional domains attempt full-text or executive-summary extraction before generation; HTTP 403, timeouts, or extraction failures fall back to the RSS summary.
-- `sent_articles.json` stores previously sent URLs so GitHub Actions does not resend the same articles across runs. The file keeps the most recent 500 URLs.
+- `sent_articles.json` stores previously sent URLs and classic-reading DOI history. News and research URLs are deduplicated across runs; classic readings use a five-issue cooldown and fall back to the least recently used papers only when the available bibliography is exhausted.
 - Keyword filters are not used as admission gates. Stage 1 only removes obvious structural noise, such as sports results, entertainment, celebrity items, product launches, or purely domestic election mechanics. An item is removed only when its title matches at least two exclusion patterns.
 - Stage 2 uses semantic relevance scoring, not lexical topic matching. The filter model returns `score`, `domain`, and `reason`; items with score `2` pass, and score `1` items are kept if fewer than five items pass at score `2`.
 - The semantic `domain` becomes an article classification tag, such as `#国际治理与多边主义`, `#发展与不平等`, `#环境治理与气候`, `#可持续金融与ESG`, or `#地缘政治与治理`.

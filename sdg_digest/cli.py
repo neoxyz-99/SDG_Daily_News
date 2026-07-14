@@ -88,6 +88,7 @@ def main() -> None:
         use_openai=not args.skip_openai,
         max_recent_news=args.max_recent_news,
         max_research_signals=args.max_research_signals or args.max_items,
+        classic_reading_history=sent_record.get("classic_reading_history", []),
     )
     if args.dry_run:
         print(render_markdown(digest))

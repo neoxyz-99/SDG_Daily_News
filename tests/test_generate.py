@@ -158,6 +158,75 @@ class GenerateTests(unittest.TestCase):
         self.assertTrue(digest.items[0].core_argument_zh)
         self.assertEqual(digest.overview_zh, "")
 
+    def test_classic_readings_used_recently_are_removed_from_fallback_pool(self) -> None:
+        readings = _reading_variants(4)
+        history = [
+            {
+                "date": "2026-06-09",
+                "dois": [readings[0].doi, readings[1].doi, readings[2].doi],
+            }
+        ]
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=history,
+        )
+
+        self.assertEqual([reading.doi for reading in digest.classic_readings], [readings[3].doi])
+
+    def test_openai_generation_receives_only_rotation_shortlist(self) -> None:
+        readings = _reading_variants(4)
+        history = [{"date": "2026-06-09", "dois": [reading.doi for reading in readings[:3]]}]
+        expected = fallback_digest([_candidate()], {"#气候金融": [readings[3]]}, date(2026, 6, 16))
+
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
+            "sdg_digest.generate._call_openai",
+            return_value={},
+        ) as call_openai, patch(
+            "sdg_digest.generate.validate_digest_payload",
+            return_value=expected,
+        ):
+            digest = generate_digest(
+                [_candidate()],
+                {"#气候金融": readings},
+                date(2026, 6, 16),
+                max_items=5,
+                use_openai=True,
+                classic_reading_history=history,
+            )
+
+        shortlist = call_openai.call_args.args[1]
+        self.assertEqual(
+            [reading.doi for group in shortlist.values() for reading in group],
+            [readings[3].doi],
+        )
+        self.assertEqual(digest.classic_readings[0].doi, readings[3].doi)
+
+    def test_exhausted_rotation_pool_reuses_least_recent_readings(self) -> None:
+        readings = _reading_variants(4)
+        history = [
+            {"date": f"2026-06-{index + 1:02d}", "dois": [reading.doi]}
+            for index, reading in enumerate(readings)
+        ]
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=history,
+        )
+
+        self.assertEqual(
+            [reading.doi for reading in digest.classic_readings],
+            [readings[0].doi, readings[1].doi, readings[2].doi],
+        )
+
 
 def _payload(first: Candidate, second: Candidate | None = None) -> dict:
     items = [_item(first)]
@@ -236,6 +305,19 @@ def _reading() -> DeepRead:
         tags=["#气候金融"],
         kind="journal article",
     )
+
+
+def _reading_variants(count: int) -> list[DeepRead]:
+    base = _reading()
+    return [
+        replace(
+            base,
+            title=f"Classic Reading {index}",
+            doi=f"10.1000/classic-{index}",
+            url=f"https://doi.org/10.1000/classic-{index}",
+        )
+        for index in range(count)
+    ]
 
 
 if __name__ == "__main__":
