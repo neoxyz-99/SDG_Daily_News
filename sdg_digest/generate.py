@@ -31,6 +31,7 @@ MAX_RESEARCH_SIGNALS_PER_SOURCE = 2
 ACADEMIC_READING_COOLDOWN_ISSUES = 5
 ACADEMIC_READING_POOL_SIZE = 12
 ACADEMIC_READING_MODE_TARGET = 6
+MAX_ACADEMIC_READINGS_PER_ISSUE = 2
 
 EXCLUDE_PATTERNS = [
     "match result",
@@ -329,7 +330,7 @@ def _call_openai(
             "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process, such as a negotiation, summit, institutional work program, actor timing, or challenge to a policy framework. If the source text does not support a specific agenda anchor, output exactly: 议程背景不明确. Do not use generic phrases such as 这是政策讨论的重要参考.",
             "Tags are post-selection labels only. Use 1-3 specific Chinese tags from the tag registry when possible, and avoid broad tags like 气候变化 or 可持续发展.",
             "weekly_thread_zh: only if at least 2 selected items share an issue line; 1-2 Chinese sentences explaining the shared agenda question or disagreement.",
-            "Select up to 3 papers from academic_reading_candidates. Treat tracked recent papers and tracked historical classics as one editorial pool; choose whichever provides the strongest analytical leverage for this issue. Never introduce a paper absent from the supplied pool.",
+            "Select at most 2 papers from academic_reading_candidates; 0 or 1 is valid when fewer papers genuinely fit. Treat tracked recent papers and tracked historical classics as one editorial pool; choose whichever provides the strongest analytical leverage for this issue. Never introduce a paper absent from the supplied pool.",
             "For every selected paper, write brief_zh and brief_en as a concise interpretation grounded only in its supplied abstract or curated brief. Write methodology_zh and methodology_en only from the supplied evidence; when the abstract does not identify a method, state plainly that the available abstract does not specify the method. For curated seed examples, copy the supplied brief and methodology exactly.",
             "For each reading, generate today_connection_zh and today_connection_en as one sentence each that references a specific selected news/research title or source. If there is no genuine connection, output exactly in Chinese: 本期暂无直接关联，建议结合[填入议题方向，如气候融资谈判]阅读 and the equivalent English: No direct connection in this issue; read alongside [topic direction].",
             "For each reading, generate exactly 2 research_directions. Each direction has question_zh under 30 Chinese characters, question_en as a concise English research question, and 3-5 English search keywords. Do not cite literature, authors, or book titles.",
@@ -467,7 +468,7 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
             "readings": {
                 "type": "array",
                 "minItems": 0,
-                "maxItems": 3,
+                "maxItems": MAX_ACADEMIC_READINGS_PER_ISSUE,
                 "items": {
                     "type": "object",
                     "additionalProperties": False,
@@ -778,7 +779,7 @@ def _validate_readings(
     approved_reads: dict[tuple[str, str, int, str, str], DeepRead],
 ) -> list[DeepRead]:
     readings: list[DeepRead] = []
-    for raw in payload.get("readings", []):
+    for raw in payload.get("readings", [])[:MAX_ACADEMIC_READINGS_PER_ISSUE]:
         key = (
             raw.get("title"),
             raw.get("authors"),
@@ -1035,7 +1036,7 @@ def _terms_for_tags(tags: list[str]) -> list[DigestTerm]:
 def _select_readings_for_candidates(
     candidates: list[Candidate],
     bibliography: dict[str, list[DeepRead]],
-    target_count: int = 3,
+    target_count: int = MAX_ACADEMIC_READINGS_PER_ISSUE,
 ) -> list[DeepRead]:
     selected: list[DeepRead] = []
     seen: set[tuple[str, str, int, str]] = set()

@@ -64,6 +64,7 @@ Each run writes:
 - The daily editorial note is generated only when at least two news items are selected. It raises a core tension or open question rather than summarizing the issue.
 - A weekly thread is generated only when at least two selected news items share a related agenda line.
 - The paper-reading section uses one open candidate pool. Each run searches approved journals twice: a recent-publication window finds new work, while a topic query across older issues finds relevant classics. Both are screened against that week's agenda and enter the same selection process.
+- Each issue publishes at most two paper readings; it may publish only one or none when the available papers do not fit the week's agenda well enough.
 - `bibliography.yml` contains seven human-checked seed examples. They improve fallback quality and demonstrate the desired editorial depth, but they are not the boundary of the search and receive no automatic preference over dynamically traced papers.
 
 ## Notes

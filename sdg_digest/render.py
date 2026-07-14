@@ -4,6 +4,8 @@ import html
 
 from .models import DeepRead, Digest, DigestItem, NewsBrief
 
+MAX_RESEARCH_READINGS_PER_ISSUE = 2
+
 
 def render_markdown(digest: Digest) -> str:
     recent_news = digest.recent_news
@@ -77,7 +79,7 @@ def render_markdown(digest: Digest) -> str:
 
     lines.extend(["## 论文研读 / Research Reading", ""])
     if readings:
-        for reading in readings[:3]:
+        for reading in readings[:MAX_RESEARCH_READINGS_PER_ISSUE]:
             lines.extend(
                 [
                     f"### {reading.title}",
@@ -128,7 +130,9 @@ def render_html(digest: Digest) -> str:
     if not research_html:
         research_html = '<p class="empty">本期没有新的研究动向条目。</p>'
 
-    readings_html = "\n".join(_render_reading_html(reading) for reading in readings[:3])
+    readings_html = "\n".join(
+        _render_reading_html(reading) for reading in readings[:MAX_RESEARCH_READINGS_PER_ISSUE]
+    )
     if not readings_html:
         readings_html = '<p class="empty">本期没有从权威期刊追踪到适合研读的论文。</p>'
 

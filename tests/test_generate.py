@@ -273,7 +273,7 @@ class GenerateTests(unittest.TestCase):
 
         self.assertEqual(
             [reading.doi for reading in digest.classic_readings],
-            [readings[0].doi, readings[1].doi, readings[2].doi],
+            [readings[0].doi, readings[1].doi],
         )
 
     def test_open_academic_shortlist_keeps_recent_and_historical_options(self) -> None:
