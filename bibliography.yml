@@ -1,219 +1,129 @@
 {
   "readings": {
-    "#NDC": [
+    "#多边治理": [
       {
-        "title": "Paris Agreement climate proposals need a boost to keep warming well below 2 °C",
-        "authors": "Rogelj et al.",
-        "year": 2016,
-        "kind": "paper",
-        "url": "https://doi.org/10.1038/nature18307",
-        "note_zh": "评估巴黎会议前后各国气候承诺与温控目标之间的差距。",
-        "note_en": "Assesses the gap between national climate pledges and the Paris temperature goals.",
-        "argument_zh": "文章认为，现有国家承诺不足以把升温稳定在远低于 2°C，更不足以支撑 1.5°C 目标；巴黎机制的关键不只是提交承诺，而是后续持续加码。",
-        "argument_en": "The paper argues that existing national pledges are insufficient for holding warming well below 2°C, let alone 1.5°C; the Paris mechanism depends on repeated strengthening of pledges.",
-        "method_zh": "作者汇总各国减排承诺，将其转化为全球排放路径，并与多种温控情景进行比较。",
-        "method_en": "The authors aggregate national mitigation pledges, translate them into global emissions pathways, and compare them with temperature-consistent scenarios.",
-        "evidence_zh": "核心证据是 INDC/NDC 承诺所对应的 2030 年排放水平，与 2°C 和 1.5°C 路径之间仍存在显著缺口。",
-        "evidence_en": "The key evidence is the gap between projected 2030 emissions under INDC/NDC pledges and pathways compatible with 2°C and 1.5°C.",
-        "relevance_zh": "适合解读任何关于 NDC 更新、全球盘点或气候雄心不足的新闻。",
-        "relevance_en": "Useful for interpreting news on NDC updates, the global stocktake, and ambition gaps."
+        "title": "Structural Causes and Regime Consequences: Regimes as Intervening Variables",
+        "authors": "Stephen D. Krasner",
+        "year": 1982,
+        "journal": "International Organization",
+        "doi": "10.1017/S0020818300018920",
+        "url": "https://doi.org/10.1017/S0020818300018920",
+        "brief_zh": "Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。",
+        "methodology_zh": "文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。",
+        "tags": [
+          "#多边治理"
+        ],
+        "note_en": "Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.",
+        "method_en": "The article uses conceptual construction and theoretical synthesis. Its strength is to clarify the regime concept and its causal claims; its limitation is that it does not offer systematic empirical testing."
       },
       {
-        "title": "The Paris Agreement and the new logic of international climate politics",
-        "authors": "Falkner",
-        "year": 2016,
-        "kind": "paper",
-        "url": "https://doi.org/10.1111/1468-2346.12708",
-        "note_zh": "解释巴黎协定为何从自上而下约束转向 pledge-and-review 的治理逻辑。",
-        "note_en": "Explains the shift from top-down binding targets to a pledge-and-review logic under the Paris Agreement.",
-        "argument_zh": "文章认为巴黎协定的政治创新在于把国内政治压力、国际透明度和定期审查结合起来，以推动各国逐步提高气候政策力度。",
-        "argument_en": "The article argues that Paris works by combining domestic pressure, international transparency, and regular review to ratchet up climate policy over time.",
-        "method_zh": "采用国际政治经济学和气候治理制度分析，比较京都模式与巴黎模式的差异。",
-        "method_en": "It uses international political economy and institutional analysis to compare the Kyoto model with the Paris model.",
-        "evidence_zh": "例子包括国家自主承诺、透明度框架、五年更新周期以及非国家行为体在巴黎进程中的作用。",
-        "evidence_en": "Examples include nationally determined pledges, transparency arrangements, five-year cycles, and the role of non-state actors in the Paris process.",
-        "relevance_zh": "适合解释为什么合作机制、NDC 更新和透明度规则会影响气候政策执行。",
-        "relevance_en": "Useful for explaining why cooperation mechanisms, NDC updates, and transparency rules matter for implementation."
-      }
-    ],
-    "#气候金融": [
-      {
-        "title": "A climate finance accounting framework",
-        "authors": "Roberts et al.",
-        "year": 2021,
-        "kind": "paper",
-        "url": "https://doi.org/10.1038/s41558-021-01041-6",
-        "note_zh": "提出判断气候资金是否真实、额外和公平的核算框架。",
-        "note_en": "Proposes an accounting framework for assessing whether climate finance is real, additional, and fair.",
-        "argument_zh": "文章认为，气候资金争议的核心在于口径不清：贷款、赠款、私营动员资金和重新标记的发展援助不能被简单相加，否则会夸大实际支持。",
-        "argument_en": "The article argues that disputes over climate finance stem from unclear accounting: loans, grants, private mobilization, and relabelled aid cannot be treated as equivalent support.",
-        "method_zh": "通过规范性核算框架区分资金来源、工具、赠款等价额、额外性和受援方实际获得的净支持。",
-        "method_en": "It develops a normative accounting framework distinguishing sources, instruments, grant-equivalent value, additionality, and net support received.",
-        "evidence_zh": "文章以发达国家气候资金承诺和 1000 亿美元目标的核算争议为背景，说明不同口径会得出截然不同的资金规模。",
-        "evidence_en": "Using debates around developed-country finance pledges and the USD 100 billion goal, it shows how accounting choices can radically change reported finance levels.",
-        "relevance_zh": "适合分析 MDB 气候融资、适应资金、损失与损害资金以及绿色贷款是否真正增加发展中国家财政空间。",
-        "relevance_en": "Useful for assessing whether MDB climate finance, adaptation finance, loss-and-damage finance, or green lending genuinely expands fiscal space."
-      },
-      {
-        "title": "The Landscape of Climate Finance",
-        "authors": "Buchner et al.",
-        "year": 2011,
-        "kind": "report",
-        "url": "https://www.climatepolicyinitiative.org/publication/the-landscape-of-climate-finance/",
-        "note_zh": "早期系统梳理全球气候资金流向、来源、工具和用途的报告。",
-        "note_en": "An early systematic mapping of global climate finance flows, sources, instruments, and uses.",
-        "argument_zh": "报告认为，理解气候资金的规模、来源、渠道和最终用途，是建立国际信任、判断资金是否满足低碳和气候韧性需求的前提。",
-        "argument_en": "The report argues that mapping the scale, sources, channels, and uses of climate finance is essential for trust and for judging whether finance matches low-carbon and resilience needs.",
-        "method_zh": "采用资金流地图方法，追踪公共与私人资金从来源、金融中介、工具到最终用途的生命周期。",
-        "method_en": "It uses a finance-flow mapping approach, tracing public and private finance from sources through intermediaries and instruments to final uses.",
-        "evidence_zh": "报告区分公共预算、开发性金融机构、碳市场、私营投资和项目层面的资金用途，展示气候资金生态的复杂性。",
-        "evidence_en": "It distinguishes public budgets, development finance institutions, carbon markets, private investment, and project-level uses to show the complexity of the climate finance ecosystem.",
-        "relevance_zh": "适合为每日新闻中的 MDB、绿色债券、适应资金和私人资本动员提供结构化背景。",
-        "relevance_en": "Useful background for daily news on MDBs, green bonds, adaptation finance, and private-capital mobilization."
-      }
-    ],
-    "#SDG进展": [
-      {
-        "title": "Sustainable Development Goals and the governance challenge",
-        "authors": "Kanie and Biermann",
-        "year": 2017,
-        "kind": "book",
-        "url": "https://mitpress.mit.edu/9780262533195/governing-through-goals/",
-        "note_zh": "关于 SDG 作为全球治理工具的经典论文集。",
-        "note_en": "A classic edited volume on the SDGs as a tool of global governance.",
-        "argument_zh": "该书认为，SDG 的作用不是传统意义上的强制规则，而是通过目标、指标、比较和政治动员塑造国家与国际组织的行为。",
-        "argument_en": "The volume argues that SDGs operate less as binding rules and more through goals, indicators, comparison, and political mobilization.",
-        "method_zh": "采用多作者制度分析和案例研究，讨论目标治理在环境、发展、城市、贫困和国家政策中的运作方式。",
-        "method_en": "It uses institutional analysis and case studies across environment, development, cities, poverty, and national policy.",
-        "evidence_zh": "例子包括目标设定、指标化、国家自愿审查和跨部门协调如何影响政策优先级。",
-        "evidence_en": "Examples include goal-setting, indicators, voluntary national reviews, and cross-sector coordination shaping policy priorities.",
-        "relevance_zh": "适合把单条新闻放入 SDG 治理和执行机制中理解，而不是只看项目本身。",
-        "relevance_en": "Useful for reading daily updates through SDG governance and implementation mechanisms, not only individual projects."
-      },
-      {
-        "title": "Policy: Map the interactions between Sustainable Development Goals",
-        "authors": "Nilsson, Griggs and Visbeck",
-        "year": 2016,
-        "kind": "commentary",
-        "url": "https://doi.org/10.1038/534320a",
-        "note_zh": "提出分析 SDG 之间协同与冲突关系的实用框架。",
-        "note_en": "Proposes a practical framework for analyzing synergies and trade-offs among SDGs.",
-        "argument_zh": "文章认为，落实 SDG 不能逐项目标推进，因为一个目标的政策可能强化或削弱另一个目标，必须系统识别相互作用。",
-        "argument_en": "The commentary argues that SDGs cannot be implemented in silos because action on one goal can reinforce or undermine another.",
-        "method_zh": "提出从强负面到强正面的七点尺度，用于评估目标之间的相互作用。",
-        "method_en": "It proposes a seven-point scale, from strongly negative to strongly positive, for assessing goal interactions.",
-        "evidence_zh": "例子包括能源、粮食、水、气候和生物多样性政策之间可能产生的协同和权衡。",
-        "evidence_en": "Examples include synergies and trade-offs among energy, food, water, climate, and biodiversity policies.",
-        "relevance_zh": "适合分析气候政策、灾害事件或发展融资对多个 SDG 的连锁影响。",
-        "relevance_en": "Useful for assessing how climate policy, disasters, or development finance affect multiple SDGs."
-      }
-    ],
-    "#绿色转型": [
-      {
-        "title": "A green industrial policy for Europe",
-        "authors": "Rodrik",
-        "year": 2014,
-        "kind": "paper",
-        "url": "https://doi.org/10.1093/oxrep/gru025",
-        "note_zh": "讨论为什么绿色转型需要产业政策而不只是碳价。",
-        "note_en": "Explains why green transition requires industrial policy, not only carbon pricing.",
-        "argument_zh": "文章认为，绿色技术和产业转型面临创新外部性、协调失败和市场不确定性，因此政府需要通过产业政策主动塑造投资方向。",
-        "argument_en": "The paper argues that green technologies face innovation externalities, coordination failures, and uncertainty, requiring governments to shape investment through industrial policy.",
-        "method_zh": "以理论经济学和政策分析为主，讨论绿色产业政策的理由、工具和治理风险。",
-        "method_en": "It uses economic theory and policy analysis to examine the rationale, tools, and governance risks of green industrial policy.",
-        "evidence_zh": "文章讨论补贴、公共研发、采购、标准和部门合作等工具，并强调政策设计需要避免寻租和低效保护。",
-        "evidence_en": "It discusses subsidies, public R&D, procurement, standards, and sectoral coordination while warning against rent-seeking and inefficient protection.",
-        "relevance_zh": "适合分析欧盟 CBAM、绿色产业补贴、清洁技术供应链和转型竞争政策。",
-        "relevance_en": "Useful for interpreting the EU CBAM, green subsidies, clean-tech supply chains, and transition competitiveness policy."
-      },
-      {
-        "title": "Mission-oriented innovation policy and dynamic capabilities in the public sector",
-        "authors": "Kattel and Mazzucato",
-        "year": 2018,
-        "kind": "paper",
-        "url": "https://doi.org/10.1093/icc/dty032",
-        "note_zh": "解释公共部门如何为任务导向创新建立能力。",
-        "note_en": "Explains how the public sector can build capabilities for mission-oriented innovation.",
-        "argument_zh": "文章认为，应对气候和发展挑战需要公共部门具备设定任务、协调市场、学习调整和承担风险的动态能力。",
-        "argument_en": "The paper argues that climate and development challenges require public agencies with dynamic capabilities to set missions, coordinate markets, learn, and take risks.",
-        "method_zh": "通过创新理论、公共管理和制度能力分析，提出公共部门能力建设框架。",
-        "method_en": "It draws on innovation theory, public management, and institutional-capability analysis to build a public-sector capability framework.",
-        "evidence_zh": "文章参考任务导向政策和公共投资实践，说明政府不仅是修补市场失败者，也可以是市场塑造者。",
-        "evidence_en": "It draws on mission-oriented policy and public investment practice to show that governments can shape markets, not merely fix failures.",
-        "relevance_zh": "适合解读绿色转型中政府如何设计产业任务、公共投资和跨部门协调。",
-        "relevance_en": "Useful for reading news about industrial missions, public investment, and cross-sector coordination in green transition."
-      }
-    ],
-    "#债务可持续性": [
-      {
-        "title": "Debt sustainability in developing countries",
-        "authors": "Wyplosz",
-        "year": 2011,
-        "kind": "paper",
-        "url": "https://doi.org/10.1093/oxrep/grr007",
-        "note_zh": "解释发展中国家债务可持续性的判断逻辑和不确定性。",
-        "note_en": "Explains the logic and uncertainty of debt sustainability analysis in developing countries.",
-        "argument_zh": "文章认为，债务可持续性不是单一阈值问题，而取决于增长、利率、汇率、财政能力和外部冲击之间的动态关系。",
-        "argument_en": "The paper argues that debt sustainability is not a single-threshold problem but depends on growth, interest rates, exchange rates, fiscal capacity, and external shocks.",
-        "method_zh": "采用宏观财政分析和债务动态框架，讨论债务存量、偿债能力和危机风险。",
-        "method_en": "It uses macro-fiscal analysis and debt dynamics to discuss debt stocks, repayment capacity, and crisis risk.",
-        "evidence_zh": "发展中国家的增长波动、外币债务和外部融资条件被用来说明债务风险为何容易被低估。",
-        "evidence_en": "Growth volatility, foreign-currency debt, and external financing conditions illustrate why debt risks in developing countries can be underestimated.",
-        "relevance_zh": "适合分析气候融资贷款化、灾后重建融资和发展中国家财政空间压力。",
-        "relevance_en": "Useful for assessing loan-heavy climate finance, post-disaster reconstruction finance, and fiscal-space pressure in developing countries."
-      },
-      {
-        "title": "Fiscal space for what? Analytical issues from a human development perspective",
-        "authors": "Roy, Heuty and Letouze",
-        "year": 2007,
-        "kind": "report",
-        "url": "https://www.undp.org/publications/fiscal-space-what-analytical-issues-human-development-perspective",
-        "note_zh": "从人类发展角度讨论财政空间应该服务于什么目标。",
-        "note_en": "Discusses fiscal space from a human development perspective.",
-        "argument_zh": "报告认为，财政空间不只是预算余额问题，而应被理解为政府为发展目标筹集和使用资源的能力。",
-        "argument_en": "The report argues that fiscal space is not merely a budget-balance issue but the state's capacity to mobilize and use resources for development goals.",
-        "method_zh": "采用政策分析框架，梳理税收、援助、借款、支出重组和宏观政策选择。",
-        "method_en": "It uses policy analysis to review taxation, aid, borrowing, expenditure reprioritization, and macroeconomic policy choices.",
-        "evidence_zh": "报告讨论社会支出、公共投资和外部融资如何影响发展中国家的政策选择空间。",
-        "evidence_en": "It discusses how social spending, public investment, and external finance shape policy options in developing countries.",
-        "relevance_zh": "适合分析气候适应、灾害恢复和 SDG 投资如何与财政约束发生冲突。",
-        "relevance_en": "Useful for analyzing tensions between climate adaptation, disaster recovery, SDG investment, and fiscal constraints."
+        "title": "International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order",
+        "authors": "John Gerard Ruggie",
+        "year": 1982,
+        "journal": "International Organization",
+        "doi": "10.1017/S0020818300018993",
+        "url": "https://doi.org/10.1017/S0020818300018993",
+        "brief_zh": "Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。",
+        "methodology_zh": "文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。",
+        "tags": [
+          "#多边治理",
+          "#发展不平等",
+          "#绿色转型"
+        ],
+        "note_en": "Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.",
+        "method_en": "The article uses historical institutional analysis and conceptual history. It reveals the political foundations of economic order, but does not provide a quantitative causal estimate."
       }
     ],
     "#Global South": [
       {
-        "title": "Decolonizing climate policy",
-        "authors": "Sultana",
-        "year": 2022,
-        "kind": "paper",
-        "url": "https://doi.org/10.1177/03091325211017697",
-        "note_zh": "从殖民性和权力关系角度批判主流气候政策。",
-        "note_en": "Critiques mainstream climate policy through coloniality and power relations.",
-        "argument_zh": "文章认为，气候政策如果忽视殖民历史、债务、资源开采和不平等权力关系，就会复制气候不正义。",
-        "argument_en": "The paper argues that climate policy reproduces injustice when it ignores colonial histories, debt, extraction, and unequal power relations.",
-        "method_zh": "采用批判地理学、政治生态学和气候正义分析。",
-        "method_en": "It uses critical geography, political ecology, and climate justice analysis.",
-        "evidence_zh": "文章讨论全球南方承受不成比例气候损害、却在融资和政策话语中处于弱势的位置。",
-        "evidence_en": "It discusses how the Global South faces disproportionate climate harms while holding weaker positions in finance and policy discourse.",
-        "relevance_zh": "适合分析损失与损害、适应融资、债务和灾害事件中的公平问题。",
-        "relevance_en": "Useful for interpreting equity issues in loss and damage, adaptation finance, debt, and disaster events."
+        "title": "Preparing for a Warmer World: Towards a Global Governance System to Protect Climate Refugees",
+        "authors": "Frank Biermann and Ingrid Boas",
+        "year": 2010,
+        "journal": "Global Environmental Politics",
+        "doi": "10.1162/glep.2010.10.1.60",
+        "url": "https://doi.org/10.1162/glep.2010.10.1.60",
+        "brief_zh": "Biermann 与 Boas 以气候流离失所为切口，指出现有难民法主要围绕迫害和跨境庇护设计，无法处理海平面上升、干旱和灾害累积造成的长期迁移风险。文章主张建立面向未来的全球保护制度，将预防性迁移、资金支持、责任分担和机构协调纳入同一框架。它的贡献不只是提出“气候难民”概念，而是揭示气候影响如何把人道保护、适应融资、主权边界和发展脆弱性连成一个治理缺口。",
+        "methodology_zh": "文章采用规范性制度设计和政策分析方法，比较现有难民、气候和发展制度的保护边界。该方法能指出治理空白和制度方案，但对实际执行政治阻力的估计有限。",
+        "tags": [
+          "#多边治理",
+          "#Global South",
+          "#发展不平等"
+        ],
+        "note_en": "Biermann and Boas start from climate displacement to show that existing refugee law is poorly suited to long-term migration driven by sea-level rise, drought, and cumulative climate shocks. They argue for a forward-looking global protection system that links planned relocation, financing, responsibility-sharing, and institutional coordination. The article is valuable not only because it popularizes the problem of climate refugees, but because it identifies a governance gap between humanitarian protection, adaptation finance, sovereignty, and development vulnerability.",
+        "method_en": "The article uses normative institutional design and policy analysis. It is strong at identifying protection gaps and institutional options, but less able to estimate implementation politics."
       },
       {
-        "title": "Climate change and the global south",
-        "authors": "Huq and Reid",
+        "title": "Climate Change and the Global South",
+        "authors": "Saleemul Huq and Hannah Reid",
         "year": 2004,
-        "kind": "paper",
+        "journal": "Climate Policy",
+        "doi": "10.1080/14693062.2004.9685516",
         "url": "https://doi.org/10.1080/14693062.2004.9685516",
-        "note_zh": "早期阐述全球南方面临气候脆弱性和适应压力的经典文章。",
-        "note_en": "An early account of climate vulnerability and adaptation pressure in the Global South.",
-        "argument_zh": "文章认为，全球南方对气候变化贡献较少，却更容易受到气候影响，需要将适应和发展政策结合起来。",
-        "argument_en": "The article argues that the Global South has contributed less to climate change but faces greater impacts, making adaptation and development policy inseparable.",
-        "method_zh": "采用政策综述和脆弱性分析，讨论气候影响与发展约束之间的关系。",
-        "method_en": "It uses policy review and vulnerability analysis to connect climate impacts with development constraints.",
-        "evidence_zh": "文章关注农业、水资源、贫困和适应能力不足等使发展中国家更脆弱的因素。",
-        "evidence_en": "It highlights agriculture, water, poverty, and limited adaptive capacity as drivers of vulnerability in developing countries.",
-        "relevance_zh": "适合分析气候灾害、粮食安全、贫困和适应资金新闻。",
-        "relevance_en": "Useful for interpreting news on climate disasters, food security, poverty, and adaptation finance."
+        "brief_zh": "Huq 与 Reid 将气候变化重新放回发展政治经济中，指出全球南方的脆弱性并不只是自然暴露程度更高，而是由贫困、基础设施不足、农业依赖、财政能力有限和历史排放责任不对称共同塑造。文章反对把气候政策窄化为减排技术问题，强调适应、减贫、能力建设和国际资金支持必须同时进入政策设计。它的分析贡献在于说明气候风险的分布本身就是发展不平等的结果，因此评估气候金融或适应项目时，不能只看项目数量，还要看其是否改变脆弱性的制度根源。",
+        "methodology_zh": "文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。",
+        "tags": [
+          "#Global South",
+          "#发展不平等"
+        ],
+        "note_en": "Huq and Reid reinsert climate change into the political economy of development. They argue that vulnerability in the Global South is produced not only by exposure to climate hazards, but also by poverty, weak infrastructure, agricultural dependence, limited fiscal capacity, and unequal historical responsibility. The article challenges approaches that narrow climate policy to emissions technology and insists that adaptation, poverty reduction, capacity building, and international support must be designed together. It helps readers evaluate climate finance and adaptation projects by asking whether they address the institutional roots of vulnerability rather than only the number of projects funded.",
+        "method_en": "The article uses policy synthesis and vulnerability analysis. It is useful for framing development constraints, but it does not attempt single-variable causal identification."
+      }
+    ],
+    "#气候金融": [
+      {
+        "title": "Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid",
+        "authors": "Axel Michaelowa and Katharina Michaelowa",
+        "year": 2011,
+        "journal": "World Development",
+        "doi": "10.1016/j.worlddev.2011.07.020",
+        "url": "https://doi.org/10.1016/j.worlddev.2011.07.020",
+        "brief_zh": "Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。",
+        "methodology_zh": "文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。",
+        "tags": [
+          "#气候金融",
+          "#发展不平等",
+          "#多边治理"
+        ],
+        "note_en": "Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.",
+        "method_en": "The article combines political economy analysis with scrutiny of aid reporting practices. It reveals incentives behind statistical claims, though it depends on the quality of public aid data."
+      }
+    ],
+    "#SDG进展": [
+      {
+        "title": "Sustainable Development: A Critical Review",
+        "authors": "Sharachchandra M. Lele",
+        "year": 1991,
+        "journal": "World Development",
+        "doi": "10.1016/0305-750X(91)90197-P",
+        "url": "https://doi.org/10.1016/0305-750X(91)90197-P",
+        "brief_zh": "Lele 对“可持续发展”概念做出早期且尖锐的拆解：它之所以容易成为共识，恰恰因为生态保护、经济增长、代际公平和贫困削减被放进一个看似兼容的话语中，却没有说明这些目标冲突时如何排序。文章挑战了把可持续发展当作无争议政策口号的做法，要求区分生态持续性、社会公平和发展需求之间的真实张力。它的价值在于提供一种审读 SDG、绿色转型和自然资本政策的警惕视角：每个“共赢”叙事背后都要追问分配、权力和成本承担。",
+        "methodology_zh": "文章采用批判性文献综述和概念分析方法，拆解可持续发展概念中生态、增长和公平目标的张力。它能澄清概念混用，但不直接检验具体政策效果。",
+        "tags": [
+          "#SDG进展",
+          "#发展不平等",
+          "#绿色转型"
+        ],
+        "note_en": "Lele offers an early critique of sustainable development as a policy consensus built on conceptual ambiguity. The concept appears attractive because ecological limits, economic growth, intergenerational equity, and poverty reduction are placed in one apparently compatible vocabulary, yet the article shows that it does not specify how conflicts among these goals should be resolved. Its value is to make readers skeptical of easy win-win narratives in SDG and green transition debates: every claim of sustainability should be examined for distribution, power, and who carries the costs.",
+        "method_en": "The article uses critical literature review and conceptual analysis. It clarifies hidden tensions within sustainable development, but does not test specific policy outcomes."
+      }
+    ],
+    "#生物多样性": [
+      {
+        "title": "Resilience, Adaptability and Transformability in Social-ecological Systems",
+        "authors": "Brian Walker, C. S. Holling, Stephen R. Carpenter and Ann Kinzig",
+        "year": 2004,
+        "journal": "Ecology and Society",
+        "doi": "10.5751/ES-00650-090205",
+        "url": "https://doi.org/10.5751/ES-00650-090205",
+        "brief_zh": "Walker 等人区分韧性、适应性和转型能力，回应的是社会—生态系统面对冲击时究竟应当维持既有功能、调整治理路径，还是在旧结构不可持续时主动转型。文章把生态反馈、制度学习、跨尺度互动和行动者能力放进同一框架，说明系统稳定并不总是好事，某些稳定状态本身可能锁定脆弱性和不平等。它的贡献在于为气候适应、生物多样性治理和粮食系统政策提供判断工具：政策目标不是抽象地“增强韧性”，而是判断该保留什么、改变什么、何时转型。",
+        "methodology_zh": "文章采用社会—生态系统理论建模和概念综合方法，解释系统在冲击下的稳定、适应和转型。它有助于识别系统机制，但案例细节和政策操作化需要其他研究补充。",
+        "tags": [
+          "#生物多样性",
+          "#粮食与土地",
+          "#绿色转型"
+        ],
+        "note_en": "Walker and colleagues distinguish resilience, adaptability, and transformability to ask whether a social-ecological system should preserve existing functions, adjust its pathway, or deliberately transform when the old structure becomes untenable. The article links ecological feedbacks, institutional learning, cross-scale interaction, and actor capacity in one framework. Its key insight is that stability is not always desirable: some stable states lock in vulnerability and inequality. This helps interpret adaptation, biodiversity, and food-system policies by asking what should be maintained, what should change, and when transformation is necessary.",
+        "method_en": "The article uses social-ecological systems theory and conceptual modeling. It identifies system mechanisms, but concrete policy application requires additional case evidence."
       }
     ]
   }

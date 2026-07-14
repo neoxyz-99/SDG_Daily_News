@@ -1,69 +1,96 @@
 from __future__ import annotations
 
 import html
-import json
+import math
 import re
+import time
+from collections import Counter
+from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from email.utils import parsedate_to_datetime
-from urllib.parse import quote, urljoin, urlparse
+from urllib.parse import urlparse
 from xml.etree import ElementTree
 
-from .http import fetch_text
+import requests
+from bs4 import BeautifulSoup
+
+from .http import USER_AGENT, fetch_text
 from .models import Candidate, Source
 
-KEYWORDS = (
-    "sdg",
-    "sustainable development",
-    "climate finance",
-    "loss and damage",
-    "adaptation finance",
-    "mitigation",
-    "green transition",
-    "ndc",
-    "debt",
-    "global south",
-    "esg",
-    "carbon",
-    "net zero",
-    "development finance",
-    "disaster",
-    "disaster risk",
-    "earthquake",
-    "flood",
-    "typhoon",
-    "drought",
-    "resilience",
-    "food security",
-    "humanitarian",
-    "infrastructure",
-)
+RESEARCH_MIN_CONTENT_WORDS = 15
+FULL_TEXT_MIN_WORDS = 50
+EVENT_MIN_FEED_WORDS = 0
+TITLE_SIMILARITY_THRESHOLD = 0.85
+FULL_TEXT_TIMEOUT_SECONDS = 10
+FULL_TEXT_DELAY_SECONDS = 1.5
+SUMMARY_TEXT_WORD_LIMIT = 600
+ARTICLE_TEXT_WORD_LIMIT = 400
+FULL_TEXT_WHITELIST = [
+    "carbonbrief.org",
+    "climatepolicyinitiative.org",
+    "cgdev.org",
+    "cepr.org",
+    "e3g.org",
+    "iisd.org",
+    "odi.org",
+    "wri.org",
+    "unfccc.int",
+    "lse.ac.uk",
+    "brookings.edu",
+    "chathamhouse.org",
+    "voxdev.org",
+]
+SUMMARY_SELECTORS = [
+    "executive-summary",
+    "summary",
+    "abstract",
+    "lead",
+    "intro",
+    "article-body",
+    "entry-content",
+    "post-content",
+]
+
+
+@dataclass
+class CollectionStats:
+    rss_items_fetched: int = 0
+    rss_items_after_text_check: int = 0
+    rss_items_after_date_domain_check: int = 0
+    short_text_skips: int = 0
+    full_text_sources: set[str] = field(default_factory=set)
+    rss_fallback_sources: set[str] = field(default_factory=set)
+    full_text_failures: list[str] = field(default_factory=list)
+    source_items_fetched: Counter[str] = field(default_factory=Counter)
+    source_items_after_text_check: Counter[str] = field(default_factory=Counter)
 
 
 def collect_candidates(
     sources: list[Source],
     run_date: date,
     lookback_days: int,
+    stats: CollectionStats | None = None,
 ) -> list[Candidate]:
+    stats = stats or CollectionStats()
     candidates: list[Candidate] = []
     for source in sources:
+        if source.strategy != "rss" or not source.url:
+            print(f"Skipping source {source.name}: only RSS/Atom feeds are supported")
+            continue
         try:
-            if source.strategy == "rss" and source.url:
-                candidates.extend(_collect_rss(source, run_date))
-            elif source.strategy == "page" and source.url:
-                candidates.extend(_collect_page(source, run_date, lookback_days))
-            elif source.strategy == "crossref":
-                candidates.extend(_collect_crossref(source, run_date, lookback_days))
+            candidates.extend(_collect_rss(source, run_date, stats))
         except Exception as exc:
             print(f"Skipping source {source.name}: {exc}")
 
     since = run_date - timedelta(days=lookback_days)
-    return [
+    filtered = [
         candidate
         for candidate in candidates
         if is_allowed_url(candidate.url, _source_domains(sources, candidate.source_org))
         and _within_lookback(candidate.published_date, since, run_date)
-        and _is_relevant(candidate)
     ]
+    stats.rss_items_after_date_domain_check = len(filtered)
+    return filtered
 
 
 def _source_domains(sources: list[Source], source_name: str) -> list[str]:
@@ -73,17 +100,14 @@ def _source_domains(sources: list[Source], source_name: str) -> list[str]:
     return []
 
 
-def _collect_rss(source: Source, run_date: date) -> list[Candidate]:
+def _collect_rss(source: Source, run_date: date, stats: CollectionStats) -> list[Candidate]:
     text = fetch_text(source.url or "")
     root = ElementTree.fromstring(text)
     entries = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
     candidates: list[Candidate] = []
-    for entry in entries[:30]:
+    for entry in entries[:40]:
         title = _xml_text(entry, ["title", "{http://www.w3.org/2005/Atom}title"])
-        link = _xml_text(entry, ["link"])
-        if not link:
-            atom_link = entry.find("{http://www.w3.org/2005/Atom}link")
-            link = atom_link.attrib.get("href", "") if atom_link is not None else ""
+        link = _entry_link(entry)
         published = _xml_text(
             entry,
             [
@@ -92,100 +116,138 @@ def _collect_rss(source: Source, run_date: date) -> list[Candidate]:
                 "updated",
                 "{http://www.w3.org/2005/Atom}published",
                 "{http://www.w3.org/2005/Atom}updated",
+                "{http://purl.org/dc/elements/1.1/}date",
             ],
         )
-        summary = _xml_text(
-            entry,
-            [
-                "description",
-                "summary",
-                "{http://www.w3.org/2005/Atom}summary",
-                "{http://www.w3.org/2005/Atom}content",
-            ],
-        )
-        if title and link:
-            candidates.append(
-                Candidate(
-                    title=_clean_text(title),
-                    source_org=source.name,
-                    source_type=source.type,
-                    published_date=_normalize_date(published, run_date),
-                    url=link.strip(),
-                    summary_hint=_clean_text(summary),
-                    tags=source.default_tags,
-                    discovered_date=run_date.isoformat(),
-                )
-            )
-    return candidates
-
-
-def _collect_page(source: Source, run_date: date, lookback_days: int) -> list[Candidate]:
-    text = fetch_text(source.url or "")
-    anchors = re.findall(r"<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", text, re.I | re.S)
-    candidates: list[Candidate] = []
-    seen: set[str] = set()
-    since = run_date - timedelta(days=lookback_days)
-    for href, raw_title in anchors:
-        title = _clean_text(re.sub(r"<[^>]+>", " ", raw_title))
-        if len(title) < 18 or title.startswith(("http://", "https://")):
+        summary = _entry_summary(entry)
+        if not title or not link:
             continue
-        link = urljoin(source.url or "", html.unescape(href))
-        if (
-            link in seen
-            or not is_allowed_url(link, source.allowed_domains)
-            or _url_has_outdated_year(link, since, run_date)
-        ):
+        stats.rss_items_fetched += 1
+        stats.source_items_fetched[source.name] += 1
+        rss_summary = _clean_text(summary)
+        full_text, text_source = _maybe_extract_full_text(link.strip(), rss_summary, source, stats)
+        if _word_count(full_text or rss_summary) < _minimum_candidate_words(source):
+            stats.short_text_skips += 1
+            print(f"Skipping item with too little extractable text: {source.name} - {_clean_text(title)}")
             continue
-        seen.add(link)
-        summary_hint = _fetch_page_summary(link)
+        stats.rss_items_after_text_check += 1
+        stats.source_items_after_text_check[source.name] += 1
         candidates.append(
             Candidate(
-                title=title,
+                title=_clean_text(title),
                 source_org=source.name,
                 source_type=source.type,
-                published_date=run_date.isoformat(),
-                url=link,
-                summary_hint=summary_hint,
-                tags=source.default_tags,
+                published_date=_normalize_date(published, run_date),
+                url=link.strip(),
+                summary_hint=rss_summary,
+                tags=list(source.default_tags),
                 discovered_date=run_date.isoformat(),
+                full_text=full_text,
+                text_source=text_source,
+                layer=source.layer,
             )
         )
-        if len(candidates) >= 20:
-            break
     return candidates
 
 
-def _collect_crossref(source: Source, run_date: date, lookback_days: int) -> list[Candidate]:
-    candidates: list[Candidate] = []
-    from_date = (run_date - timedelta(days=lookback_days)).isoformat()
-    for issn in source.issn:
-        url = (
-            f"https://api.crossref.org/journals/{quote(issn)}/works"
-            f"?filter=from-pub-date:{from_date},type:journal-article"
-            "&sort=published&order=desc&rows=15"
+def _maybe_extract_full_text(
+    url: str,
+    rss_summary: str,
+    source: Source,
+    stats: CollectionStats,
+) -> tuple[str, str]:
+    if not _is_full_text_whitelisted(url):
+        stats.rss_fallback_sources.add(source.name)
+        return "", "rss"
+    time.sleep(FULL_TEXT_DELAY_SECONDS)
+    try:
+        extracted = extract_full_text(url)
+    except Exception as exc:
+        print(f"Full-text fallback for {source.name}: {exc}")
+        stats.full_text_failures.append(f"{source.name}: {exc}")
+        stats.rss_fallback_sources.add(source.name)
+        return "", "rss"
+    if extracted and _word_count(extracted) >= FULL_TEXT_MIN_WORDS:
+        stats.full_text_sources.add(source.name)
+        return extracted, "full_text"
+    stats.rss_fallback_sources.add(source.name)
+    return "", "rss"
+
+
+def extract_full_text(url: str) -> str:
+    response = requests.get(
+        url,
+        headers={"User-Agent": USER_AGENT},
+        timeout=FULL_TEXT_TIMEOUT_SECONDS,
+    )
+    if response.status_code in {403, 429}:
+        raise RuntimeError(f"HTTP {response.status_code}")
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+    for element in soup(["script", "style", "noscript", "svg"]):
+        element.decompose()
+
+    summary = _find_summary_element_text(soup)
+    if summary:
+        return summary
+
+    container = soup.find("article") or soup.find("main")
+    if not container:
+        return ""
+    return _first_words(_clean_text(container.get_text(" ")), ARTICLE_TEXT_WORD_LIMIT)
+
+
+def _find_summary_element_text(soup: BeautifulSoup) -> str:
+    for marker in SUMMARY_SELECTORS:
+        element = soup.find(attrs={"id": re.compile(marker, re.I)}) or soup.find(
+            attrs={"class": re.compile(marker, re.I)}
         )
-        data = json.loads(fetch_text(url))
-        for item in data.get("message", {}).get("items", []):
-            title = " ".join(item.get("title") or [])
-            doi = item.get("DOI")
-            link = f"https://doi.org/{doi}" if doi else item.get("URL", "")
-            published = _crossref_date(item) or run_date.isoformat()
-            abstract = _clean_text(re.sub(r"<[^>]+>", " ", item.get("abstract", "")))
-            if title and link:
-                candidates.append(
-                    Candidate(
-                        title=_clean_text(title),
-                        source_org=source.name,
-                        source_type=source.type,
-                        published_date=published,
-                        url=link,
-                        summary_hint=abstract,
-                        tags=source.default_tags,
-                        discovered_date=run_date.isoformat(),
-                        doi=doi,
-                    )
-                )
-    return candidates
+        if element:
+            text = _clean_text(element.get_text(" "))
+            if text:
+                return _first_words(text, SUMMARY_TEXT_WORD_LIMIT)
+    return ""
+
+
+def _is_full_text_whitelisted(url: str) -> bool:
+    parsed = urlparse(url)
+    host = parsed.netloc.lower().split("@")[-1].split(":")[0]
+    path = parsed.path.lower()
+    if host == "lse.ac.uk" or host.endswith(".lse.ac.uk"):
+        return path.startswith("/grantham") or "/grantham" in path
+    return any(host == domain or host.endswith(f".{domain}") for domain in FULL_TEXT_WHITELIST if domain != "lse.ac.uk")
+
+
+def _minimum_candidate_words(source: Source) -> int:
+    if source.layer in {"event", "news"}:
+        return EVENT_MIN_FEED_WORDS
+    return RESEARCH_MIN_CONTENT_WORDS
+
+
+def _entry_link(entry: ElementTree.Element) -> str:
+    link = _xml_text(entry, ["link"])
+    if link:
+        return link
+    for atom_link in entry.findall("{http://www.w3.org/2005/Atom}link"):
+        rel = atom_link.attrib.get("rel", "alternate")
+        href = atom_link.attrib.get("href", "")
+        if href and rel in {"alternate", ""}:
+            return href
+    return _xml_text(entry, ["guid"])
+
+
+def _entry_summary(entry: ElementTree.Element) -> str:
+    return _xml_text(
+        entry,
+        [
+            "description",
+            "summary",
+            "content",
+            "{http://www.w3.org/2005/Atom}summary",
+            "{http://www.w3.org/2005/Atom}content",
+            "{http://purl.org/rss/1.0/modules/content/}encoded",
+        ],
+    )
 
 
 def is_allowed_url(url: str, allowed_domains: list[str]) -> bool:
@@ -198,54 +260,62 @@ def is_allowed_url(url: str, allowed_domains: list[str]) -> bool:
 def deduplicate_candidates(candidates: list[Candidate]) -> list[Candidate]:
     unique: list[Candidate] = []
     seen_urls: set[str] = set()
-    seen_titles: set[str] = set()
-    seen_dois: set[str] = set()
+    title_vectors: list[Counter[str]] = []
     for candidate in candidates:
         url_key = _canonical_url(candidate.url)
-        title_key = _title_key(candidate.title)
-        doi_key = candidate.doi.lower() if candidate.doi else ""
-        if url_key in seen_urls or title_key in seen_titles or (doi_key and doi_key in seen_dois):
+        if url_key in seen_urls:
+            continue
+        title_vector = _title_vector(candidate.title)
+        if any(_cosine_similarity(title_vector, existing) > TITLE_SIMILARITY_THRESHOLD for existing in title_vectors):
             continue
         seen_urls.add(url_key)
-        seen_titles.add(title_key)
-        if doi_key:
-            seen_dois.add(doi_key)
+        title_vectors.append(title_vector)
         unique.append(candidate)
     return unique
 
 
-def rank_candidates(candidates: list[Candidate], max_items: int = 8) -> list[Candidate]:
+def rank_candidates(
+    candidates: list[Candidate],
+    max_items: int = 30,
+    max_per_source: int | None = None,
+    fill_to_max: bool = True,
+) -> list[Candidate]:
     scored = sorted(candidates, key=_score_candidate, reverse=True)
-    return scored[:max_items]
+    if not max_per_source or max_per_source <= 0:
+        return scored[:max_items]
+
+    selected: list[Candidate] = []
+    selected_urls: set[str] = set()
+    source_counts: Counter[str] = Counter()
+    for candidate in scored:
+        if len(selected) >= max_items:
+            break
+        if source_counts[candidate.source_org] >= max_per_source:
+            continue
+        selected.append(candidate)
+        selected_urls.add(candidate.url)
+        source_counts[candidate.source_org] += 1
+
+    if fill_to_max and len(selected) < max_items:
+        for candidate in scored:
+            if len(selected) >= max_items:
+                break
+            if candidate.url in selected_urls:
+                continue
+            selected.append(candidate)
+            selected_urls.add(candidate.url)
+    return selected
 
 
 def _score_candidate(candidate: Candidate) -> tuple[int, str]:
-    text = f"{candidate.title} {candidate.summary_hint}".lower()
-    keyword_score = sum(2 for keyword in KEYWORDS if keyword in text)
-    tag_score = len(candidate.tags)
-    source_score = {"journal": 4, "international_org": 3, "think_tank": 2}.get(candidate.source_type, 1)
-    hint_score = 1 if candidate.summary_hint else 0
-    return (keyword_score + tag_score + source_score + hint_score, candidate.published_date)
-
-
-def _is_relevant(candidate: Candidate) -> bool:
-    text = f"{candidate.title} {candidate.summary_hint} {' '.join(candidate.tags)}".lower()
-    return any(keyword in text for keyword in KEYWORDS) or any(
-        tag in candidate.tags for tag in ("#NDC", "#气候金融", "#SDG进展", "#绿色转型", "#债务可持续性", "#Global South")
-    )
+    source_score = {"international_org": 3, "think_tank": 2, "journal": 1}.get(candidate.source_type, 1)
+    text_score = min(_word_count(candidate.full_text or candidate.summary_hint), 300) // 25
+    return (source_score + text_score, candidate.published_date)
 
 
 def _within_lookback(published_date: str, since: date, run_date: date) -> bool:
     parsed = _parse_iso_date(published_date)
     return parsed is None or since <= parsed <= run_date
-
-
-def _url_has_outdated_year(url: str, since: date, run_date: date) -> bool:
-    years = {int(value) for value in re.findall(r"/(20\d{2})(?:/|-)", url)}
-    if not years:
-        return False
-    allowed_years = set(range(since.year, run_date.year + 1))
-    return not any(year in allowed_years for year in years)
 
 
 def _normalize_date(value: str, fallback: date) -> str:
@@ -261,18 +331,9 @@ def _normalize_date(value: str, fallback: date) -> str:
 
 def _parse_iso_date(value: str) -> date | None:
     try:
-        return datetime.fromisoformat(value[:10]).date()
+        return datetime.fromisoformat(value[:10].replace("Z", "+00:00")).date()
     except Exception:
         return None
-
-
-def _crossref_date(item: dict) -> str | None:
-    for key in ("published-print", "published-online", "published", "issued"):
-        parts = item.get(key, {}).get("date-parts", [])
-        if parts and parts[0]:
-            year, month, day = (parts[0] + [1, 1])[:3]
-            return date(int(year), int(month), int(day)).isoformat()
-    return None
 
 
 def _xml_text(entry: ElementTree.Element, names: list[str]) -> str:
@@ -284,38 +345,17 @@ def _xml_text(entry: ElementTree.Element, names: list[str]) -> str:
 
 
 def _clean_text(value: str) -> str:
-    return html.unescape(re.sub(r"\s+", " ", value or "")).strip()
+    without_tags = re.sub(r"<[^>]+>", " ", value or "")
+    return html.unescape(re.sub(r"\s+", " ", without_tags)).strip()
 
 
-def _fetch_page_summary(url: str) -> str:
-    try:
-        text = fetch_text(url, timeout=12)
-    except Exception:
-        return ""
-    return _extract_page_summary(text)
+def _word_count(value: str) -> int:
+    return len(re.findall(r"\b[\w'-]+\b", value or ""))
 
 
-def _extract_page_summary(text: str, max_chars: int = 700) -> str:
-    for pattern in (
-        r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
-        r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)["\']',
-        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']description["\']',
-        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:description["\']',
-    ):
-        match = re.search(pattern, text, re.I | re.S)
-        if match:
-            summary = _clean_text(match.group(1))
-            if len(summary) >= 40:
-                return summary[:max_chars]
-
-    paragraphs = []
-    for raw in re.findall(r"<p\b[^>]*>(.*?)</p>", text, re.I | re.S):
-        paragraph = _clean_text(re.sub(r"<[^>]+>", " ", raw))
-        if len(paragraph) >= 50 and not paragraph.lower().startswith(("cookie", "subscribe", "sign up")):
-            paragraphs.append(paragraph)
-        if len(" ".join(paragraphs)) >= max_chars:
-            break
-    return " ".join(paragraphs)[:max_chars]
+def _first_words(value: str, limit: int) -> str:
+    words = re.findall(r"\S+", value or "")
+    return " ".join(words[:limit])
 
 
 def _canonical_url(url: str) -> str:
@@ -323,5 +363,21 @@ def _canonical_url(url: str) -> str:
     return parsed._replace(query="", fragment="").geturl().rstrip("/").lower()
 
 
-def _title_key(title: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", title.lower())[:120]
+def _title_vector(title: str) -> Counter[str]:
+    return Counter(re.findall(r"[a-z0-9]+", title.lower()))
+
+
+def _cosine_similarity(first: Counter[str], second: Counter[str]) -> float:
+    if not first or not second:
+        return 0.0
+    common = set(first) & set(second)
+    numerator = sum(first[token] * second[token] for token in common)
+    first_norm = math.sqrt(sum(count * count for count in first.values()))
+    second_norm = math.sqrt(sum(count * count for count in second.values()))
+    if not first_norm or not second_norm:
+        return 0.0
+    return numerator / (first_norm * second_norm)
+
+
+# CHANGE 2 DONE: whitelist sources attempt expanded full-text extraction with RSS fallback and collection stats.
+# ZERO-CANDIDATE FIX DONE: research items are no longer rejected for short RSS summaries before full-text extraction is attempted.

@@ -36,7 +36,7 @@ def _update_index(root: Path, digest: Digest) -> None:
     entry = {
         "date": digest_date,
         "subject": digest.subject,
-        "item_count": len(digest.items),
+        "item_count": len(digest.recent_news) + len(digest.research_signals or digest.items) + len(digest.classic_readings or digest.readings),
         "html": f"{digest_date}/digest.html",
         "markdown": f"{digest_date}/digest.md",
         "json": f"{digest_date}/digest.json",
@@ -59,7 +59,7 @@ def _render_index_html(index: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SDG Daily Digest Archive</title>
+  <title>SDG Weekly Compass Archive</title>
   <style>
     body {{ font-family: Arial, "Microsoft YaHei", sans-serif; max-width: 760px; margin: 0 auto; padding: 32px 18px; background: #f6f7f4; color: #1f2933; }}
     h1 {{ color: #123524; }}
@@ -68,7 +68,7 @@ def _render_index_html(index: dict) -> str:
   </style>
 </head>
 <body>
-  <h1>SDG Daily Digest Archive</h1>
+  <h1>SDG Weekly Compass Archive</h1>
   <ul>{rows}</ul>
 </body>
 </html>

@@ -1,100 +1,166 @@
 {
   "sources": [
     {
-      "name": "UN News - Climate and Environment",
-      "type": "international_org",
-      "strategy": "page",
-      "url": "https://news.un.org/en/news/topic/climate-change",
-      "allowed_domains": ["news.un.org", "un.org"],
-      "default_tags": ["#SDG进展", "#绿色转型"]
-    },
-    {
-      "name": "UNFCCC News",
-      "type": "international_org",
-      "strategy": "page",
-      "url": "https://unfccc.int/news",
-      "allowed_domains": ["unfccc.int"],
-      "default_tags": ["#NDC", "#气候金融", "#绿色转型"]
-    },
-    {
-      "name": "World Bank Climate",
-      "type": "international_org",
-      "strategy": "page",
-      "url": "https://www.worldbank.org/en/topic/climatechange",
-      "allowed_domains": ["worldbank.org", "blogs.worldbank.org"],
-      "default_tags": ["#气候金融", "#债务可持续性", "#Global South"]
-    },
-    {
-      "name": "UNDP News Centre",
-      "type": "international_org",
-      "strategy": "page",
-      "url": "https://www.undp.org/news-centre",
-      "allowed_domains": ["undp.org"],
-      "default_tags": ["#SDG进展", "#Global South"]
-    },
-    {
-      "name": "IPCC News",
-      "type": "international_org",
-      "strategy": "page",
-      "url": "https://www.ipcc.ch/news/",
-      "allowed_domains": ["ipcc.ch"],
-      "default_tags": ["#绿色转型", "#气候金融"]
-    },
-    {
-      "name": "IISD",
+      "name": "IISD SDG Knowledge Hub",
       "type": "think_tank",
-      "strategy": "page",
-      "url": "https://www.iisd.org/articles",
-      "allowed_domains": ["iisd.org"],
-      "default_tags": ["#SDG进展", "#气候金融", "#Global South"]
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://sdg.iisd.org/feed/",
+      "allowed_domains": ["sdg.iisd.org", "iisd.org"],
+      "default_tags": ["#SDG进展", "#多边治理"]
     },
     {
-      "name": "WRI Insights",
+      "name": "Carbon Brief",
       "type": "think_tank",
-      "strategy": "page",
-      "url": "https://www.wri.org/insights",
-      "allowed_domains": ["wri.org"],
-      "default_tags": ["#绿色转型", "#气候金融", "#NDC"]
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.carbonbrief.org/feed/",
+      "allowed_domains": ["carbonbrief.org", "www.carbonbrief.org"],
+      "default_tags": ["#环境治理与气候"]
     },
     {
-      "name": "ODI",
+      "name": "Climate Policy Initiative",
       "type": "think_tank",
-      "strategy": "page",
-      "url": "https://odi.org/en/insights/",
-      "allowed_domains": ["odi.org"],
-      "default_tags": ["#Global South", "#债务可持续性"]
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://climatepolicyinitiative.org/feed/",
+      "allowed_domains": ["climatepolicyinitiative.org", "www.climatepolicyinitiative.org"],
+      "default_tags": ["#气候金融", "#可持续金融与ESG"]
+    },
+    {
+      "name": "ODI Insights",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://odi.org/en/insights/rss.xml",
+      "allowed_domains": ["odi.org", "www.odi.org"],
+      "default_tags": ["#发展不平等", "#Global South"]
+    },
+    {
+      "name": "World Resources Institute",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.wri.org/rss.xml",
+      "allowed_domains": ["wri.org", "www.wri.org"],
+      "default_tags": ["#环境治理与气候", "#绿色转型"]
     },
     {
       "name": "Brookings",
       "type": "think_tank",
-      "strategy": "page",
-      "url": "https://www.brookings.edu/topic/climate-change/",
-      "allowed_domains": ["brookings.edu"],
-      "default_tags": ["#气候金融", "#绿色转型"]
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.brookings.edu/feed/",
+      "allowed_domains": ["brookings.edu", "www.brookings.edu"],
+      "default_tags": ["#多边治理", "#发展不平等"]
     },
     {
-      "name": "Nature Climate Change",
-      "type": "journal",
-      "strategy": "crossref",
-      "issn": ["1758-678X", "1758-6798"],
-      "allowed_domains": ["nature.com", "doi.org", "api.crossref.org"],
-      "default_tags": ["#绿色转型", "#气候金融"]
+      "name": "LSE Grantham Research Institute",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.lse.ac.uk/granthaminstitute/feed/",
+      "allowed_domains": ["lse.ac.uk", "www.lse.ac.uk"],
+      "default_tags": ["#环境治理与气候", "#气候金融"]
     },
     {
-      "name": "Global Policy",
-      "type": "journal",
-      "strategy": "crossref",
-      "issn": ["1758-5880", "1758-5899"],
-      "allowed_domains": ["onlinelibrary.wiley.com", "doi.org", "api.crossref.org"],
-      "default_tags": ["#SDG进展", "#Global South"]
+      "name": "E3G",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.e3g.org/feed/",
+      "allowed_domains": ["e3g.org", "www.e3g.org"],
+      "default_tags": ["#能源转型", "#多边治理"]
     },
     {
-      "name": "World Development",
+      "name": "Center for Global Development",
+      "type": "think_tank",
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.cgdev.org/feeds/blog.xml",
+      "allowed_domains": ["cgdev.org", "www.cgdev.org"],
+      "default_tags": ["#发展不平等", "#气候金融"]
+    },
+    {
+      "name": "Nature Sustainability",
       "type": "journal",
-      "strategy": "crossref",
-      "issn": ["0305-750X"],
-      "allowed_domains": ["sciencedirect.com", "doi.org", "api.crossref.org"],
-      "default_tags": ["#SDG进展", "#债务可持续性", "#Global South"]
+      "layer": "research",
+      "strategy": "rss",
+      "url": "https://www.nature.com/natsustain.rss",
+      "allowed_domains": ["nature.com", "www.nature.com"],
+      "default_tags": ["#环境治理与气候", "#可持续金融与ESG"]
+    },
+    {
+      "name": "UN News Climate Change",
+      "type": "international_org",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://news.un.org/feed/subscribe/en/news/topic/climate-change/feed/rss.xml",
+      "allowed_domains": ["news.un.org"],
+      "default_tags": ["#多边治理", "#环境治理与气候"]
+    },
+    {
+      "name": "The Guardian Environment",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://www.theguardian.com/environment/rss",
+      "allowed_domains": ["theguardian.com", "www.theguardian.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Associated Press Climate and Environment",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://apnews.com/hub/climate-and-environment?output=rss",
+      "allowed_domains": ["apnews.com", "www.apnews.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "New York Times Climate",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Climate.xml",
+      "allowed_domains": ["nytimes.com", "www.nytimes.com"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Inside Climate News",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://insideclimatenews.org/feed/",
+      "allowed_domains": ["insideclimatenews.org", "www.insideclimatenews.org"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Yale Climate Connections",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://yaleclimateconnections.org/feed/",
+      "allowed_domains": ["yaleclimateconnections.org", "www.yaleclimateconnections.org"],
+      "default_tags": ["#环境治理与气候"]
+    },
+    {
+      "name": "Xinhua World News",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://english.news.cn/rss/world.xml",
+      "allowed_domains": ["english.news.cn", "news.cn"],
+      "default_tags": ["#地缘政治与治理"]
+    },
+    {
+      "name": "Reuters Environment",
+      "type": "news",
+      "layer": "event",
+      "strategy": "rss",
+      "url": "https://feeds.reuters.com/reuters/environment",
+      "allowed_domains": ["reuters.com", "www.reuters.com"],
+      "default_tags": ["#环境治理与气候"]
     }
   ]
 }

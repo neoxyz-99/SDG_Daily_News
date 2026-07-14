@@ -1,1 +1,2 @@
-# The v1 pipeline uses only the Python standard library.
+requests>=2.32.0
+beautifulsoup4>=4.12.0
