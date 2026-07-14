@@ -4,8 +4,9 @@ import json
 from datetime import date
 import unittest
 from unittest.mock import patch
+from urllib.error import HTTPError
 
-from sdg_digest.academic import collect_academic_readings, combine_academic_pool
+from sdg_digest.academic import _fetch_crossref_works, collect_academic_readings, combine_academic_pool
 from sdg_digest.models import Candidate, DeepRead, Source
 
 
@@ -28,7 +29,10 @@ class AcademicTracingTests(unittest.TestCase):
             item = recent if "from-pub-date" in url else classic
             return json.dumps({"message": {"items": [item]}})
 
-        with patch("sdg_digest.academic.fetch_text", side_effect=response):
+        with patch("sdg_digest.academic.fetch_text", side_effect=response), patch(
+            "sdg_digest.academic.CROSSREF_REQUEST_DELAY_SECONDS",
+            0,
+        ):
             readings = collect_academic_readings(
                 [source],
                 [_candidate()],
@@ -68,6 +72,23 @@ class AcademicTracingTests(unittest.TestCase):
         all_dois = [reading.doi for readings in pool.values() for reading in readings]
 
         self.assertEqual(all_dois, ["10.1000/open-pool", "10.1000/seed"])
+
+    def test_crossref_rate_limit_is_retried(self) -> None:
+        rate_limit = HTTPError("https://api.crossref.org", 429, "Too Many Requests", None, None)
+        success = json.dumps({"message": {"items": [{"DOI": "10.1000/retry"}]}})
+
+        with patch("sdg_digest.academic.fetch_text", side_effect=[rate_limit, success]) as fetch, patch(
+            "sdg_digest.academic.time.sleep"
+        ):
+            items = _fetch_crossref_works(
+                "0020-8183",
+                "global governance",
+                "type:journal-article",
+                1,
+            )
+
+        self.assertEqual(items[0]["DOI"], "10.1000/retry")
+        self.assertEqual(fetch.call_count, 2)
 
 
 def _work(doi: str, title: str, date_parts: list[int]) -> dict:

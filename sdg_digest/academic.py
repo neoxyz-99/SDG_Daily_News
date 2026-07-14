@@ -4,11 +4,13 @@ import html
 import json
 import os
 import re
+import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import replace
 from datetime import date, timedelta
 from urllib.parse import quote, urlencode
+from urllib.error import HTTPError
 
 from .http import fetch_text
 from .models import Candidate, DeepRead, Source
@@ -16,7 +18,9 @@ from .models import Candidate, DeepRead, Source
 CROSSREF_API = "https://api.crossref.org/v1"
 DEFAULT_ACADEMIC_LOOKBACK_DAYS = 90
 MIN_ABSTRACT_WORDS = 30
-ACADEMIC_WORKERS = 4
+ACADEMIC_WORKERS = 2
+CROSSREF_REQUEST_DELAY_SECONDS = 0.6
+CROSSREF_MAX_ATTEMPTS = 3
 MAX_QUERY_TERMS = 14
 
 QUERY_STOPWORDS = {
@@ -205,7 +209,17 @@ def _fetch_crossref_works(
     if mailto:
         params["mailto"] = mailto
     url = f"{CROSSREF_API}/journals/{quote(issn, safe='')}/works?{urlencode(params)}"
-    payload = json.loads(fetch_text(url))
+    payload: dict = {}
+    for attempt in range(CROSSREF_MAX_ATTEMPTS):
+        time.sleep(CROSSREF_REQUEST_DELAY_SECONDS if attempt == 0 else 2**attempt)
+        try:
+            payload = json.loads(fetch_text(url))
+            break
+        except HTTPError as exc:
+            retryable = exc.code in {429, 500, 502, 503, 504}
+            exc.close()
+            if not retryable or attempt + 1 >= CROSSREF_MAX_ATTEMPTS:
+                raise
     message = payload.get("message", {})
     items = message.get("items", []) if isinstance(message, dict) else []
     return [item for item in items if isinstance(item, dict)]
