@@ -5,6 +5,7 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
+from .academic import collect_academic_readings, combine_academic_pool
 from .archive import write_archive
 from .collect import CollectionStats, collect_candidates, deduplicate_candidates, rank_candidates
 from .config import load_bibliography, load_sources
@@ -29,6 +30,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate SDG Weekly Compass")
     parser.add_argument("--date", default=date.today().isoformat(), help="Run date in YYYY-MM-DD")
     parser.add_argument("--lookback-days", type=int, default=7)
+    parser.add_argument(
+        "--academic-lookback-days",
+        type=int,
+        default=90,
+        help="Recent-publication window for journal tracing; older matches remain eligible as classics",
+    )
     parser.add_argument("--max-items", type=int, default=5, help="Backward-compatible alias for research signals")
     parser.add_argument("--max-recent-news", type=int, default=8)
     parser.add_argument("--max-research-signals", type=int, default=None)
@@ -46,7 +53,7 @@ def main() -> None:
 
     run_date = date.fromisoformat(args.date)
     sources = load_sources(Path(args.sources))
-    bibliography = load_bibliography(Path(args.bibliography))
+    sample_readings = load_bibliography(Path(args.bibliography))
     sent_record = load_sent_articles(Path(args.sent_articles))
 
     stats = CollectionStats()
@@ -80,9 +87,16 @@ def main() -> None:
         fill_to_max=False,
     )
     selected = selected_recent + selected_research
+    tracked_readings = collect_academic_readings(
+        sources,
+        selected,
+        run_date,
+        lookback_days=args.academic_lookback_days,
+    )
+    academic_pool = combine_academic_pool(tracked_readings, sample_readings)
     digest = generate_digest(
         selected,
-        bibliography,
+        academic_pool,
         run_date,
         max_items=args.max_items,
         use_openai=not args.skip_openai,
@@ -98,7 +112,7 @@ def main() -> None:
     print(
         f"Selected {len(digest.recent_news)} recent-news item(s), "
         f"{len(digest.research_signals or digest.items)} research signal(s), "
-        f"and {len(digest.classic_readings or digest.readings)} classic reading(s)"
+        f"and {len(digest.classic_readings or digest.readings)} research reading(s)"
     )
 
     if args.send_email and not args.dry_run:

@@ -75,14 +75,14 @@ def render_markdown(digest: Digest) -> str:
         if digest.weekly_thread_en:
             lines.extend([digest.weekly_thread_en, ""])
 
-    lines.extend(["## 经典研读 / Classic Reading", ""])
+    lines.extend(["## 论文研读 / Research Reading", ""])
     if readings:
         for reading in readings[:3]:
             lines.extend(
                 [
                     f"### {reading.title}",
                     "",
-                    f"{reading.authors} · {reading.year} · {reading.journal}",
+                    f"{reading.authors} · {reading.published_date or reading.year} · {reading.journal}",
                     "",
                     " ".join(reading.tags),
                     "",
@@ -109,7 +109,7 @@ def render_markdown(digest: Digest) -> str:
                 lines.append("")
             lines.extend([f"DOI / 原文链接: {reading.url}", ""])
     else:
-        lines.append("本期没有匹配到白名单经典研读材料。")
+        lines.append("本期没有从权威期刊追踪到适合研读的论文。")
 
     return "\n".join(lines).strip() + "\n"
 
@@ -130,7 +130,7 @@ def render_html(digest: Digest) -> str:
 
     readings_html = "\n".join(_render_reading_html(reading) for reading in readings[:3])
     if not readings_html:
-        readings_html = '<p class="empty">本期没有匹配到白名单经典研读材料。</p>'
+        readings_html = '<p class="empty">本期没有从权威期刊追踪到适合研读的论文。</p>'
 
     editorial_html = (
         f'<section class="editorial-note"><h2>本周导语 / Editorial Note</h2>'
@@ -236,7 +236,7 @@ def render_html(digest: Digest) -> str:
 
     {weekly_html}
 
-    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading</span></h2>
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
     <section class="readings-band">{readings_html}</section>
   </main>
 </body>
@@ -292,7 +292,7 @@ def _render_reading_html(reading: DeepRead) -> str:
     research = _render_research_directions(reading)
     return f"""<article class="reading">
   <h3><a href="{html.escape(reading.url)}">{html.escape(reading.title)}</a></h3>
-  <p class="meta">{html.escape(reading.authors)} · {reading.year} · {html.escape(reading.journal)}</p>
+  <p class="meta">{html.escape(reading.authors)} · {html.escape(reading.published_date or str(reading.year))} · {html.escape(reading.journal)}</p>
   <p class="tags">{tags}</p>
   <p class="reading-text">{html.escape(reading.note_zh)}</p>
   {_paragraph_en(reading.note_en)}

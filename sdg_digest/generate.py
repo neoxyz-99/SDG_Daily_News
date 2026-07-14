@@ -28,8 +28,9 @@ SEMANTIC_FILTER_WORKERS = 8
 EVENT_LAYERS = {"event", "news"}
 MAX_RECENT_NEWS_PER_SOURCE = 2
 MAX_RESEARCH_SIGNALS_PER_SOURCE = 2
-CLASSIC_READING_COOLDOWN_ISSUES = 5
-CLASSIC_READING_POOL_SIZE = 8
+ACADEMIC_READING_COOLDOWN_ISSUES = 5
+ACADEMIC_READING_POOL_SIZE = 12
+ACADEMIC_READING_MODE_TARGET = 6
 
 EXCLUDE_PATTERNS = [
     "match result",
@@ -172,7 +173,7 @@ def generate_digest(
     classic_reading_history: list[dict[str, Any]] | None = None,
 ) -> Digest:
     max_research_signals = max_research_signals or max_items
-    rotating_bibliography = _build_rotating_bibliography(
+    academic_shortlist = _build_academic_shortlist(
         candidates,
         bibliography,
         classic_reading_history or [],
@@ -181,7 +182,7 @@ def generate_digest(
     if use_openai and candidates:
         if not os.getenv("OPENAI_API_KEY"):
             if allow_fallback:
-                return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
+                return fallback_digest(candidates, academic_shortlist, run_date, max_recent_news, max_research_signals)
             raise RuntimeError("OPENAI_API_KEY is not set; refusing to publish fallback digest")
 
         feedback = ""
@@ -190,13 +191,13 @@ def generate_digest(
             try:
                 raw = _call_openai(
                     candidates,
-                    rotating_bibliography,
+                    academic_shortlist,
                     run_date,
                     max_recent_news=max_recent_news,
                     max_research_signals=max_research_signals,
                     feedback=feedback,
                 )
-                return validate_digest_payload(raw, candidates, rotating_bibliography, run_date)
+                return validate_digest_payload(raw, candidates, academic_shortlist, run_date)
             except ValueError as exc:
                 last_exc = exc
                 # Check if failure is caused by a banned phrase in a specific article field.
@@ -208,7 +209,7 @@ def generate_digest(
                     f"The previous draft failed validation: {exc}. Rewrite the full JSON output. "
                     "Avoid ALL of these phrases in any field: 至关重要, 意义深远, 备受关注, 在全球化背景下. "
                     "Every core_argument_zh must name a specific actor and state a concrete argument. "
-                    "Keep recent news short, keep research signals analytical, and preserve bibliography prose."
+                    "Keep recent news short, keep research signals analytical, and ground paper interpretation in supplied metadata."
                 )
                 if attempt + 1 < OPENAI_MAX_ATTEMPTS:
                     print(f"OpenAI draft failed validation; retrying with stricter instructions: {exc}")
@@ -216,7 +217,7 @@ def generate_digest(
                 # All retries exhausted — fall back to deterministic digest rather than crashing.
                 print(f"Warning: OpenAI generation failed after {OPENAI_MAX_ATTEMPTS} attempts: {exc}")
                 print("Falling back to deterministic digest to avoid pipeline crash.")
-                return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
+                return fallback_digest(candidates, academic_shortlist, run_date, max_recent_news, max_research_signals)
             except (TimeoutError, OSError) as exc:
                 last_exc = exc
                 if _is_timeout_exception(exc) and attempt + 1 < OPENAI_MAX_ATTEMPTS:
@@ -230,11 +231,11 @@ def generate_digest(
         exc = last_exc or RuntimeError("OpenAI generation failed for an unknown reason")
         if allow_fallback:
             print(f"OpenAI generation failed, using deterministic fallback: {exc}")
-            return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
+            return fallback_digest(candidates, academic_shortlist, run_date, max_recent_news, max_research_signals)
         # Only raise here for non-validation errors (network, auth, etc.)
         # Banned-phrase validation failures are handled above and never reach this line.
         raise RuntimeError(f"OpenAI generation failed; refusing to publish fallback digest: {exc}") from exc
-    return fallback_digest(candidates, rotating_bibliography, run_date, max_recent_news, max_research_signals)
+    return fallback_digest(candidates, academic_shortlist, run_date, max_recent_news, max_research_signals)
 
 
 def _exclude_noise_candidates(candidates: list[Candidate]) -> list[Candidate]:
@@ -310,15 +311,15 @@ def _call_openai(
             "climate finance, and sustainable development. They need analytical density, not basic definitions."
         ),
         "editorial_logic": [
-            "The issue has three modules: 近期要闻, 研究动向, 经典研读.",
+            "The issue has three modules: 近期要闻, 研究动向, 论文研读.",
             "近期要闻 is low-density: tell the reader what happened using the title/source and one Chinese sentence; do not force topic tags into the visible copy.",
             "研究动向 is high-density: extract institutional arguments, policy timing, and agenda position.",
-            "经典研读 comes only from the supplied bibliography.",
+            "论文研读 selects from an open pool traced across approved journals: both newly published papers and older topic-relevant classics are eligible. The seven curated examples are seeds, not a closed list.",
         ],
         "instructions": [
             "Return a JSON object that follows the schema.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
-            "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use bibliography DOI links, paper URLs, or invented URLs as news/research item URLs.",
+            "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use academic-reading DOI links, paper URLs, or invented URLs as news/research item URLs.",
             "Source diversity is an editorial priority. Within recent_news and within research_signals, select from as many different source_org values as possible. If alternatives exist, do not select more than 2 items from the same source_org in the same module.",
             "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize. weekly_editorial_note_en should carry the same meaning in one concise English sentence.",
             "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
@@ -328,7 +329,8 @@ def _call_openai(
             "Agenda Position: one Chinese sentence explaining the item's place in a larger policy process, such as a negotiation, summit, institutional work program, actor timing, or challenge to a policy framework. If the source text does not support a specific agenda anchor, output exactly: 议程背景不明确. Do not use generic phrases such as 这是政策讨论的重要参考.",
             "Tags are post-selection labels only. Use 1-3 specific Chinese tags from the tag registry when possible, and avoid broad tags like 气候变化 or 可持续发展.",
             "weekly_thread_zh: only if at least 2 selected items share an issue line; 1-2 Chinese sentences explaining the shared agenda question or disagreement.",
-            "Select up to 3 classic readings from bibliography. The bibliography has already been filtered by a five-issue rotation policy, so use only this supplied shortlist and never reintroduce a reading that is absent from it. Preserve note_zh, note_en, methodology_zh, method_en, authors, year, journal, DOI, and URL exactly. The selected readings should be the ones whose preserved prose gives the most concrete analytical leverage for this issue.",
+            "Select up to 3 papers from academic_reading_candidates. Treat tracked recent papers and tracked historical classics as one editorial pool; choose whichever provides the strongest analytical leverage for this issue. Never introduce a paper absent from the supplied pool.",
+            "For every selected paper, write brief_zh and brief_en as a concise interpretation grounded only in its supplied abstract or curated brief. Write methodology_zh and methodology_en only from the supplied evidence; when the abstract does not identify a method, state plainly that the available abstract does not specify the method. For curated seed examples, copy the supplied brief and methodology exactly.",
             "For each reading, generate today_connection_zh and today_connection_en as one sentence each that references a specific selected news/research title or source. If there is no genuine connection, output exactly in Chinese: 本期暂无直接关联，建议结合[填入议题方向，如气候融资谈判]阅读 and the equivalent English: No direct connection in this issue; read alongside [topic direction].",
             "For each reading, generate exactly 2 research_directions. Each direction has question_zh under 30 Chinese characters, question_en as a concise English research question, and 3-5 English search keywords. Do not cite literature, authors, or book titles.",
             "In reading generated fields, annotate key theoretical concepts on first mention with English in parentheses, such as 嵌入式自由主义（embedded liberalism） or 混合融资（blended finance）. Do not annotate common names such as 世界银行 or 联合国.",
@@ -338,9 +340,10 @@ def _call_openai(
         "tag_registry": TAG_REGISTRY,
         "max_recent_news": max_recent_news,
         "max_research_signals": max_research_signals,
-        "classic_reading_rotation": {
-            "cooldown_issues": CLASSIC_READING_COOLDOWN_ISSUES,
+        "academic_reading_tracking": {
+            "cooldown_issues": ACADEMIC_READING_COOLDOWN_ISSUES,
             "shortlist_size": sum(len(readings) for readings in bibliography.values()),
+            "policy": "Open journal tracing; recent and historical papers share one candidate pool.",
         },
         "recent_news_candidates": [_candidate_payload(candidate) for candidate in recent_news[:40]],
         "research_candidates": [_candidate_payload(candidate) for candidate in research[:40]],
@@ -348,7 +351,7 @@ def _call_openai(
             {"title": candidate.title, "source": candidate.source_org, "layer": candidate.layer}
             for candidate in candidates[:60]
         ],
-        "bibliography": [
+        "academic_reading_candidates": [
             _reading_payload(reading)
             for readings in bibliography.values()
             for reading in readings
@@ -363,7 +366,7 @@ def _call_openai(
                 "role": "system",
                 "content": (
                     "You are the editorial AI for SDG Weekly Compass. You separate low-density event awareness "
-                    "from high-density policy/research analysis and preserve curated bibliography prose."
+                    "from high-density policy/research analysis and interpret only supplied academic metadata."
                 ),
             },
             {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
@@ -386,7 +389,7 @@ def _call_openai(
     return json.loads(_extract_response_text(response))
 
 
-# WEEKLY PROMPT DONE: generation prompt now produces recent news, research signals, and classic readings separately.
+# WEEKLY PROMPT DONE: generation prompt now produces recent news, research signals, and open-pool paper readings separately.
 
 
 def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str, Any]:
@@ -468,13 +471,30 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
                 "items": {
                     "type": "object",
                     "additionalProperties": False,
-                    "required": ["title", "authors", "year", "journal", "doi", "today_connection_zh", "today_connection_en", "research_directions"],
+                    "required": [
+                        "title",
+                        "authors",
+                        "year",
+                        "journal",
+                        "doi",
+                        "brief_zh",
+                        "brief_en",
+                        "methodology_zh",
+                        "methodology_en",
+                        "today_connection_zh",
+                        "today_connection_en",
+                        "research_directions",
+                    ],
                     "properties": {
                         "title": {"type": "string"},
                         "authors": {"type": "string"},
                         "year": {"type": "integer"},
                         "journal": {"type": "string"},
                         "doi": {"type": "string"},
+                        "brief_zh": {"type": "string"},
+                        "brief_en": {"type": "string"},
+                        "methodology_zh": {"type": "string"},
+                        "methodology_en": {"type": "string"},
                         "today_connection_zh": {"type": "string"},
                         "today_connection_en": {"type": "string"},
                         "research_directions": {
@@ -721,6 +741,9 @@ def _reading_payload(reading: DeepRead) -> dict[str, Any]:
         "journal": reading.journal,
         "doi": reading.doi,
         "url": reading.url,
+        "published_date": reading.published_date,
+        "kind": reading.kind,
+        "source_abstract_en": reading.abstract_en,
         "brief_zh": reading.note_zh,
         "brief_en": reading.note_en,
         "methodology_zh": reading.methodology_zh,
@@ -766,6 +789,20 @@ def _validate_readings(
         approved = approved_reads.get(key)
         if not approved:
             raise ValueError(f"Digest has unapproved reading: {key}")
+        if approved.note_zh:
+            note_zh = approved.note_zh
+            note_en = approved.note_en
+            methodology_zh = approved.methodology_zh
+            methodology_en = approved.method_en
+        else:
+            note_zh = str(raw.get("brief_zh", "")).strip()
+            note_en = str(raw.get("brief_en", "")).strip()
+            methodology_zh = str(raw.get("methodology_zh", "")).strip()
+            methodology_en = str(raw.get("methodology_en", "")).strip()
+            _validate_required_text(note_zh, f"brief_zh for {approved.title}")
+            _validate_required_text(note_en, f"brief_en for {approved.title}")
+            _validate_required_text(methodology_zh, f"methodology_zh for {approved.title}")
+            _validate_required_text(methodology_en, f"methodology_en for {approved.title}")
         today_connection_zh = str(raw.get("today_connection_zh", "")).strip()
         today_connection_en = str(raw.get("today_connection_en", "")).strip()
         _validate_required_text(today_connection_zh, f"today_connection_zh for {approved.title}")
@@ -785,14 +822,18 @@ def _validate_readings(
                 authors=approved.authors,
                 year=approved.year,
                 url=approved.url,
-                note_zh=approved.note_zh,
-                note_en=approved.note_en,
+                note_zh=note_zh,
+                note_en=note_en,
                 journal=approved.journal,
                 doi=approved.doi,
-                methodology_zh=approved.methodology_zh,
+                methodology_zh=methodology_zh,
+                method_en=methodology_en,
                 further_reading=approved.further_reading,
                 tags=approved.tags,
                 kind=approved.kind,
+                published_date=approved.published_date,
+                abstract_en=approved.abstract_en,
+                discovery_score=approved.discovery_score,
                 today_connection_zh=today_connection_zh,
                 today_connection_en=today_connection_en,
                 research_directions=research_directions,
@@ -1012,7 +1053,7 @@ def _select_readings_for_candidates(
     return selected
 
 
-def _build_rotating_bibliography(
+def _build_academic_shortlist(
     candidates: list[Candidate],
     bibliography: dict[str, list[DeepRead]],
     history: list[dict[str, Any]],
@@ -1020,7 +1061,7 @@ def _build_rotating_bibliography(
     candidate_tags = _expanded_classic_tags(
         {tag for candidate in candidates for tag in candidate.tags}
     )
-    rows: list[tuple[DeepRead, int, int]] = []
+    rows: list[tuple[DeepRead, int, float, int]] = []
     seen: set[str] = set()
     original_index = 0
     for group_tag, readings in bibliography.items():
@@ -1031,7 +1072,7 @@ def _build_rotating_bibliography(
             seen.add(identifier)
             reading_tags = _expanded_classic_tags({group_tag, *reading.tags})
             relevance = len(candidate_tags & reading_tags)
-            rows.append((reading, relevance, original_index))
+            rows.append((reading, relevance, reading.discovery_score, original_index))
             original_index += 1
 
     last_used_issue: dict[str, int] = {}
@@ -1054,7 +1095,7 @@ def _build_rotating_bibliography(
         for identifier in issue_dois:
             last_used_issue[identifier] = issue_index
 
-    recent_dois = set().union(*normalized_history[-CLASSIC_READING_COOLDOWN_ISSUES:]) if normalized_history else set()
+    recent_dois = set().union(*normalized_history[-ACADEMIC_READING_COOLDOWN_ISSUES:]) if normalized_history else set()
     eligible = [
         row
         for row in rows
@@ -1065,8 +1106,9 @@ def _build_rotating_bibliography(
             eligible,
             key=lambda row: (
                 -row[1],
+                -row[2],
                 last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
-                row[2],
+                row[3],
             ),
         )
     else:
@@ -1075,21 +1117,44 @@ def _build_rotating_bibliography(
             key=lambda row: (
                 last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
                 -row[1],
-                row[2],
+                -row[2],
+                row[3],
             ),
         )
 
-    shortlist = [row[0] for row in ranked[:CLASSIC_READING_POOL_SIZE]]
+    shortlist = _balanced_academic_shortlist(ranked)
     if recent_dois:
         excluded = len(rows) - len(eligible)
         if eligible:
             print(
-                f"Classic reading rotation excluded {excluded} reading(s) used in the last "
-                f"{CLASSIC_READING_COOLDOWN_ISSUES} issue(s); {len(shortlist)} candidate(s) remain."
+                f"Academic reading history excluded {excluded} paper(s) used in the last "
+                f"{ACADEMIC_READING_COOLDOWN_ISSUES} issue(s); {len(shortlist)} candidate(s) remain."
             )
         else:
-            print("Classic reading rotation pool is exhausted; reusing the least recently selected readings.")
-    return {"__rotation_pool__": shortlist}
+            print("Academic reading pool is exhausted; reusing the least recently selected papers.")
+    return {"__academic_pool__": shortlist}
+
+
+def _balanced_academic_shortlist(
+    ranked: list[tuple[DeepRead, int, float, int]],
+) -> list[DeepRead]:
+    recent = [row for row in ranked if row[0].kind == "tracked recent article"]
+    historical = [row for row in ranked if row[0].kind != "tracked recent article"]
+    selected_rows = recent[:ACADEMIC_READING_MODE_TARGET] + historical[:ACADEMIC_READING_MODE_TARGET]
+    selected_ids = {_classic_reading_identifier(row[0].doi, row[0].url) for row in selected_rows}
+    for row in ranked:
+        if len(selected_rows) >= ACADEMIC_READING_POOL_SIZE:
+            break
+        identifier = _classic_reading_identifier(row[0].doi, row[0].url)
+        if identifier not in selected_ids:
+            selected_rows.append(row)
+            selected_ids.add(identifier)
+    rank_index = {
+        _classic_reading_identifier(row[0].doi, row[0].url): index
+        for index, row in enumerate(ranked)
+    }
+    selected_rows.sort(key=lambda row: rank_index[_classic_reading_identifier(row[0].doi, row[0].url)])
+    return [row[0] for row in selected_rows[:ACADEMIC_READING_POOL_SIZE]]
 
 
 def _expanded_classic_tags(tags: set[str]) -> set[str]:
@@ -1122,14 +1187,27 @@ def _fallback_readings(
                 authors=reading.authors,
                 year=reading.year,
                 url=reading.url,
-                note_zh=reading.note_zh,
-                note_en=reading.note_en,
+                note_zh=(
+                    reading.note_zh
+                    or "自动解读暂不可用；下方英文为期刊元数据中的原始摘要，请通过 DOI 链接核对原文。"
+                ),
+                note_en=reading.note_en or reading.abstract_en,
                 journal=reading.journal,
                 doi=reading.doi,
-                methodology_zh=reading.methodology_zh,
+                methodology_zh=(
+                    reading.methodology_zh
+                    or "现有期刊元数据未提供可核验的方法信息，请以论文原文为准。"
+                ),
+                method_en=(
+                    reading.method_en
+                    or "The available journal metadata does not provide verifiable method details; consult the paper."
+                ),
                 further_reading=reading.further_reading,
                 tags=reading.tags,
                 kind=reading.kind,
+                published_date=reading.published_date,
+                abstract_en=reading.abstract_en,
+                discovery_score=reading.discovery_score,
                 today_connection_zh="本期暂无直接关联，建议结合气候融资谈判阅读",
                 today_connection_en="No direct connection in this issue; read alongside climate finance negotiations.",
                 research_directions=[
