@@ -105,7 +105,13 @@
     "https://www.carbonbrief.org/factcheck-no-europes-heatwaves-are-not-being-caused-by-declining-air-pollution",
     "https://www.carbonbrief.org/state-of-the-climate-rapidly-developing-el-nino-raises-chance-of-record-warm-2026",
     "https://www.e3g.org/news/from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31/?utm_source=rss&utm_medium=rss&utm_campaign=from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31",
-    "https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&utm_medium=rss&utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships"
+    "https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&utm_medium=rss&utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships",
+    "https://www.theguardian.com/commentisfree/2026/jul/27/the-guardian-view-on-europes-wildfires-politics-must-catch-up-new-reality",
+    "https://yaleclimateconnections.org/2026/07/genevieve-becomes-the-first-category-5-hurricane-of-2026/",
+    "https://www.nytimes.com/2026/07/23/climate/trump-ai-data-centers.html",
+    "https://www.nytimes.com/2026/07/23/weather/japan-excessive-heat-kokushobi.html",
+    "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -176,7 +182,13 @@
     "https://yaleclimateconnections.org/2026/07/the-government-killed-this-nature-study-scientists-finished-it-anyway/",
     "https://www.nytimes.com/2026/07/26/world/europe/france-fires-bordeaux.html",
     "https://yaleclimateconnections.org/2026/07/i-saved-more-than-200-on-my-ev-road-trip/",
-    "https://www.nytimes.com/2026/07/23/us/new-mexico-bear-electrical-pole-death.html"
+    "https://www.nytimes.com/2026/07/23/us/new-mexico-bear-electrical-pole-death.html",
+    "https://www.theguardian.com/commentisfree/2026/jul/27/the-guardian-view-on-europes-wildfires-politics-must-catch-up-new-reality",
+    "https://yaleclimateconnections.org/2026/07/genevieve-becomes-the-first-category-5-hurricane-of-2026/",
+    "https://www.nytimes.com/2026/07/23/climate/trump-ai-data-centers.html",
+    "https://www.nytimes.com/2026/07/23/weather/japan-excessive-heat-kokushobi.html",
+    "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -215,14 +227,18 @@
     "https://www.carbonbrief.org/factcheck-no-europes-heatwaves-are-not-being-caused-by-declining-air-pollution",
     "https://www.carbonbrief.org/state-of-the-climate-rapidly-developing-el-nino-raises-chance-of-record-warm-2026",
     "https://www.e3g.org/news/from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31/?utm_source=rss&utm_medium=rss&utm_campaign=from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31",
-    "https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&utm_medium=rss&utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships"
+    "https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&utm_medium=rss&utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships",
+    "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
     "10.1017/s0020818300018993",
     "10.1016/j.worlddev.2011.07.020",
     "10.1162/glep.2010.10.1.60",
-    "10.1016/0305-750x(91)90197-p"
+    "10.1016/0305-750x(91)90197-p",
+    "10.1162/glep.a.780",
+    "10.1162/glep.a.784"
   ],
   "classic_reading_history": [
     {
@@ -302,7 +318,14 @@
         "10.1017/s0020818300018993",
         "10.1016/j.worlddev.2011.07.020"
       ]
+    },
+    {
+      "date": "2026-07-28",
+      "dois": [
+        "10.1162/glep.a.780",
+        "10.1162/glep.a.784"
+      ]
     }
   ],
-  "last_updated": "2026-07-27"
+  "last_updated": "2026-07-28"
 }
