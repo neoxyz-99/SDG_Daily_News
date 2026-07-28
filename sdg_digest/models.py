@@ -88,6 +88,9 @@ class DeepRead:
     research_directions: list[ResearchDirection] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
     kind: str = "reading"
+    published_date: str = ""
+    abstract_en: str = ""
+    discovery_score: float = 0.0
 
 
 @dataclass(frozen=True)

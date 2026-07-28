@@ -52,10 +52,10 @@ Each run writes:
 
 ## Pipeline Logic
 
-- `sources.yml` defines the RSS/Atom source whitelist and allowed item domains.
+- `sources.yml` defines both the RSS/Atom source whitelist and the approved academic-journal list. Journal metadata is traced through Crossref by ISSN.
 - Feed entries with fewer than 50 words in their official summary/description are skipped.
 - Whitelisted institutional domains attempt full-text or executive-summary extraction before generation; HTTP 403, timeouts, or extraction failures fall back to the RSS summary.
-- `sent_articles.json` stores previously sent URLs so GitHub Actions does not resend the same articles across runs. The file keeps the most recent 500 URLs.
+- `sent_articles.json` stores previously sent URLs and paper-reading DOI history. News and research URLs are deduplicated across runs; a paper DOI that has been sent is permanently excluded from future issues.
 - Keyword filters are not used as admission gates. Stage 1 only removes obvious structural noise, such as sports results, entertainment, celebrity items, product launches, or purely domestic election mechanics. An item is removed only when its title matches at least two exclusion patterns.
 - Stage 2 uses semantic relevance scoring, not lexical topic matching. The filter model returns `score`, `domain`, and `reason`; items with score `2` pass, and score `1` items are kept if fewer than five items pass at score `2`.
 - The semantic `domain` becomes an article classification tag, such as `#国际治理与多边主义`, `#发展与不平等`, `#环境治理与气候`, `#可持续金融与ESG`, or `#地缘政治与治理`.
@@ -63,12 +63,15 @@ Each run writes:
 - News items are generated as editorial analysis: core argument, why now, agenda position, and post-selection tags.
 - The daily editorial note is generated only when at least two news items are selected. It raises a core tension or open question rather than summarizing the issue.
 - A weekly thread is generated only when at least two selected news items share a related agenda line.
-- `bibliography.yml` defines approved deep reads from selected journals. The model may select from this file and write a today's-connection sentence plus two research directions, but it does not rewrite the human-written prose brief or methodology note.
+- The paper-reading section uses one open candidate pool. Each run searches approved journals twice: a recent-publication window finds new work, while a topic query across older issues finds relevant classics. Both are screened against that week's agenda and enter the same selection process.
+- Each issue publishes at most two paper readings; it may publish only one or none when the available papers do not fit the week's agenda well enough.
+- Previously sent paper DOIs are never reused to fill the section. If the unused pool is exhausted, the issue publishes no repeated paper.
+- `bibliography.yml` contains seven human-checked seed examples. They improve fallback quality and demonstrate the desired editorial depth, but they are not the boundary of the search and receive no automatic preference over dynamically traced papers.
 
 ## Notes
 
 - If fewer than ten candidates pass relevance screening, the workflow logs a warning and continues with what is available.
 - If the candidate pool is still below ten items after a seven-day lookback window, the workflow logs source-expansion suggestions instead of adding sources automatically.
 - If fewer than five high-quality items are found, the digest is shorter rather than padded.
-- Deep reads are linked through DOI metadata and selected only from the approved bibliography. The generated research directions provide search keywords rather than invented reading lists.
+- Paper readings are linked through DOI metadata and selected only from results returned for the approved journal list or from the seven seed examples. New and historical papers are both eligible; the generated research directions provide search keywords rather than invented reading lists.
 - GitHub Actions may occasionally delay scheduled runs during high-load windows; the workflow uses a non-hour time to reduce that risk.

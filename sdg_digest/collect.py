@@ -74,8 +74,10 @@ def collect_candidates(
     stats = stats or CollectionStats()
     candidates: list[Candidate] = []
     for source in sources:
-        if source.strategy != "rss" or not source.url:
-            print(f"Skipping source {source.name}: only RSS/Atom feeds are supported")
+        if source.strategy != "rss":
+            continue
+        if not source.url:
+            print(f"Skipping RSS source {source.name}: feed URL is missing")
             continue
         try:
             candidates.extend(_collect_rss(source, run_date, stats))

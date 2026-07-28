@@ -91,6 +91,106 @@
       "default_tags": ["#环境治理与气候", "#可持续金融与ESG"]
     },
     {
+      "name": "International Organization",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0020-8183"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#国际治理与多边主义", "#多边治理"]
+    },
+    {
+      "name": "World Politics",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0043-8871"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#地缘政治与治理", "#国际治理与多边主义"]
+    },
+    {
+      "name": "International Security",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0162-2889"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#地缘政治与治理", "#国际治理与多边主义"]
+    },
+    {
+      "name": "International Studies Quarterly",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0020-8833"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#国际治理与多边主义", "#地缘政治与治理"]
+    },
+    {
+      "name": "European Journal of International Relations",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["1354-0661"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#国际治理与多边主义", "#地缘政治与治理"]
+    },
+    {
+      "name": "Global Governance",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["1075-2846"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#多边治理", "#国际治理与多边主义"]
+    },
+    {
+      "name": "Global Environmental Politics",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["1526-3800"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#环境治理与气候", "#多边治理"]
+    },
+    {
+      "name": "Governance",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0952-1895"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#国际治理与多边主义", "#发展与不平等"]
+    },
+    {
+      "name": "American Political Science Review",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0003-0554"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#国际治理与多边主义", "#地缘政治与治理"]
+    },
+    {
+      "name": "World Development",
+      "type": "journal",
+      "layer": "academic",
+      "strategy": "crossref",
+      "url": "https://api.crossref.org",
+      "issn": ["0305-750X"],
+      "allowed_domains": ["api.crossref.org", "doi.org"],
+      "default_tags": ["#发展与不平等", "#Global South"]
+    },
+    {
       "name": "UN News Climate Change",
       "type": "international_org",
       "layer": "event",

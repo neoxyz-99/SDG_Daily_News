@@ -147,6 +147,55 @@ class GenerateTests(unittest.TestCase):
         self.assertIn("公共资金承诺", digest.readings[0].today_connection_zh)
         self.assertEqual(len(digest.readings[0].research_directions), 2)
 
+    def test_validation_uses_grounded_interpretation_for_traced_paper(self) -> None:
+        candidate = _candidate()
+        reading = DeepRead(
+            title="Institutions and Climate Finance",
+            authors="Alex Scholar",
+            year=2026,
+            published_date="2026-06-01",
+            url="https://doi.org/10.1000/traced",
+            journal="International Organization",
+            doi="10.1000/traced",
+            abstract_en="The article studies how multilateral institutions allocate climate finance.",
+            tags=["#国际治理与多边主义", "#气候金融"],
+            kind="tracked recent article",
+        )
+        payload = _payload(candidate)
+        payload["readings"] = [
+            {
+                "title": reading.title,
+                "authors": reading.authors,
+                "year": reading.year,
+                "journal": reading.journal,
+                "doi": reading.doi,
+                "brief_zh": "论文分析多边机构如何分配气候融资，并指出制度授权会改变资源流向。",
+                "brief_en": "The paper examines how institutional mandates shape climate-finance allocation.",
+                "methodology_zh": "现有摘要未说明具体研究方法。",
+                "methodology_en": "The available abstract does not specify the research method.",
+                "today_connection_zh": "该研究可用于理解本期气候融资材料中的机构执行问题。",
+                "today_connection_en": "The paper clarifies the institutional delivery problem in this issue.",
+                "research_directions": [
+                    {
+                        "question_zh": "授权如何影响资金分配",
+                        "question_en": "How do mandates shape allocation?",
+                        "keywords": ["institutional mandate", "allocation", "climate finance"],
+                    },
+                    {
+                        "question_zh": "谁监督多边机构",
+                        "question_en": "Who oversees multilateral institutions?",
+                        "keywords": ["oversight", "multilateral institutions", "accountability"],
+                    },
+                ],
+            }
+        ]
+
+        digest = validate_digest_payload(payload, [candidate], {"__tracked__": [reading]}, date(2026, 6, 9))
+
+        self.assertIn("制度授权", digest.readings[0].note_zh)
+        self.assertEqual(digest.readings[0].published_date, "2026-06-01")
+        self.assertEqual(digest.readings[0].method_en, "The available abstract does not specify the research method.")
+
     def test_fallback_uses_editorial_fields(self) -> None:
         candidate = _candidate()
         reading = _reading()
@@ -157,6 +206,133 @@ class GenerateTests(unittest.TestCase):
         self.assertEqual(digest.items[0].agenda_position_zh, "议程背景不明确")
         self.assertTrue(digest.items[0].core_argument_zh)
         self.assertEqual(digest.overview_zh, "")
+
+    def test_classic_readings_used_recently_are_removed_from_fallback_pool(self) -> None:
+        readings = _reading_variants(4)
+        history = [
+            {
+                "date": "2026-06-09",
+                "dois": [readings[0].doi, readings[1].doi, readings[2].doi],
+            }
+        ]
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=history,
+        )
+
+        self.assertEqual([reading.doi for reading in digest.classic_readings], [readings[3].doi])
+
+    def test_openai_generation_receives_only_rotation_shortlist(self) -> None:
+        readings = _reading_variants(4)
+        history = [{"date": "2026-06-09", "dois": [reading.doi for reading in readings[:3]]}]
+        expected = fallback_digest([_candidate()], {"#气候金融": [readings[3]]}, date(2026, 6, 16))
+
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
+            "sdg_digest.generate._call_openai",
+            return_value={},
+        ) as call_openai, patch(
+            "sdg_digest.generate.validate_digest_payload",
+            return_value=expected,
+        ):
+            digest = generate_digest(
+                [_candidate()],
+                {"#气候金融": readings},
+                date(2026, 6, 16),
+                max_items=5,
+                use_openai=True,
+                classic_reading_history=history,
+            )
+
+        shortlist = call_openai.call_args.args[1]
+        self.assertEqual(
+            [reading.doi for group in shortlist.values() for reading in group],
+            [readings[3].doi],
+        )
+        self.assertEqual(digest.classic_readings[0].doi, readings[3].doi)
+
+    def test_exhausted_rotation_pool_publishes_no_repeated_readings(self) -> None:
+        readings = _reading_variants(4)
+        history = [
+            {"date": f"2026-06-{index + 1:02d}", "dois": [reading.doi]}
+            for index, reading in enumerate(readings)
+        ]
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=history,
+        )
+
+        self.assertEqual(digest.classic_readings, [])
+
+    def test_persistent_sent_doi_is_excluded_without_recent_history(self) -> None:
+        readings = _reading_variants(3)
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=[],
+            sent_reading_dois=[readings[0].doi, readings[1].doi],
+        )
+
+        self.assertEqual([reading.doi for reading in digest.classic_readings], [readings[2].doi])
+
+    def test_open_academic_shortlist_keeps_recent_and_historical_options(self) -> None:
+        base = _reading()
+        recent = [
+            replace(
+                base,
+                title=f"Recent Paper {index}",
+                doi=f"10.1000/recent-{index}",
+                url=f"https://doi.org/10.1000/recent-{index}",
+                kind="tracked recent article",
+                discovery_score=100 - index,
+            )
+            for index in range(10)
+        ]
+        historical = [
+            replace(
+                base,
+                title=f"Historical Paper {index}",
+                doi=f"10.1000/historical-{index}",
+                url=f"https://doi.org/10.1000/historical-{index}",
+                kind="tracked classic article",
+                discovery_score=100 - index,
+            )
+            for index in range(10)
+        ]
+        expected = fallback_digest([_candidate()], {"pool": recent[:3]}, date(2026, 6, 16))
+
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
+            "sdg_digest.generate._call_openai",
+            return_value={},
+        ) as call_openai, patch(
+            "sdg_digest.generate.validate_digest_payload",
+            return_value=expected,
+        ):
+            generate_digest(
+                [_candidate()],
+                {"pool": recent + historical},
+                date(2026, 6, 16),
+                max_items=5,
+                use_openai=True,
+            )
+
+        shortlist = [reading for group in call_openai.call_args.args[1].values() for reading in group]
+        self.assertEqual(len(shortlist), 12)
+        self.assertEqual(sum(reading.kind == "tracked recent article" for reading in shortlist), 6)
+        self.assertEqual(sum(reading.kind == "tracked classic article" for reading in shortlist), 6)
 
 
 def _payload(first: Candidate, second: Candidate | None = None) -> dict:
@@ -236,6 +412,19 @@ def _reading() -> DeepRead:
         tags=["#气候金融"],
         kind="journal article",
     )
+
+
+def _reading_variants(count: int) -> list[DeepRead]:
+    base = _reading()
+    return [
+        replace(
+            base,
+            title=f"Classic Reading {index}",
+            doi=f"10.1000/classic-{index}",
+            url=f"https://doi.org/10.1000/classic-{index}",
+        )
+        for index in range(count)
+    ]
 
 
 if __name__ == "__main__":

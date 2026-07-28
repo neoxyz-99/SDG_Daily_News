@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from sdg_digest.models import Digest, DigestItem
+from sdg_digest.models import DeepRead, Digest, DigestItem
 from sdg_digest.sent_articles import filter_sent_candidates, load_sent_articles, update_sent_articles
 from tests.test_generate import _candidate, _candidate_two
 
@@ -25,6 +25,8 @@ class SentArticlesTests(unittest.TestCase):
                     "sent_urls": [],
                     "recent_news_urls": [],
                     "research_signal_urls": [],
+                    "classic_reading_dois": [],
+                    "classic_reading_history": [],
                     "last_updated": "",
                 },
             )
@@ -70,6 +72,15 @@ class SentArticlesTests(unittest.TestCase):
                         url="https://example.org/500",
                     ),
                 ],
+                classic_readings=[
+                    DeepRead(
+                        title="Classic Reading",
+                        authors="Author",
+                        year=2000,
+                        url="https://doi.org/10.1000/example",
+                        doi="10.1000/example",
+                    )
+                ],
             )
 
             record = update_sent_articles(digest, date(2026, 6, 9), path)
@@ -78,6 +89,47 @@ class SentArticlesTests(unittest.TestCase):
             self.assertEqual(len(record["sent_urls"]), 500)
             self.assertNotIn("https://example.org/0", record["sent_urls"])
             self.assertIn("https://example.org/500", record["sent_urls"])
+            self.assertEqual(record["classic_reading_dois"], ["10.1000/example"])
+            self.assertEqual(
+                record["classic_reading_history"],
+                [{"date": "2026-06-09", "dois": ["10.1000/example"]}],
+            )
+
+    def test_update_replaces_same_date_reading_history(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = Path(tmpdir) / "sent_articles.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "classic_reading_history": [
+                            {"date": "2026-06-09", "dois": ["10.1000/old"]}
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            digest = Digest(
+                digest_date=date(2026, 6, 9),
+                subject="SDG Weekly Compass - 2026-06-09",
+                overview_zh="",
+                items=[],
+                classic_readings=[
+                    DeepRead(
+                        title="Replacement",
+                        authors="Author",
+                        year=2001,
+                        url="https://doi.org/10.1000/new",
+                        doi="10.1000/new",
+                    )
+                ],
+            )
+
+            record = update_sent_articles(digest, date(2026, 6, 9), path)
+
+            self.assertEqual(
+                record["classic_reading_history"],
+                [{"date": "2026-06-09", "dois": ["10.1000/new"]}],
+            )
 
 
 if __name__ == "__main__":
