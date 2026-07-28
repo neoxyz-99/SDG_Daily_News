@@ -83,7 +83,7 @@ def update_sent_articles(
         "sent_urls": sent_urls[-MAX_SENT_URLS:],
         "recent_news_urls": recent_news_urls[-MAX_SENT_URLS:],
         "research_signal_urls": research_signal_urls[-MAX_SENT_URLS:],
-        "classic_reading_dois": classic_reading_dois[-MAX_SENT_URLS:],
+        "classic_reading_dois": classic_reading_dois,
         "classic_reading_history": classic_reading_history[-MAX_CLASSIC_READING_ISSUES:],
         "last_updated": run_date.isoformat(),
     }

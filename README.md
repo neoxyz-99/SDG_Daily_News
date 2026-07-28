@@ -55,7 +55,7 @@ Each run writes:
 - `sources.yml` defines both the RSS/Atom source whitelist and the approved academic-journal list. Journal metadata is traced through Crossref by ISSN.
 - Feed entries with fewer than 50 words in their official summary/description are skipped.
 - Whitelisted institutional domains attempt full-text or executive-summary extraction before generation; HTTP 403, timeouts, or extraction failures fall back to the RSS summary.
-- `sent_articles.json` stores previously sent URLs and paper-reading DOI history. News and research URLs are deduplicated across runs; paper readings use a five-issue cooldown so the same DOI is not repeatedly pushed.
+- `sent_articles.json` stores previously sent URLs and paper-reading DOI history. News and research URLs are deduplicated across runs; a paper DOI that has been sent is permanently excluded from future issues.
 - Keyword filters are not used as admission gates. Stage 1 only removes obvious structural noise, such as sports results, entertainment, celebrity items, product launches, or purely domestic election mechanics. An item is removed only when its title matches at least two exclusion patterns.
 - Stage 2 uses semantic relevance scoring, not lexical topic matching. The filter model returns `score`, `domain`, and `reason`; items with score `2` pass, and score `1` items are kept if fewer than five items pass at score `2`.
 - The semantic `domain` becomes an article classification tag, such as `#国际治理与多边主义`, `#发展与不平等`, `#环境治理与气候`, `#可持续金融与ESG`, or `#地缘政治与治理`.
@@ -65,6 +65,7 @@ Each run writes:
 - A weekly thread is generated only when at least two selected news items share a related agenda line.
 - The paper-reading section uses one open candidate pool. Each run searches approved journals twice: a recent-publication window finds new work, while a topic query across older issues finds relevant classics. Both are screened against that week's agenda and enter the same selection process.
 - Each issue publishes at most two paper readings; it may publish only one or none when the available papers do not fit the week's agenda well enough.
+- Previously sent paper DOIs are never reused to fill the section. If the unused pool is exhausted, the issue publishes no repeated paper.
 - `bibliography.yml` contains seven human-checked seed examples. They improve fallback quality and demonstrate the desired editorial depth, but they are not the boundary of the search and receive no automatic preference over dynamically traced papers.
 
 ## Notes

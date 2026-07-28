@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-07-27</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">热浪与谈判同时升级：自然冲击在推高政策窗口，还是在暴露治理失配？</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-07-27</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>热浪与谈判同时升级：自然冲击在推高政策窗口，还是在暴露治理失配？</p><p class="en-text">Heatwaves and negotiations are intensifying at once: are shocks widening the policy window, or exposing a governance mismatch?</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/commentisfree/2026/jul/24/the-guardian-view-on-ponds-these-freshwater-havens-need-a-law-of-their-own">The Guardian view on ponds: these freshwater havens need a law of their own | Editorial</a></h3>
+  <p class="meta">The Guardian Environment · 2026-07-24</p>
+  <p class="body-text">社论认为英国池塘长期处于法律保护盲区，却承担着关键的栖息地与湿地功能，因此应在即将出台的清水法案中获得独立地位。</p>
+  <p class="en-text">The editorial argues that UK ponds remain under-protected despite their ecological role, and should gain dedicated legal status in the coming clean-water legislation.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://yaleclimateconnections.org/2026/07/the-government-killed-this-nature-study-scientists-finished-it-anyway/">The government canceled this nature study. Scientists kept going anyway.</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-07-24</p>
+  <p class="body-text">美国国家自然评估被叫停后，参与研究的科学家转而自行完成工作，并在访谈中解释自然系统对健康的被低估作用。</p>
+  <p class="en-text">After the National Nature Assessment was canceled, the scientists involved pushed ahead on their own and explain in this interview how nature supports health more than policy typically recognizes.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://www.nytimes.com/2026/07/26/world/europe/france-fires-bordeaux.html">Flames Advance on Bordeaux, Where Evacuees Balance Dread and Hope</a></h3>
+  <p class="meta">New York Times Climate · 2026-07-27</p>
+  <p class="body-text">法国西南部野火逼近波尔多，周边城镇居民被疏散后在城市中等待火势与家园命运的进一步变化。</p>
+  <p class="en-text">Wildfires in southwestern France are pushing toward Bordeaux, with evacuees sheltering in the city while they wait to learn the fate of their homes.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://yaleclimateconnections.org/2026/07/i-saved-more-than-200-on-my-ev-road-trip/">I saved more than $200 on my EV road trip</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-07-27</p>
+  <p class="body-text">一位作者用亲身旅行说明，在汽油价格高企时，电动车长途出行仍可能更省钱。</p>
+  <p class="en-text">A first-person travel account shows that, with gasoline prices high, an EV can still be the cheaper option for long-distance travel.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://www.nytimes.com/2026/07/23/us/new-mexico-bear-electrical-pole-death.html">Bear Dies After Getting Stranded Atop Electric Pole in New Mexico</a></h3>
+  <p class="meta">New York Times Climate · 2026-07-24</p>
+  <p class="body-text">新墨西哥一只熊被困电线杆后死亡，报道将这一事件与干旱迫使野熊更频繁接近人类活动区联系起来。</p>
+  <p class="en-text">A bear died after becoming stranded atop an electric pole in New Mexico, in a case linked to drought pushing wildlife closer to human settlements.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/factcheck-no-europes-heatwaves-are-not-being-caused-by-declining-air-pollution">Factcheck: No, Europe’s heatwaves are not being ‘caused’ by declining air pollution</a></h3>
+  <p class="meta">Carbon Brief · 2026-07-24</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#绿色转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">欧洲热浪并非由减污本身“造成”，真正主因仍是温室气体驱动的增暖；空气污染下降只是削弱了过去对变暖的遮蔽效应，因而政策争论不应把净零转型当作升温元凶，而应把减排、减污与公共沟通重新分层。</p>
+  <p class="en-text">Europe’s heatwaves are not being ‘caused’ by cleaner air; greenhouse-gas-driven warming remains the main driver, while falling pollution only removes part of the masking effect. The policy implication is that climate mitigation, air-quality policy, and public communication must be separated rather than blamed on net-zero transition.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这一澄清直接回应了本周欧洲热浪中的舆论误读，也回应了将极端高温反向归咎于减排政策的政治叙事。它把争论从单一污染变量拉回到长期温室气体累积。</p>
+  <p class="en-text">This directly answers the current misreading of Europe’s heatwaves and the political move to blame mitigation policy for rising temperatures. It shifts the debate back to long-run greenhouse-gas accumulation.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">处于欧洲气候叙事与净零政治的交叉点，关系到极端天气解释权与政策正当性。</p>
+    <p class="en-text">It sits at the intersection of Europe’s climate narrative and net-zero politics, shaping who gets to interpret extreme weather and with what policy legitimacy.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/state-of-the-climate-rapidly-developing-el-nino-raises-chance-of-record-warm-2026">State of the climate: Rapidly developing El Niño raises chance of record-warm 2026</a></h3>
+  <p class="meta">Carbon Brief · 2026-07-24</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#适应与韧性</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief 将快速发展的厄尔尼诺视为抬高2026年全球温度纪录概率的关键短期机制，但同时强调其作用叠加在长期温室气体增暖之上；这意味着气候风险管理不能只看年际波动，而要把预警、适应和极端事件准备嵌入常态治理。</p>
+  <p class="en-text">Carbon Brief treats the rapidly intensifying El Niño as a key short-term mechanism raising the odds of a record-warm 2026, but stresses that it operates on top of long-run greenhouse-gas warming. The governance implication is that climate-risk management must move beyond year-to-year variability and embed early warning, adaptation, and extreme-event preparedness into routine policy.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">该分析正对应2026年上半年异常升温和欧洲热浪叠加出现的时点，解释为何短期海气系统变化会放大已经很高的背景温度。它也为下半年和2027年的风险预期提供时间锚。</p>
+  <p class="en-text">The analysis matches the timing of unusual warming in the first half of 2026 and concurrent European heatwaves, explaining how short-term ocean-atmosphere dynamics amplify an already elevated baseline. It also provides a temporal anchor for risk expectations into late 2026 and 2027.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">位于气候服务、早期预警和适应规划的操作层面，可为政府和金融机构更新风险情景。</p>
+    <p class="en-text">It sits at the operational layer of climate services, early warning, and adaptation planning, helping governments and financial institutions refresh risk scenarios.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.e3g.org/news/from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31">From Bonn and London to Antalya – what’s needed to build success by COP31</a></h3>
+  <p class="meta">E3G · 2026-07-21</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G 认为，若 COP31 想避免波恩谈判停滞重演，就必须把 UNFCCC 进程与各国、金融机构和企业已在推进的实施行动之间搭起更强桥梁；否则谈判将继续产出低密度文本，而执行势能无法转化为互信和更高承诺。</p>
+  <p class="en-text">E3G argues that if COP31 is to avoid a repeat of Bonn’s stalled negotiations, it must build a much stronger bridge between the UNFCCC process and the implementation already advancing across governments, financial institutions, and business. Otherwise, negotiations will keep producing low-density text while implementation momentum fails to translate into trust and stronger commitments.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这一判断回应了SB64之后的空档：谈判房间内的进展有限，但场外实施叙事在伦敦气候行动周加速。它试图把这种反差转化为COP31的组织问题。</p>
+  <p class="en-text">This responds to the post-SB64 gap: limited progress in the negotiation rooms, but accelerated implementation narratives outside them during London Climate Action Week. It turns that contrast into an organizing problem for COP31.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">直接嵌入COP31筹备与UNFCCC年中协商的时间线，目标是把执行议题制度化为谈判成果的一部分。</p>
+    <p class="en-text">It is embedded in COP31 preparation and the UNFCCC intersessional timeline, seeking to institutionalize implementation as part of the negotiation outcome.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>4. <a href="https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships">Securing additional finance to boost the credibility of EU Clean Trade Partnerships</a></h3>
+  <p class="meta">E3G · 2026-07-24</p>
+  <p class="tags"><span class="tag">#可持续金融与ESG</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G 主张，欧盟清洁贸易伙伴关系若缺乏额外融资，就会沦为口头承诺而难以获得伙伴国信任；因此需要把贸易、产业与金融支持打包设计，才能让去风险与清洁转型同时具备可执行性。</p>
+  <p class="en-text">E3G argues that EU Clean Trade Partnerships will look hollow without additional finance and therefore struggle to win partner-country trust. The remedy is to bundle trade, industrial policy, and financial support so that de-risking and clean transition become executable together.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章出现在贸易保护主义升温、地缘政治波动加剧的背景下，试图为欧盟对外清洁合作提供资金支撑。它把“伙伴关系”从外交口号推进到融资条件。</p>
+  <p class="en-text">The piece appears amid rising protectionism and volatile geopolitics, and tries to give EU clean cooperation a financing base. It moves “partnership” from diplomatic language toward funding conditions.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">处于欧盟对外经济工具与清洁产业合作框架的建构期，核心是为新型贸易伙伴关系配置可信度。</p>
+    <p class="en-text">It sits in the construction phase of the EU’s external economic tools and clean-industry cooperation framework, with credibility as the central design problem.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期共同问题是：气候风险已进入治理主场，但谈判、融资与国内政策工具仍未对齐。谁来为“实施”买单，谁又在定义有效行动？</p><p class="en-text">The shared question is whether climate risk has moved into the center of governance while negotiations, finance, and domestic instruments remain misaligned. Who pays for “implementation,” and who gets to define effective action?</p></section>
+
+    <h2 class="section-title">经典研读 <span class="section-subtitle">/ Classic Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018920">Structural Causes and Regime Consequences: Regimes as Intervening Variables</a></h3>
+  <p class="meta">Stephen D. Krasner · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span></p>
+  <p class="reading-text">Krasner 追问国际制度是否只是权力分布的副产品，还是能在国家利益之间形成相对稳定的约束。他将 regime 界定为特定议题领域中的原则、规范、规则和决策程序，并强调制度不是单纯的组织外壳，而是通过塑造合法性、预期和可接受行为边界来影响合作。文章的贡献在于把“权力决定规则”和“规则反过来组织权力”放进同一分析框架，适合解释气候谈判、发展融资和多边机构改革中为何同一承诺在不同制度安排下会产生不同约束力。</p>
+  <p class="en-text">Krasner asks whether international regimes are merely by-products of power or whether they can independently structure state behavior. By defining regimes as principles, norms, rules, and decision-making procedures around specific issue areas, the article shows how institutions shape legitimacy, expectations, and the boundaries of acceptable cooperation. Its lasting contribution is to hold together two claims often treated separately: power creates rules, but rules also organize how power is exercised. This makes the article useful for reading climate negotiations, development finance, and institutional reform as contests over the force and meaning of commitments.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用概念建构和理论综述方法，通过梳理不同国际关系理论对 regime 的解释，界定制度变量能解释什么。其优势是提供清晰分析语言，限制是缺少系统经验检验。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 Carbon Brief 对欧洲热浪成因的澄清一起读：同样是解释框架之争，关键不只是事实，而是谁能把事实转化为可被接受的治理叙事。</p>
+  <p class="en-text">Read with Carbon Brief’s heatwave factcheck in this issue: the dispute is not only over facts, but over who can turn facts into an accepted governance narrative.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>极端天气叙事如何塑造规则？ <span class="keywords">(climate governance, regime theory, narrative politics, extreme weather)</span><br><span class="en-text">How do extreme-weather narratives shape regime rules?</span></li><li>制度何时增强承诺约束？ <span class="keywords">(international institutions, commitment, compliance, legitimacy)</span><br><span class="en-text">When do institutions strengthen commitment constraints?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018920">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1017/S0020818300018993">International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order</a></h3>
+  <p class="meta">John Gerard Ruggie · 1982 · International Organization</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#发展不平等</span><span class="tag">#绿色转型</span></p>
+  <p class="reading-text">Ruggie 解释战后经济秩序为何没有简单回到自由放任，而是把开放贸易和资本流动嵌入国内就业、福利和产业调节承诺之中。他提出“嵌入式自由主义”，指出国际经济规则之所以能够稳定运行，是因为它在外部开放与内部社会保护之间建立了政治交换。文章的分析价值在于提醒读者，所谓开放秩序从来不是纯市场安排，而是依赖国家能力和社会妥协来维持合法性；这对理解绿色产业政策、气候融资条件和发展中国家政策空间争议尤其有用。</p>
+  <p class="en-text">Ruggie explains why the postwar economic order did not simply restore laissez-faire liberalism, but embedded open markets within domestic commitments to employment, welfare, and policy space. The concept of embedded liberalism shows that international economic rules become durable only when external openness is balanced by domestic social protection. The article matters because it treats the open order as a political settlement, not a neutral market arrangement. It is especially useful for interpreting green industrial policy, climate finance conditionality, and disputes over the development space available to poorer countries.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用历史制度分析和概念史方法，把战后经济秩序放入权力、规则和国内社会契约的互动中解释。它能揭示制度安排的政治基础，但不提供可量化的因果估计。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 E3G 关于欧盟清洁贸易伙伴关系的文章对读：开放合作要成立，往往取决于是否把外部开放嵌入伙伴国的国内发展与产业空间。</p>
+  <p class="en-text">Read alongside E3G’s piece on EU Clean Trade Partnerships: open cooperation often depends on whether external openness is embedded in domestic development and industrial space.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>清洁贸易能否兼顾政策空间？ <span class="keywords">(embedded liberalism, trade policy, industrial policy, policy space)</span><br><span class="en-text">Can clean trade preserve policy space?</span></li><li>绿色伙伴关系如何获得合法性？ <span class="keywords">(green industrial policy, legitimacy, climate finance, trade partnerships)</span><br><span class="en-text">How do green partnerships gain legitimacy?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/S0020818300018993">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1016/j.worlddev.2011.07.020">Coding Error or Statistical Embellishment? The Political Economy of Reporting Climate Aid</a></h3>
+  <p class="meta">Axel Michaelowa and Katharina Michaelowa · 2011 · World Development</p>
+  <p class="tags"><span class="tag">#气候金融</span><span class="tag">#发展不平等</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">Michaelowa 与 Michaelowa 研究气候援助统计为何会系统性膨胀，核心问题是捐助国如何借助援助标记规则，把原本主要服务发展目标的项目包装为气候相关资金。文章指出，气候金融数字并非中性事实，而是由报告激励、国际声誉竞争和模糊分类标准共同生产出来。其贡献在于把“资金承诺”转化为可审查的政治经济问题：谁有动力高估气候贡献，哪些项目真正具有额外性，哪些只是既有援助的重新标注。这对阅读任何气候融资新闻都很关键。</p>
+  <p class="en-text">Michaelowa and Michaelowa examine why reported climate aid may be systematically inflated. The core issue is how donor governments use aid-marking rules to classify projects with primarily development objectives as climate-related finance. The article shows that climate finance figures are not neutral facts; they are produced through reporting incentives, reputational competition, and ambiguous classification standards. Its contribution is to turn finance pledges into a political economy question: who benefits from over-reporting, which projects are genuinely additional, and which are repackaged development aid.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用政治经济分析和援助数据核查方法，比较报告规则、捐助国激励和资金标记实践。它能揭示统计口径的偏差，但受限于公开援助数据的完整性。</p>
+  
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 E3G 对欧盟清洁贸易伙伴关系的融资要求并读：一旦资金承诺成为合作信用的基础，报告口径与额外性争议就会直接影响伙伴国的信任。</p>
+  <p class="en-text">Read with E3G’s financing argument on EU Clean Trade Partnerships: once funding pledges become the basis of cooperation credibility, accounting rules and additionality disputes directly shape partner-country trust.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>融资承诺如何被夸大？ <span class="keywords">(climate finance, additionality, reporting incentives, aid marking)</span><br><span class="en-text">How are finance pledges inflated?</span></li><li>额外性争议如何改变信任？ <span class="keywords">(climate finance credibility, trust, reporting standards, political economy)</span><br><span class="en-text">How do additionality disputes alter trust?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1016/j.worlddev.2011.07.020">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>

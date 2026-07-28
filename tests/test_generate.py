@@ -255,7 +255,7 @@ class GenerateTests(unittest.TestCase):
         )
         self.assertEqual(digest.classic_readings[0].doi, readings[3].doi)
 
-    def test_exhausted_rotation_pool_reuses_least_recent_readings(self) -> None:
+    def test_exhausted_rotation_pool_publishes_no_repeated_readings(self) -> None:
         readings = _reading_variants(4)
         history = [
             {"date": f"2026-06-{index + 1:02d}", "dois": [reading.doi]}
@@ -271,10 +271,22 @@ class GenerateTests(unittest.TestCase):
             classic_reading_history=history,
         )
 
-        self.assertEqual(
-            [reading.doi for reading in digest.classic_readings],
-            [readings[0].doi, readings[1].doi],
+        self.assertEqual(digest.classic_readings, [])
+
+    def test_persistent_sent_doi_is_excluded_without_recent_history(self) -> None:
+        readings = _reading_variants(3)
+
+        digest = generate_digest(
+            [_candidate()],
+            {"#气候金融": readings},
+            date(2026, 6, 16),
+            max_items=5,
+            use_openai=False,
+            classic_reading_history=[],
+            sent_reading_dois=[readings[0].doi, readings[1].doi],
         )
+
+        self.assertEqual([reading.doi for reading in digest.classic_readings], [readings[2].doi])
 
     def test_open_academic_shortlist_keeps_recent_and_historical_options(self) -> None:
         base = _reading()

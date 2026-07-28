@@ -28,7 +28,6 @@ SEMANTIC_FILTER_WORKERS = 8
 EVENT_LAYERS = {"event", "news"}
 MAX_RECENT_NEWS_PER_SOURCE = 2
 MAX_RESEARCH_SIGNALS_PER_SOURCE = 2
-ACADEMIC_READING_COOLDOWN_ISSUES = 5
 ACADEMIC_READING_POOL_SIZE = 12
 ACADEMIC_READING_MODE_TARGET = 6
 MAX_ACADEMIC_READINGS_PER_ISSUE = 2
@@ -172,12 +171,14 @@ def generate_digest(
     max_recent_news: int = 8,
     max_research_signals: int | None = None,
     classic_reading_history: list[dict[str, Any]] | None = None,
+    sent_reading_dois: list[str] | None = None,
 ) -> Digest:
     max_research_signals = max_research_signals or max_items
     academic_shortlist = _build_academic_shortlist(
         candidates,
         bibliography,
         classic_reading_history or [],
+        sent_reading_dois or [],
     )
     allow_fallback = os.getenv("ALLOW_OPENAI_FALLBACK", "").lower() == "true"
     if use_openai and candidates:
@@ -342,9 +343,11 @@ def _call_openai(
         "max_recent_news": max_recent_news,
         "max_research_signals": max_research_signals,
         "academic_reading_tracking": {
-            "cooldown_issues": ACADEMIC_READING_COOLDOWN_ISSUES,
             "shortlist_size": sum(len(readings) for readings in bibliography.values()),
-            "policy": "Open journal tracing; recent and historical papers share one candidate pool.",
+            "policy": (
+                "Open journal tracing; recent and historical papers share one candidate pool. "
+                "Never resend a DOI already recorded as sent."
+            ),
         },
         "recent_news_candidates": [_candidate_payload(candidate) for candidate in recent_news[:40]],
         "research_candidates": [_candidate_payload(candidate) for candidate in research[:40]],
@@ -1058,6 +1061,7 @@ def _build_academic_shortlist(
     candidates: list[Candidate],
     bibliography: dict[str, list[DeepRead]],
     history: list[dict[str, Any]],
+    sent_dois: list[str],
 ) -> dict[str, list[DeepRead]]:
     candidate_tags = _expanded_classic_tags(
         {tag for candidate in candidates for tag in candidate.tags}
@@ -1076,9 +1080,8 @@ def _build_academic_shortlist(
             rows.append((reading, relevance, reading.discovery_score, original_index))
             original_index += 1
 
-    last_used_issue: dict[str, int] = {}
     normalized_history: list[set[str]] = []
-    for issue_index, issue in enumerate(history):
+    for issue in history:
         if not isinstance(issue, dict):
             continue
         raw_dois = issue.get("dois", [])
@@ -1093,46 +1096,38 @@ def _build_academic_shortlist(
         if not issue_dois:
             continue
         normalized_history.append(issue_dois)
-        for identifier in issue_dois:
-            last_used_issue[identifier] = issue_index
-
-    recent_dois = set().union(*normalized_history[-ACADEMIC_READING_COOLDOWN_ISSUES:]) if normalized_history else set()
+    previously_sent = {
+        _classic_reading_identifier(str(doi), "")
+        for doi in sent_dois
+        if str(doi).strip()
+    }
+    previously_sent.discard("")
+    if normalized_history:
+        previously_sent.update(set().union(*normalized_history))
     eligible = [
         row
         for row in rows
-        if _classic_reading_identifier(row[0].doi, row[0].url) not in recent_dois
+        if _classic_reading_identifier(row[0].doi, row[0].url) not in previously_sent
     ]
-    if eligible:
-        ranked = sorted(
-            eligible,
-            key=lambda row: (
-                -row[1],
-                -row[2],
-                last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
-                row[3],
-            ),
-        )
-    else:
-        ranked = sorted(
-            rows,
-            key=lambda row: (
-                last_used_issue.get(_classic_reading_identifier(row[0].doi, row[0].url), -1),
-                -row[1],
-                -row[2],
-                row[3],
-            ),
-        )
+    ranked = sorted(
+        eligible,
+        key=lambda row: (
+            -row[1],
+            -row[2],
+            row[3],
+        ),
+    )
 
     shortlist = _balanced_academic_shortlist(ranked)
-    if recent_dois:
+    if previously_sent:
         excluded = len(rows) - len(eligible)
         if eligible:
             print(
-                f"Academic reading history excluded {excluded} paper(s) used in the last "
-                f"{ACADEMIC_READING_COOLDOWN_ISSUES} issue(s); {len(shortlist)} candidate(s) remain."
+                f"Academic reading history permanently excluded {excluded} previously sent paper(s); "
+                f"{len(shortlist)} candidate(s) remain."
             )
         else:
-            print("Academic reading pool is exhausted; reusing the least recently selected papers.")
+            print("Academic reading pool is exhausted; publishing no repeated papers.")
     return {"__academic_pool__": shortlist}
 
 
