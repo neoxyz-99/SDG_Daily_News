@@ -111,7 +111,16 @@
     "https://www.nytimes.com/2026/07/23/climate/trump-ai-data-centers.html",
     "https://www.nytimes.com/2026/07/23/weather/japan-excessive-heat-kokushobi.html",
     "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
-    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women",
+    "https://www.theguardian.com/commentisfree/2026/aug/02/the-guardian-view-on-drought-hot-dry-conditions-make-inequality-starker",
+    "https://www.nytimes.com/video/world/europe/100000011063710/france-wildfires-evacuation-pets.html",
+    "https://www.nytimes.com/video/world/europe/100000011061309/france-wildfires-bordeaux-civilian-volunteers.html",
+    "https://yaleclimateconnections.org/2026/08/the-state-thats-beating-dirty-electricity/",
+    "https://yaleclimateconnections.org/2026/07/el-programa-miocar-de-california-ayuda-a-residentes-a-encontrar-transporte-accesible-que-no-contribuye-al-esmog-ni-a-la-contaminacion-por-carbono/",
+    "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-genesis-analytics/",
+    "https://www.carbonbrief.org/qa-does-the-world-need-carbon-capture-and-storage-to-reach-net-zero",
+    "https://www.climatepolicyinitiative.org/centre-of-excellence-on-energy-transition-a-strategic-enabler-for-andhra-pradesh-to-achieve-energy-transition-goals/",
+    "https://www.e3g.org/news/what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership/?utm_source=rss&utm_medium=rss&utm_campaign=what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -188,7 +197,12 @@
     "https://www.nytimes.com/2026/07/23/climate/trump-ai-data-centers.html",
     "https://www.nytimes.com/2026/07/23/weather/japan-excessive-heat-kokushobi.html",
     "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
-    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women",
+    "https://www.theguardian.com/commentisfree/2026/aug/02/the-guardian-view-on-drought-hot-dry-conditions-make-inequality-starker",
+    "https://www.nytimes.com/video/world/europe/100000011063710/france-wildfires-evacuation-pets.html",
+    "https://www.nytimes.com/video/world/europe/100000011061309/france-wildfires-bordeaux-civilian-volunteers.html",
+    "https://yaleclimateconnections.org/2026/08/the-state-thats-beating-dirty-electricity/",
+    "https://yaleclimateconnections.org/2026/07/el-programa-miocar-de-california-ayuda-a-residentes-a-encontrar-transporte-accesible-que-no-contribuye-al-esmog-ni-a-la-contaminacion-por-carbono/"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -229,7 +243,11 @@
     "https://www.e3g.org/news/from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31/?utm_source=rss&utm_medium=rss&utm_campaign=from-bonn-and-london-to-antalya-what-s-needed-to-build-success-by-cop31",
     "https://www.e3g.org/news/securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships/?utm_source=rss&utm_medium=rss&utm_campaign=securing-additional-finance-to-boost-the-credibility-of-eu-clean-trade-partnerships",
     "https://www.e3g.org/news/climate-security-entering-a-new-era/?utm_source=rss&utm_medium=rss&utm_campaign=climate-security-entering-a-new-era",
-    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women"
+    "https://www.carbonbrief.org/access-to-finance-strengthens-climate-resilience-among-sub-saharan-women",
+    "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-genesis-analytics/",
+    "https://www.carbonbrief.org/qa-does-the-world-need-carbon-capture-and-storage-to-reach-net-zero",
+    "https://www.climatepolicyinitiative.org/centre-of-excellence-on-energy-transition-a-strategic-enabler-for-andhra-pradesh-to-achieve-energy-transition-goals/",
+    "https://www.e3g.org/news/what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership/?utm_source=rss&utm_medium=rss&utm_campaign=what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -238,7 +256,9 @@
     "10.1162/glep.2010.10.1.60",
     "10.1016/0305-750x(91)90197-p",
     "10.1162/glep.a.780",
-    "10.1162/glep.a.784"
+    "10.1162/glep.a.784",
+    "10.1163/19426720-03002010",
+    "10.1162/glep.2008.8.3.74"
   ],
   "classic_reading_history": [
     {
@@ -325,7 +345,14 @@
         "10.1162/glep.a.780",
         "10.1162/glep.a.784"
       ]
+    },
+    {
+      "date": "2026-08-03",
+      "dois": [
+        "10.1163/19426720-03002010",
+        "10.1162/glep.2008.8.3.74"
+      ]
     }
   ],
-  "last_updated": "2026-07-28"
+  "last_updated": "2026-08-03"
 }
