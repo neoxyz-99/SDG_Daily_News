@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-08-03</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">气候风险正被技术与制度同时管理：谁定义“可行”，谁就塑造了转型边界。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-08-03</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>气候风险正被技术与制度同时管理：谁定义“可行”，谁就塑造了转型边界。</p><p class="en-text">Climate risk is being managed through both technology and institutions: whoever defines what is “feasible” also shapes the boundaries of transition.</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/commentisfree/2026/aug/02/the-guardian-view-on-drought-hot-dry-conditions-make-inequality-starker">The Guardian view on drought: hot, dry conditions make inequality starker | Editorial</a></h3>
+  <p class="meta">The Guardian Environment · 2026-08-02</p>
+  <p class="body-text">旱情把英国不同地区的暴露差异和供水脆弱性推到前台，也让私有化后的水治理缺口更难回避。</p>
+  <p class="en-text">Drought is sharpening regional exposure and water-system vulnerability in the UK, while also making the governance gaps associated with privatized water harder to ignore.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.nytimes.com/video/world/europe/100000011063710/france-wildfires-evacuation-pets.html">A French Village Becomes a Ghost Town After the Wildfires</a></h3>
+  <p class="meta">New York Times Climate · 2026-08-01</p>
+  <p class="body-text">法国西南部野火迫使居民撤离，原本的海滨小镇在火线下迅速空置。</p>
+  <p class="en-text">Wildfires in southwest France have forced evacuations and left a once-lively seaside town largely empty.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://www.nytimes.com/video/world/europe/100000011061309/france-wildfires-bordeaux-civilian-volunteers.html">Civilians Battle Wildfire Threatening Bordeaux</a></h3>
+  <p class="meta">New York Times Climate · 2026-07-30</p>
+  <p class="body-text">波尔多附近火势蔓延过快，居民志愿者被迫顶上专业消防力量的空缺。</p>
+  <p class="en-text">Fire spread near Bordeaux has outpaced professional coverage, pushing civilian volunteers into a frontline role.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://yaleclimateconnections.org/2026/08/the-state-thats-beating-dirty-electricity/">The state that’s beating dirty electricity</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-08-03</p>
+  <p class="body-text">新墨西哥依靠充足日照与政策组合，正在把电网推向更低排放的方向。</p>
+  <p class="en-text">New Mexico is using abundant solar resources and policy support to shift its grid toward lower emissions.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://yaleclimateconnections.org/2026/07/el-programa-miocar-de-california-ayuda-a-residentes-a-encontrar-transporte-accesible-que-no-contribuye-al-esmog-ni-a-la-contaminacion-por-carbono/">El programa Míocar de California ayuda a residentes a encontrar transporte accesible que no contribuye al esmog ni a la contaminación por carbono</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-07-30</p>
+  <p class="body-text">加州的 Míocar 项目把可负担出行与减污减碳绑在一起，也提示交通可达性本身就是公共福利。</p>
+  <p class="en-text">California’s Míocar program links affordable mobility to lower smog and carbon emissions, treating transport access as a public good.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-genesis-analytics/">Learning Hub Research Grantee Spotlight: Genesis Analytics</a></h3>
+  <p class="meta">Climate Policy Initiative · 2026-08-03</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#气候金融</span><span class="tag">#可持续金融与ESG</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Climate Policy Initiative 的 Learning Hub 通过委托 Genesis Analytics 研究肯尼亚、尼日利亚和纳米比亚的养老基金与保险资金，指出非洲气候融资瓶颈不只在资本缺口，而在监管规则、会计处理和资本充足率如何把国内机构投资者锁定在主权债务上，从而阻断其进入可再生能源、绿色氢、水安全与韧性交通；文章因此实际上是在为混合融资（blended finance）寻找一套能穿透监管约束的制度设计。</p>
+  <p class="en-text">Climate Policy Initiative’s Learning Hub, by commissioning Genesis Analytics to study pension and insurance capital in Kenya, Nigeria, and Namibia, argues that Africa’s climate-finance bottleneck is not only a capital gap but a regulatory one: accounting rules and capital requirements keep domestic institutional investors anchored in sovereign debt rather than renewable energy, green hydrogen, water security, and resilient transport; the piece therefore points toward a blended-finance design that can work through regulatory constraints.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章回应的是非洲气候融资长期低配、但本地机构资金规模上升的时点。它把问题从“外部资金不足”推进到“国内金融监管如何改写资产配置”，因此很适合作为今年本地资本动员议程的切口。</p>
+  <p class="en-text">The piece responds to the longstanding under-supply of climate finance to Africa at a moment when domestic institutional assets are growing. It shifts the question from external scarcity to how financial regulation can redirect local asset allocation, making it timely for the current domestic-capital mobilization agenda.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是气候融资工作流中关于“国内动员”而非“外部输血”的技术性前置议题。</p>
+    <p class="en-text">This is a technical upstream issue in the climate-finance workflow, centered on domestic mobilization rather than external inflows.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/qa-does-the-world-need-carbon-capture-and-storage-to-reach-net-zero">Q&amp;A: Does the world need ‘carbon capture and storage’ to reach net-zero?</a></h3>
+  <p class="meta">Carbon Brief · 2026-08-03</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#气候金融</span><span class="tag">#能源转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief 以英国为例梳理 CCS 的政策辩论，指出各国净零路线图把碳捕集与封存（carbon capture and storage, CCS）当作难减排部门的关键工具，但其高成本、执行反复和与化石产业的制度连结，使它更像是一个需要严格边界与监督的过渡性基础设施，而不是可自动放大的减排方案；文章隐含的政策含义是，若没有更清晰的公共投资条件、绩效约束与长期储存责任安排，CCS 很容易成为拖延深度减排的制度性借口。</p>
+  <p class="en-text">Using the UK as an example, Carbon Brief frames CCS as a central but contested tool in national net-zero pathways: it may be indispensable for hard-to-abate sectors, yet its high costs, repeated delivery slippage, and institutional ties to fossil-fuel interests make it more a transition infrastructure requiring strict boundaries and oversight than a scalable emissions fix. The implied policy lesson is that, without clearer public-investment شروط, performance constraints, and long-term storage liability rules, CCS can become a structural excuse to delay deep decarbonization.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇 Q&amp;A 直接回应了各国净零计划中对 CCS 重新加码、同时争议升温的时点。它把“是否需要 CCS”改写为“谁来为失败风险和长期责任买单”，对当前技术路线争论有即时性。</p>
+  <p class="en-text">This Q&amp;A responds to the renewed push for CCS in net-zero plans alongside growing controversy over its costs and credibility. It reframes the issue from whether CCS is needed to who bears failure risk and long-term liability, making it immediately relevant to current technology-pathway debates.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它位于各国净零战略、工业减排工具箱和基础设施投资审查的交叉点上。</p>
+    <p class="en-text">It sits at the intersection of national net-zero strategies, industrial decarbonization toolkits, and infrastructure investment review.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.climatepolicyinitiative.org/centre-of-excellence-on-energy-transition-a-strategic-enabler-for-andhra-pradesh-to-achieve-energy-transition-goals/">Catalyzing Centre of Excellence for Energy Transition: a strategic enabler for Andra Pradesh to achieve its energy transition goals</a></h3>
+  <p class="meta">Climate Policy Initiative · 2026-08-03</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#气候金融</span><span class="tag">#可持续金融与ESG</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Climate Policy Initiative 认为，安得拉邦电力公用事业联合设立能源转型卓越中心，是把州级可再生能源目标转化为可执行能力的关键制度装置：它不仅解决公用事业在系统规划、储能整合和绿色氢协调上的能力缺口，也为产业、监管者与技术团队之间建立稳定的知识接口，从而让 2047 年净零目标不只停留在政策宣示，而能进入电网调度、投资排序和执行监督。</p>
+  <p class="en-text">Climate Policy Initiative argues that Andhra Pradesh’s jointly established Center of Excellence for Energy Transition is an enabling institutional device for turning state clean-energy targets into execution capacity: beyond filling utility gaps in system planning, storage integration, and green-hydrogen coordination, it creates a durable knowledge interface among industry, regulators, and technical teams so the 2047 net-zero goal can move from declaration into grid dispatch, investment sequencing, and implementation oversight.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章回应的是印度邦一级能源转型从目标竞争转向执行能力竞争的阶段。由于安得拉邦已经设定雄心目标，时间窗口现在落在机构建设和公用事业能力补课上，而不是再讨论愿景本身。</p>
+  <p class="en-text">The article responds to the shift in India’s state-level energy transition from target-setting to execution capacity. Because Andhra Pradesh has already set ambitious goals, the timing now concerns institution-building and utility capability rather than revisiting the vision.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它处在邦级能源政策执行、输配电系统改革与国家减排承诺之间的衔接位置。</p>
+    <p class="en-text">It sits at the interface of state-level energy policy execution, power-system reform, and national emissions commitments.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>4. <a href="https://www.e3g.org/news/what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=what-worked-early-wins-from-south-africa-s-first-just-energy-transition-partnership">What Worked: Early Wins from South Africa’s First Just Energy Transition Partnership</a></h3>
+  <p class="meta">E3G · 2026-07-30</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G 通过回顾南非首个公正能源转型伙伴关系（Just Energy Transition Partnership, JETP）的早期成果，强调国际金融、政治承诺与协调规划只有在国家能源部、财政部门与外部出资方之间形成更稳定的分工时，才可能把减煤转型同时嵌入就业、能源安全与发展融资；文章实际上把 JETP 从“资金包”重述为一套需要制度化协调与信誉管理的治理安排。</p>
+  <p class="en-text">By reviewing early results from South Africa’s first Just Energy Transition Partnership (JETP), E3G argues that international finance, political commitment, and coordinated planning can link coal transition to jobs, energy security, and development finance only when the energy ministry, treasury, and external funders settle into a stable division of labor; the piece effectively reframes JETP from a financing package into a governance arrangement that requires institutional coordination and credibility management.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章出现于 JETP 受到进展放缓和融资落差批评之际，因此意在说明伙伴关系并未失效，而是需要重新定义衡量标准。它对即将进入下一轮承诺评估的转型伙伴关系特别相关。</p>
+  <p class="en-text">The piece appears amid criticism that JETPs have been slow and underfunded, so it seeks to show that the partnership has not failed but needs different yardsticks. It is especially relevant as transition partnerships move toward the next round of commitment review.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它位于 G20/JETP 讨论、南非国内能源转型执行和国际气候融资信誉之间。</p>
+    <p class="en-text">It sits between G20/JETP discussions, domestic energy-transition implementation in South Africa, and the credibility of international climate finance.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期形成一条清晰主线：从 CCS 到印度地方能源机构，再到非洲本地资本动员，争论焦点都在于“谁来承担转型成本、谁来决定工具组合”。问题不是有没有技术，而是政策、金融与治理结构是否能把风险分配到可接受的方式。</p><p class="en-text">A clear thread runs through this issue: from CCS to local energy institutions in India and domestic capital mobilization in Africa, the core dispute is who pays for transition and who gets to decide the toolkit. The issue is not whether technologies exist, but whether policy, finance, and governance structures can distribute risk in an acceptable way.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1163/19426720-03002010">Multilateral Climate Governance</a></h3>
+  <p class="meta">Franz Baumann · 2024-08-21 · Global Governance: A Review of Multilateralism and International Organizations</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="reading-text">这篇文章把《联合国气候变化框架公约》下近半个世纪的谈判放回南北发展分歧与治理僵局中审视，强调气候减缓已经极度紧迫，却仍深受财富分配、发展权与既得利益的结构性约束。它的价值不在于提出单一解决方案，而在于直白地指出：在气候融资、适应与减缓之间，国际社会正在做的是政治选择，而不是技术排序。</p>
+  <p class="en-text">This article places nearly half a century of UNFCCC negotiations within the broader conflict between North–South development claims and governance deadlock, stressing that mitigation is now desperately urgent but still constrained by wealth distribution, development rights, and entrenched interests. Its value is not a single solution but a clear reminder that choices between climate finance, adaptation, and mitigation are political, not merely technical.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">该文以规范性和历史综述为主，对《联合国气候变化框架公约》谈判进程作概念化总结，并非经验计量研究。</p>
+  <p class="en-text">The piece is primarily normative and historical, offering a conceptual synthesis of UNFCCC negotiations rather than an empirical quantitative study.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 Carbon Brief 关于 CCS 的争论并读：两者都在追问净零路径中的成本分配与责任边界。</p>
+  <p class="en-text">Read alongside this issue’s Carbon Brief CCS debate: both ask how costs and responsibilities are allocated in net-zero pathways.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>谁在定义净零代价？ <span class="keywords">(net zero, climate finance, North-South, burden sharing)</span><br><span class="en-text">Who defines the costs of net zero?</span></li><li>融资与适应如何排序？ <span class="keywords">(adaptation, mitigation, climate finance, sequencing)</span><br><span class="en-text">How should finance, adaptation, and mitigation be sequenced?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1163/19426720-03002010">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep.2008.8.3.74">Accountability of Networked Climate Governance: The Rise of Transnational Climate Partnerships</a></h3>
+  <p class="meta">Karin Bäckstrand · 2008-08-01 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">这篇文章讨论的是跨国气候伙伴关系如何在国家、企业和非国家行动者之间重组治理权威，以及这种网络化治理如何接受问责。作者指出，伙伴关系并未简单替代国家，而是把规则制定、实施和监测拆分到不同类型的安排中；因此，透明度、监测机制和代表性成为判断其合法性的关键。</p>
+  <p class="en-text">This article examines how transnational climate partnerships reorganize governance authority across states, firms, and nonstate actors, and how such networked governance can be held accountable. The key point is that partnerships do not simply replace states; they distribute rule-setting, implementation, and monitoring across different arrangements, making transparency, monitoring, and representation central to legitimacy.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章通过对跨国气候伙伴关系类型的概念分类与比较分析，评估其透明度、监测和代表性等问责维度。</p>
+  <p class="en-text">The article uses conceptual typology and comparative analysis of transnational climate partnerships to assess accountability dimensions such as transparency, monitoring, and representation.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 E3G 关于南非 JETP 的分析并读，因为两者都在讨论国际伙伴关系如何把公共承诺转化为可问责的执行机制。</p>
+  <p class="en-text">Read alongside this issue’s E3G analysis of South Africa’s JETP, since both examine how international partnerships translate public commitments into accountable implementation.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>伙伴关系如何可问责？ <span class="keywords">(transnational partnerships, accountability, monitoring, climate governance)</span><br><span class="en-text">How can partnerships be made accountable?</span></li><li>国家权威是否被重组？ <span class="keywords">(state authority, network governance, public-private, climate policy)</span><br><span class="en-text">How is state authority reorganized?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1162/glep.2008.8.3.74">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
