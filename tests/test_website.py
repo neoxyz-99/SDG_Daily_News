@@ -35,6 +35,10 @@ class WebsiteTests(unittest.TestCase):
                     output / "search-index.json",
                 ]
                 self.assertTrue(all(path.exists() for path in expected))
+                self.assertTrue(all((output / "assets" / "issues" / f"{issue.date}.jpg").exists() for issue in issues))
+                latest_html = (output / "issues" / issues[0].date / "index.html").read_text(encoding="utf-8")
+                self.assertIn('class="issue-rail"', latest_html)
+                self.assertIn(f"assets/issues/{issues[0].date}.jpg", latest_html)
                 copyright_html = (output / "copyright" / "index.html").read_text(encoding="utf-8")
                 self.assertIn(f"mailto:{CONTACT_EMAIL}", copyright_html)
                 self.assertIn("non-commercial knowledge-sharing project", copyright_html)

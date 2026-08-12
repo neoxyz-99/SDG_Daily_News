@@ -287,6 +287,24 @@ def _topic_tags(values: tuple[str, ...]) -> str:
     return "" if not values else f'<div class="topic-row">{"".join(f"<span>{_e(value)}</span>" for value in values)}</div>'
 
 
+def _issue_image(issue: PublicIssue, depth: int, class_name: str = "issue-image") -> str:
+    prefix = _rel_prefix(depth)
+    return f'<figure class="{class_name}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="Original editorial artwork for the {_e(_format_date(issue.date))} issue" loading="eager" width="1672" height="941"></figure>'
+
+
+def _issue_rail(issue: PublicIssue) -> str:
+    links = []
+    if issue.news:
+        links.append('<a href="#recent-news"><span>01</span>Recent News</a>')
+    if issue.signals:
+        links.append('<a href="#research-signals"><span>02</span>Research Signals</a>')
+    if issue.weekly_thread:
+        links.append('<a href="#weekly-thread"><span>03</span>Weekly Thread</a>')
+    if issue.readings:
+        links.append('<a href="#research-reading"><span>04</span>Research Reading</a>')
+    return f'''<aside class="issue-rail"><div><p class="kicker">Reading map</p><nav aria-label="On this page">{"".join(links)}</nav></div><dl><div><dt>News</dt><dd>{len(issue.news)}</dd></div><div><dt>Signals</dt><dd>{len(issue.signals)}</dd></div><div><dt>Readings</dt><dd>{len(issue.readings)}</dd></div></dl></aside>'''
+
+
 def _source_line(item: PublicItem) -> str:
     parts = [item.source, item.published_date]
     return f'<p class="source-line">{_e(" · ".join(filter(None, parts)) or "Independent analysis")}</p>'
@@ -326,13 +344,13 @@ def _reading_card(item: PublicItem) -> str:
 def _issue_content(issue: PublicIssue) -> str:
     sections: list[str] = []
     if issue.news:
-        sections.append(f'<section class="issue-section">{_section_title("The immediate field", "Recent News", len(issue.news))}<div class="news-grid">{"".join(_news_card(item, index) for index, item in enumerate(issue.news))}</div></section>')
+        sections.append(f'<section id="recent-news" class="issue-section">{_section_title("The immediate field", "Recent News", len(issue.news))}<div class="news-grid">{"".join(_news_card(item, index) for index, item in enumerate(issue.news))}</div></section>')
     if issue.signals:
-        sections.append(f'<section class="issue-section signals-section">{_section_title("What the week is telling us", "Research Signals", len(issue.signals))}<div class="signals-grid">{"".join(_signal_card(item) for item in issue.signals)}</div></section>')
+        sections.append(f'<section id="research-signals" class="issue-section signals-section">{_section_title("What the week is telling us", "Research Signals", len(issue.signals))}<div class="signals-grid">{"".join(_signal_card(item) for item in issue.signals)}</div></section>')
     if issue.weekly_thread:
-        sections.append(f'<aside class="weekly-thread"><p class="kicker">Weekly thread</p><blockquote>{_e(issue.weekly_thread)}</blockquote></aside>')
+        sections.append(f'<aside id="weekly-thread" class="weekly-thread"><p class="kicker">Weekly thread</p><blockquote>{_e(issue.weekly_thread)}</blockquote></aside>')
     if issue.readings:
-        sections.append(f'<section class="issue-section readings-section">{_section_title("Ideas with a longer half-life", "Research Reading", len(issue.readings))}<div class="readings-grid">{"".join(_reading_card(item) for item in issue.readings)}</div></section>')
+        sections.append(f'<section id="research-reading" class="issue-section readings-section">{_section_title("Ideas with a longer half-life", "Research Reading", len(issue.readings))}<div class="readings-grid">{"".join(_reading_card(item) for item in issue.readings)}</div></section>')
     return "".join(sections)
 
 
@@ -342,7 +360,7 @@ def _archive_cards(issues: list[PublicIssue], depth: int) -> str:
     for index, issue in enumerate(issues):
         summary = issue.signals[0].paragraphs[0] if issue.signals else issue.news[0].paragraphs[0] if issue.news else "A curated weekly reading of policy change."
         href = f"{prefix}issues/{issue.date}/index.html"
-        cards.append(f"""<article class="archive-card"><div class="archive-index">{index + 1:02d}</div><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h2><a href="{href}">{_e(issue.editorial or issue.subject)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue →</a></div></article>""")
+        cards.append(f"""<article class="archive-card"><a class="archive-image" href="{href}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="" loading="lazy" width="1672" height="941"></a><div class="archive-card-copy"><div class="archive-index">{index + 1:02d}</div><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h2><a href="{href}">{_e(issue.editorial or issue.subject)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue →</a></div></div></article>""")
     return f'<div class="archive-grid">{"".join(cards)}</div>'
 
 
@@ -353,7 +371,7 @@ def _home(issues: list[PublicIssue]) -> str:
   <div class="issue-stamp"><span>Issue</span><strong>{_e(_format_date(latest.date, True))}</strong><span>{len(latest.items)} curated pieces</span></div>
   <div class="lead-story"><p class="kicker">Editorial note</p><h1>{_e(latest.editorial or lead.title)}</h1><p class="lead-deck">{_e(lead.paragraphs[0])}</p><a class="button-link" href="issues/{latest.date}/index.html">Read the full issue <span aria-hidden="true">→</span></a></div>
   <aside class="contents-note"><p class="kicker">In this issue</p><ul><li><strong>{len(latest.news)}</strong> news notes</li><li><strong>{len(latest.signals)}</strong> policy signals</li><li><strong>{len(latest.readings)}</strong> research readings</li></ul>{_topic_tags(latest.topics[:4])}</aside>
-</section>"""
+</section>{_issue_image(latest, 0, "home-hero-image")}"""
     body += _issue_content(latest)
     if len(issues) > 1:
         body += f'<section class="archive-preview">{_section_title("The record so far", "Previous Issues")}{_archive_cards(issues[1:], 0)}<a class="text-link" href="archive/index.html">Explore the complete archive →</a></section>'
@@ -371,8 +389,8 @@ def _issue_page(issue: PublicIssue, issues: list[PublicIssue]) -> str:
     older = issues[index + 1] if index < len(issues) - 1 else None
     older_link = "" if not older else f'<small>Previous issue</small><a href="../{older.date}/index.html">← {_e(_format_date(older.date, True))}</a>'
     newer_link = "" if not newer else f'<small>Next issue</small><a href="../{newer.date}/index.html">{_e(_format_date(newer.date, True))} →</a>'
-    body = f'<div class="issue-hero"><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h1>{_e(issue.editorial or issue.subject)}</h1><div class="rule-and-topics"><span></span>{_topic_tags(issue.topics[:5])}</div></div>'
-    body += _issue_content(issue)
+    body = f'<div class="issue-hero">{_issue_image(issue, 2)}<div class="issue-hero-copy"><div class="issue-hero-meta"><p class="kicker">Issue · {_e(_format_date(issue.date))}</p>{_topic_tags(issue.topics[:5])}</div><h1>{_e(issue.editorial or issue.subject)}</h1></div></div>'
+    body += f'<div class="longform-layout">{_issue_rail(issue)}<div class="longform-content">{_issue_content(issue)}</div></div>'
     body += f'<nav class="issue-nav" aria-label="Issue navigation"><div>{older_link}</div><a href="../../archive/index.html">All issues</a><div class="next-issue">{newer_link}</div></nav>'
     return _page(f"{_format_date(issue.date)} — {SITE_NAME}", issue.editorial or issue.subject, body, 2)
 
@@ -455,6 +473,9 @@ def build_site(archive_dir: Path, output_dir: Path, assets_dir: Path) -> list[Pu
         source = assets_dir / name
         if source.exists():
             shutil.copy2(source, output_assets / name)
+    issue_assets = assets_dir / "issues"
+    if issue_assets.exists():
+        shutil.copytree(issue_assets, output_assets / "issues")
     (staging_dir / "search-index.json").write_text(json.dumps(_search_index(issues), ensure_ascii=False), encoding="utf-8")
     (staging_dir / ".nojekyll").write_text("", encoding="utf-8")
     backup_dir = output_dir.parent / f".{output_dir.name}-previous"
