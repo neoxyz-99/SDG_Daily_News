@@ -1,4 +1,10 @@
 (function () {
+  document.querySelectorAll(".home-hero-image img, .issue-image img, .archive-image img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const figure = image.closest(".home-hero-image, .issue-image, .archive-image");
+      if (figure) figure.hidden = true;
+    }, { once: true });
+  });
   const input = document.querySelector("#search-input");
   if (!input) return;
   const typeFilter = document.querySelector("#type-filter");

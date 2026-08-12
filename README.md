@@ -60,6 +60,8 @@ python -m sdg_digest.website
 
 This writes a static site to `docs/`, including the latest issue, four previous issues, topic filters, full-text search, editorial-method notes, and copyright/source information. GitHub Pages should be configured to publish the `docs/` folder from the default branch. Scheduled production runs rebuild and commit the site only after a digest has been successfully archived, so the last known-good version remains available if generation fails.
 
+Optional original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`. When a dated image is present, it is copied into the public site and used on the home, archive, and issue pages; missing artwork is hidden without blocking publication.
+
 ## Pipeline Logic
 
 - `sources.yml` defines both the RSS/Atom source whitelist and the approved academic-journal list. Journal metadata is traced through Crossref by ISSN.
