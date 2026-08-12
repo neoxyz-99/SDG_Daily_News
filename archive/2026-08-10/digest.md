@@ -130,7 +130,7 @@ Tags: #环境治理与气候 #能源转型 #多边治理
 
 **核心论点 / Core Argument**: E3G 认为亚洲正在成为全球能源转型的决定性场域，原因不只是需求增长快，而是冷却需求、产业扩张与可再生能源部署同步上升，迫使各国把电力系统、工业政策和金融动员放在同一个转型框架中处理。
 
-E3G argues that Asia is becoming the निर्णative arena for the global energy transition not merely because demand is growing fast, but because cooling needs, industrial expansion, and renewable deployment are rising together, forcing states to treat power systems, industrial policy, and financial mobilization within one transition frame.
+E3G argues that Asia is becoming the decisive arena for the global energy transition not merely because demand is growing fast, but because cooling needs, industrial expansion, and renewable deployment are rising together, forcing states to treat power systems, industrial policy, and financial mobilization within one transition frame.
 
 **为什么此刻重要 / Why Now**: 文章回应的是未来十年全球新增能源需求主要来自亚洲这一时间窗口，因此区域政策选择将外溢为全球转型路径。它也提示气候谈判不能把亚洲仅看作执行端。
 
