@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-08-17</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">数据、资金与规则都在扩张，真正紧张的是谁来定义“可转型”的标准。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-08-17</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>数据、资金与规则都在扩张，真正紧张的是谁来定义“可转型”的标准。</p><p class="en-text">Data, finance, and rules are all expanding; the real tension is who gets to define the standard of “transition.”</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://insideclimatenews.org/news/17082026/florida-heat-amplifies-pesticides-dangers-for-farmworkers/">As Temperatures Get Hotter, Pesticides Are More Dangerous to Farmworkers</a></h3>
+  <p class="meta">Inside Climate News · 2026-08-17</p>
+  <p class="body-text">对美国240万农场工人而言，更高气温会同时放大中暑、农药暴露和防护服负担，风险不再是单一职业健康议题，而是气候压力与劳动保护的叠加问题。</p>
+  <p class="en-text">For the United States’ 2.4 million farmworkers, higher heat compounds pesticide exposure, heat stress, and the burden of protective clothing, turning occupational safety into a climate-labor overlap.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://insideclimatenews.org/news/17082026/offshore-wind-will-struggle-after-trump/">Offshore Wind Will Struggle Long After Trump’s Attacks</a></h3>
+  <p class="meta">Inside Climate News · 2026-08-17</p>
+  <p class="body-text">美国海上风电在政治打击后不仅是短期停滞，而是可能在政策窗口关闭后仍长期失去恢复能力。</p>
+  <p class="en-text">U.S. offshore wind is framed as facing not just a short-term political setback, but a long recovery even after the current window closes.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://www.nytimes.com/2026/08/14/climate/climate-superfund-professor-lawsuit-emails-michigan.html">Judge Rejects Suit Against University of Michigan That Sought Emails on Climate Law</a></h3>
+  <p class="meta">New York Times Climate · 2026-08-14</p>
+  <p class="body-text">一场试图调取密歇根大学气候法研究邮件的诉讼被驳回，围绕“气候超级基金”立法的知识生产边界随之得到暂时保护。</p>
+  <p class="en-text">A lawsuit seeking emails from University of Michigan researchers on climate law was rejected, temporarily shielding the knowledge boundary around climate superfund legislation.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://www.nytimes.com/video/opinion/100000011072896/extreme-heat-is-the-new-normal.html">Extreme Heat Is The New Normal</a></h3>
+  <p class="meta">New York Times Climate · 2026-08-14</p>
+  <p class="body-text">凤凰城消防员在高温前线以“冰袋式应急”维持工作，说明极端热浪正在把公共服务推向新的常态化适应。</p>
+  <p class="en-text">Phoenix firefighters are keeping emergency services running with improvised cooling, showing how extreme heat is becoming a new baseline for public-service adaptation.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://yaleclimateconnections.org/2026/08/hawaiian-islands-brace-for-lala-this-weekend/">Hawaiian Islands brace for Lala this weekend</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-08-14</p>
+  <p class="body-text">拉拉可能成为首个登陆夏威夷大岛的飓风，凸显极端天气风险正在进入此前被视为相对边缘的地理空间。</p>
+  <p class="en-text">Lala could become the first hurricane on record to strike Hawaii’s Big Island, underscoring how extreme-weather risk is reaching places once seen as peripheral.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/">Utah group aims to make climate-friendly homes the norm</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-08-17</p>
+  <p class="body-text">犹他州清洁能源组织希望把新住房的可再生能源配置变成默认选项，说明减排政策正在向建筑规范和住宅市场前端推进。</p>
+  <p class="en-text">Utah Clean Energy is trying to make renewable-powered new homes the default, pushing decarbonization into building codes and the housing market’s front end.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.climatepolicyinitiative.org/making-nature-investable-through-agrifood-systems/">Making nature investable through agrifood systems</a></h3>
+  <p class="meta">Climate Policy Initiative · 2026-08-14</p>
+  <p class="tags"><span class="tag">#可持续金融与ESG</span><span class="tag">#气候金融</span><span class="tag">#生物多样性</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">CPI指出，昆明—蒙特利尔全球生物多样性框架（Kunming-Montreal Global Biodiversity Framework）已为自然融资设定了宏观目标，但真正阻碍资本进入农业食物系统的，是投资者无法把高度地方化的生态结果转化为可比、可执行的尽调与定价信号，因此需要面向地理、部门和投资类型的“适配性”自然测量（nature measurement）来把生态完整性、供应链韧性与投资案例连成一条治理链。</p>
+  <p class="en-text">CPI argues that the Kunming-Montreal Global Biodiversity Framework sets macro-level goals for nature finance, but capital still cannot flow into agrifood systems because investors lack comparable, actionable signals for highly localized ecological outcomes; the result is a need for fit-for-purpose nature measurement tailored to geography, sector, and investment type to connect ecosystem integrity, supply-chain resilience, and the investment case.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章直接回应COP30前TNFD对齐报告扩散、MDB自然融资原则成形，以及2030年生物多样性融资目标被不断具体化的时点。它把“披露”推进到“可投资结果”的阶段，提示下一步争议将转向谁来定义可衡量的自然绩效。</p>
+  <p class="en-text">The piece responds to the run-up to COP30, the spread of TNFD-aligned reporting, and the consolidation of MDB principles for nature finance. It pushes the agenda from disclosure toward investable outcomes, where the next contest is who defines measurable nature performance.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是自然融资从框架与披露走向资产配置标准的技术—制度接口，嵌入COP30前的自然资本动员议程。</p>
+    <p class="en-text">This sits at the technical-institutional interface where nature finance moves from frameworks and disclosure toward allocation standards, within the pre-COP30 mobilization agenda for natural capital.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-ip-ecosystems/">Learning Hub Research Grantee Spotlight: I&amp;P Ecosystems</a></h3>
+  <p class="meta">Climate Policy Initiative · 2026-08-13</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#气候金融</span><span class="tag">#可持续金融与ESG</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">CPI借I&amp;P Ecosystems的研究指出，在撒哈拉以南非洲，围绕性别—气候议题的小型基金之所以难以扩大规模，不是因为缺乏热情，而是因为混合融资（blended finance）工具、优惠资本结构与信息协调机制仍不稳定，导致催化资本难以稳定支持女性企业家、小农和受气候冲击最深的社区。</p>
+  <p class="en-text">Using I&amp;P Ecosystems’ research, CPI argues that small gender-climate funds in Sub-Saharan Africa struggle to scale not for lack of ambition, but because blended finance tools, concessional capital structures, and coordination mechanisms remain unstable, preventing catalytic capital from reliably reaching women entrepreneurs, smallholder farmers, and climate-affected communities.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">该研究嵌入了对非洲2030年气候韧性融资缺口的紧迫讨论，也对应近年来性别与气候融资在政策和基金配置中被同时强调的窗口期。它把问题从“是否需要更多资金”转为“如何规范优惠资本的结构与分工”。</p>
+  <p class="en-text">The study is embedded in the urgent debate over Africa’s 2030 climate-resilience financing gap and the recent policy window in which gender and climate finance are being emphasized together. It shifts the question from whether more money is needed to how concessional capital should be structured and coordinated.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是催化资本生态中的方法论与配置规则问题，位于区域基金、性别主流化与气候融资工具设计的交叉处。</p>
+    <p class="en-text">This is a methodological and allocation-rule problem in the catalytic-capital ecosystem, positioned at the intersection of regional funds, gender mainstreaming, and climate-finance instrument design.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts">Why land-use emissions have fallen by a third this century – in six charts</a></h3>
+  <p class="meta">Carbon Brief · 2026-08-17</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#NDC</span><span class="tag">#生物多样性</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief的图解表明，土地利用变化排放下降并不意味着治理任务完成，而是说明各国在减缓毁林、泥炭地损失和森林退化方面的政策与市场压力已开始改变排放轨迹；问题在于这种下降是否足以支撑更快的自然—气候协同治理，以及是否会被其他部门排放反弹抵消。</p>
+  <p class="en-text">Carbon Brief’s charts show that lower land-use emissions do not mean the governance task is finished; they indicate that policy and market pressure have begun to alter trajectories for deforestation, peatland loss, and forest degradation, raising the question of whether the decline is sufficient to support faster nature-climate co-governance or will be offset by rebound emissions elsewhere.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章以世纪尺度的数据回看土地利用排放变化，回应了各国在新一轮NDC、自然目标和森林承诺中如何解释“进展”的问题。它也为讨论2030年前土地部门能否继续充当减排缓冲器提供了时间参照。</p>
+  <p class="en-text">The piece uses century-scale data to revisit land-use emissions, responding to the question of how countries should interpret “progress” in the next round of NDCs, nature targets, and forest commitments. It also provides a time reference for whether the land sector can keep serving as a mitigation buffer before 2030.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是NDC与森林治理议程之间的证据接口，位于全球自然目标与国家减排承诺的交汇处。</p>
+    <p class="en-text">This is an evidence interface between the NDC process and forest governance, sitting at the intersection of global nature targets and national mitigation commitments.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期共同问题不是“要不要行动”，而是制度如何把自然、资金与责任变成可被治理的对象。一个是生态测量如何进入投资决策，另一个是气候治理如何在数据、专家与秘书处之间持续自我再生产。</p><p class="en-text">The shared issue is not whether to act, but how institutions turn nature, capital, and responsibility into governable objects. One line is how ecological measurement enters investment decisions; another is how climate governance reproduces itself through data, experts, and secretariats.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep_a_00667">Orchestrating Global Climate Governance Through Data: The UNFCCC Secretariat and the Global Climate Action Platform</a></h3>
+  <p class="meta">Laura Mai, Joshua Philipp Elsässer · 2022-11-10 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">作者以全球气候行动平台为案例，说明联合国气候秘书处如何在《巴黎协定》前后从“利用数据施压国家谈判”转向“通过数据追踪并动员实施”，从而把非国家行为体承诺、数据基础设施与治理权威重新编织在一起。文章强调，数据不是中性的记录工具，而是气候治理中的组织装置。</p>
+  <p class="en-text">Using the Global Climate Action Portal as a case, the authors show how the UNFCCC Secretariat moved from using data to pressure state negotiations before Paris to using data to track and animate implementation after Paris, thereby reconfiguring nonstate commitments, data infrastructures, and governance authority. The article’s central claim is that data is not a neutral record-keeping tool but an organizing device in climate governance.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用单案例研究（case study）方法，围绕全球气候行动平台进行过程追踪，并结合概念化分析来讨论数据、基础设施与行动者组合的变化。</p>
+  <p class="en-text">The article uses a single case study with process tracing around the Global Climate Action Portal, combined with conceptual analysis of changing data, infrastructure, and actor configurations.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期《Q&amp;A: What does China’s 15th five-year plan for coal mean for climate action?》一起阅读，观察国家规划与数据化治理如何分别塑造气候行动。</p>
+  <p class="en-text">Read this alongside this issue’s “Q&amp;A: What does China’s 15th five-year plan for coal mean for climate action?” to compare how national planning and data-driven governance each shape climate action.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>数据如何塑造实施？ <span class="keywords">(climate governance, data infrastructure, implementation tracking, UNFCCC)</span><br><span class="en-text">How does data shape implementation in climate governance?</span></li><li>秘书处权威如何生成？ <span class="keywords">(international secretariat, governance authority, nonstate actors, process tracing)</span><br><span class="en-text">How is secretariat authority produced?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1162/glep_a_00667">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep.e.783">The Show Must Go On? Revisiting the Script of International Climate Cooperation Ten Years After Paris</a></h3>
+  <p class="meta">Florian Steig, Eva Lövbrand, Angela Oels, Jonathan Barnes, Diana Eriksson Lagerqvist, Marie Fischer, et al. · 2026-08-01 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">这组文章从福柯政治思想（Foucault&#x27;s political thought）和气候治理术（climate governmentality studies）出发，分析《巴黎协定》十年后全球气候治理如何在地缘竞争、反气候民粹和气候危机加速中维持合法性。导论识别出四种稳定该治理体制的做法：承诺未来改善、政府化新前沿、将超调和气候灾难常态化，以及把气候专家知识导入特定通道。</p>
+  <p class="en-text">Drawing on Foucault’s political thought and climate governmentality studies, this special issue examines how global climate governance seeks legitimacy ten years after Paris amid geopolitical rivalry, anti-climate populism, and accelerating crises. The introduction identifies four practices that stabilize the regime: promising future improvements, governmentalizing new frontiers, normalizing overshoot and climate disaster, and funneling climate expertise.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">导论对专题论文进行概念整合（conceptual synthesis），并以规范—政治分析方式梳理全球气候治理的权力/知识机制。</p>
+  <p class="en-text">The introduction uses conceptual synthesis and normative-political analysis to map the regime’s power/knowledge mechanisms.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期《Offshore Wind Will Struggle Long After Trump’s Attacks》对读，理解反气候政治如何从国家层面转化为治理合法性压力。</p>
+  <p class="en-text">Read this alongside this issue’s “Offshore Wind Will Struggle Long After Trump’s Attacks” to see how anti-climate politics travels from domestic arenas into legitimacy pressures on governance.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>合法性如何被维持？ <span class="keywords">(climate legitimacy, governmentality, Paris Agreement, political ecology)</span><br><span class="en-text">How is legitimacy maintained in climate governance?</span></li><li>超调如何被常态化？ <span class="keywords">(overshoot, climate discourse, policy legitimation, governance)</span><br><span class="en-text">How is overshoot normalized in policy discourse?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1162/glep.e.783">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
