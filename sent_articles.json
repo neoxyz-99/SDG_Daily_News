@@ -131,7 +131,16 @@
     "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-mubs-climate-finance-and-sustainability-centre/",
     "https://www.carbonbrief.org/factcheck-how-nuclear-gas-wind-and-solar-power-are-affected-during-heatwaves",
     "https://www.e3g.org/news/eyes-on-asia-shaping-the-global-energy-transition/?utm_source=rss&utm_medium=rss&utm_campaign=eyes-on-asia-shaping-the-global-energy-transition",
-    "https://www.carbonbrief.org/qa-what-is-in-chinas-new-five-year-plan-for-climate-change"
+    "https://www.carbonbrief.org/qa-what-is-in-chinas-new-five-year-plan-for-climate-change",
+    "https://insideclimatenews.org/news/17082026/florida-heat-amplifies-pesticides-dangers-for-farmworkers/",
+    "https://insideclimatenews.org/news/17082026/offshore-wind-will-struggle-after-trump/",
+    "https://www.nytimes.com/2026/08/14/climate/climate-superfund-professor-lawsuit-emails-michigan.html",
+    "https://www.nytimes.com/video/opinion/100000011072896/extreme-heat-is-the-new-normal.html",
+    "https://yaleclimateconnections.org/2026/08/hawaiian-islands-brace-for-lala-this-weekend/",
+    "https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/",
+    "https://www.climatepolicyinitiative.org/making-nature-investable-through-agrifood-systems/",
+    "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-ip-ecosystems/",
+    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -220,7 +229,13 @@
     "https://yaleclimateconnections.org/2026/08/watching-the-atlantic-could-tropical-waves-exiting-africa-make-it-past-the-wind-shear/",
     "https://yaleclimateconnections.org/2026/08/the-earth-itself-was-screaming-out-bay-mills-indian-community-fights-pipeline-permitting-while-enveloped-in-wildfire-smoke/",
     "https://www.nytimes.com/2026/08/08/climate/amazon-data-center-texas-pollution.html",
-    "https://www.nytimes.com/2026/08/10/world/asia/pakistan-red-chiles-climate-change.html"
+    "https://www.nytimes.com/2026/08/10/world/asia/pakistan-red-chiles-climate-change.html",
+    "https://insideclimatenews.org/news/17082026/florida-heat-amplifies-pesticides-dangers-for-farmworkers/",
+    "https://insideclimatenews.org/news/17082026/offshore-wind-will-struggle-after-trump/",
+    "https://www.nytimes.com/2026/08/14/climate/climate-superfund-professor-lawsuit-emails-michigan.html",
+    "https://www.nytimes.com/video/opinion/100000011072896/extreme-heat-is-the-new-normal.html",
+    "https://yaleclimateconnections.org/2026/08/hawaiian-islands-brace-for-lala-this-weekend/",
+    "https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -269,7 +284,10 @@
     "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-mubs-climate-finance-and-sustainability-centre/",
     "https://www.carbonbrief.org/factcheck-how-nuclear-gas-wind-and-solar-power-are-affected-during-heatwaves",
     "https://www.e3g.org/news/eyes-on-asia-shaping-the-global-energy-transition/?utm_source=rss&utm_medium=rss&utm_campaign=eyes-on-asia-shaping-the-global-energy-transition",
-    "https://www.carbonbrief.org/qa-what-is-in-chinas-new-five-year-plan-for-climate-change"
+    "https://www.carbonbrief.org/qa-what-is-in-chinas-new-five-year-plan-for-climate-change",
+    "https://www.climatepolicyinitiative.org/making-nature-investable-through-agrifood-systems/",
+    "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-ip-ecosystems/",
+    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -282,7 +300,9 @@
     "10.1163/19426720-03002010",
     "10.1162/glep.2008.8.3.74",
     "10.1162/glep_a_00719",
-    "10.1162/glep.a.740"
+    "10.1162/glep.a.740",
+    "10.1162/glep_a_00667",
+    "10.1162/glep.e.783"
   ],
   "classic_reading_history": [
     {
@@ -383,7 +403,14 @@
         "10.1162/glep_a_00719",
         "10.1162/glep.a.740"
       ]
+    },
+    {
+      "date": "2026-08-17",
+      "dois": [
+        "10.1162/glep_a_00667",
+        "10.1162/glep.e.783"
+      ]
     }
   ],
-  "last_updated": "2026-08-10"
+  "last_updated": "2026-08-17"
 }
