@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   digest:
@@ -92,5 +93,17 @@ jobs:
           git add sent_articles.json
           git diff --staged --quiet || git commit -m "chore: update sent_articles [skip ci]"
           git push
+
+      - name: Request GitHub Pages build
+        if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
 
       # CHANGE 1 DONE: GitHub Actions commits the persistent sent_articles.json record after successful runs.
