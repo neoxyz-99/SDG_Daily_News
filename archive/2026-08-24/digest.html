@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-08-24</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">气候转型究竟由市场、国家还是多边协调定价与约束？</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-08-24</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>气候转型究竟由市场、国家还是多边协调定价与约束？</p><p class="en-text">Who ultimately prices and constrains the transition: markets, states, or multilateral coordination?</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/commentisfree/2026/aug/24/andy-burnham-rosebank-carbon-capture-storage-north-sea-uk-net-zero-commitments">Can Burnham justify giving the go ahead to oil drilling? Yes, but these must be the conditions | Michael Jacobs</a></h3>
+  <p class="meta">The Guardian Environment · 2026-08-24</p>
+  <p class="body-text">英国政府即将就Rosebank和Jackdaw油气田重新作出许可决定，而法院已要求重做排放影响评估，争议焦点因此转向“附条件许可”能否与净零承诺并存。</p>
+  <p class="en-text">The UK is due to revisit approvals for the Rosebank and Jackdaw fields after a court required new emissions assessments, shifting the dispute to whether conditional consent can coexist with net-zero commitments.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.theguardian.com/membership/2026/aug/24/this-is-not-a-natural-calamity-it-is-being-done-to-us-knowingly">This is not a natural calamity: it is being done to us knowingly</a></h3>
+  <p class="meta">The Guardian Environment · 2026-08-24</p>
+  <p class="body-text">这篇评论把极端高温、野火和海洋热浪描述为人为造成的治理失败，要求公众把气候危机理解为可追责的制度问题而非抽象灾难。</p>
+  <p class="en-text">The comment frames heat, wildfires, and marine heatwaves as a governance failure produced by human decisions, urging readers to treat climate harm as attributable rather than abstract tragedy.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://news.un.org/feed/view/en/story/2026/08/1168156">Protecting our ‘most vital infrastructure’: Pushing back on desertification</a></h3>
+  <p class="meta">UN News Climate Change · 2026-08-17</p>
+  <p class="body-text">联合国新闻强调土地退化不是背景性环境问题，而是支撑生产、居住与韧性的“最关键基础设施”正在失效。</p>
+  <p class="en-text">UN News recasts land degradation as a failure of the infrastructure that underpins production, settlement, and resilience, rather than a background environmental issue.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://insideclimatenews.org/news/24082026/trump-spends-billions-boosting-lng-exports/">The Trump Administration Has Spent Billions Boosting Gas Exports, Spurring More Fracking</a></h3>
+  <p class="meta">Inside Climate News · 2026-08-24</p>
+  <p class="body-text">报道指向特朗普政府通过财政与监管支持推动液化天然气出口，进而刺激更多压裂开发，使能源安全叙事直接转化为化石燃料扩张。</p>
+  <p class="en-text">The report argues that Trump-era fiscal and regulatory support for LNG exports is stimulating more fracking, converting an energy-security narrative into fossil-fuel expansion.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://insideclimatenews.org/news/23082026/new-england-wildland-firefighters-impacted-by-federal-proposals/">Burning Questions Confront Wildland Firefighters in Maine and Across New England</a></h3>
+  <p class="meta">Inside Climate News · 2026-08-23</p>
+  <p class="body-text">新英格兰野火季升温正在把消防人力、州际资源与联邦政策压力同时推到前台。</p>
+  <p class="en-text">The warming wildfire season in New England is putting firefighting capacity, interstate resources, and federal policy pressure in the same frame.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://news.un.org/feed/view/en/story/2026/08/1168172">The clean energy transition needs land. Can it help restore it too?</a></h3>
+  <p class="meta">UN News Climate Change · 2026-08-19</p>
+  <p class="body-text">这则报道把清洁能源基础设施的土地占用问题与土地修复联系起来，追问转型项目能否同时承担生态恢复责任。</p>
+  <p class="en-text">The report links land use by clean-energy infrastructure to land restoration, asking whether transition projects can also carry ecological repair obligations.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://www.nytimes.com/2026/08/24/climate/trump-administration-batteries-data-centers.html">Trump Shuns E.V.s and Wind Power, But He’s Pouring Billions Into Batteries</a></h3>
+  <p class="meta">New York Times Climate · 2026-08-24</p>
+  <p class="body-text">文章指出美国政府虽然回避风电和电动车，但仍大举投入电池，以满足人工智能和国防需求并回应对中国供应链主导地位的担忧。</p>
+  <p class="en-text">The article notes that while the Trump administration shuns wind and EVs, it is heavily funding batteries for AI and defense needs while worrying about Chinese supply-chain dominance.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>8. <a href="https://yaleclimateconnections.org/2026/08/trumps-iran-war-supercharged-ev-sales-everywhere-except-the-u-s/">Trump’s Iran war supercharged EV sales everywhere except the U.S.</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-08-24</p>
+  <p class="body-text">伊朗冲突推高油价后，全球电动车销量上升，但美国政策错位反而把市场优势让给了中国车企。</p>
+  <p class="en-text">After the Iran conflict pushed up fuel prices, EV sales rose globally, but U.S. policy misalignment left the market advantage to Chinese automakers.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.e3g.org/news/how-climate-finance-can-deliver-in-a-multipolar-world/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=how-climate-finance-can-deliver-in-a-multipolar-world">How climate finance can deliver in a multipolar world</a></h3>
+  <p class="meta">E3G · 2026-08-18</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G认为，在地缘政治碎片化、利率高企和发展援助收缩的环境下，气候融资必须从单一的资金动员转向以多边开发银行、债务工具和风险分担机制为核心的组合，以避免发展中国家在转型中被融资约束排除在外。</p>
+  <p class="en-text">E3G argues that amid geopolitical fragmentation, high interest rates, and shrinking development assistance, climate finance must shift from simple capital mobilization to a package centered on multilateral development banks, debt instruments, and risk-sharing mechanisms, or developing countries will be priced out of the transition.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章回应的是多边合作弱化与财政空间收缩同步发生的时点。它把气候融资从一般性倡议推进到“如何在碎片化世界里仍能交付”的操作层面。</p>
+  <p class="en-text">The piece responds to a moment when multilateral cooperation is weakening as fiscal space tightens. It moves climate finance from a general commitment to the operational question of delivery in a fragmented world.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它位于气候融资、债务可持续性与发展筹资的交叉议程上，并直接指向多边开发银行改革与COP前后的资金动员安排。</p>
+    <p class="en-text">It sits at the intersection of climate finance, debt sustainability, and development finance, with direct implications for MDB reform and pre-COP mobilization arrangements.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/qa-what-is-long-duration-energy-storage-and-why-does-the-uk-need-it">Q&amp;A: What is ‘long-duration energy storage’ – and why does the UK need it?</a></h3>
+  <p class="meta">Carbon Brief · 2026-08-19</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#绿色转型</span><span class="tag">#能源转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief将长时储能（long-duration energy storage）界定为支撑英国风光系统从“小时级平衡”走向“日到周级调节”的关键基础设施，Ofgem的cap-and-floor机制则是把市场无法充分定价的系统灵活性变成可融资资产，从而降低整个电力系统成本并缓解弃风弃光风险。</p>
+  <p class="en-text">Carbon Brief frames long-duration energy storage as the infrastructure that allows the UK to move from hour-by-hour balancing toward day-to-week flexibility in a wind-and-solar system, while Ofgem’s cap-and-floor scheme turns underpriced system flexibility into a financeable asset that can lower system costs and reduce curtailment risk.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇Q&amp;A紧接Ofgem已识别16个待支持项目的节点，说明储能已从概念进入监管选择阶段。它把讨论从技术介绍推进到监管设计与投资激励。</p>
+  <p class="en-text">The Q&amp;A comes just as Ofgem has identified 16 projects for potential support, showing that storage has moved from concept to regulatory selection. It shifts the discussion from technology primer to regulatory design and investment incentives.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它位于英国电力市场改革、系统灵活性配置和净零基础设施投资框架之内。</p>
+    <p class="en-text">It sits within UK electricity-market reform, system-flexibility allocation, and the investment framework for net-zero infrastructure.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期多条线索都指向同一问题：转型不是“要不要”，而是由谁承担成本、谁拥有规则制定权。油气审批、储能投资与气候融资共同暴露出国家安全、产业政策和减排约束之间的张力。</p><p class="en-text">Several items converge on one question: the transition is not about whether to act, but who bears the costs and who writes the rules. Oil-and-gas approvals, storage investment, and climate finance all expose the tension between security, industrial policy, and emissions constraints.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1163/19426720-03104001">Inter-organizational Relations and Policy Coordination</a></h3>
+  <p class="meta">Adam Kamradt-Scott · 2025-12-16 · Global Governance: A Review of Multilateralism and International Organizations</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="reading-text">文章聚焦国际组织之间的政策协调，指出在成员国面对国际组织增殖时，推动机构协同已成为减少竞争、冲突和重叠的常见治理回应。作者认为“政策协调”在既有文献中概念化不足，并以四方机制（Quadripartite）应对抗微生物药物耐药性为例，检验其协调效果及国家层面的行动计划扩散。</p>
+  <p class="en-text">The article focuses on policy coordination among international organizations and argues that, as member states face proliferating IOs, encouraging institutional collaboration has become a common governance response to reduce competition, conflict, and overlap. It also contends that ‘policy coordination’ remains underconceptualized in the literature and examines the Quadripartite’s efforts on antimicrobial resistance through national action plan adoption.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章通过概念讨论结合对四方机制协调效果的案例分析，围绕成员国国家行动计划的扩散进行评估。</p>
+  <p class="en-text">The article combines conceptual discussion with a case analysis of the Quadripartite’s coordination efforts, evaluating the diffusion of member states’ national action plans.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 E3G 的《How climate finance can deliver in a multipolar world》并读，理解多边协调如何在碎片化环境中转化为可执行的融资与治理安排。</p>
+  <p class="en-text">Read alongside E3G’s “How climate finance can deliver in a multipolar world” to see how multilateral coordination can be turned into workable financing and governance arrangements in a fragmented setting.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>协调如何转为执行？ <span class="keywords">(policy coordination, international organizations, implementation, governance, diffusion)</span><br><span class="en-text">How does coordination become implementation?</span></li><li>何种分工最能降重叠？ <span class="keywords">(inter-organizational relations, mandate overlap, institutional collaboration, multilateralism, coordination)</span><br><span class="en-text">Which division of labor best reduces overlap?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1163/19426720-03104001">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
