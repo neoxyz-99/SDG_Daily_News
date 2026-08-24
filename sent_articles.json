@@ -140,7 +140,17 @@
     "https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/",
     "https://www.climatepolicyinitiative.org/making-nature-investable-through-agrifood-systems/",
     "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-ip-ecosystems/",
-    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts"
+    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts",
+    "https://www.theguardian.com/commentisfree/2026/aug/24/andy-burnham-rosebank-carbon-capture-storage-north-sea-uk-net-zero-commitments",
+    "https://www.theguardian.com/membership/2026/aug/24/this-is-not-a-natural-calamity-it-is-being-done-to-us-knowingly",
+    "https://news.un.org/feed/view/en/story/2026/08/1168156",
+    "https://insideclimatenews.org/news/24082026/trump-spends-billions-boosting-lng-exports/",
+    "https://insideclimatenews.org/news/23082026/new-england-wildland-firefighters-impacted-by-federal-proposals/",
+    "https://news.un.org/feed/view/en/story/2026/08/1168172",
+    "https://www.nytimes.com/2026/08/24/climate/trump-administration-batteries-data-centers.html",
+    "https://yaleclimateconnections.org/2026/08/trumps-iran-war-supercharged-ev-sales-everywhere-except-the-u-s/",
+    "https://www.e3g.org/news/how-climate-finance-can-deliver-in-a-multipolar-world/?utm_source=rss&utm_medium=rss&utm_campaign=how-climate-finance-can-deliver-in-a-multipolar-world",
+    "https://www.carbonbrief.org/qa-what-is-long-duration-energy-storage-and-why-does-the-uk-need-it"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -235,7 +245,15 @@
     "https://www.nytimes.com/2026/08/14/climate/climate-superfund-professor-lawsuit-emails-michigan.html",
     "https://www.nytimes.com/video/opinion/100000011072896/extreme-heat-is-the-new-normal.html",
     "https://yaleclimateconnections.org/2026/08/hawaiian-islands-brace-for-lala-this-weekend/",
-    "https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/"
+    "https://yaleclimateconnections.org/2026/08/utah-group-aims-to-make-climate-friendly-homes-the-norm/",
+    "https://www.theguardian.com/commentisfree/2026/aug/24/andy-burnham-rosebank-carbon-capture-storage-north-sea-uk-net-zero-commitments",
+    "https://www.theguardian.com/membership/2026/aug/24/this-is-not-a-natural-calamity-it-is-being-done-to-us-knowingly",
+    "https://news.un.org/feed/view/en/story/2026/08/1168156",
+    "https://insideclimatenews.org/news/24082026/trump-spends-billions-boosting-lng-exports/",
+    "https://insideclimatenews.org/news/23082026/new-england-wildland-firefighters-impacted-by-federal-proposals/",
+    "https://news.un.org/feed/view/en/story/2026/08/1168172",
+    "https://www.nytimes.com/2026/08/24/climate/trump-administration-batteries-data-centers.html",
+    "https://yaleclimateconnections.org/2026/08/trumps-iran-war-supercharged-ev-sales-everywhere-except-the-u-s/"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -287,7 +305,9 @@
     "https://www.carbonbrief.org/qa-what-is-in-chinas-new-five-year-plan-for-climate-change",
     "https://www.climatepolicyinitiative.org/making-nature-investable-through-agrifood-systems/",
     "https://www.climatepolicyinitiative.org/learning-hub-research-grantee-spotlight-ip-ecosystems/",
-    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts"
+    "https://www.carbonbrief.org/why-land-use-emissions-have-fallen-by-a-third-this-century-in-six-charts",
+    "https://www.e3g.org/news/how-climate-finance-can-deliver-in-a-multipolar-world/?utm_source=rss&utm_medium=rss&utm_campaign=how-climate-finance-can-deliver-in-a-multipolar-world",
+    "https://www.carbonbrief.org/qa-what-is-long-duration-energy-storage-and-why-does-the-uk-need-it"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -302,7 +322,8 @@
     "10.1162/glep_a_00719",
     "10.1162/glep.a.740",
     "10.1162/glep_a_00667",
-    "10.1162/glep.e.783"
+    "10.1162/glep.e.783",
+    "10.1163/19426720-03104001"
   ],
   "classic_reading_history": [
     {
@@ -410,7 +431,13 @@
         "10.1162/glep_a_00667",
         "10.1162/glep.e.783"
       ]
+    },
+    {
+      "date": "2026-08-24",
+      "dois": [
+        "10.1163/19426720-03104001"
+      ]
     }
   ],
-  "last_updated": "2026-08-17"
+  "last_updated": "2026-08-24"
 }
