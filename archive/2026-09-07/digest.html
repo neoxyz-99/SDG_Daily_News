@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-09-07</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">技术与治理的修复都在加速，但谁来为外部性买单仍未清楚。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-09-07</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>技术与治理的修复都在加速，但谁来为外部性买单仍未清楚。</p><p class="en-text">Both technical fixes and governance repairs are accelerating, but who pays for the externalities remains unresolved.</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://news.un.org/feed/view/en/story/2026/09/1168283">Coordinated action on clean air and climate change can net $15 for every dollar spent</a></h3>
+  <p class="meta">UN News Climate Change · 2026-09-07</p>
+  <p class="body-text">联合国最新报告称，把空气污染治理与气候行动联动推进，可同时减排、改善健康，并带来显著经济回报。</p>
+  <p class="en-text">A UN-backed report says integrated action on air pollution and climate policy can cut emissions, improve health, and generate strong economic returns.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://news.un.org/feed/view/en/story/2026/09/1168265">El Niño is surging. Months of extreme heat could follow</a></h3>
+  <p class="meta">UN News Climate Change · 2026-09-03</p>
+  <p class="body-text">联合国新闻称，厄尔尼诺正在增强，未来数月多地可能面临异常高温。</p>
+  <p class="en-text">UN News reports that El Niño is intensifying, with unusually hot conditions likely across many regions in the coming months.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://insideclimatenews.org/news/06092026/agriculture-secretary-brooke-rollins-profits-off-rising-gas-prices/">Farmers Are Going Broke Amid Rising Gas Prices, While the Ag Secretary Profits Off Them</a></h3>
+  <p class="meta">Inside Climate News · 2026-09-06</p>
+  <p class="body-text">在柴油和化肥价格高企、农业部削减廉价可再生能源支持之际，这篇报道质疑农业部长与能源资本之间的利益冲突。</p>
+  <p class="en-text">As diesel and fertilizer costs rise and USDA support for cheaper renewables is cut, the report questions the agriculture secretary’s conflict of interest with fossil fuel holdings.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://www.nytimes.com/2026/09/04/business/energy-environment/venezuela-oil-fields-betancourt-trump.html">The U.S. Wants the Oil From These 17 Venezuelan Fields</a></h3>
+  <p class="meta">New York Times Climate · 2026-09-05</p>
+  <p class="body-text">报道披露，一家私营油企与特朗普政府达成协议，计划开发委内瑞拉17个油区。</p>
+  <p class="en-text">The report says a private oil company has struck a deal with the Trump administration to develop 17 oil areas in Venezuela.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://insideclimatenews.org/news/07092026/maines-race-to-protect-shorelines-as-quarries-expand/">The Winners and Losers of Maine’s Race to Armor Its Shoreline Against Climate Change</a></h3>
+  <p class="meta">Inside Climate News · 2026-09-07</p>
+  <p class="body-text">缅因州正加速加固海岸线，但不同社区在获取防护资源与承担扰动成本上的分配并不对等。</p>
+  <p class="en-text">Maine is racing to harden its shoreline, but communities are not sharing equally in access to protection or the costs of disruption.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026">Analysis: UK solar power hits record high over summer 2026</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-04</p>
+  <p class="body-text">Carbon Brief分析显示，英国今夏太阳能发电创纪录增长，既受晴热天气推动，也反映装机持续扩张。</p>
+  <p class="en-text">Carbon Brief finds UK solar generation hit a summer record, driven by sunny conditions and continued deployment growth.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts">How this summer’s heat and drought impacted crops in Europe – in six charts</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-04</p>
+  <p class="body-text">Carbon Brief用六张图梳理了今夏热浪、干旱和野火如何冲击欧洲作物产量。</p>
+  <p class="en-text">Carbon Brief uses six charts to show how this summer’s heat, drought, and wildfires affected European crops.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>8. <a href="https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond">The state of the EU’s climate agenda: into autumn 2026 and beyond</a></h3>
+  <p class="meta">E3G · 2026-09-01</p>
+  <p class="body-text">E3G认为，欧盟气候议程正进入秋季政治窗口，能源、安全与极端天气压力正在重塑政策优先序。</p>
+  <p class="en-text">E3G argues the EU climate agenda is entering an autumn political window, with energy, security, and extreme-weather pressures reshaping priorities.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026">Analysis: UK solar power hits record high over summer 2026</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-04</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#绿色转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">英国太阳能发电在极端高温与长日照条件下创下夏季纪录，说明电力系统中的可再生能源部署已开始把气候冲击转化为供给增量；文章隐含的政策含义是，电网调度、储能和并网规则必须同步升级，才能把“天气红利”稳定转化为系统韧性，而不是只在短期内抬高发电峰值。</p>
+  <p class="en-text">UK solar generation set a summer record under extreme heat and long daylight, showing that renewable deployment is beginning to turn climate stress into supply gains; the policy implication is that grid dispatch, storage, and interconnection rules must advance in parallel so weather-driven gains become system resilience rather than a short-lived output spike.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇分析回应的是2026年夏季高温、日照异常和发电纪录同时出现的窗口，说明“更多太阳能”不再只是装机故事，而是电力系统适配极端天气的治理问题。它也把政策讨论从扩张速度推向系统整合。</p>
+  <p class="en-text">The piece responds to the 2026 summer when record heat, unusual sunshine, and record output coincided, showing that ‘more solar’ is no longer just an installation story but a governance problem of system adaptation to extremes. It shifts the debate from capacity growth to system integration.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它处在英国电力市场改革与净零执行框架的交汇处，直接触及并网、储能和需求侧响应的政策排序。</p>
+    <p class="en-text">It sits at the intersection of UK power-market reform and net-zero implementation, directly affecting the policy sequencing of interconnection, storage, and demand-side response.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts">How this summer’s heat and drought impacted crops in Europe – in six charts</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-04</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#粮食与土地</span><span class="tag">#发展不平等</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">欧洲农业面对的不是单一气象冲击，而是热浪、干旱、野火与能源价格、化肥供应和燃料成本叠加形成的复合风险；文章指向的机制是，农业产出波动已从自然灾害问题转为供应链、投入品价格和气候适应政策共同塑造的制度性脆弱性，因此需要把作物保险、灌溉投资、化肥替代和食品价格缓冲纳入同一治理框架。</p>
+  <p class="en-text">European agriculture is not facing a single weather shock but a compound risk in which heat, drought, and wildfires interact with energy prices, fertilizer supply, and fuel costs; the article’s mechanism is that output volatility has become an institutional vulnerability shaped by supply chains, input prices, and adaptation policy, requiring crop insurance, irrigation investment, fertilizer substitution, and food-price buffers to be governed together.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章正好回应今夏极端天气结束后各国开始评估收成损失、粮价压力和农业救助的时间点。它把短期歉收放回到欧洲粮食安全和适应融资的中期议程中。</p>
+  <p class="en-text">The article lands as governments begin assessing harvest losses, food-price pressure, and farm relief after the summer extremes. It moves short-term crop failures into Europe’s medium-term food-security and adaptation-finance agenda.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它嵌入欧盟农业与食品安全政策、适应战略以及下一轮气候损失与损害讨论的交叉处。</p>
+    <p class="en-text">It sits at the intersection of EU agriculture and food-security policy, adaptation strategy, and the next round of loss-and-damage debates.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond">The state of the EU’s climate agenda: into autumn 2026 and beyond</a></h3>
+  <p class="meta">E3G · 2026-09-01</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G把欧盟气候议程放进“独立时刻”与脆弱性政治之中，强调贸易、技术、安全和极端天气正在迫使欧盟把气候政策从单一减排框架转向更广义的战略韧性框架；其核心含义是，若不把工业政策、能源安全和气候目标协调起来，欧盟将难以在秋季政治窗口中维持政策一致性与执行力。</p>
+  <p class="en-text">E3G places the EU climate agenda within a politics of independence and vulnerability, arguing that trade, technology, security, and extreme weather are pushing climate policy beyond a narrow emissions frame toward strategic resilience; the implication is that without aligning industrial policy, energy security, and climate goals, the EU will struggle to sustain coherence and implementation through the autumn window.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇评论直接对应欧盟进入秋季立法和政策协调期的时点，也回应了近年安全与产业压力对气候优先序的挤压。它的时间性不在于新数据，而在于政治排序已经改变。</p>
+  <p class="en-text">The commentary directly targets the EU’s autumn legislative and coordination period, responding to the way security and industrial pressures have crowded the climate agenda. Its timing is political rather than data-driven: the hierarchy of priorities has already shifted.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">它处在欧盟委员会“独立时刻”叙事、成员国竞争性优先序和下一阶段气候实施的交汇点上。</p>
+    <p class="en-text">It sits at the intersection of the Commission’s ‘independence moment’ narrative, member-state priority competition, and the next phase of climate implementation.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期线索都在问同一件事：气候风险上升时，政策是把问题嵌入现有制度，还是推动制度本身重组？</p><p class="en-text">This issue converges on one question: as climate risks intensify, should policy embed the problem into existing institutions or reorganize the institutions themselves?</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1177/13540661251377177">Gatekeeping the Greenland ice sheet: climate change data and the “upstream” production of global governance objects</a></h3>
+  <p class="meta">Lin Alexandra Mortensgaard · 2025-10-22 · European Journal of International Relations</p>
+  <p class="tags"><span class="tag">#国际治理与多边主义</span><span class="tag">#地缘政治与治理</span></p>
+  <p class="reading-text">文章提出“守门”（gatekeeping）概念，强调全球治理对象不是在发表结果时才成形，而是在数据被采集、筛选和初步分析的上游阶段就已被权力关系塑造。作者通过格陵兰冰盖冰芯研究的跨点民族志，说明国家与科学机构如何控制原始气候数据的流动与内容，并把数据主权（data sovereignty）问题前移到知识生产的起点。</p>
+  <p class="en-text">The article develops ‘gatekeeping’ to show that global governance objects are shaped not at the point of published results, but upstream when data are scoped, extracted, and preliminarily analyzed. Through multi-sited ethnography of Greenland ice-core science, the author shows how states and scientific institutions control the flow and content of raw climate data and moves data sovereignty to the start of knowledge production.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">作者采用多点民族志（multi-sited ethnography），结合参与式观察与半结构式访谈，追踪格陵兰、德国和丹麦的冰芯科学实践。</p>
+  <p class="en-text">The author uses multi-sited ethnography, combining participant observation and semi-structured interviews across Greenland, Germany, and Denmark, to trace ice-core science in practice.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期 Carbon Brief 关于英国太阳能纪录高位一文对读：两者都提示，能源与气候治理的关键不只在结果端，更在数据、基础设施和制度门槛如何被提前设定。</p>
+  <p class="en-text">Read alongside this issue’s Carbon Brief piece on UK solar’s record output: both show that energy and climate governance are shaped not only at the results stage, but by how data, infrastructure, and institutional thresholds are set upstream.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>谁控制气候原始数据？ <span class="keywords">(data sovereignty, climate science, gatekeeping, ethnography)</span><br><span class="en-text">Who controls raw climate data in governance settings?</span></li><li>上游知识如何塑造政策？ <span class="keywords">(knowledge production, global governance, institutional power, climate data)</span><br><span class="en-text">How does upstream knowledge production shape policy outcomes?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1177/13540661251377177">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
