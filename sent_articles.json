@@ -161,7 +161,15 @@
     "https://www.theguardian.com/environment/2026/aug/27/bears-killed-13-people-japan-14000-bears",
     "https://www.e3g.org/news/planning-for-resilience/?utm_source=rss&utm_medium=rss&utm_campaign=planning-for-resilience",
     "https://www.e3g.org/news/why-the-clean-energy-transition-needs-information-integrity/?utm_source=rss&utm_medium=rss&utm_campaign=why-the-clean-energy-transition-needs-information-integrity",
-    "https://www.carbonbrief.org/climate-change-exposes-580-million-children-to-20-extra-heat-stress-days-every-year"
+    "https://www.carbonbrief.org/climate-change-exposes-580-million-children-to-20-extra-heat-stress-days-every-year",
+    "https://news.un.org/feed/view/en/story/2026/09/1168283",
+    "https://news.un.org/feed/view/en/story/2026/09/1168265",
+    "https://insideclimatenews.org/news/06092026/agriculture-secretary-brooke-rollins-profits-off-rising-gas-prices/",
+    "https://www.nytimes.com/2026/09/04/business/energy-environment/venezuela-oil-fields-betancourt-trump.html",
+    "https://insideclimatenews.org/news/07092026/maines-race-to-protect-shorelines-as-quarries-expand/",
+    "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
+    "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -272,7 +280,15 @@
     "https://insideclimatenews.org/news/31082026/iceland-rejects-european-union-for-fishing/",
     "https://insideclimatenews.org/news/31082026/philadelphia-refinery-clean-up-bellwether-district/",
     "https://yaleclimateconnections.org/2026/08/se-forma-la-tormenta-tropical-dolly-en-el-atlantico/",
-    "https://www.theguardian.com/environment/2026/aug/27/bears-killed-13-people-japan-14000-bears"
+    "https://www.theguardian.com/environment/2026/aug/27/bears-killed-13-people-japan-14000-bears",
+    "https://news.un.org/feed/view/en/story/2026/09/1168283",
+    "https://news.un.org/feed/view/en/story/2026/09/1168265",
+    "https://insideclimatenews.org/news/06092026/agriculture-secretary-brooke-rollins-profits-off-rising-gas-prices/",
+    "https://www.nytimes.com/2026/09/04/business/energy-environment/venezuela-oil-fields-betancourt-trump.html",
+    "https://insideclimatenews.org/news/07092026/maines-race-to-protect-shorelines-as-quarries-expand/",
+    "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
+    "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -329,7 +345,10 @@
     "https://www.carbonbrief.org/qa-what-is-long-duration-energy-storage-and-why-does-the-uk-need-it",
     "https://www.e3g.org/news/planning-for-resilience/?utm_source=rss&utm_medium=rss&utm_campaign=planning-for-resilience",
     "https://www.e3g.org/news/why-the-clean-energy-transition-needs-information-integrity/?utm_source=rss&utm_medium=rss&utm_campaign=why-the-clean-energy-transition-needs-information-integrity",
-    "https://www.carbonbrief.org/climate-change-exposes-580-million-children-to-20-extra-heat-stress-days-every-year"
+    "https://www.carbonbrief.org/climate-change-exposes-580-million-children-to-20-extra-heat-stress-days-every-year",
+    "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
+    "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -347,7 +366,8 @@
     "10.1162/glep.e.783",
     "10.1163/19426720-03104001",
     "10.1177/1354066117725157",
-    "10.1162/glep.2009.9.1.58"
+    "10.1162/glep.2009.9.1.58",
+    "10.1177/13540661251377177"
   ],
   "classic_reading_history": [
     {
@@ -468,7 +488,13 @@
         "10.1177/1354066117725157",
         "10.1162/glep.2009.9.1.58"
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "dois": [
+        "10.1177/13540661251377177"
+      ]
     }
   ],
-  "last_updated": "2026-08-31"
+  "last_updated": "2026-09-07"
 }
