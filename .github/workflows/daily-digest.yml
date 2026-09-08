@@ -75,13 +75,20 @@ jobs:
             python -m sdg_digest.cli --lookback-days "$LOOKBACK_DAYS" --dry-run
           fi
 
+      - name: Generate editorial hero image
+        if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python -m sdg_digest.hero_image
+
       - name: Commit archive
         if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
         run: |
           python -m sdg_digest.website
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add archive docs
+          git add archive docs website_assets/issues
           git diff --cached --quiet || git commit -m "Archive SDG Weekly Compass for $(date -u +%F)"
           git push
 
