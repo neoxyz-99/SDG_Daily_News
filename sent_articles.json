@@ -169,7 +169,14 @@
     "https://insideclimatenews.org/news/07092026/maines-race-to-protect-shorelines-as-quarries-expand/",
     "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
     "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
-    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond",
+    "https://www.theguardian.com/us-news/2026/sep/14/midterm-candidates-climate-datacenter-policies",
+    "https://www.nytimes.com/2026/09/14/climate/global-warming-limit-paris-climate-agreement.html",
+    "https://www.nytimes.com/2026/09/14/business/energy-environment/trump-diesel-russia-ukraine-iran.html",
+    "https://yaleclimateconnections.org/2026/09/earth-just-had-its-hottest-august-on-record/",
+    "https://www.carbonbrief.org/el-nino-indonesia-fire-emissions-in-2026-on-track-to-match-record-for-this-century",
+    "https://www.carbonbrief.org/factcheck-reform-uks-45-false-or-misleading-claims-about-climate-and-energy",
+    "https://www.e3g.org/news/climate-and-the-task-for-leaders-at-unga81/?utm_source=rss&utm_medium=rss&utm_campaign=climate-and-the-task-for-leaders-at-unga81"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -288,7 +295,12 @@
     "https://insideclimatenews.org/news/07092026/maines-race-to-protect-shorelines-as-quarries-expand/",
     "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
     "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
-    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond",
+    "https://www.theguardian.com/us-news/2026/sep/14/midterm-candidates-climate-datacenter-policies",
+    "https://www.nytimes.com/2026/09/14/climate/global-warming-limit-paris-climate-agreement.html",
+    "https://www.nytimes.com/2026/09/14/business/energy-environment/trump-diesel-russia-ukraine-iran.html",
+    "https://yaleclimateconnections.org/2026/09/earth-just-had-its-hottest-august-on-record/",
+    "https://www.carbonbrief.org/el-nino-indonesia-fire-emissions-in-2026-on-track-to-match-record-for-this-century"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -348,7 +360,10 @@
     "https://www.carbonbrief.org/climate-change-exposes-580-million-children-to-20-extra-heat-stress-days-every-year",
     "https://www.carbonbrief.org/analysis-uk-solar-power-hits-record-high-over-summer-2026",
     "https://www.carbonbrief.org/how-this-summers-heat-and-drought-impacted-crops-in-europe-in-six-charts",
-    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond"
+    "https://www.e3g.org/news/the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond/?utm_source=rss&utm_medium=rss&utm_campaign=the-state-of-the-eu-s-climate-agenda-into-autumn-2026-and-beyond",
+    "https://www.carbonbrief.org/factcheck-reform-uks-45-false-or-misleading-claims-about-climate-and-energy",
+    "https://www.e3g.org/news/climate-and-the-task-for-leaders-at-unga81/?utm_source=rss&utm_medium=rss&utm_campaign=climate-and-the-task-for-leaders-at-unga81",
+    "https://www.carbonbrief.org/el-nino-indonesia-fire-emissions-in-2026-on-track-to-match-record-for-this-century"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -367,7 +382,9 @@
     "10.1163/19426720-03104001",
     "10.1177/1354066117725157",
     "10.1162/glep.2009.9.1.58",
-    "10.1177/13540661251377177"
+    "10.1177/13540661251377177",
+    "10.1163/19426720-02601006",
+    "10.1162/glep.2007.7.2.11"
   ],
   "classic_reading_history": [
     {
@@ -494,7 +511,14 @@
       "dois": [
         "10.1177/13540661251377177"
       ]
+    },
+    {
+      "date": "2026-09-14",
+      "dois": [
+        "10.1163/19426720-02601006",
+        "10.1162/glep.2007.7.2.11"
+      ]
     }
   ],
-  "last_updated": "2026-09-07"
+  "last_updated": "2026-09-14"
 }
