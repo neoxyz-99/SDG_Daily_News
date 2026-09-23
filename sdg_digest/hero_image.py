@@ -10,6 +10,8 @@ from typing import Callable
 
 import requests
 
+from .image_validation import validate_jpeg
+
 
 IMAGE_API_URL = "https://api.openai.com/v1/images/generations"
 DEFAULT_MODEL = "gpt-image-2"
@@ -151,12 +153,15 @@ def request_image(
         image_bytes = base64.b64decode(encoded, validate=True)
     except (KeyError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
         raise HeroImageError("Image API response did not contain valid base64 image data") from exc
-    if len(image_bytes) < 4 or not image_bytes.startswith(b"\xff\xd8\xff"):
-        raise HeroImageError("Image API response was not a valid JPEG")
+    try:
+        validate_jpeg(image_bytes)
+    except ValueError as exc:
+        raise HeroImageError("Image API response was not a valid JPEG") from exc
     return image_bytes
 
 
 def write_image_atomic(destination: Path, image_bytes: bytes) -> None:
+    validate_jpeg(image_bytes)
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix(destination.suffix + ".tmp")
     temporary.write_bytes(image_bytes)
@@ -176,7 +181,11 @@ def generate_issue_image(
 ) -> Path:
     destination = output_dir / f"{issue_date}.jpg"
     if destination.exists() and not force:
-        return destination
+        try:
+            validate_jpeg(destination.read_bytes())
+            return destination
+        except ValueError:
+            print(f"Replacing invalid artwork for {issue_date}")
     digest = load_digest(archive_dir, issue_date)
     image_bytes = request_image(
         build_editorial_prompt(digest),

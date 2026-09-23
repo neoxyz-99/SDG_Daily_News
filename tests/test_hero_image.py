@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import base64
 import json
+from io import BytesIO
 from pathlib import Path
 import tempfile
 import unittest
+from PIL import Image
 
 from sdg_digest.hero_image import (
     HeroImageError,
@@ -15,7 +17,9 @@ from sdg_digest.hero_image import (
 )
 
 
-JPEG_BYTES = b"\xff\xd8\xff\xe0test-jpeg"
+_jpeg = BytesIO()
+Image.new("RGB", (16, 9), "olive").save(_jpeg, format="JPEG")
+JPEG_BYTES = _jpeg.getvalue()
 
 
 class FakeResponse:
@@ -29,6 +33,11 @@ class FakeResponse:
 
 
 class HeroImageTests(unittest.TestCase):
+    def test_corrupt_image_with_jpeg_header_is_rejected(self) -> None:
+        invalid = base64.b64encode(b"\xff\xd8\xff\xe0test-jpeg").decode()
+        with self.assertRaisesRegex(HeroImageError, "valid JPEG"):
+            request_image("prompt", "secret", post=lambda *a, **kw: FakeResponse(200, {"data": [{"b64_json": invalid}]}))
+
     def test_latest_issue_and_prompt_use_english_editorial_content(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             archive = Path(temporary)
@@ -88,6 +97,10 @@ class HeroImageTests(unittest.TestCase):
             self.assertEqual(destination.read_bytes(), JPEG_BYTES)
             generate_issue_image(archive, output, "2026-09-07", "secret", post=post)
             self.assertEqual(calls, 1)
+            destination.write_bytes(b"invalid existing image")
+            generate_issue_image(archive, output, "2026-09-07", "secret", post=post)
+            self.assertEqual(calls, 2)
+            self.assertEqual(destination.read_bytes(), JPEG_BYTES)
 
     def test_non_transient_api_error_does_not_retry(self) -> None:
         calls = 0

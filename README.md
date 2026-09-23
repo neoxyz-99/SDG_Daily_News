@@ -60,7 +60,7 @@ python -m sdg_digest.website
 
 This writes a static site to `docs/`, including the latest issue, four previous issues, topic filters, full-text search, editorial-method notes, and copyright/source information. GitHub Pages should be configured to publish the `docs/` folder from the default branch. Scheduled production runs rebuild and commit the site only after a digest has been successfully archived, so the last known-good version remains available if generation fails.
 
-Optional original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`. When a dated image is present, it is copied into the public site and used on the home, archive, and issue pages; missing artwork is hidden without blocking publication.
+Original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`. The latest issue must have a decodable JPEG before publication, and existing artwork is validated before replacing the site. Failed image generation or invalid artwork stops publication while preserving the previous site. Older issues that predate artwork support can still omit an image.
 
 ## Pipeline Logic
 
@@ -72,13 +72,15 @@ Optional original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`.
 - Stage 2 uses semantic relevance scoring, not lexical topic matching. The filter model returns `score`, `domain`, and `reason`; items with score `2` pass, and score `1` items are kept if fewer than five items pass at score `2`.
 - The semantic `domain` becomes an article classification tag, such as `#国际治理与多边主义`, `#发展与不平等`, `#环境治理与气候`, `#可持续金融与ESG`, or `#地缘政治与治理`.
 - Tags are assigned after selection for archive classification only.
+- Articles appear only once per issue: research signals take precedence over duplicate recent-news briefs, including when rebuilding historical website pages.
+- In production, curated seed citations must match Crossref DOI metadata (title, journal, authors, and year); mismatches and unavailable records are excluded. Only offline `--skip-openai --dry-run` previews use local seeds without live verification.
 - News items are generated as editorial analysis: core argument, why now, agenda position, and post-selection tags.
 - The daily editorial note is generated only when at least two news items are selected. It raises a core tension or open question rather than summarizing the issue.
 - A weekly thread is generated only when at least two selected news items share a related agenda line.
 - The paper-reading section uses one open candidate pool. Each run searches approved journals twice: a recent-publication window finds new work, while a topic query across older issues finds relevant classics. Both are screened against that week's agenda and enter the same selection process.
 - Each issue publishes at most two paper readings; it may publish only one or none when the available papers do not fit the week's agenda well enough.
 - Previously sent paper DOIs are never reused to fill the section. If the unused pool is exhausted, the issue publishes no repeated paper.
-- `bibliography.yml` contains seven human-checked seed examples. They improve fallback quality and demonstrate the desired editorial depth, but they are not the boundary of the search and receive no automatic preference over dynamically traced papers.
+- `bibliography.yml` contains seven curated seed examples whose citation metadata is checked against Crossref before production use. They improve fallback quality and demonstrate the desired editorial depth, but they are not the boundary of the search and receive no automatic preference over dynamically traced papers.
 
 ## Notes
 

@@ -60,47 +60,45 @@
   ],
   "readings": [
     {
-      "title": "Climate Change and the Global South",
-      "authors": "Saleemul Huq and Hannah Reid",
+      "title": "Mainstreaming adaptation to climate change in Least Developed Countries (LDCs)",
+      "authors": "Saleemul Huq, Hannah Reid, Mama Konate, Atiq Rahman, Youba Sokona and Florence Crick",
       "year": 2004,
-      "url": "https://doi.org/10.1080/14693062.2004.9685516",
-      "note_zh": "Huq 与 Reid 将气候变化重新放回发展政治经济中，指出全球南方的脆弱性并不只是自然暴露程度更高，而是由贫困、基础设施不足、农业依赖、财政能力有限和历史排放责任不对称共同塑造。文章反对把气候政策窄化为减排技术问题，强调适应、减贫、能力建设和国际资金支持必须同时进入政策设计。它的分析贡献在于说明气候风险的分布本身就是发展不平等的结果，因此评估气候金融或适应项目时，不能只看项目数量，还要看其是否改变脆弱性的制度根源。",
-      "note_en": "Huq and Reid reinsert climate change into the political economy of development. They argue that vulnerability in the Global South is produced not only by exposure to climate hazards, but also by poverty, weak infrastructure, agricultural dependence, limited fiscal capacity, and unequal historical responsibility. The article challenges approaches that narrow climate policy to emissions technology and insists that adaptation, poverty reduction, capacity building, and international support must be designed together. It helps readers evaluate climate finance and adaptation projects by asking whether they address the institutional roots of vulnerability rather than only the number of projects funded.",
+      "url": "https://doi.org/10.1080/14693062.2004.9685508",
+      "note_zh": "Huq 等人以孟加拉国和马里为例，讨论气候适应为何尚未充分进入最不发达国家的日常政策过程。两国已经积累了灾害应对、水资源管理和农业气象服务经验，但识别出适应措施并不等于将其纳入国家决策。文章强调，需要直接面向政策制定者，将科学研究转化为适合政策使用的语言与时间尺度。",
+      "note_en": "Huq and colleagues examine why adaptation remains weakly integrated into national policy in least developed countries. Drawing on Bangladesh and Mali, they describe existing disaster-response, water-management, and agricultural weather services, while identifying a gap between practical adaptation options and routine policymaking. Their recommendation is to engage policymakers and translate scientific findings into language and timescales that fit policy decisions.",
       "journal": "Climate Policy",
-      "doi": "10.1080/14693062.2004.9685516",
-      "methodology_zh": "文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。",
+      "doi": "10.1080/14693062.2004.9685508",
+      "methodology_zh": "文章围绕孟加拉国与马里的适应实践展开政策讨论；摘要说明了适应措施与政策整合障碍，未交代因果效应估计设计。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The article uses policy synthesis and vulnerability analysis. It is useful for framing development constraints, but it does not attempt single-variable causal identification.",
+      "method_en": "A policy discussion based on Bangladesh and Mali; the abstract describes adaptation practices and barriers to policy integration, without specifying a causal estimation design.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "可与本期《Nepal’s Gen Z Is Taking on the World’s Polluters Over Climate Disasters》一起读，理解全球南方如何把损失与损害、适应与责任重新绑定。",
-      "today_connection_en": "Read alongside this issue’s “Nepal’s Gen Z Is Taking on the World’s Polluters Over Climate Disasters” to see how the Global South is re-linking loss and damage, adaptation, and responsibility.",
+      "today_connection_zh": "结合本期尼泊尔气候灾害索赔报道，可进一步追问：国际层面对脆弱性的关注如何转化为国家政策中的适应行动？这篇论文并不研究损失与损害赔偿。",
+      "today_connection_en": "Alongside this issue’s report on Nepal’s climate-disaster claims, this paper raises a related question: how can international attention to vulnerability translate into adaptation within national policy? It does not examine loss-and-damage compensation.",
       "research_directions": [
         {
-          "question_zh": "脆弱性如何进入融资设计？",
+          "question_zh": "适应措施如何进入国家政策？",
           "keywords": [
-            "climate finance",
-            "vulnerability",
-            "adaptation",
-            "distributional justice"
+            "adaptation mainstreaming",
+            "national policy",
+            "least developed countries"
           ],
-          "question_en": "How does vulnerability enter finance design?"
+          "question_en": "How do adaptation measures enter national policy?"
         },
         {
-          "question_zh": "责任分配如何影响赔付？",
+          "question_zh": "气候研究如何适配政策时间表？",
           "keywords": [
-            "loss and damage",
-            "global south",
-            "equity",
-            "reparations"
+            "science-policy interface",
+            "adaptation",
+            "policy timing"
           ],
-          "question_en": "How does responsibility allocation shape compensation?"
+          "question_en": "How can climate research fit policy timescales?"
         }
       ],
       "tags": [
@@ -108,7 +106,7 @@
         "#发展不平等"
       ],
       "kind": "journal article",
-      "published_date": "",
+      "published_date": "2004",
       "abstract_en": "",
       "discovery_score": 0.0
     },
@@ -235,28 +233,6 @@
       "tags": [
         "#环境治理与气候"
       ]
-    },
-    {
-      "title_en": "Analysis: India’s power-sector emissions flat for two years due to clean-energy surge",
-      "source_org": "Carbon Brief",
-      "published_date": "2026-09-16",
-      "url": "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
-      "one_sentence_zh": "印度电力部门两年排放持平，说明可再生能源增量已能对冲电力需求增长。",
-      "one_sentence_en": "India’s power-sector emissions have flattened for two years, suggesting clean-energy additions can now offset electricity demand growth.",
-      "tags": [
-        "#环境治理与气候"
-      ]
-    },
-    {
-      "title_en": "Analysis: ‘Super El Niño’ reaches ‘remarkable’ all-time record",
-      "source_org": "Carbon Brief",
-      "published_date": "2026-09-21",
-      "url": "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record",
-      "one_sentence_zh": "当前厄尔尼诺已逼近历史纪录，意味着季节性天气扰动可能进一步放大。",
-      "one_sentence_en": "The current El Niño is nearing record levels, implying a stronger amplification of seasonal weather disruptions.",
-      "tags": [
-        "#环境治理与气候"
-      ]
     }
   ],
   "research_signals": [
@@ -317,47 +293,45 @@
   ],
   "classic_readings": [
     {
-      "title": "Climate Change and the Global South",
-      "authors": "Saleemul Huq and Hannah Reid",
+      "title": "Mainstreaming adaptation to climate change in Least Developed Countries (LDCs)",
+      "authors": "Saleemul Huq, Hannah Reid, Mama Konate, Atiq Rahman, Youba Sokona and Florence Crick",
       "year": 2004,
-      "url": "https://doi.org/10.1080/14693062.2004.9685516",
-      "note_zh": "Huq 与 Reid 将气候变化重新放回发展政治经济中，指出全球南方的脆弱性并不只是自然暴露程度更高，而是由贫困、基础设施不足、农业依赖、财政能力有限和历史排放责任不对称共同塑造。文章反对把气候政策窄化为减排技术问题，强调适应、减贫、能力建设和国际资金支持必须同时进入政策设计。它的分析贡献在于说明气候风险的分布本身就是发展不平等的结果，因此评估气候金融或适应项目时，不能只看项目数量，还要看其是否改变脆弱性的制度根源。",
-      "note_en": "Huq and Reid reinsert climate change into the political economy of development. They argue that vulnerability in the Global South is produced not only by exposure to climate hazards, but also by poverty, weak infrastructure, agricultural dependence, limited fiscal capacity, and unequal historical responsibility. The article challenges approaches that narrow climate policy to emissions technology and insists that adaptation, poverty reduction, capacity building, and international support must be designed together. It helps readers evaluate climate finance and adaptation projects by asking whether they address the institutional roots of vulnerability rather than only the number of projects funded.",
+      "url": "https://doi.org/10.1080/14693062.2004.9685508",
+      "note_zh": "Huq 等人以孟加拉国和马里为例，讨论气候适应为何尚未充分进入最不发达国家的日常政策过程。两国已经积累了灾害应对、水资源管理和农业气象服务经验，但识别出适应措施并不等于将其纳入国家决策。文章强调，需要直接面向政策制定者，将科学研究转化为适合政策使用的语言与时间尺度。",
+      "note_en": "Huq and colleagues examine why adaptation remains weakly integrated into national policy in least developed countries. Drawing on Bangladesh and Mali, they describe existing disaster-response, water-management, and agricultural weather services, while identifying a gap between practical adaptation options and routine policymaking. Their recommendation is to engage policymakers and translate scientific findings into language and timescales that fit policy decisions.",
       "journal": "Climate Policy",
-      "doi": "10.1080/14693062.2004.9685516",
-      "methodology_zh": "文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。",
+      "doi": "10.1080/14693062.2004.9685508",
+      "methodology_zh": "文章围绕孟加拉国与马里的适应实践展开政策讨论；摘要说明了适应措施与政策整合障碍，未交代因果效应估计设计。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The article uses policy synthesis and vulnerability analysis. It is useful for framing development constraints, but it does not attempt single-variable causal identification.",
+      "method_en": "A policy discussion based on Bangladesh and Mali; the abstract describes adaptation practices and barriers to policy integration, without specifying a causal estimation design.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "可与本期《Nepal’s Gen Z Is Taking on the World’s Polluters Over Climate Disasters》一起读，理解全球南方如何把损失与损害、适应与责任重新绑定。",
-      "today_connection_en": "Read alongside this issue’s “Nepal’s Gen Z Is Taking on the World’s Polluters Over Climate Disasters” to see how the Global South is re-linking loss and damage, adaptation, and responsibility.",
+      "today_connection_zh": "结合本期尼泊尔气候灾害索赔报道，可进一步追问：国际层面对脆弱性的关注如何转化为国家政策中的适应行动？这篇论文并不研究损失与损害赔偿。",
+      "today_connection_en": "Alongside this issue’s report on Nepal’s climate-disaster claims, this paper raises a related question: how can international attention to vulnerability translate into adaptation within national policy? It does not examine loss-and-damage compensation.",
       "research_directions": [
         {
-          "question_zh": "脆弱性如何进入融资设计？",
+          "question_zh": "适应措施如何进入国家政策？",
           "keywords": [
-            "climate finance",
-            "vulnerability",
-            "adaptation",
-            "distributional justice"
+            "adaptation mainstreaming",
+            "national policy",
+            "least developed countries"
           ],
-          "question_en": "How does vulnerability enter finance design?"
+          "question_en": "How do adaptation measures enter national policy?"
         },
         {
-          "question_zh": "责任分配如何影响赔付？",
+          "question_zh": "气候研究如何适配政策时间表？",
           "keywords": [
-            "loss and damage",
-            "global south",
-            "equity",
-            "reparations"
+            "science-policy interface",
+            "adaptation",
+            "policy timing"
           ],
-          "question_en": "How does responsibility allocation shape compensation?"
+          "question_en": "How can climate research fit policy timescales?"
         }
       ],
       "tags": [
@@ -365,7 +339,7 @@
         "#发展不平等"
       ],
       "kind": "journal article",
-      "published_date": "",
+      "published_date": "2004",
       "abstract_en": "",
       "discovery_score": 0.0
     },

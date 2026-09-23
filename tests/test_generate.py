@@ -11,6 +11,25 @@ from sdg_digest.models import Candidate, DeepRead
 
 
 class GenerateTests(unittest.TestCase):
+    def test_duplicate_news_keeps_detailed_signal_only(self) -> None:
+        candidate = _candidate()
+        payload = _payload(candidate)
+        payload["items"] *= 2
+        payload["recent_news"] = [dict(title_en=candidate.title, source_org=candidate.source_org,
+            published_date=candidate.published_date, url=candidate.url,
+            one_sentence_zh="这是一条重复简讯。", one_sentence_en="A duplicate brief.")]
+        digest = validate_digest_payload(payload, [candidate], {}, date(2026, 9, 21))
+        self.assertEqual(len(digest.research_signals), 1)
+        self.assertEqual(digest.recent_news, [])
+        self.assertEqual(digest.overview_en, "")
+
+    def test_fallback_deduplicates_across_candidate_layers(self) -> None:
+        research = _candidate()
+        news = replace(research, layer="news", url=research.url + "/?utm_source=email#story")
+        digest = fallback_digest([news, research], {}, date(2026, 9, 21))
+        self.assertEqual(len(digest.research_signals), 1)
+        self.assertEqual(digest.recent_news, [])
+
     def test_generate_requires_openai_key_when_not_skipping(self) -> None:
         candidate = _candidate()
         original_key = os.environ.pop("OPENAI_API_KEY", None)

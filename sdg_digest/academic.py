@@ -5,6 +5,7 @@ import json
 import os
 import re
 import time
+import unicodedata
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import replace
@@ -116,6 +117,41 @@ def collect_academic_readings(
     return unique
 
 
+def _metadata_key(text: str) -> str:
+    return "".join(char for char in unicodedata.normalize("NFKD", html.unescape(text)).casefold() if char.isalnum())
+
+
+def verify_curated_readings(samples: dict[str, list[DeepRead]]) -> dict[str, list[DeepRead]]:
+    """Fail closed for seed citations whose DOI metadata cannot be confirmed."""
+    verified: dict[str, list[DeepRead]] = {}
+    cache: dict[str, dict] = {}
+    for tag, readings in samples.items():
+        verified[tag] = []
+        for reading in readings:
+            doi = _doi_key(reading.doi)
+            try:
+                if not doi:
+                    raise ValueError("missing DOI")
+                if doi not in cache:
+                    time.sleep(CROSSREF_REQUEST_DELAY_SECONDS)
+                    cache[doi] = json.loads(fetch_text(f"{CROSSREF_API}/works/{quote(doi, safe='')}"))["message"]
+                work = cache[doi]
+                title_matches = _metadata_key(reading.title) in {_metadata_key(t) for t in work.get("title", [])}
+                journal_matches = _metadata_key(reading.journal) in {_metadata_key(t) for t in work.get("container-title", [])}
+                author_names = [_metadata_key(a.get("family", "")) for a in work.get("author", [])]
+                authors_match = bool(author_names) and all(name and name in _metadata_key(reading.authors) for name in author_names)
+                years = {parts[0] for key in ("published", "published-print", "published-online", "issued")
+                         for parts in work.get(key, {}).get("date-parts", []) if parts}
+                if not (title_matches and journal_matches and authors_match and reading.year in years
+                        and _doi_key(work.get("DOI", "")) == doi):
+                    raise ValueError("DOI metadata does not match title, journal, authors, or year")
+            except Exception as exc:
+                print(f"Warning: excluded unverified curated reading {reading.title}: {exc}")
+                continue
+            verified[tag].append(replace(reading, url=f"https://doi.org/{doi}"))
+    return verified
+
+
 def combine_academic_pool(
     tracked: list[DeepRead],
     samples: dict[str, list[DeepRead]],
@@ -133,7 +169,7 @@ def combine_academic_pool(
         identifier = _doi_key(reading.doi or reading.url)
         traced_dois.add(identifier)
         sample = sample_by_doi.get(identifier)
-        if sample:
+        if sample and _metadata_key(sample.title) == _metadata_key(reading.title) and _metadata_key(sample.journal) == _metadata_key(reading.journal):
             combined_tracked.append(
                 replace(
                     sample,

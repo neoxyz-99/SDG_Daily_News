@@ -77,7 +77,6 @@ jobs:
 
       - name: Generate editorial hero image
         if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
-        continue-on-error: true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python -m sdg_digest.hero_image

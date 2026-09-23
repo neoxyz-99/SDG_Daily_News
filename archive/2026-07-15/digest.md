@@ -138,7 +138,7 @@ Original: https://www.carbonbrief.org/cropped-15-july-2026-uganda-starves-trump-
 
 Several items ask the same question: as infrastructure and resource constraints tighten, how should public governance reorder investment mobilization, distributive justice, and local or Indigenous rights?
 
-## 经典研读 / Classic Reading
+## 论文研读 / Research Reading
 
 ### International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order
 
@@ -197,32 +197,3 @@ The Chesapeake Bay delay over tribal signatories shows that the institutional pl
   How can anticipatory relocation be institutionalized?
 
 DOI / 原文链接: https://doi.org/10.1162/glep.2010.10.1.60
-
-### Climate Change and the Global South
-
-Saleemul Huq and Hannah Reid · 2004 · Climate Policy
-
-#Global South #发展不平等
-
-Huq 与 Reid 将气候变化重新放回发展政治经济中，指出全球南方的脆弱性并不只是自然暴露程度更高，而是由贫困、基础设施不足、农业依赖、财政能力有限和历史排放责任不对称共同塑造。文章反对把气候政策窄化为减排技术问题，强调适应、减贫、能力建设和国际资金支持必须同时进入政策设计。它的分析贡献在于说明气候风险的分布本身就是发展不平等的结果，因此评估气候金融或适应项目时，不能只看项目数量，还要看其是否改变脆弱性的制度根源。
-
-Huq and Reid reinsert climate change into the political economy of development. They argue that vulnerability in the Global South is produced not only by exposure to climate hazards, but also by poverty, weak infrastructure, agricultural dependence, limited fiscal capacity, and unequal historical responsibility. The article challenges approaches that narrow climate policy to emissions technology and insists that adaptation, poverty reduction, capacity building, and international support must be designed together. It helps readers evaluate climate finance and adaptation projects by asking whether they address the institutional roots of vulnerability rather than only the number of projects funded.
-
-**方法论 / Methodology**
-
-文章采用政策综述和脆弱性分析方法，将气候影响与发展约束、适应能力和国际支持联系起来。它适合建立问题框架，但不追求单一变量的严格因果识别。
-
-**今日关联 / Today's Connection**
-
-数据中心带来的电价外部性和美国南部空气污染负担都说明，气候与能源转型成本往往落在更弱势地区；这正是全球南方脆弱性分析的当代延伸。
-
-Data-center cost spillovers and air-pollution burdens in the U.S. South show that climate and energy-transition costs often land on weaker regions, extending the logic of Global South vulnerability analysis.
-
-**研究方向 / Research Directions**
-
-- 转型成本如何分配？ (distributional justice, energy transition, vulnerability, regional inequality)
-  How are transition costs distributed?
-- 脆弱性如何制度化评估？ (vulnerability assessment, development policy, adaptation, capacity building)
-  How can vulnerability be institutionalized in assessment?
-
-DOI / 原文链接: https://doi.org/10.1080/14693062.2004.9685516

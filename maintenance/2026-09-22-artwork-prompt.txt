@@ -1,0 +1,11 @@
+Generation mode: built-in image_gen; JPEG encoding for website delivery.
+Asset: website_assets/issues/2026-09-07.jpg
+
+Use case: photorealistic-natural
+Asset type: editorial hero image for SDG Weekly Compass, issue September 7, 2026.
+Primary request: Create an original sophisticated magazine photograph interpreting the question: technical fixes and governance reforms are accelerating, but who bears the costs of climate disruption? Issue themes: record UK solar generation, European crops under heat and drought, and the EU climate-policy agenda.
+Scene: a coherent contemporary European rural landscape in late summer, a drought-stressed cultivated field in the foreground, orderly photovoltaic panels on adjacent farmland in the middle distance, and a small rural settlement further away. Two anonymous agricultural workers inspect crops near the field boundary, small within the landscape, natural unposed activity. No disaster spectacle. Do not purport to document an actual event.
+Composition: wide 16:9 landscape, layered depth, credible scale, strong visual hierarchy, suitable for a restrained climate policy journal website.
+Lighting: clear soft late-afternoon natural light, thoughtful and serious but not apocalyptic.
+Palette: muted olive greens, dry earth, pale blue sky, charcoal solar panels; real textures and subtle photographic grain.
+Constraints: no text, no lettering, no logos, no flags, no watermark, no collage, no identifiable public figures, no exaggerated cracks, no futuristic objects. Deliver one finished image.

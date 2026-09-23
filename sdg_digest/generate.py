@@ -8,6 +8,7 @@ from dataclasses import replace
 from datetime import date
 from typing import Any
 
+from .dedup import unique_articles
 from .http import post_json
 from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm, NewsBrief, ResearchDirection
 
@@ -322,6 +323,7 @@ def _call_openai(
             "Return a JSON object that follows the schema.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
             "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use academic-reading DOI links, paper URLs, or invented URLs as news/research item URLs.",
+            "Do not repeat the same article within or across recent_news and research_signals. When an article warrants analysis, include it only in research_signals.",
             "Source diversity is an editorial priority. Within recent_news and within research_signals, select from as many different source_org values as possible. If alternatives exist, do not select more than 2 items from the same source_org in the same module.",
             "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize. weekly_editorial_note_en should carry the same meaning in one concise English sentence.",
             "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
@@ -620,6 +622,8 @@ def validate_digest_payload(
         )
         research_source_counts[source_org] = research_source_counts.get(source_org, 0) + 1
 
+    research_signals = unique_articles(research_signals)
+    recent_news = unique_articles(recent_news, excluded=research_signals)
     readings = _validate_readings(payload, approved_reads)
     editorial_note = _optional_text(payload.get("weekly_editorial_note_zh", payload.get("daily_editorial_note_zh")))
     editorial_note_en = _optional_text(payload.get("weekly_editorial_note_en"))
@@ -695,6 +699,8 @@ def fallback_digest(
         for candidate in research_candidates[:max_research_signals]
     ]
     readings = _fallback_readings(candidates, bibliography)
+    research_signals = unique_articles(research_signals)
+    recent_news = unique_articles(recent_news, excluded=research_signals)
     return Digest(
         digest_date=run_date,
         subject=f"{NEWSLETTER_NAME} - Week of {run_date.isoformat()}",

@@ -63,11 +63,11 @@ main { min-height: 60vh; }
 .source-line { margin: 8px 0 12px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .original-link { display: inline-block; margin-top: 10px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
 .original-link:hover { text-decoration: underline; }
-.signals-section { background: #183b32; color: #f4f6f1; margin-inline: calc(50% - 50vw); padding-inline: max(18px, calc((100vw - min(1400px, calc(100vw - 36px))) / 2)); }
-.signals-section .section-heading > p, .signals-section .section-heading span, .signals-section .source-line { color: #aebdb7; }
-.signals-section .section-heading > div { border-color: #f2ede3; }
+.signals-section { background: var(--paper); color: var(--ink); }
+.signals-section .section-heading > p, .signals-section .section-heading span, .signals-section .source-line { color: var(--muted); }
+.signals-section .section-heading > div { border-color: var(--ink); }
 .signals-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.signal-card { background: #f6f7f3; color: var(--ink); padding: clamp(24px, 3vw, 42px); border-radius: 4px; }
+.signal-card { background: var(--paper-deep); color: var(--ink); padding: clamp(22px, 2.5vw, 34px); border-top: 3px solid var(--gold); }
 .signal-card h3 { font-size: clamp(28px, 3vw, 42px); }
 .analysis-block { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
 .analysis-block h4, .today-connection h4 { margin: 0 0 7px; color: var(--red); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
@@ -110,7 +110,7 @@ main { min-height: 60vh; }
 .rule-and-topics > span { border-top: 1px solid var(--ink); }
 .longform-layout { display: grid; grid-template-columns: 184px minmax(0, 1fr); gap: clamp(28px, 3.6vw, 58px); align-items: start; min-width: 0; }
 .longform-content { min-width: 0; }
-.longform-content .signals-section { width: 100%; margin-inline: 0; padding-inline: clamp(24px, 3vw, 44px); overflow: hidden; }
+.longform-content .signals-section { width: 100%; margin-inline: 0; padding-inline: 0; }
 .longform-content [id] { scroll-margin-top: 20px; }
 .issue-rail { position: sticky; z-index: 2; top: 20px; display: grid; gap: 28px; margin-top: 72px; padding: 16px 14px 14px 0; border-top: 4px solid var(--ink); background: var(--paper); overflow: hidden; }
 .issue-rail nav { display: grid; }

@@ -5,7 +5,7 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
-from .academic import collect_academic_readings, combine_academic_pool
+from .academic import collect_academic_readings, combine_academic_pool, verify_curated_readings
 from .archive import write_archive
 from .collect import CollectionStats, collect_candidates, deduplicate_candidates, rank_candidates
 from .config import load_bibliography, load_sources
@@ -93,6 +93,8 @@ def main() -> None:
         run_date,
         lookback_days=args.academic_lookback_days,
     )
+    if not (args.skip_openai and args.dry_run):
+        sample_readings = verify_curated_readings(sample_readings)
     academic_pool = combine_academic_pool(tracked_readings, sample_readings)
     digest = generate_digest(
         selected,

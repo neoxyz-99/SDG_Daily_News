@@ -10,6 +10,10 @@ from pathlib import Path
 from urllib.parse import quote
 
 
+from .dedup import unique_articles
+from .image_validation import validate_jpeg
+
+
 SITE_NAME = "SDG Weekly Compass"
 CONTACT_EMAIL = "xli91132@gmail.com"
 SITE_URL = "https://neoxyz-99.github.io/SDG_Daily_News"
@@ -174,6 +178,8 @@ def normalize_digest(raw: dict) -> PublicIssue:
         for item in [_signal_item(issue_date, row, index)]
         if item.title and item.paragraphs
     )
+    signals = tuple(unique_articles(signals))
+    news = tuple(unique_articles(news, excluded=signals))
     readings = tuple(
         item
         for index, row in enumerate(reading_rows[:MAX_READINGS_PER_ISSUE])
@@ -447,6 +453,13 @@ def _search_index(issues: list[PublicIssue]) -> list[dict[str, object]]:
 
 def build_site(archive_dir: Path, output_dir: Path, assets_dir: Path) -> list[PublicIssue]:
     issues = load_public_issues(archive_dir)
+    if not (assets_dir / "issues" / f"{issues[0].date}.jpg").is_file():
+        raise RuntimeError(f"Cannot publish latest issue without artwork: {issues[0].date}")
+    for artwork in (assets_dir / "issues").glob("*.jpg"):
+        try:
+            validate_jpeg(artwork.read_bytes())
+        except ValueError as exc:
+            raise RuntimeError(f"Cannot publish invalid artwork: {artwork.name}") from exc
     staging_dir = output_dir.parent / f".{output_dir.name}-building"
     if staging_dir.exists():
         shutil.rmtree(staging_dir)

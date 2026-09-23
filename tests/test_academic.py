@@ -1,16 +1,36 @@
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from datetime import date
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 
-from sdg_digest.academic import _fetch_crossref_works, collect_academic_readings, combine_academic_pool
+from sdg_digest.academic import _fetch_crossref_works, collect_academic_readings, combine_academic_pool, verify_curated_readings
 from sdg_digest.models import Candidate, DeepRead, Source
 
 
 class AcademicTracingTests(unittest.TestCase):
+    def test_curated_doi_must_match_citation_and_fail_closed(self) -> None:
+        sample = DeepRead(title="Verified title", authors="Alex Scholar", year=2004,
+            journal="International Organization", doi="10.1000/verified", url="https://wrong.example")
+        work = _work(sample.doi, sample.title, [2004, 1, 1])
+        with patch("sdg_digest.academic.fetch_text", return_value=json.dumps({"message": work})), patch("sdg_digest.academic.time.sleep"):
+            result = verify_curated_readings({"tag": [sample, replace(sample, title="Invented title")]})
+        self.assertEqual(len(result["tag"]), 1)
+        self.assertEqual(result["tag"][0].url, "https://doi.org/10.1000/verified")
+        with patch("sdg_digest.academic.fetch_text", side_effect=TimeoutError), patch("sdg_digest.academic.time.sleep"):
+            self.assertEqual(verify_curated_readings({"tag": [sample]})["tag"], [])
+
+    def test_bad_seed_cannot_override_traced_metadata(self) -> None:
+        seed = DeepRead(title="Incorrect title", authors="Wrong author", year=2004,
+            journal="Climate Policy", doi="10.1000/same", url="https://doi.org/10.1000/same", note_zh="错误解读")
+        traced = replace(seed, title="Actual article", authors="Actual author", note_zh="", abstract_en="Original abstract")
+        pool = combine_academic_pool([traced], {"tag": [seed]})
+        self.assertEqual(pool["__tracked_journals__"], [traced])
+        self.assertNotIn("tag", pool)
+
     def test_crossref_traces_recent_and_historical_papers_from_same_journal(self) -> None:
         source = Source(
             name="International Organization",
