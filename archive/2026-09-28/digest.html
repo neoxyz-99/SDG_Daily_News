@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-09-28</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">减排叙事与分配冲突同时升温，谁来为转型买单？</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-09-28</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>减排叙事与分配冲突同时升温，谁来为转型买单？</p><p class="en-text">Mitigation momentum and distributional conflict are rising at once—who pays for the transition?</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/commentisfree/2026/sep/23/climate-un-clean-energy-2030">The climate fight has one great ally. You just can’t look at it directly | Bill McKibben</a></h3>
+  <p class="meta">The Guardian Environment · 2026-09-23</p>
+  <p class="body-text">作者借UN气候周强调，太阳能扩张才是2030年前实现清洁能源普及的现实抓手。</p>
+  <p class="en-text">The author argues that solar expansion is the most practical route to universal clean energy before 2030, even as political momentum remains weak.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.theguardian.com/commentisfree/2026/sep/24/the-guardian-view-on-a-supersized-el-nino-a-natural-phenomenon-and-human-folly-are-a-lethal-combination">The Guardian view on a supersized El Niño: a natural phenomenon and human folly are a lethal combination | Editorial</a></h3>
+  <p class="meta">The Guardian Environment · 2026-09-24</p>
+  <p class="body-text">社论把异常强El Niño与人为变暖并置，指出其带来的饥荒和死亡风险首先是分配不公问题。</p>
+  <p class="en-text">The editorial frames the extreme El Niño as a combined natural-human disaster, stressing that its hunger and mortality risks are fundamentally an injustice problem.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://insideclimatenews.org/news/28092026/how-to-protect-yourself-from-disaster-scams/">How to Protect Yourself From Disaster Scams</a></h3>
+  <p class="meta">Inside Climate News · 2026-09-28</p>
+  <p class="body-text">这篇报道关注灾后重建中的诈骗风险，提醒受灾地区在修复资金和合同执行上保持警惕。</p>
+  <p class="en-text">This report highlights scam risks during post-disaster rebuilding and warns affected communities to be careful with repair funds and contractor agreements.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://insideclimatenews.org/news/28092026/inside-climate-podcast-planet-china/">Planet China</a></h3>
+  <p class="meta">Inside Climate News · 2026-09-28</p>
+  <p class="body-text">播客讨论中国电动车出口与“一带一路”海外基础设施项目的环境影响。</p>
+  <p class="en-text">The podcast discusses China’s electric-vehicle exports and the environmental implications of Belt and Road infrastructure projects abroad.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://yaleclimateconnections.org/2026/09/hurricane-polo-approaches-mexico-as-coastal-storm-grips-northeast-new-england/">Hurricane Polo approaches Mexico as coastal storm grips Northeast, New England</a></h3>
+  <p class="meta">Yale Climate Connections · 2026-09-27</p>
+  <p class="body-text">报道跟踪Polo逼近墨西哥及美国东北部持续的沿海风暴。</p>
+  <p class="en-text">The story tracks Hurricane Polo approaching Mexico and an unusually prolonged coastal storm in the U.S. Northeast.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://www.nytimes.com/2026/09/26/climate/el-nino-hurricane-noreaster.html">How El Niño Is Shaping Storms on Two Sides of the U.S.</a></h3>
+  <p class="meta">New York Times Climate · 2026-09-28</p>
+  <p class="body-text">这篇报道说明El Niño正在同时影响夏威夷附近飓风和美国东岸风暴。</p>
+  <p class="en-text">The article shows El Niño shaping storms on both sides of the United States, from hurricanes near Hawaii to a nor’easter on the East Coast.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference">Climate Forward Highlights: Energy Secretary Dismisses Idea of Diesel Export Ban</a></h3>
+  <p class="meta">New York Times Climate · 2026-09-28</p>
+  <p class="body-text">能源部长在NYT气候活动上否认美国会通过禁止柴油出口来压低能源价格。</p>
+  <p class="en-text">At a New York Times climate event, the energy secretary dismissed the idea of banning U.S. diesel exports to lower energy prices.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/analysis-lula-presidency-saved-at-least-20000km2-of-brazilian-amazon-since-2022">Analysis: Lula presidency saved at least 20,000km2 of Brazilian Amazon since 2022</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-28</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief的分析认为，卢拉政府通过重新执行森林法、恢复环境执法并压制非法砍伐网络，至少阻止了2万平方公里亚马孙森林损失；这说明巴西的森林治理不是抽象承诺，而是取决于联邦执法、农业利益与选举竞争之间的制度性拉扯，因而需要把环境监管、预算授权和对地方非法经济的约束捆绑设计。</p>
+  <p class="en-text">Carbon Brief’s analysis argues that Lula’s government, by re-enforcing the forest code, restoring environmental enforcement, and constraining illegal logging networks, has prevented at least 20,000 square kilometres of Amazon loss. It shows that forest governance in Brazil is not about abstract pledges but about the institutional struggle among federal enforcement, agribusiness interests, and electoral competition, implying the need to link regulation, budget authority, and constraints on local illegal economies.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这一判断直接回应新一轮巴西大选前的政治窗口：卢拉与博索纳罗阵营接近，亚马孙治理可能随执政联盟切换而逆转。文章也把“Brazil is back”的气候外交口号重新拉回到可执行的国内制度层面。</p>
+  <p class="en-text">The finding lands in the run-up to a new Brazilian election, when Lula and the Bolsonaro camp are closely matched and Amazon policy could swing sharply. It also pulls the slogan of “Brazil is back” back onto the terrain of domestic enforceable institutions.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是巴西总统选举、森林法执行与COP气候承诺之间的交汇点。</p>
+    <p class="en-text">This sits at the intersection of the Brazilian presidential race, forest-code enforcement, and COP climate commitments.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak">‘Concerning’ low sea ice persists as Antarctic hits third-lowest winter peak</a></h3>
+  <p class="meta">Carbon Brief · 2026-09-25</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief围绕NSIDC数据指出，南极海冰连续多年维持异常低位，问题不只是单一冬季极小值，而是海冰系统是否正在从自然波动转入结构性下移；这要求极地观测、归因研究与气候风险评估更紧密衔接，因为海冰变化会反过来影响海洋环流、天气异常和治理中的风险预警框架。</p>
+  <p class="en-text">Using NSIDC data, Carbon Brief argues that Antarctic sea ice has stayed at unusually low levels for several years, raising the question not of one seasonal minimum but of a possible structural downward shift. That makes tighter links among polar observation, attribution research, and climate risk assessment necessary, because sea-ice change feeds back into ocean circulation, weather anomalies, and risk-warning frameworks in governance.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这一报道紧贴最新卫星观测发布，强调当前最关键的不是解释一次低值，而是判断是否已进入新状态。文章同时把南北极海冰并置，提示极地信号正在重塑气候风险叙事。</p>
+  <p class="en-text">The piece follows the latest satellite release and stresses that the immediate task is not explaining one low reading but judging whether a new state has been reached. By juxtaposing Antarctic and Arctic ice, it also signals a shifting polar-risk narrative.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是极地观测网络、气候归因研究与风险治理议程的交叉位置。</p>
+    <p class="en-text">This sits at the intersection of polar observing systems, attribution research, and climate-risk governance.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期共同问题是：气候政策需要更强执行力，还是更可接受的分配安排。巴西亚马孙的治理与西班牙“公正转型”都指向同一张政治账本。</p><p class="en-text">The shared question this week is whether climate policy needs stronger enforcement or more acceptable distributional bargains. Amazon governance in Brazil and Spain’s just transition point to the same political ledger.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1162/glep_a_00647">Climate Governance Antagonisms: Policy Stability and Repoliticization</a></h3>
+  <p class="meta">Matthew Paterson, Paul Tobin, Stacy D. VanDeveer · 2022-05-01 · Global Environmental Politics</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">作者把气候治理中的两种常见策略并置：一种强调政策稳定、制度锁定和不可逆性，另一种强调通过再政治化（repoliticization）与冲突打破阻碍雄心减排的既有力量。文章的核心贡献不是给出单一路径，而是提出需要研究稳定与冲突如何相互作用，以判断何种政治策略更能为快速转型打开空间。</p>
+  <p class="en-text">The authors set two common climate-governance strategies against each other: one prioritizes policy stability, institutional lock-in, and irreversibility; the other sees conflict and repoliticization as necessary to weaken incumbent power blocking ambitious mitigation. The article’s main contribution is not to endorse one path but to call for research on how stability and conflict interact in opening political space for rapid transformation.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用论坛式概念论证与研究议程设定，基于气候政治学文献的综合讨论提出问题框架。</p>
+  <p class="en-text">The article uses a forum-style conceptual argument and research agenda setting, drawing on a synthetic discussion of climate politics literature.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期Carbon Brief关于巴西亚马孙治理的报道对读：森林保护究竟依赖制度稳定，还是需要借助选举竞争重新政治化执法。</p>
+  <p class="en-text">Read with this issue’s Carbon Brief piece on Brazilian Amazon governance: does forest protection depend on institutional stability, or on electoral conflict that repoliticizes enforcement?</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>稳定与冲突何时互补？ <span class="keywords">(climate governance, policy stability, political conflict, institutional change)</span><br><span class="en-text">When do stability and conflict become complementary in climate politics?</span></li><li>再政治化如何打开空间？ <span class="keywords">(repoliticization, decarbonization, incumbent power, political opportunity)</span><br><span class="en-text">How does repoliticization open space for decarbonization?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1162/glep_a_00647">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.5751/es-00650-090205">Resilience, Adaptability and Transformability in Social-ecological Systems</a></h3>
+  <p class="meta">Brian Walker, C. S. Holling, Stephen R. Carpenter and Ann Kinzig · 2004 · Ecology and Society</p>
+  <p class="tags"><span class="tag">#生物多样性</span><span class="tag">#粮食与土地</span><span class="tag">#绿色转型</span></p>
+  <p class="reading-text">Walker 等人区分韧性、适应性和转型能力，回应的是社会—生态系统面对冲击时究竟应当维持既有功能、调整治理路径，还是在旧结构不可持续时主动转型。文章把生态反馈、制度学习、跨尺度互动和行动者能力放进同一框架，说明系统稳定并不总是好事，某些稳定状态本身可能锁定脆弱性和不平等。它的贡献在于为气候适应、生物多样性治理和粮食系统政策提供判断工具：政策目标不是抽象地“增强韧性”，而是判断该保留什么、改变什么、何时转型。</p>
+  <p class="en-text">Walker and colleagues distinguish resilience, adaptability, and transformability to ask whether a social-ecological system should preserve existing functions, adjust its pathway, or deliberately transform when the old structure becomes untenable. The article links ecological feedbacks, institutional learning, cross-scale interaction, and actor capacity in one framework. Its key insight is that stability is not always desirable: some stable states lock in vulnerability and inequality. This helps interpret adaptation, biodiversity, and food-system policies by asking what should be maintained, what should change, and when transformation is necessary.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">文章采用社会—生态系统理论建模和概念综合方法，解释系统在冲击下的稳定、适应和转型。它有助于识别系统机制，但案例细节和政策操作化需要其他研究补充。</p>
+  <p class="en-text">The article uses social-ecological systems theory and conceptual modeling. It identifies system mechanisms, but concrete policy application requires additional case evidence.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期关于南极海冰持续低位的Carbon Brief报道对读：极地系统是该维持既有稳态，还是已进入需要转型的阈值区。</p>
+  <p class="en-text">Read with this issue’s Carbon Brief report on persistently low Antarctic sea ice: is the polar system still in a stable regime, or has it crossed a threshold that demands transformation?</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>何时应放弃稳态？ <span class="keywords">(resilience, thresholds, adaptability, transformability)</span><br><span class="en-text">When should governance abandon a stable regime?</span></li><li>极地变化如何触发转型？ <span class="keywords">(polar climate, sea ice, social-ecological systems, governance)</span><br><span class="en-text">How do polar changes trigger transformation governance?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.5751/es-00650-090205">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
