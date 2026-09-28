@@ -184,7 +184,16 @@
     "https://www.nytimes.com/2026/09/21/world/europe/uk-hospitals-heat-waves-climate.html",
     "https://insideclimatenews.org/news/21092026/climate-extremes-show-breached-earth-boundaries/",
     "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
-    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record"
+    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record",
+    "https://www.theguardian.com/commentisfree/2026/sep/23/climate-un-clean-energy-2030",
+    "https://www.theguardian.com/commentisfree/2026/sep/24/the-guardian-view-on-a-supersized-el-nino-a-natural-phenomenon-and-human-folly-are-a-lethal-combination",
+    "https://insideclimatenews.org/news/28092026/how-to-protect-yourself-from-disaster-scams/",
+    "https://insideclimatenews.org/news/28092026/inside-climate-podcast-planet-china/",
+    "https://yaleclimateconnections.org/2026/09/hurricane-polo-approaches-mexico-as-coastal-storm-grips-northeast-new-england/",
+    "https://www.nytimes.com/2026/09/26/climate/el-nino-hurricane-noreaster.html",
+    "https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference",
+    "https://www.carbonbrief.org/analysis-lula-presidency-saved-at-least-20000km2-of-brazilian-amazon-since-2022",
+    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -316,7 +325,14 @@
     "https://www.nytimes.com/2026/09/21/world/europe/uk-hospitals-heat-waves-climate.html",
     "https://insideclimatenews.org/news/21092026/climate-extremes-show-breached-earth-boundaries/",
     "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
-    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record"
+    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record",
+    "https://www.theguardian.com/commentisfree/2026/sep/23/climate-un-clean-energy-2030",
+    "https://www.theguardian.com/commentisfree/2026/sep/24/the-guardian-view-on-a-supersized-el-nino-a-natural-phenomenon-and-human-folly-are-a-lethal-combination",
+    "https://insideclimatenews.org/news/28092026/how-to-protect-yourself-from-disaster-scams/",
+    "https://insideclimatenews.org/news/28092026/inside-climate-podcast-planet-china/",
+    "https://yaleclimateconnections.org/2026/09/hurricane-polo-approaches-mexico-as-coastal-storm-grips-northeast-new-england/",
+    "https://www.nytimes.com/2026/09/26/climate/el-nino-hurricane-noreaster.html",
+    "https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -381,7 +397,9 @@
     "https://www.e3g.org/news/climate-and-the-task-for-leaders-at-unga81/?utm_source=rss&utm_medium=rss&utm_campaign=climate-and-the-task-for-leaders-at-unga81",
     "https://www.carbonbrief.org/el-nino-indonesia-fire-emissions-in-2026-on-track-to-match-record-for-this-century",
     "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
-    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record"
+    "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record",
+    "https://www.carbonbrief.org/analysis-lula-presidency-saved-at-least-20000km2-of-brazilian-amazon-since-2022",
+    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -405,7 +423,9 @@
     "10.1162/glep.2007.7.2.11",
     "10.1080/14693062.2004.9685516",
     "10.1017/s0020818316000321",
-    "10.1080/14693062.2004.9685508"
+    "10.1080/14693062.2004.9685508",
+    "10.1162/glep_a_00647",
+    "10.5751/es-00650-090205"
   ],
   "classic_reading_history": [
     {
@@ -546,7 +566,14 @@
         "10.1080/14693062.2004.9685508",
         "10.1017/s0020818316000321"
       ]
+    },
+    {
+      "date": "2026-09-28",
+      "dois": [
+        "10.1162/glep_a_00647",
+        "10.5751/es-00650-090205"
+      ]
     }
   ],
-  "last_updated": "2026-09-21"
+  "last_updated": "2026-09-28"
 }
