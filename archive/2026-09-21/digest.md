@@ -30,7 +30,9 @@ The Guardian editorial links the Nepal-Tibet floods to loss-and-damage finance a
 
 Original: https://www.theguardian.com/commentisfree/2026/sep/17/the-guardian-view-on-the-nepal-tibet-floods-a-spur-to-action-on-climate
 
-### 3. 来自中国电网的超级气候污染物正在炙烤地球
+### 3. A super climate pollutant from China’s power grid is heating the planet
+
+Original title: 来自中国电网的超级气候污染物正在炙烤地球
 
 Inside Climate News · 2026-09-20
 

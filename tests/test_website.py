@@ -4,13 +4,38 @@ import json
 from pathlib import Path
 import unittest
 
-from sdg_digest.website import CONTACT_EMAIL, PUBLIC_ISSUE_COUNT, build_site, load_public_issues, normalize_digest
+from sdg_digest.website import CONTACT_EMAIL, PUBLIC_ISSUE_COUNT, build_site, load_public_issues, normalize_digest, _news_card, _signal_card, _search_index
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class WebsiteTests(unittest.TestCase):
+    def test_untranslated_archive_title_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "English"):
+            normalize_digest({"digest_date": "2026-09-21", "recent_news": [
+                {"title_en": "来自中国电网的超级气候污染物正在炙烤地球", "one_sentence_en": "An investigation."}
+            ]})
+
+    def test_september_chinese_title_is_translated_with_original_retained(self):
+        raw = json.loads((ROOT / "archive/2026-09-21/digest.json").read_text())
+        item = next(item for item in raw["recent_news"] if "title_original" in item)
+        self.assertEqual(item["title_en"], "A super climate pollutant from China’s power grid is heating the planet")
+        self.assertEqual(item["title_original"], "来自中国电网的超级气候污染物正在炙烤地球")
+
+    def test_english_heading_and_escaped_optional_original_in_both_modules(self) -> None:
+        original = '城市的水资源治理 <script>alert("x")</script>'
+        row = {"title_en": "Urban water governance", "title_original": original,
+               "one_sentence_en": "Cities improve water access.", "core_argument_en": "Local institutions matter."}
+        issue = normalize_digest({"digest_date": "2026-09-30", "recent_news": [row], "research_signals": [dict(row, title_en="Urban water institutions")]})
+        for markup in [_news_card(issue.news[0], 0), _signal_card(issue.signals[0])]:
+            self.assertTrue("<h3>Urban water governance</h3>" in markup or "<h3>Urban water institutions</h3>" in markup)
+            self.assertIn('<details class="original-title">', markup)
+            self.assertNotIn("<script>", markup)
+            self.assertNotIn(" open", markup)
+        self.assertEqual(_search_index([issue])[0]["titleOriginal"], original)
+
+
     def test_invalid_or_missing_artwork_preserves_published_site(self) -> None:
         import tempfile
 

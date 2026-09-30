@@ -208,6 +208,10 @@ footer { margin-top: 60px; border-top: 1px solid var(--ink); padding: 45px 0 24p
   .footer-grid { grid-template-columns: 1fr; }
   .footer-links { align-items: flex-start; }
 }
+.original-title { margin: 0 0 14px; color: var(--muted, #626a66); font-size: 13px; }
+.original-title summary { cursor: pointer; }
+.original-title p { margin: 8px 0 0; overflow-wrap: anywhere; }
+
 @media print {
   .site-header nav, .utility-bar, .original-link, footer, .issue-nav, .search-panel { display: none; }
   body { background: white; }

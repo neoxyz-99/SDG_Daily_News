@@ -11,6 +11,7 @@ from typing import Any
 from .dedup import unique_articles
 from .http import post_json
 from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm, NewsBrief, ResearchDirection
+from .titles import validate_english_title
 
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
@@ -173,6 +174,7 @@ def generate_digest(
     max_research_signals: int | None = None,
     classic_reading_history: list[dict[str, Any]] | None = None,
     sent_reading_dois: list[str] | None = None,
+    editorial_history: list[dict[str, Any]] | None = None,
 ) -> Digest:
     max_research_signals = max_research_signals or max_items
     academic_shortlist = _build_academic_shortlist(
@@ -199,6 +201,7 @@ def generate_digest(
                     max_recent_news=max_recent_news,
                     max_research_signals=max_research_signals,
                     feedback=feedback,
+                    editorial_history=editorial_history,
                 )
                 return validate_digest_payload(raw, candidates, academic_shortlist, run_date)
             except ValueError as exc:
@@ -303,6 +306,7 @@ def _call_openai(
     max_recent_news: int,
     max_research_signals: int,
     feedback: str = "",
+    editorial_history: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     recent_news, research = _split_candidates(candidates)
     prompt = {
@@ -310,9 +314,11 @@ def _call_openai(
         "newsletter": NEWSLETTER_NAME,
         "format": "weekly",
         "reader_profile": (
-            "Policy researchers and graduate students with background knowledge in global governance, "
-            "climate finance, and sustainable development. They need analytical density, not basic definitions."
+            "Policy researchers and graduate students with background knowledge in sustainable development, "
+            "environmental policy, public services, technology transitions, finance and global governance. "
+            "They need analytical density and varied perspectives, not basic definitions."
         ),
+        "recent_editorial_history": (editorial_history or [])[:6],
         "editorial_logic": [
             "The issue has three modules: 近期要闻, 研究动向, 论文研读.",
             "近期要闻 is low-density: tell the reader what happened using the title/source and one Chinese sentence; do not force topic tags into the visible copy.",
@@ -322,10 +328,14 @@ def _call_openai(
         "instructions": [
             "Return a JSON object that follows the schema.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
+            "Every title_en must be English. Copy a supplied candidate title_en exactly; otherwise faithfully translate any non-English source title, including Latin-script languages. Preserve names, numbers and meaning. Do not turn article titles into editorial commentary. The source title will be retained separately by the pipeline.",
             "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use academic-reading DOI links, paper URLs, or invented URLs as news/research item URLs.",
             "Do not repeat the same article within or across recent_news and research_signals. When an article warrants analysis, include it only in research_signals.",
             "Source diversity is an editorial priority. Within recent_news and within research_signals, select from as many different source_org values as possible. If alternatives exist, do not select more than 2 items from the same source_org in the same module.",
-            "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. It should raise a tension or open question across actor logics, not summarize. weekly_editorial_note_en should carry the same meaning in one concise English sentence.",
+            "Before selecting articles, compare the recent_editorial_history titles, article arguments and weekly threads. Prefer substantive new mechanisms, places, actors and findings over another article making the same point. A new source or differently worded title alone is not a new perspective. Historical entries are context only, never candidates for this issue.",
+            "Build a selection with distinct analytical perspectives when the candidate quality allows: implementation and state capacity; technology diffusion and infrastructure; public services and lived experience; ecosystem outcomes and scientific evidence; institutional rules and accountability; diplomacy and cooperation; distribution, financing and justice. Aim for at least 3 perspectives across a full issue, including different regions and actor levels where supported. These are selection lenses, not topic admission gates or rigid quotas; do not pad the issue or invent a perspective.",
+            "Keep finance and burden-sharing when they are central to the source, but do not recast every story as who pays, who bears costs, who defines the agenda, or a generic power-versus-responsibility conflict. For continuing stories, identify what materially changed since earlier coverage. Prefer complementary or evidence-backed competing explanations, not artificial balance.",
+            "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. Use a specific development or analytical finding grounded in this issue as the lead. A clear declarative sentence is welcome; a question or actor conflict is optional. weekly_editorial_note_en should carry the same meaning in one concise English sentence. Compare the last 6 issues and avoid repeating their central framing or sentence template. Do not merely paraphrase a recent who-pays headline. Let the current evidence determine the framing; revisit a recent lens only when new developments warrant it.",
             "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
             "research_signals: select up to the requested maximum from research_candidates. These require core_argument_zh/core_argument_en, why_now_zh/why_now_en, agenda_position_zh/agenda_position_en, and tags.",
             "Core Argument: write 1 dense Chinese sentence, 70-120 Chinese characters. It must name a specific actor, institution, policy instrument, or negotiating party; state the concrete problem or mechanism identified by the article; explain why that mechanism matters; and indicate what policy, financing, governance, or institutional change the article argues for or implies. Do not write vague sentences such as 'X is important' or 'cannot be ignored'. Do not restate the title or use statistics as the core of the argument.",
@@ -557,11 +567,14 @@ def validate_digest_payload(
         if recent_source_counts.get(source_org, 0) >= MAX_RECENT_NEWS_PER_SOURCE:
             print(f"Warning: skipped extra recent-news item from {source_org} to preserve source diversity: {title}")
             continue
+        source_candidate = candidate_by_url[url]
+        title = validate_english_title(source_candidate.title_en or title)
         one_sentence_zh = str(raw.get("one_sentence_zh", "")).strip()
         _validate_required_text(one_sentence_zh, f"one_sentence_zh for {title}")
         recent_news.append(
             NewsBrief(
                 title_en=title,
+                title_original=source_candidate.title if source_candidate.title != title else "",
                 source_org=source_org,
                 published_date=str(raw["published_date"]).strip(),
                 url=url,
@@ -586,6 +599,7 @@ def validate_digest_payload(
             print(f"Warning: skipped extra research signal from {source_org} to preserve source diversity: {title}")
             continue
         source_candidate = candidate_by_url[url]
+        title = validate_english_title(source_candidate.title_en or title)
         tags = _clean_tags(raw.get("tags", []), source_candidate.tags)
         if not tags:
             tags = ["#综合治理议题"]
@@ -604,6 +618,7 @@ def validate_digest_payload(
         research_signals.append(
             DigestItem(
                 title_en=title,
+                title_original=source_candidate.title if source_candidate.title != title else "",
                 source_org=source_org,
                 published_date=str(raw["published_date"]).strip(),
                 summary_zh=core_argument_zh,
@@ -667,7 +682,8 @@ def fallback_digest(
     recent_candidates, research_candidates = _split_candidates(candidates)
     recent_news = [
         NewsBrief(
-            title_en=candidate.title,
+            title_en=validate_english_title(candidate.title_en or candidate.title),
+            title_original=candidate.title if candidate.title_en and candidate.title_en != candidate.title else "",
             source_org=candidate.source_org,
             published_date=candidate.published_date,
             url=candidate.url,
@@ -679,7 +695,8 @@ def fallback_digest(
     ]
     research_signals = [
         DigestItem(
-            title_en=candidate.title,
+            title_en=validate_english_title(candidate.title_en or candidate.title),
+            title_original=candidate.title if candidate.title_en and candidate.title_en != candidate.title else "",
             source_org=candidate.source_org,
             published_date=candidate.published_date,
             summary_zh=_fallback_core_argument(candidate),
@@ -725,6 +742,7 @@ def _split_candidates(candidates: list[Candidate]) -> tuple[list[Candidate], lis
 def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
     return {
         "title": candidate.title,
+        "title_en": candidate.title_en,
         "source_org": candidate.source_org,
         "source_type": candidate.source_type,
         "layer": candidate.layer,

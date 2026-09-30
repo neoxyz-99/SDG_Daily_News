@@ -10,9 +10,11 @@ from .archive import write_archive
 from .collect import CollectionStats, collect_candidates, deduplicate_candidates, rank_candidates
 from .config import load_bibliography, load_sources
 from .emailer import send_email
+from .editorial import load_editorial_history
 from .generate import filter_relevant_candidates, generate_digest, is_recent_news_candidate
 from .render import render_html, render_markdown
 from .sent_articles import filter_sent_candidates, load_sent_articles, update_sent_articles
+from .titles import translate_candidate_titles
 
 SOURCE_SUGGESTIONS = [
     "World Resources Institute RSS (institutional policy research; climate and development)",
@@ -76,7 +78,7 @@ def main() -> None:
             print(f"- {suggestion}")
     selected_recent = rank_candidates(
         recent_candidates,
-        args.max_recent_news,
+        max(args.candidate_pool, args.max_recent_news),
         max_per_source=args.max_per_source_recent,
         fill_to_max=False,
     )
@@ -87,6 +89,8 @@ def main() -> None:
         fill_to_max=False,
     )
     selected = selected_recent + selected_research
+    if not args.skip_openai:
+        selected = translate_candidate_titles(selected)
     tracked_readings = collect_academic_readings(
         sources,
         selected,
@@ -106,6 +110,7 @@ def main() -> None:
         max_research_signals=args.max_research_signals or args.max_items,
         classic_reading_history=sent_record.get("classic_reading_history", []),
         sent_reading_dois=sent_record.get("classic_reading_dois", []),
+        editorial_history=load_editorial_history(args.output_dir, run_date),
     )
     if args.dry_run:
         print(render_markdown(digest))

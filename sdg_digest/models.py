@@ -33,6 +33,7 @@ class Candidate:
     semantic_domain: str = ""
     semantic_reason: str = ""
     layer: str = "research"
+    title_en: str = ""
 
 
 @dataclass(frozen=True)
@@ -44,6 +45,7 @@ class NewsBrief:
     one_sentence_zh: str
     one_sentence_en: str = ""
     tags: list[str] = field(default_factory=list)
+    title_original: str = ""
 
 
 @dataclass(frozen=True)
@@ -120,6 +122,7 @@ class DigestItem:
     why_it_matters_en: str = ""
     sdg_links: list[str] = field(default_factory=list)
     deep_reads: list[DeepRead] = field(default_factory=list)
+    title_original: str = ""
 
 
 @dataclass(frozen=True)

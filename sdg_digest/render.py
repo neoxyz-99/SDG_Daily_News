@@ -28,6 +28,7 @@ def render_markdown(digest: Digest) -> str:
             lines.extend(
                 [
                     f"### {index}. {item.title_en}",
+                    *([f"Original title: {item.title_original}"] if item.title_original else []),
                     "",
                     f"{item.source_org} · {item.published_date}",
                     "",
@@ -48,6 +49,7 @@ def render_markdown(digest: Digest) -> str:
             lines.extend(
                 [
                     f"### {index}. {item.title_en}",
+                    *([f"Original title: {item.title_original}"] if item.title_original else []),
                     "",
                     f"{item.source_org} · {item.published_date}",
                     "",
@@ -251,6 +253,7 @@ def render_html(digest: Digest) -> str:
 def _render_recent_news_html(index: int, item: NewsBrief) -> str:
     return f"""<article class="card compact-card recent-card">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
+  {_original_title_html(item)}
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="body-text">{html.escape(item.one_sentence_zh)}</p>
   {_paragraph_en(item.one_sentence_en)}
@@ -261,6 +264,7 @@ def _render_research_signal_html(index: int, item: DigestItem) -> str:
     tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in item.tags)
     return f"""<article class="card research-card">
   <h3>{index}. <a href="{html.escape(item.url)}">{html.escape(item.title_en)}</a></h3>
+  {_original_title_html(item)}
   <p class="meta">{html.escape(item.source_org)} · {html.escape(item.published_date)}</p>
   <p class="tags">{tags}</p>
   <p class="label">核心论点 / Core Argument</p>
@@ -275,6 +279,12 @@ def _render_research_signal_html(index: int, item: DigestItem) -> str:
     {_paragraph_en(item.agenda_position_en or "The agenda background is unclear.")}
   </div>
 </article>"""
+
+
+def _original_title_html(item: NewsBrief | DigestItem) -> str:
+    if not item.title_original or item.title_original == item.title_en:
+        return ""
+    return f'<p class="meta" dir="auto">Original title: {html.escape(item.title_original)}</p>'
 
 
 def _render_reading_html(reading: DeepRead) -> str:

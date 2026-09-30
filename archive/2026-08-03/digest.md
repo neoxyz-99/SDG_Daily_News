@@ -50,7 +50,9 @@ New Mexico is using abundant solar resources and policy support to shift its gri
 
 Original: https://yaleclimateconnections.org/2026/08/the-state-thats-beating-dirty-electricity/
 
-### 5. El programa Míocar de California ayuda a residentes a encontrar transporte accesible que no contribuye al esmog ni a la contaminación por carbono
+### 5. California’s Míocar program helps residents find accessible transportation that does not contribute to smog or carbon pollution
+
+Original title: El programa Míocar de California ayuda a residentes a encontrar transporte accesible que no contribuye al esmog ni a la contaminación por carbono
 
 Yale Climate Connections · 2026-07-30
 

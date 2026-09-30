@@ -29,7 +29,7 @@
   function render() {
     const needle = input.value.toLowerCase().trim();
     const filtered = entries.filter((item) => {
-      const haystack = [item.title, item.source, item.text, ...(item.topics || [])].join(" ").toLowerCase();
+      const haystack = [item.title, item.titleOriginal, item.source, item.text, ...(item.topics || [])].join(" ").toLowerCase();
       return (!needle || haystack.includes(needle)) && (typeFilter.value === "All" || item.type === typeFilter.value) && (topicFilter.value === "All topics" || (item.topics || []).includes(topicFilter.value));
     });
     count.textContent = `${filtered.length} result${filtered.length === 1 ? "" : "s"}`;
@@ -41,7 +41,8 @@
       const tags = (item.topics || []).map((topic) => `<span>${esc(topic)}</span>`).join("");
       const source = [item.source, item.publishedDate].filter(Boolean).join(" · ");
       const original = safeUrl(item.url) ? `<a class="original-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">Read the original ↗</a>` : "";
-      return `<article class="result-card"><div><span class="format-label">${esc(item.type)}</span><span>${esc(formatDate(item.issueDate))}</span></div><h2>${esc(item.title)}</h2><p class="source-line">${esc(source || "Independent analysis")}</p><p>${esc(String(item.text || "").split("\n\n")[0])}</p>${tags ? `<div class="topic-row">${tags}</div>` : ""}<div class="result-links"><a href="../issues/${esc(item.issueDate)}/index.html">View in issue →</a>${original}</div></article>`;
+      const originalTitle = item.titleOriginal && item.titleOriginal !== item.title ? `<details class="original-title"><summary>Original title</summary><p dir="auto">${esc(item.titleOriginal)}</p></details>` : "";
+      return `<article class="result-card"><div><span class="format-label">${esc(item.type)}</span><span>${esc(formatDate(item.issueDate))}</span></div><h2>${esc(item.title)}</h2><p class="source-line">${esc(source || "Independent analysis")}</p>${originalTitle}<p>${esc(String(item.text || "").split("\n\n")[0])}</p>${tags ? `<div class="topic-row">${tags}</div>` : ""}<div class="result-links"><a href="../issues/${esc(item.issueDate)}/index.html">View in issue →</a>${original}</div></article>`;
     }).join("");
   }
   const params = new URLSearchParams(location.search);

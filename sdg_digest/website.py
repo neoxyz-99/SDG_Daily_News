@@ -12,6 +12,7 @@ from urllib.parse import quote
 
 from .dedup import unique_articles
 from .image_validation import validate_jpeg
+from .titles import validate_english_title
 
 
 SITE_NAME = "SDG Weekly Compass"
@@ -52,6 +53,7 @@ class PublicItem:
     topics: tuple[str, ...]
     paragraphs: tuple[str, ...]
     paragraph_labels: tuple[str, ...]
+    title_original: str = ""
 
 
 @dataclass(frozen=True)
@@ -81,6 +83,11 @@ def _text(value: object) -> str:
     return value.strip() if isinstance(value, str) else ""
 
 
+def _english_title(value: object) -> str:
+    title = _text(value)
+    return validate_english_title(title) if title else ""
+
+
 def _topics(value: object) -> tuple[str, ...]:
     tags = value if isinstance(value, list) else []
     mapped = [TOPIC_MAP[tag] for tag in map(str, tags) if tag in TOPIC_MAP]
@@ -96,7 +103,8 @@ def _news_item(issue_date: str, raw: dict, index: int) -> PublicItem:
         item_id=_item_id(issue_date, "News", index),
         issue_date=issue_date,
         item_type="News",
-        title=_text(raw.get("title_en")),
+        title=_english_title(raw.get("title_en")),
+        title_original=_text(raw.get("title_original")),
         source=_text(raw.get("source_org")),
         published_date=_text(raw.get("published_date")),
         url=_text(raw.get("url")),
@@ -117,7 +125,8 @@ def _signal_item(issue_date: str, raw: dict, index: int) -> PublicItem:
         item_id=_item_id(issue_date, "Research Signal", index),
         issue_date=issue_date,
         item_type="Research Signal",
-        title=_text(raw.get("title_en")),
+        title=_english_title(raw.get("title_en")),
+        title_original=_text(raw.get("title_original")),
         source=_text(raw.get("source_org")),
         published_date=_text(raw.get("published_date")),
         url=_text(raw.get("url")),
@@ -313,7 +322,10 @@ def _issue_rail(issue: PublicIssue) -> str:
 
 def _source_line(item: PublicItem) -> str:
     parts = [item.source, item.published_date]
-    return f'<p class="source-line">{_e(" · ".join(filter(None, parts)) or "Independent analysis")}</p>'
+    original = ""
+    if item.title_original and item.title_original != item.title:
+        original = f'<details class="original-title"><summary>Original title</summary><p dir="auto">{_e(item.title_original)}</p></details>'
+    return f'<p class="source-line">{_e(" · ".join(filter(None, parts)) or "Independent analysis")}</p>{original}'
 
 
 def _original_link(item: PublicItem) -> str:
@@ -440,6 +452,7 @@ def _search_index(issues: list[PublicIssue]) -> list[dict[str, object]]:
             "issueDate": item.issue_date,
             "type": item.item_type,
             "title": item.title,
+            "titleOriginal": item.title_original,
             "source": item.source,
             "publishedDate": item.published_date,
             "url": item.url,
