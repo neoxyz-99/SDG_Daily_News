@@ -193,7 +193,15 @@
     "https://www.nytimes.com/2026/09/26/climate/el-nino-hurricane-noreaster.html",
     "https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference",
     "https://www.carbonbrief.org/analysis-lula-presidency-saved-at-least-20000km2-of-brazilian-amazon-since-2022",
-    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak"
+    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak",
+    "https://www.nytimes.com/2026/10/04/climate/boulder-lawsuit-supreme-court.html",
+    "https://www.nytimes.com/2026/10/03/climate/after-outcry-monitors-the-trump-administration-tried-to-scrap-return-to-sea.html",
+    "https://yaleclimateconnections.org/2026/10/a-storm-may-be-brewing-in-the-gulf/",
+    "https://yaleclimateconnections.org/2026/10/the-latest-reads-about-climate-and-emotions/",
+    "https://insideclimatenews.org/news/05102026/final-grandmother-cottonwood-toppled-protesters-arrested-in-arizona/",
+    "https://www.carbonbrief.org/analysis-wind-and-solar-save-uk-from-gas-imports-worth-5-9bn-during-hormuz-crisis",
+    "https://www.e3g.org/news/from-energy-shock-to-economic-stability-three-tests-for-the-bangkok-annual-meetings/?utm_source=rss&utm_medium=rss&utm_campaign=from-energy-shock-to-economic-stability-three-tests-for-the-bangkok-annual-meetings",
+    "https://www.e3g.org/news/europe-s-clean-industrial-strategy-needs-a-comprehensive-lead-market-architecture/?utm_source=rss&utm_medium=rss&utm_campaign=europe-s-clean-industrial-strategy-needs-a-comprehensive-lead-market-architecture"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -332,7 +340,12 @@
     "https://insideclimatenews.org/news/28092026/inside-climate-podcast-planet-china/",
     "https://yaleclimateconnections.org/2026/09/hurricane-polo-approaches-mexico-as-coastal-storm-grips-northeast-new-england/",
     "https://www.nytimes.com/2026/09/26/climate/el-nino-hurricane-noreaster.html",
-    "https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference"
+    "https://www.nytimes.com/live/2026/09/23/climate/climate-forward-conference",
+    "https://www.nytimes.com/2026/10/04/climate/boulder-lawsuit-supreme-court.html",
+    "https://www.nytimes.com/2026/10/03/climate/after-outcry-monitors-the-trump-administration-tried-to-scrap-return-to-sea.html",
+    "https://yaleclimateconnections.org/2026/10/a-storm-may-be-brewing-in-the-gulf/",
+    "https://yaleclimateconnections.org/2026/10/the-latest-reads-about-climate-and-emotions/",
+    "https://insideclimatenews.org/news/05102026/final-grandmother-cottonwood-toppled-protesters-arrested-in-arizona/"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -399,7 +412,10 @@
     "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
     "https://www.carbonbrief.org/analysis-super-el-nino-reaches-remarkable-all-time-record",
     "https://www.carbonbrief.org/analysis-lula-presidency-saved-at-least-20000km2-of-brazilian-amazon-since-2022",
-    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak"
+    "https://www.carbonbrief.org/concerning-low-sea-ice-persists-as-antarctic-hits-third-lowest-winter-peak",
+    "https://www.carbonbrief.org/analysis-wind-and-solar-save-uk-from-gas-imports-worth-5-9bn-during-hormuz-crisis",
+    "https://www.e3g.org/news/from-energy-shock-to-economic-stability-three-tests-for-the-bangkok-annual-meetings/?utm_source=rss&utm_medium=rss&utm_campaign=from-energy-shock-to-economic-stability-three-tests-for-the-bangkok-annual-meetings",
+    "https://www.e3g.org/news/europe-s-clean-industrial-strategy-needs-a-comprehensive-lead-market-architecture/?utm_source=rss&utm_medium=rss&utm_campaign=europe-s-clean-industrial-strategy-needs-a-comprehensive-lead-market-architecture"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -425,7 +441,9 @@
     "10.1017/s0020818316000321",
     "10.1080/14693062.2004.9685508",
     "10.1162/glep_a_00647",
-    "10.5751/es-00650-090205"
+    "10.5751/es-00650-090205",
+    "10.1162/glep.a.792",
+    "10.1163/19426720-03203005"
   ],
   "classic_reading_history": [
     {
@@ -573,7 +591,14 @@
         "10.1162/glep_a_00647",
         "10.5751/es-00650-090205"
       ]
+    },
+    {
+      "date": "2026-10-05",
+      "dois": [
+        "10.1162/glep.a.792",
+        "10.1163/19426720-03203005"
+      ]
     }
   ],
-  "last_updated": "2026-09-28"
+  "last_updated": "2026-10-05"
 }
