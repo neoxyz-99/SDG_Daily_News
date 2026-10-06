@@ -122,7 +122,7 @@ class GenerateTests(unittest.TestCase):
         first = replace(_candidate(), title="Carbon Brief item one", source_org="Carbon Brief", url="https://www.carbonbrief.org/one")
         second = replace(_candidate(), title="Carbon Brief item two", source_org="Carbon Brief", url="https://www.carbonbrief.org/two")
         third = replace(_candidate(), title="Carbon Brief item three", source_org="Carbon Brief", url="https://www.carbonbrief.org/three")
-        payload = _payload(first)
+        payload = _payload(first, second)
         payload["items"] = [_item(first), _item(second), _item(third)]
 
         digest = validate_digest_payload(payload, [first, second, third], {}, date(2026, 6, 9))
@@ -359,6 +359,12 @@ def _payload(first: Candidate, second: Candidate | None = None) -> dict:
     if second:
         items.append(_item(second))
     return {
+        "issue_title_en": "Climate Finance, Water Adaptation and Institutional Delivery",
+        "issue_title_zh": "气候融资、水资源适应与制度执行",
+        "title_support": [
+            {"url": item["url"], "angle_en": "This article examines institutional delivery of adaptation finance."}
+            for item in items
+        ],
         "daily_editorial_note_zh": "公共资金承诺与执行能力之间的落差，正在重塑气候融资议程的责任边界。",
         "weekly_editorial_note_en": "The gap between public finance pledges and delivery capacity is reshaping responsibility in climate finance.",
         "weekly_thread_zh": "两条新闻共同指向气候融资从承诺规模转向执行能力的议题线索。",

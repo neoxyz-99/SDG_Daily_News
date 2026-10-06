@@ -217,3 +217,5 @@ footer { margin-top: 60px; border-top: 1px solid var(--ink); padding: 45px 0 24p
   body { background: white; }
   .site-shell { width: 100%; }
 }
+
+.issue-intro { max-width: 70ch; margin: 20px 0 0; color: var(--muted); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.65; }

@@ -65,6 +65,13 @@ class PublicIssue:
     news: tuple[PublicItem, ...]
     signals: tuple[PublicItem, ...]
     readings: tuple[PublicItem, ...]
+    issue_title: str = ""
+    legacy_headline: str = ""
+
+    @property
+    def headline(self) -> str:
+        # Older editions retain their archived lead; new drafts have a separate title.
+        return self.issue_title or self.legacy_headline or self.subject or f"{SITE_NAME} — {self.date}"
 
     @property
     def items(self) -> tuple[PublicItem, ...]:
@@ -200,6 +207,8 @@ def normalize_digest(raw: dict) -> PublicIssue:
         date=issue_date,
         subject=_text(raw.get("subject")),
         editorial=_text(raw.get("overview_en")),
+        issue_title=_english_title(raw.get("issue_title_en")),
+        legacy_headline=_text(raw.get("overview_en")) if "issue_title_en" not in raw else "",
         weekly_thread=_text(raw.get("weekly_thread_en")),
         news=news,
         signals=signals,
@@ -377,17 +386,20 @@ def _archive_cards(issues: list[PublicIssue], depth: int) -> str:
     cards: list[str] = []
     for index, issue in enumerate(issues):
         summary = issue.signals[0].paragraphs[0] if issue.signals else issue.news[0].paragraphs[0] if issue.news else "A curated weekly reading of policy change."
+        if issue.issue_title and issue.editorial:
+            summary = issue.editorial
         href = f"{prefix}issues/{issue.date}/index.html"
-        cards.append(f"""<article class="archive-card"><a class="archive-image" href="{href}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="" loading="lazy" width="1672" height="941"></a><div class="archive-card-copy"><div class="archive-index">{index + 1:02d}</div><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h2><a href="{href}">{_e(issue.editorial or issue.subject)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue →</a></div></div></article>""")
+        cards.append(f"""<article class="archive-card"><a class="archive-image" href="{href}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="" loading="lazy" width="1672" height="941"></a><div class="archive-card-copy"><div class="archive-index">{index + 1:02d}</div><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h2><a href="{href}">{_e(issue.headline)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue →</a></div></div></article>""")
     return f'<div class="archive-grid">{"".join(cards)}</div>'
 
 
 def _home(issues: list[PublicIssue]) -> str:
     latest = issues[0]
     lead = latest.signals[0] if latest.signals else latest.news[0] if latest.news else latest.readings[0]
+    introduction = latest.editorial if latest.issue_title and latest.editorial else lead.paragraphs[0]
     body = f"""<section class="lead-grid">
   <div class="issue-stamp"><span>Issue</span><strong>{_e(_format_date(latest.date, True))}</strong><span>{len(latest.items)} curated pieces</span></div>
-  <div class="lead-story"><p class="kicker">Editorial note</p><h1>{_e(latest.editorial or lead.title)}</h1><p class="lead-deck">{_e(lead.paragraphs[0])}</p><a class="button-link" href="issues/{latest.date}/index.html">Read the full issue <span aria-hidden="true">→</span></a></div>
+  <div class="lead-story"><p class="kicker">This week</p><h1>{_e(latest.headline)}</h1><p class="lead-deck">{_e(introduction)}</p><a class="button-link" href="issues/{latest.date}/index.html">Read the full issue <span aria-hidden="true">→</span></a></div>
   <aside class="contents-note"><p class="kicker">In this issue</p><ul><li><strong>{len(latest.news)}</strong> news notes</li><li><strong>{len(latest.signals)}</strong> policy signals</li><li><strong>{len(latest.readings)}</strong> research readings</li></ul>{_topic_tags(latest.topics[:4])}</aside>
 </section>{_issue_image(latest, 0, "home-hero-image")}"""
     body += _issue_content(latest)
@@ -407,10 +419,11 @@ def _issue_page(issue: PublicIssue, issues: list[PublicIssue]) -> str:
     older = issues[index + 1] if index < len(issues) - 1 else None
     older_link = "" if not older else f'<small>Previous issue</small><a href="../{older.date}/index.html">← {_e(_format_date(older.date, True))}</a>'
     newer_link = "" if not newer else f'<small>Next issue</small><a href="../{newer.date}/index.html">{_e(_format_date(newer.date, True))} →</a>'
-    body = f'<div class="issue-hero">{_issue_image(issue, 2)}<div class="issue-hero-copy"><div class="issue-hero-meta"><p class="kicker">Issue · {_e(_format_date(issue.date))}</p>{_topic_tags(issue.topics[:5])}</div><h1>{_e(issue.editorial or issue.subject)}</h1></div></div>'
+    intro = f'<p class="issue-intro">{_e(issue.editorial)}</p>' if issue.issue_title and issue.editorial else ""
+    body = f'<div class="issue-hero">{_issue_image(issue, 2)}<div class="issue-hero-copy"><div class="issue-hero-meta"><p class="kicker">Issue · {_e(_format_date(issue.date))}</p>{_topic_tags(issue.topics[:5])}</div><div class="issue-heading"><h1>{_e(issue.headline)}</h1>{intro}</div></div></div>'
     body += f'<div class="longform-layout">{_issue_rail(issue)}<div class="longform-content">{_issue_content(issue)}</div></div>'
     body += f'<nav class="issue-nav" aria-label="Issue navigation"><div>{older_link}</div><a href="../../archive/index.html">All issues</a><div class="next-issue">{newer_link}</div></nav>'
-    return _page(f"{_format_date(issue.date)} — {SITE_NAME}", issue.editorial or issue.subject, body, 2)
+    return _page(f"{_format_date(issue.date)} — {issue.headline} — {SITE_NAME}", issue.editorial or issue.headline, body, 2)
 
 
 def _search(issues: list[PublicIssue]) -> str:

@@ -126,6 +126,12 @@ class DigestItem:
 
 
 @dataclass(frozen=True)
+class TitleSupport:
+    url: str
+    angle_en: str
+
+
+@dataclass(frozen=True)
 class Digest:
     digest_date: date
     subject: str
@@ -138,3 +144,6 @@ class Digest:
     recent_news: list[NewsBrief] = field(default_factory=list)
     research_signals: list[DigestItem] = field(default_factory=list)
     classic_readings: list[DeepRead] = field(default_factory=list)
+    issue_title_en: str = ""
+    issue_title_zh: str = ""
+    title_support: list[TitleSupport] = field(default_factory=list)

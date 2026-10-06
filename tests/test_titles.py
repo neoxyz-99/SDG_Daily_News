@@ -54,6 +54,10 @@ class TitleTests(unittest.TestCase):
                     "published_date": news.published_date, "url": news.url,
                     "one_sentence_zh": "中国公布了气候适应计划。", "one_sentence_en": "China published an adaptation plan."}],
                    "research_signals": [_item(research)]}
+        payload.update(issue_title_en="Climate Adaptation, Water Access and Local Institutions",
+                       issue_title_zh="气候适应、水资源获取与地方制度",
+                       title_support=[{"url": item.url, "angle_en": "This article connects adaptation and local policy implementation."}
+                                      for item in [news, research]])
         digests = [validate_digest_payload(payload, [news, research], {}, date(2026, 9, 30)),
                    fallback_digest([news, research], {}, date(2026, 9, 30))]
         for digest in digests:
@@ -66,4 +70,3 @@ class TitleTests(unittest.TestCase):
         candidate = replace(_candidate(), title="城市的水资源治理")
         with self.assertRaisesRegex(ValueError, "English"):
             validate_digest_payload({"items": [_item(candidate)]}, [candidate], {}, date(2026, 9, 30))
-

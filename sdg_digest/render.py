@@ -17,6 +17,8 @@ def render_markdown(digest: Digest) -> str:
         f"Issue week: {digest.digest_date.isoformat()}",
         "",
     ]
+    if digest.issue_title_en:
+        lines.extend([f"## {digest.issue_title_en}", "", digest.issue_title_zh, ""])
     if digest.overview_zh:
         lines.extend(["## 本周导语 / Editorial Note", "", digest.overview_zh, ""])
         if digest.overview_en:
@@ -138,6 +140,11 @@ def render_html(digest: Digest) -> str:
     if not readings_html:
         readings_html = '<p class="empty">本期没有从权威期刊追踪到适合研读的论文。</p>'
 
+    title_html = (
+        f'<section class="editorial-note issue-title"><h2>{html.escape(digest.issue_title_en)}</h2>'
+        f'<p>{html.escape(digest.issue_title_zh)}</p></section>'
+        if digest.issue_title_en else ""
+    )
     editorial_html = (
         f'<section class="editorial-note"><h2>本周导语 / Editorial Note</h2>'
         f'<p>{html.escape(digest.overview_zh)}</p>{_paragraph_en(digest.overview_en)}</section>'
@@ -232,6 +239,7 @@ def render_html(digest: Digest) -> str:
       </div>
     </header>
 
+    {title_html}
     {editorial_html}
 
     <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>

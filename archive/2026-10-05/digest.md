@@ -2,6 +2,10 @@
 
 Issue week: 2026-10-05
 
+## Energy Security, Industrial Policy and Climate Accountability
+
+能源安全、产业政策与气候问责
+
 ## 本周导语 / Editorial Note
 
 英国风电和光伏在地缘危机中替代了59亿英镑天然气进口，能源安全与产业规则正被重新绑定。

@@ -9,6 +9,7 @@ from datetime import date
 from typing import Any
 
 from .dedup import unique_articles
+from .editorial import validate_issue_title
 from .http import post_json
 from .models import Candidate, DeepRead, Digest, DigestItem, DigestTerm, NewsBrief, ResearchDirection
 from .titles import validate_english_title
@@ -335,7 +336,11 @@ def _call_openai(
             "Before selecting articles, compare the recent_editorial_history titles, article arguments and weekly threads. Prefer substantive new mechanisms, places, actors and findings over another article making the same point. A new source or differently worded title alone is not a new perspective. Historical entries are context only, never candidates for this issue.",
             "Build a selection with distinct analytical perspectives when the candidate quality allows: implementation and state capacity; technology diffusion and infrastructure; public services and lived experience; ecosystem outcomes and scientific evidence; institutional rules and accountability; diplomacy and cooperation; distribution, financing and justice. Aim for at least 3 perspectives across a full issue, including different regions and actor levels where supported. These are selection lenses, not topic admission gates or rigid quotas; do not pad the issue or invent a perspective.",
             "Keep finance and burden-sharing when they are central to the source, but do not recast every story as who pays, who bears costs, who defines the agenda, or a generic power-versus-responsibility conflict. For continuing stories, identify what materially changed since earlier coverage. Prefer complementary or evidence-backed competing explanations, not artificial balance.",
-            "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. Use a specific development or analytical finding grounded in this issue as the lead. A clear declarative sentence is welcome; a question or actor conflict is optional. weekly_editorial_note_en should carry the same meaning in one concise English sentence. Compare the last 6 issues and avoid repeating their central framing or sentence template. Do not merely paraphrase a recent who-pays headline. Let the current evidence determine the framing; revisit a recent lens only when new developments warrant it.",
+            "Finalize the article selection BEFORE naming the issue. issue_title_en and issue_title_zh are independent issue-wide titles, not the editorial note or a lead article headline. Use 6–16 English words and a faithful concise Chinese counterpart. Represent the main agenda mix with specific topics, actors or mechanisms; do not organize the entire title around a number, country or finding that belongs to only one article.",
+            "A title must be supported by at least 2 distinct selected news/research articles and cover a majority of selected research_signals (floor(count/2)+1, when any exist). Prefer independent sources where the material permits. Return title_support entries with exact selected URLs and an angle_en sentence explaining how each article supports an actual phrase in the title. Excluded candidates and academic readings cannot count toward coverage. Do not append unrelated URLs to satisfy the count: each named topic or relationship must be substantiated. Check the title against the FINAL selection, not the candidate pool.",
+            "If the main articles do not support one shared thesis, use a parallel title naming 2–3 specific agenda strands. Do not invent a causal link or an abstract umbrella such as governance challenges just to connect disparate stories. The title need not cover every brief, but must not imply the whole edition concerns a single lead article. If fewer than 2 news/research articles are selected, return empty issue titles and an empty title_support array; the site will use its dated issue label.",
+            "Compare issue_title against the last 6 issues in recent_editorial_history, avoiding repeated central framing and sentence templates. Do not merely paraphrase a recent who-pays headline. Revisit a recent lens only when the current evidence warrants it.",
+            "weekly_editorial_note_zh: under 100 Chinese characters, only if at least 2 total news/research items are selected. This is the introduction BELOW the issue title. It may highlight a specific article's finding or figure and explain why it matters, without claiming it represents every item. weekly_editorial_note_en should carry the same meaning in one concise English sentence. A clear declarative sentence is welcome; a question or conflict is optional. Keep the note distinct from the issue title.",
             "recent_news: select up to the requested maximum from recent_news_candidates using exclusion-only editorial judgment. Do not apply research relevance, domain relevance, or topic keyword gates. Write one_sentence_zh and one_sentence_en for each item; keep tags empty unless the source text gives a very specific archive label.",
             "research_signals: select up to the requested maximum from research_candidates. These require core_argument_zh/core_argument_en, why_now_zh/why_now_en, agenda_position_zh/agenda_position_en, and tags.",
             "Core Argument: write 1 dense Chinese sentence, 70-120 Chinese characters. It must name a specific actor, institution, policy instrument, or negotiating party; state the concrete problem or mechanism identified by the article; explain why that mechanism matters; and indicate what policy, financing, governance, or institutional change the article argues for or implies. Do not write vague sentences such as 'X is important' or 'cannot be ignored'. Do not restate the title or use statistics as the core of the argument.",
@@ -413,6 +418,9 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
         "type": "object",
         "additionalProperties": False,
         "required": [
+            "issue_title_en",
+            "issue_title_zh",
+            "title_support",
             "weekly_editorial_note_zh",
             "weekly_editorial_note_en",
             "weekly_thread_zh",
@@ -422,6 +430,20 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
             "readings",
         ],
         "properties": {
+            "issue_title_en": {"type": "string"},
+            "issue_title_zh": {"type": "string"},
+            "title_support": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "required": ["url", "angle_en"],
+                    "properties": {
+                        "url": {"type": "string"},
+                        "angle_en": {"type": "string"},
+                    },
+                },
+            },
             "weekly_editorial_note_zh": {"type": ["string", "null"]},
             "weekly_editorial_note_en": {"type": ["string", "null"]},
             "weekly_thread_zh": {"type": ["string", "null"]},
@@ -639,6 +661,7 @@ def validate_digest_payload(
 
     research_signals = unique_articles(research_signals)
     recent_news = unique_articles(recent_news, excluded=research_signals)
+    issue_title_en, issue_title_zh, title_support = validate_issue_title(payload, recent_news, research_signals)
     readings = _validate_readings(payload, approved_reads)
     editorial_note = _optional_text(payload.get("weekly_editorial_note_zh", payload.get("daily_editorial_note_zh")))
     editorial_note_en = _optional_text(payload.get("weekly_editorial_note_en"))
@@ -662,6 +685,9 @@ def validate_digest_payload(
         subject=f"{NEWSLETTER_NAME} - Week of {run_date.isoformat()}",
         overview_zh=editorial_note,
         overview_en=editorial_note_en,
+        issue_title_en=issue_title_en,
+        issue_title_zh=issue_title_zh,
+        title_support=title_support,
         items=research_signals,
         readings=readings,
         weekly_thread_zh=weekly_thread_zh,
