@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-10-19</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">本期看点是：自然承诺进入清点阶段，而债务与融资规则开始把适应纳入计算。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-10-19</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note issue-title"><h2>Nature targets, biodiversity pledges, and adaptation finance</h2><p>自然目标、生物多样性承诺与适应融资</p></section>
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>本期看点是：自然承诺进入清点阶段，而债务与融资规则开始把适应纳入计算。</p><p class="en-text">This week’s signal is that nature pledges are moving into audit mode while debt and finance rules begin to count adaptation.</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/environment/2026/oct/19/can-countries-deliver-on-a-deal-to-save-the-worlds-plants-and-animals">Four years ago countries made a historic deal to save nature. Is it dead in the water?</a></h3>
+  
+  <p class="meta">The Guardian Environment · 2026-10-19</p>
+  <p class="body-text">随着COP17召开，这篇报道追问各国是否真的在兑现四年前为扭转生物多样性损失达成的协议。</p>
+  <p class="en-text">As COP17 opens, the piece asks whether countries are actually delivering on the nature deal struck four years ago.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://news.un.org/feed/view/en/story/2026/10/1168620">Protecting Earth’s fragile biodiversity takes spotlight at Armenia talks</a></h3>
+  
+  <p class="meta">UN News Climate Change · 2026-10-19</p>
+  <p class="body-text">联合国在亚美尼亚会谈前强调，生物多样性丧失已经影响数十亿人的生计，国家必须加快行动。</p>
+  <p class="en-text">The UN says biodiversity loss is already affecting billions of livelihoods and urges faster national action ahead of the Armenia talks.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://news.un.org/feed/view/en/story/2026/10/1168618">COP17: The world has a plan to save nature. Is it working?</a></h3>
+  
+  <p class="meta">UN News Climate Change · 2026-10-17</p>
+  <p class="body-text">联合国将COP17设定为一次实质性检验：各国是否真的在把“拯救自然”的框架转化为进展。</p>
+  <p class="en-text">The UN frames COP17 as a practical test of whether governments are turning the global nature framework into measurable progress.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://insideclimatenews.org/news/19102026/deepwater-horizon-spill-recovery/">Deep-Sea Species Struggle to Recover After Deepwater Horizon Spill</a></h3>
+  
+  <p class="meta">Inside Climate News · 2026-10-19</p>
+  <p class="body-text">最新研究显示，2011年深水地平线漏油事件后的深海生态系统恢复仍然不确定。</p>
+  <p class="en-text">New research finds recovery remains uncertain across the deep-water ecosystem damaged by the 2011 Deepwater Horizon spill.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://www.nytimes.com/2026/10/19/us/california-climate-change-warning.html">Latest Climate Report Warns of Major Upheaval to California Way of Life</a></h3>
+  
+  <p class="meta">New York Times Climate · 2026-10-19</p>
+  <p class="body-text">加州最新气候评估警告，极端天气和长期风险将深刻改变该州的生活方式与公共治理压力。</p>
+  <p class="en-text">California’s latest climate assessment warns that worsening weather and long-run risks could reshape the state’s way of life and governance pressures.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://yaleclimateconnections.org/2026/10/super-typhoon-champi-intensifies-to-a-cat-5-after-battering-guam/">Super Typhoon Champi intensifies to a Cat 5 after battering Guam</a></h3>
+  
+  <p class="meta">Yale Climate Connections · 2026-10-18</p>
+  <p class="body-text">强台风Champi在重创关岛后增强为五级，西太平洋风暴风险继续上升。</p>
+  <p class="en-text">Champi has strengthened to Category 5 after battering Guam, underscoring rising storm risk in the western Pacific.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://yaleclimateconnections.org/2026/10/why-new-jersey-is-buying-flood-prone-homes/">Why New Jersey is buying flood-prone homes</a></h3>
+  
+  <p class="meta">Yale Climate Connections · 2026-10-15</p>
+  <p class="body-text">新泽西通过Blue Acres项目购买高洪水风险房屋，并把这些地块转为开放空间。</p>
+  <p class="en-text">New Jersey’s Blue Acres program buys flood-prone homes and converts the land to open space.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/cop17-which-countries-have-released-new-pledges-to-tackle-nature-loss">COP17: Which countries have released new pledges to tackle nature loss?</a></h3>
+  
+  <p class="meta">Carbon Brief · 2026-10-16</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#环境治理与气候</span><span class="tag">#生物多样性</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief以各国NBSAP更新为证据指出，113个缔约方虽已提交新版生物多样性承诺，但距离昆明—蒙特利尔全球生物多样性框架的2030目标仍明显滞后；关键问题不只是“有没有承诺”，而是这些承诺是否进入可比较、可追踪、可审议的全球审查程序，并与融资、监测和国家报告衔接起来。</p>
+  <p class="en-text">Carbon Brief shows that 113 parties have now submitted updated NBSAPs, yet the Kunming-Montreal 2030 targets remain well off track; the central issue is not whether pledges exist, but whether they enter a comparable, trackable, and reviewable global process linked to finance, monitoring, and national reporting.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇分析直接对应COP17的全球审查窗口，因为会议将首次系统评估各国对2030目标的更新承诺。与此同时，原定期限已被普遍错过，说明“提交”与“执行”之间的落差正在成为谈判焦点。</p>
+  <p class="en-text">This analysis lands on the COP17 global review window, when countries will be assessed on updated commitments toward the 2030 targets. The original deadline has already been widely missed, so the gap between submission and implementation is now the negotiation’s core problem.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">COP17全球审查与昆明—蒙特利尔框架实施议程的直接输入。</p>
+    <p class="en-text">Direct input into the COP17 global review and the implementation agenda under the Kunming-Montreal framework.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://interactive.carbonbrief.org/nature-targets-2030-progress/">COP17: Tracking progress towards the UN’s 2030 nature targets</a></h3>
+  
+  <p class="meta">Carbon Brief · 2026-10-15</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#生物多样性</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief通过23项目标逐项追踪表明，全球自然治理的瓶颈已从“是否有框架”转向“哪些目标真的在推进”，而22项目标落后说明资金、补贴、生态修复和监测机制仍未形成足够的制度合力；文章实际上主张把预算、问责和国家实施节奏放到同一张表上看。</p>
+  <p class="en-text">By tracking all 23 targets one by one, Carbon Brief argues that the bottleneck in nature governance has shifted from having a framework to knowing which targets are actually advancing, and the fact that 22 targets are off track shows that finance, subsidy reform, restoration, and monitoring still lack institutional coherence; the piece effectively argues for putting budgets, accountability, and implementation timing on the same ledger.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">此时发布正好服务于COP17前的第一轮全球进展盘点，为谈判方提供目标层面的“落后地图”。它挑战了只看总进度或口号式表述的做法。</p>
+  <p class="en-text">Published just before COP17, it provides the first global map of where progress is lagging by target. It challenges broad-brush claims and forces negotiators to confront the distribution of implementation failures.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">COP17全球进展审查的技术底稿，直接服务于后续文本谈判。</p>
+    <p class="en-text">Technical background for the COP17 progress review and the text negotiations that follow.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.e3g.org/news/explained-reforms-to-the-imf-and-world-bank-s-debt-framework-send-a-new-climate-signal-adaptation-counts/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=explained-reforms-to-the-imf-and-world-bank-s-debt-framework-send-a-new-climate-signal-adaptation-counts">Explained: Reforms to the IMF and World Bank’s debt framework send a new climate signal – adaptation counts</a></h3>
+  
+  <p class="meta">E3G · 2026-10-14</p>
+  <p class="tags"><span class="tag">#国际治理与多边主义</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G指出，IMF和世界银行修订低收入国家债务可持续性框架后，债务评估开始更认真计入气候脆弱性与适应投资，这意味着多边金融规则不再只把适应视作额外成本，而是逐步把它当作维持偿债现实性与发展韧性的组成部分。</p>
+  <p class="en-text">E3G argues that after the IMF and World Bank revised the Low-Income Countries Debt Sustainability Framework, debt assessments now take climate vulnerability and adaptation investment more seriously, meaning multilateral financial rules are beginning to treat adaptation not as an extra cost but as part of debt realism and development resilience.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇解释正好响应银行和基金在2026年秋季年度会议前后的政策调整，说明债务框架不再是纯财政工具，而在吸纳气候风险。它为适应融资提供了一个嵌入式制度入口。</p>
+  <p class="en-text">This explainer responds to policy changes around the 2026 annual meetings, showing that the debt framework is no longer a purely fiscal tool but now absorbs climate risk. It offers an institutional entry point for adaptation finance.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">多边开发银行和IMF债务框架修订后的政策解释，属于年度会议后的实施议程。</p>
+    <p class="en-text">Policy interpretation of the revised MDB and IMF debt framework, part of the post-annual-meetings implementation agenda.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>共同问题不是再多一句承诺，而是COP17的自然文本、各国NBSAP提交与多边融资规则能否把目标变成可核查的执行。</p><p class="en-text">The shared question is not whether governments can repeat commitments, but whether COP17 texts, national biodiversity plans, and multilateral finance rules can make them verifiable and operational.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1163/19426720-03203001">The BRICS Sustainability Paradox in Global Governance</a></h3>
+  <p class="meta">Hendry Roris P. Sianturi, Uud Wahyudin, Budi Nugraha, Reddy Anggara · 2026-09-30 · Global Governance: A Review of Multilateralism and International Organizations</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="reading-text">作者指出，BRICS中的‘绿色增长’与‘负责任旅游’等可持续话语常常更像合法性表演而非结构性转型；其通信—执行鸿沟显示，环保承诺若缺乏独立核验、影响导向指标和南方知识视角，就会成为遮蔽连续性的治理语言。</p>
+  <p class="en-text">The authors argue that ‘green growth’ and ‘responsible tourism’ in the BRICS often function as legitimacy performance rather than structural transformation; the communication–implementation gap shows that sustainability language can mask continuity unless independent verification, impact-based metrics, and Southern epistemologies are brought in.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">该文为Global Forum评论性研究，采用概念分析并以旅游作为观察可持续治理落差的案例。</p>
+  <p class="en-text">This is a Global Forum-style conceptual analysis that uses tourism as the lens for examining the sustainability gap in governance.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期Carbon Brief关于COP17各国生物多样性承诺和UN News关于亚美尼亚会谈的报道并读，因为它们都在问承诺如何从修辞变成可核验执行。</p>
+  <p class="en-text">Read alongside this week’s Carbon Brief coverage of COP17 pledges and UN News reporting from Armenia, since both ask how commitments become verifiable implementation.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>南方视角如何核验承诺？ <span class="keywords">(Southern epistemologies, verification, global governance, sustainability metrics)</span><br><span class="en-text">How do Southern epistemologies alter verification of sustainability pledges?</span></li><li>旅游为何放大执行鸿沟？ <span class="keywords">(tourism governance, implementation gap, legitimacy, global governance)</span><br><span class="en-text">Why does tourism magnify the implementation gap in sustainability governance?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1163/19426720-03203001">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1111/j.1468-0491.2007.00359.x">Democratization, International Knowledge Institutions, and Global Governance</a></h3>
+  <p class="meta">CLARK A. MILLER · 2007-05-03 · Governance</p>
+  <p class="tags"><span class="tag">#国际治理与多边主义</span><span class="tag">#发展与不平等</span></p>
+  <p class="reading-text">作者认为，国际知识机构通过设定推理与论证标准、分类国际议题对象、并塑造谁能参与全球 deliberation，已成为全球治理中约束权力的重要场域；因此，知识生产本身必须接受民主批判。</p>
+  <p class="en-text">The author argues that international knowledge institutions constrain power in global governance by setting standards for reasoning and deliberation, classifying objects of international discourse, and shaping participation; knowledge production itself therefore requires democratic critique.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">该文为理论论证型研究，围绕国际知识机构的功能进行规范性和概念性分析。</p>
+  <p class="en-text">This is a theory-driven article offering normative and conceptual analysis of the functions of international knowledge institutions.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期Carbon Brief关于COP17全球审查的两篇文章并读，因为二者都在处理目标、指标和报告如何构成治理权力。</p>
+  <p class="en-text">Read alongside this issue’s two Carbon Brief COP17 pieces, since both deal with how targets, indicators, and reporting shape governance power.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>指标如何塑造权力？ <span class="keywords">(indicators, knowledge institutions, global governance, accountability)</span><br><span class="en-text">How do indicators shape power in global environmental governance?</span></li><li>谁能定义合规标准？ <span class="keywords">(compliance, standards, participation, international institutions)</span><br><span class="en-text">Who gets to define compliance standards in international regimes?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1111/j.1468-0491.2007.00359.x">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
