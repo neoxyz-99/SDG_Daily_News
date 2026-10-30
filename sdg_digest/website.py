@@ -262,8 +262,8 @@ def _rel_prefix(depth: int) -> str:
 def _header(depth: int, active: str) -> str:
     prefix = _rel_prefix(depth)
     links = [("Latest", f"{prefix}index.html"), ("Archive", f"{prefix}archive/index.html"), ("Search", f"{prefix}search/index.html"), ("About", f"{prefix}about/index.html")]
-    nav = "".join(f'<a href="{href}" class="{"active" if label == active else ""}">{label}</a>' for label, href in links)
-    return f"""<div class="utility-bar"><span>Independent weekly intelligence</span><span>Climate · Development · Governance</span></div>
+    nav = "".join(f'<a href="{href}" class="{"active" if label == active else ""}"' + (' aria-current="page"' if label == active else '') + f'>{label}</a>' for label, href in links)
+    return f"""<a class="skip-link" href="#main-content">Skip to content</a><div class="utility-bar"><span>Independent weekly intelligence</span><span>Climate / Development / Governance</span></div>
 <header class="site-header">
   <a class="masthead" href="{prefix}index.html" aria-label="SDG Weekly Compass home"><span class="compass-mark">N</span><span>{SITE_NAME}</span></a>
   <nav aria-label="Primary navigation">{nav}</nav>
@@ -301,7 +301,7 @@ def _page(title: str, description: str, body: str, depth: int, active: str = "")
   <script defer src="{prefix}assets/site.js"></script>
 </head>
 <body data-page="{_e(canonical_path)}">
-  <div class="site-shell">{_header(depth, active)}<main>{body}</main>{_footer(depth)}</div>
+  <div class="site-shell">{_header(depth, active)}<main id="main-content">{body}</main>{_footer(depth)}</div>
 </body>
 </html>
 """
@@ -313,7 +313,7 @@ def _topic_tags(values: tuple[str, ...]) -> str:
 
 def _issue_image(issue: PublicIssue, depth: int, class_name: str = "issue-image") -> str:
     prefix = _rel_prefix(depth)
-    return f'<figure class="{class_name}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="Original editorial artwork for the {_e(_format_date(issue.date))} issue" loading="eager" width="1672" height="941"></figure>'
+    return f'<figure class="{class_name}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="Original editorial artwork for the {_e(_format_date(issue.date))} issue" loading="eager" fetchpriority="high" width="1672" height="941"><figcaption>Original editorial artwork / {_e(_format_date(issue.date))}</figcaption></figure>'
 
 
 def _issue_rail(issue: PublicIssue) -> str:
@@ -334,16 +334,17 @@ def _source_line(item: PublicItem) -> str:
     original = ""
     if item.title_original and item.title_original != item.title:
         original = f'<details class="original-title"><summary>Original title</summary><p dir="auto">{_e(item.title_original)}</p></details>'
-    return f'<p class="source-line">{_e(" · ".join(filter(None, parts)) or "Independent analysis")}</p>{original}'
+    metadata = "".join(f"<span>{_e(part)}</span>" for part in parts if part) or "Independent analysis"
+    return f'<p class="source-line">{metadata}</p>{original}'
 
 
 def _original_link(item: PublicItem) -> str:
-    return "" if not item.url else f'<a class="original-link" href="{_e(item.url)}" target="_blank" rel="noreferrer">Read the original <span aria-hidden="true">↗</span></a>'
+    return "" if not item.url else f'<a class="original-link" href="{_e(item.url)}" target="_blank" rel="noreferrer">Read the original</a>'
 
 
 def _section_title(eyebrow: str, title: str, count: int | None = None) -> str:
     count_html = "" if count is None else f"<span>{count} items</span>"
-    return f'<div class="section-heading"><p>{_e(eyebrow)}</p><div><h2>{_e(title)}</h2>{count_html}</div></div>'
+    return f'<div class="section-heading"><div><h2>{_e(title)}</h2>{count_html}</div><p>{_e(eyebrow)}</p></div>'
 
 
 def _news_card(item: PublicItem, index: int) -> str:
@@ -355,7 +356,7 @@ def _signal_card(item: PublicItem) -> str:
         f'<div class="analysis-block"><h4>{_e(item.paragraph_labels[index])}</h4><p>{_e(paragraph)}</p></div>'
         for index, paragraph in enumerate(item.paragraphs)
     )
-    return f"""<article class="signal-card">{_topic_tags(item.topics)}<h3>{_e(item.title)}</h3>{_source_line(item)}{analysis}{_original_link(item)}</article>"""
+    return f"""<article class="signal-card"><header><h3>{_e(item.title)}</h3>{_source_line(item)}{_topic_tags(item.topics)}</header><div class="signal-analysis">{analysis}{_original_link(item)}</div></article>"""
 
 
 def _reading_card(item: PublicItem) -> str:
@@ -365,7 +366,7 @@ def _reading_card(item: PublicItem) -> str:
         highlighted = label in {"Today’s connection", "Research directions"}
         heading = "" if label == "Reading note" else f"<h4>{_e(label)}</h4>"
         paragraphs += f'<div class="{"today-connection" if highlighted else "reading-copy"}">{heading}<p>{_e(paragraph)}</p></div>'
-    return f"""<article class="reading-card"><p class="kicker">From the research shelf</p><h3>{_e(item.title)}</h3>{_source_line(item)}{_topic_tags(item.topics)}{paragraphs}{_original_link(item)}</article>"""
+    return f"""<article class="reading-card"><header><h3>{_e(item.title)}</h3>{_source_line(item)}{_topic_tags(item.topics)}</header><div class="reading-analysis">{paragraphs}{_original_link(item)}</div></article>"""
 
 
 def _issue_content(issue: PublicIssue) -> str:
@@ -375,7 +376,7 @@ def _issue_content(issue: PublicIssue) -> str:
     if issue.signals:
         sections.append(f'<section id="research-signals" class="issue-section signals-section">{_section_title("What the week is telling us", "Research Signals", len(issue.signals))}<div class="signals-grid">{"".join(_signal_card(item) for item in issue.signals)}</div></section>')
     if issue.weekly_thread:
-        sections.append(f'<aside id="weekly-thread" class="weekly-thread"><p class="kicker">Weekly thread</p><blockquote>{_e(issue.weekly_thread)}</blockquote></aside>')
+        sections.append(f'<aside id="weekly-thread" class="weekly-thread"><h2>Weekly thread</h2><blockquote>{_e(issue.weekly_thread)}</blockquote></aside>')
     if issue.readings:
         sections.append(f'<section id="research-reading" class="issue-section readings-section">{_section_title("Ideas with a longer half-life", "Research Reading", len(issue.readings))}<div class="readings-grid">{"".join(_reading_card(item) for item in issue.readings)}</div></section>')
     return "".join(sections)
@@ -389,7 +390,7 @@ def _archive_cards(issues: list[PublicIssue], depth: int) -> str:
         if issue.issue_title and issue.editorial:
             summary = issue.editorial
         href = f"{prefix}issues/{issue.date}/index.html"
-        cards.append(f"""<article class="archive-card"><a class="archive-image" href="{href}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="" loading="lazy" width="1672" height="941"></a><div class="archive-card-copy"><div class="archive-index">{index + 1:02d}</div><p class="kicker">Issue · {_e(_format_date(issue.date))}</p><h2><a href="{href}">{_e(issue.headline)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue →</a></div></div></article>""")
+        cards.append(f"""<article class="archive-card"><a class="archive-image" href="{href}" aria-label="Open issue for {_e(_format_date(issue.date))}"><img src="{prefix}assets/issues/{issue.date}.jpg" alt="" loading="{'eager' if index == 0 and depth == 1 else 'lazy'}" width="1672" height="941"></a><div class="archive-card-copy"><div class="archive-index">{index + 1:02d}</div><time class="kicker" datetime="{issue.date}">Issue / {_e(_format_date(issue.date))}</time><h2><a href="{href}">{_e(issue.headline)}</a></h2><p>{_e(summary)}</p>{_topic_tags(issue.topics[:3])}<div class="archive-meta"><span>{len(issue.items)} pieces</span><a href="{href}">Open issue</a></div></div></article>""")
     return f'<div class="archive-grid">{"".join(cards)}</div>'
 
 
@@ -397,19 +398,22 @@ def _home(issues: list[PublicIssue]) -> str:
     latest = issues[0]
     lead = latest.signals[0] if latest.signals else latest.news[0] if latest.news else latest.readings[0]
     introduction = latest.editorial if latest.issue_title and latest.editorial else lead.paragraphs[0]
-    body = f"""<section class="lead-grid">
-  <div class="issue-stamp"><span>Issue</span><strong>{_e(_format_date(latest.date, True))}</strong><span>{len(latest.items)} curated pieces</span></div>
-  <div class="lead-story"><p class="kicker">This week</p><h1>{_e(latest.headline)}</h1><p class="lead-deck">{_e(introduction)}</p><a class="button-link" href="issues/{latest.date}/index.html">Read the full issue <span aria-hidden="true">→</span></a></div>
-  <aside class="contents-note"><p class="kicker">In this issue</p><ul><li><strong>{len(latest.news)}</strong> news notes</li><li><strong>{len(latest.signals)}</strong> policy signals</li><li><strong>{len(latest.readings)}</strong> research readings</li></ul>{_topic_tags(latest.topics[:4])}</aside>
-</section>{_issue_image(latest, 0, "home-hero-image")}"""
+    contents = "".join(f'<a href="#{anchor}"><strong>{len(items)}</strong> {label}</a>' for anchor, label, items in (
+        ("recent-news", "News Notes", latest.news), ("research-signals", "Research Signals", latest.signals),
+        ("research-reading", "Research Reading", latest.readings)) if items)
+    body = f"""<div class="edition-meta"><strong>Latest issue / <time datetime="{latest.date}">{_e(_format_date(latest.date))}</time></strong><span>{len(latest.items)} curated pieces</span></div>
+<section class="lead-grid">
+  <div class="lead-story"><h1>{_e(latest.headline)}</h1><p class="lead-deck">{_e(introduction)}</p><a class="button-link" href="issues/{latest.date}/index.html">Read the full issue</a></div>
+  {_issue_image(latest, 0, "home-hero-image")}
+</section><nav class="issue-contents" aria-label="In this issue">{contents}</nav>"""
     body += _issue_content(latest)
     if len(issues) > 1:
-        body += f'<section class="archive-preview">{_section_title("The record so far", "Previous Issues")}{_archive_cards(issues[1:], 0)}<a class="text-link" href="archive/index.html">Explore the complete archive →</a></section>'
+        body += f'<section class="archive-preview">{_section_title("The record so far", "Previous Issues")}{_archive_cards(issues[1:], 0)}<a class="text-link" href="archive/index.html">Explore the complete archive</a></section>'
     return _page(SITE_NAME, "An independent weekly briefing on climate, development finance, and global governance.", body, 0, "Latest")
 
 
 def _archive(issues: list[PublicIssue]) -> str:
-    body = '<div class="page-intro"><p class="kicker">The archive</p><h1>A weekly record of how policy change takes shape.</h1><p>Each edition connects immediate events, policy analysis, and useful research for a clearer view of sustainable development.</p></div>' + _archive_cards(issues, 1)
+    body = '<div class="page-intro"><h1>A weekly record of how policy change takes shape.</h1><p class="page-label">The archive</p><p>Each edition connects immediate events, policy analysis, and useful research for a clearer view of sustainable development.</p></div>' + _archive_cards(issues, 1)
     return _page(f"Archive — {SITE_NAME}", "Browse past issues of SDG Weekly Compass.", body, 1, "Archive")
 
 
@@ -417,10 +421,10 @@ def _issue_page(issue: PublicIssue, issues: list[PublicIssue]) -> str:
     index = issues.index(issue)
     newer = issues[index - 1] if index > 0 else None
     older = issues[index + 1] if index < len(issues) - 1 else None
-    older_link = "" if not older else f'<small>Previous issue</small><a href="../{older.date}/index.html">← {_e(_format_date(older.date, True))}</a>'
-    newer_link = "" if not newer else f'<small>Next issue</small><a href="../{newer.date}/index.html">{_e(_format_date(newer.date, True))} →</a>'
+    older_link = "" if not older else f'<small>Previous issue</small><a href="../{older.date}/index.html">{_e(_format_date(older.date, True))}</a>'
+    newer_link = "" if not newer else f'<small>Next issue</small><a href="../{newer.date}/index.html">{_e(_format_date(newer.date, True))}</a>'
     intro = f'<p class="issue-intro">{_e(issue.editorial)}</p>' if issue.issue_title and issue.editorial else ""
-    body = f'<div class="issue-hero">{_issue_image(issue, 2)}<div class="issue-hero-copy"><div class="issue-hero-meta"><p class="kicker">Issue · {_e(_format_date(issue.date))}</p>{_topic_tags(issue.topics[:5])}</div><div class="issue-heading"><h1>{_e(issue.headline)}</h1>{intro}</div></div></div>'
+    body = f'<div class="edition-meta"><strong>Issue / <time datetime="{issue.date}">{_e(_format_date(issue.date))}</time></strong><span>{len(issue.items)} curated pieces</span></div><div class="issue-hero"><div class="issue-hero-copy"><h1>{_e(issue.headline)}</h1>{intro}{_topic_tags(issue.topics[:5])}</div>{_issue_image(issue, 2)}</div>'
     body += f'<div class="longform-layout">{_issue_rail(issue)}<div class="longform-content">{_issue_content(issue)}</div></div>'
     body += f'<nav class="issue-nav" aria-label="Issue navigation"><div>{older_link}</div><a href="../../archive/index.html">All issues</a><div class="next-issue">{newer_link}</div></nav>'
     return _page(f"{_format_date(issue.date)} — {issue.headline} — {SITE_NAME}", issue.editorial or issue.headline, body, 2)
@@ -429,17 +433,17 @@ def _issue_page(issue: PublicIssue, issues: list[PublicIssue]) -> str:
 def _search(issues: list[PublicIssue]) -> str:
     topic_options = sorted({topic for issue in issues for topic in issue.topics})
     options = "".join(f'<option value="{_e(topic)}">{_e(topic)}</option>' for topic in topic_options)
-    body = f"""<div class="page-intro search-intro"><p class="kicker">Search the public record</p><h1>Follow an idea across weeks, sources, and forms.</h1></div>
+    body = f"""<div class="page-intro search-intro"><h1>Follow an idea across weeks, sources, and forms.</h1><p class="page-label">Search the public record</p></div>
 <section class="search-panel">
   <label class="search-box"><span class="sr-only">Search archive</span><input id="search-input" type="search" placeholder="Search analysis, sources, authors…"><span aria-hidden="true">⌕</span></label>
   <div class="filter-row"><label>Format<select id="type-filter"><option>All</option><option>News</option><option>Research Signal</option><option>Research Reading</option></select></label><label>Topic<select id="topic-filter"><option>All topics</option>{options}</select></label><span id="result-count"></span></div>
 </section>
-<div id="search-results" class="search-results" aria-live="polite"></div>"""
+<div id="search-results" class="search-results" aria-live="polite"></div><noscript><p>Search needs JavaScript. <a href="../archive/index.html">Browse all issues</a> to read the archive.</p></noscript>"""
     return _page(f"Search — {SITE_NAME}", "Search the English archive by topic, source, author, and analysis.", body, 1, "Search")
 
 
 def _about() -> str:
-    body = """<article class="prose-page"><header><p class="kicker">About the publication</p><h1>A compass, not a newswire.</h1></header>
+    body = """<article class="prose-page"><header><h1>A compass, not a newswire.</h1><p class="page-label">About the publication</p></header>
 <p class="standfirst">SDG Weekly Compass is an independent, non-commercial knowledge and information briefing connecting current events and policy research across climate, sustainable development, development finance, and global governance.</p>
 <h2>Editorial method</h2><p>Each issue begins with updates from a defined list of institutional, research, journal, international-organization, and news sources. Items must have enough source text to evaluate. Obvious structural noise is excluded; relevant candidates are assessed semantically rather than admitted through keyword matching.</p><p>The final selection is intentionally short. We publish fewer items when the available material does not meet the editorial threshold. Previously covered URLs are excluded, and research-reading DOIs are not repeated merely to fill space.</p>
 <h2>How AI is used</h2><p>AI assists with relevance screening, synthesis, and drafting structured editorial fields. It does not replace source attribution. Every external item links to the original publication, and research readings are restricted to approved journals or human-checked seed references.</p>
@@ -449,11 +453,11 @@ def _about() -> str:
 
 def _copyright() -> str:
     subject = quote("SDG Weekly Compass copyright or correction request")
-    body = f"""<article class="prose-page"><header><p class="kicker">Copyright &amp; sources</p><h1>Original analysis, clear attribution.</h1></header>
+    body = f"""<article class="prose-page"><header><h1>Original analysis, clear attribution.</h1><p class="page-label">Copyright &amp; sources</p></header>
 <p class="standfirst">SDG Weekly Compass is a non-commercial knowledge-sharing project intended for learning, research, and public-interest discussion.</p>
 <h2>Referenced works</h2><p>Article titles, source names, and linked materials remain the property of their respective owners. This site does not reproduce source articles or academic papers. It publishes original summaries and editorial analysis designed to guide readers to—not substitute for—the original works.</p><p>Every external entry identifies its source and publication date where available and provides a direct link to the original. Readers are encouraged to consult and support the original publishers.</p>
 <h2>Corrections and removal</h2><p>If you are a rights holder or source representative and would like to request a correction, improved attribution, or removal of a public entry, please identify the article URL or DOI and the relevant issue date.</p>
-<a class="contact-card" href="mailto:{CONTACT_EMAIL}?subject={subject}"><span>Copyright, attribution &amp; corrections</span><strong>{CONTACT_EMAIL}</strong><span aria-hidden="true">Write to us →</span></a>
+<a class="contact-card" href="mailto:{CONTACT_EMAIL}?subject={subject}"><span>Copyright, attribution &amp; corrections</span><strong>{CONTACT_EMAIL}</strong><span aria-hidden="true">Write to us</span></a>
 <h2>Editorial independence</h2><p>The presence of a link does not imply endorsement by the original publisher, and SDG Weekly Compass is not affiliated with the institutions and publications it follows. The site makes no blanket claim that non-commercial status alone resolves copyright questions.</p></article>"""
     return _page(f"Copyright & Sources — {SITE_NAME}", "Copyright, source attribution, corrections, and removal policy.", body, 1)
 
@@ -508,7 +512,7 @@ def build_site(archive_dir: Path, output_dir: Path, assets_dir: Path) -> list[Pu
 
     output_assets = staging_dir / "assets"
     output_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("site.css", "site.js", "favicon.svg", "og.png"):
+    for name in ("site.css", "tokens.css", "base.css", "site.js", "favicon.svg", "og.png"):
         source = assets_dir / name
         if source.exists():
             shutil.copy2(source, output_assets / name)

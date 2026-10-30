@@ -1,0 +1,16 @@
+/* Hallmark · shared foundations */
+* { box-sizing: border-box; }
+html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { overflow-x: clip; margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: var(--text-body); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-underline-offset: .2em; }
+a:hover { text-decoration-color: var(--gold); }
+a:active { opacity: .8; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+h1, h2, h3 { min-width: 0; overflow-wrap: break-word; text-wrap: balance; }
+p { text-wrap: pretty; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+::selection { background: var(--green); color: var(--paper); }
+input { caret-color: var(--green); }
+html { scrollbar-color: var(--muted) var(--paper); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

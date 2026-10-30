@@ -1,9 +1,11 @@
 (function () {
   document.querySelectorAll(".home-hero-image img, .issue-image img, .archive-image img").forEach((image) => {
-    image.addEventListener("error", () => {
+    const hideMissingImage = () => {
       const figure = image.closest(".home-hero-image, .issue-image, .archive-image");
       if (figure) figure.hidden = true;
-    }, { once: true });
+    };
+    image.addEventListener("error", hideMissingImage, { once: true });
+    if (image.complete && !image.naturalWidth) hideMissingImage();
   });
   const input = document.querySelector("#search-input");
   if (!input) return;
@@ -11,6 +13,7 @@
   const topicFilter = document.querySelector("#topic-filter");
   const results = document.querySelector("#search-results");
   const count = document.querySelector("#result-count");
+  results.innerHTML = "<p>Loading the archive…</p>";
   let entries = [];
 
   const esc = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
@@ -39,10 +42,10 @@
     }
     results.innerHTML = filtered.map((item) => {
       const tags = (item.topics || []).map((topic) => `<span>${esc(topic)}</span>`).join("");
-      const source = [item.source, item.publishedDate].filter(Boolean).join(" · ");
-      const original = safeUrl(item.url) ? `<a class="original-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">Read the original ↗</a>` : "";
+      const source = [item.source, item.publishedDate].filter(Boolean).map((part) => `<span>${esc(part)}</span>`).join("");
+      const original = safeUrl(item.url) ? `<a class="original-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">Read the original</a>` : "";
       const originalTitle = item.titleOriginal && item.titleOriginal !== item.title ? `<details class="original-title"><summary>Original title</summary><p dir="auto">${esc(item.titleOriginal)}</p></details>` : "";
-      return `<article class="result-card"><div><span class="format-label">${esc(item.type)}</span><span>${esc(formatDate(item.issueDate))}</span></div><h2>${esc(item.title)}</h2><p class="source-line">${esc(source || "Independent analysis")}</p>${originalTitle}<p>${esc(String(item.text || "").split("\n\n")[0])}</p>${tags ? `<div class="topic-row">${tags}</div>` : ""}<div class="result-links"><a href="../issues/${esc(item.issueDate)}/index.html">View in issue →</a>${original}</div></article>`;
+      return `<article class="result-card"><div><span class="format-label">${esc(item.type)}</span><span>${esc(formatDate(item.issueDate))}</span></div><h2>${esc(item.title)}</h2><p class="source-line">${source || "Independent analysis"}</p>${originalTitle}<p>${esc(String(item.text || "").split("\n\n")[0])}</p>${tags ? `<div class="topic-row">${tags}</div>` : ""}<div class="result-links"><a href="../issues/${esc(item.issueDate)}/index.html">View in issue</a>${original}</div></article>`;
     }).join("");
   }
   const params = new URLSearchParams(location.search);

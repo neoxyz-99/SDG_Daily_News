@@ -1,0 +1,22 @@
+/* Hallmark · approved A editorial system · SDG Weekly Compass */
+:root {
+  --paper: #f8f8f4;
+  --paper-deep: #e9ede5;
+  --ink: #142a24;
+  --muted: #57685e;
+  --green: #17392f;
+  --green-2: #285345;
+  --gold: #91621a;
+  --blue: #245d9b;
+  --red: #914335;
+  --line: #cbd2c9;
+  --on-green: #f8f8f4;
+  --on-green-muted: #ced8d0;
+  --dark-line: #527064;
+  --clear: transparent;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --container: 1280px;
+  --gap: 40px;
+  --text-body: 16px;
+}
