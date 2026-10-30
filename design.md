@@ -14,6 +14,7 @@ This shared system applies to every public website route. Future issues inherit 
 ## Tokens
 `website_assets/tokens.css` is the source of truth.
 - Paper: #f8f8f4; secondary paper: #e9ede5.
+- Research Signals: pale sage #f0f2ec, dark body text, muted metadata and hairline dividers. Reserve solid forest green for compact controls.
 - Ink: #142a24; muted ink: #57685e.
 - Brand green: #17392f; hover green: #285345.
 - Rules: #cbd2c9; focus and numerals: #91621a; external links: #245d9b.

@@ -1,7 +1,7 @@
 /* Hallmark · shape: Editorial issue · genre: editorial · theme: brand (approved A) · redesign: full · copy: verbatim
  * hero: Stage (home), Banner (issue and index) · nav: publication masthead · footer: colophon
  * signature: editorial headline beside existing issue artwork · v2.0.0 */
-/* Critique: retain A's balance; reduce mobile headline height and give long analysis a readable measure. */
+/* Critique: retain A's balance; Research Signals uses pale sage paper and dark ink for calm long-form reading. */
 /* waive 24b: optical type and established A proportions; waive 1: existing publication wordmark.
  * waive 58, 77, 78, 79: a complete research publication retains full editorial copy, not a marketing landing page.
  * Copy punctuation in source titles and legal text is preserved verbatim. */
@@ -53,16 +53,16 @@ figcaption { color: var(--muted); font-size: 12px; padding-top: 8px; }
 .news-card h3 { font-size: 26px; }
 .news-card p { margin-block: 12px; }
 .source-line { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 12px 0; overflow-wrap: anywhere; }
-.signals-section { padding: 40px; background: var(--green); color: var(--on-green); }
-.signals-section .section-heading > div { border-color: var(--dark-line); }
-.signals-section .section-heading p, .signals-section .section-heading span, .signals-section .source-line { color: var(--on-green-muted); }
+.signals-section { padding: 40px; background: var(--research-paper); color: var(--ink); border-block: 1px solid var(--line); }
+.signals-section .section-heading > div { border-color: var(--line); }
+.signals-section .section-heading p, .signals-section .section-heading span, .signals-section .source-line { color: var(--muted); }
 .signals-grid { display: grid; }
-.signal-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--gap); padding: 32px 0; border-bottom: 1px solid var(--dark-line); }
+.signal-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--gap); padding: 32px 0; border-bottom: 1px solid var(--line); }
 .signal-card:last-child { border-bottom: 0; padding-bottom: 0; }
 .signal-card h3 { font-size: 30px; }
-.signals-section .topic-row span { color: var(--on-green-muted); border-color: var(--dark-line); }
-.signals-section .original-link { color: var(--on-green); text-decoration: underline; }
-.signals-section a:focus-visible, .signals-section summary:focus-visible { outline-color: var(--on-green); }
+.signals-section .topic-row span { color: var(--green-2); border-color: var(--line); }
+.signals-section .original-link { color: var(--blue); text-decoration: underline; }
+.signals-section a:focus-visible, .signals-section summary:focus-visible { outline-color: var(--gold); }
 .analysis-block + .analysis-block { margin-top: 24px; }
 .analysis-block h4, .reading-copy h4, .today-connection h4 { font-family: var(--sans); font-size: 14px; font-weight: 600; margin: 0 0 8px; }
 .analysis-block p { margin: 0; }
@@ -161,7 +161,7 @@ footer { border-top: 1px solid var(--ink); margin-top: 48px; padding: 40px 0 24p
 .original-title { margin: 12px 0; font-size: 14px; color: var(--muted); }
 .original-title summary { cursor: pointer; padding-block: 8px; }
 .original-title p { margin-top: 8px; overflow-wrap: anywhere; }
-.signals-section .original-title { color: var(--on-green-muted); }
+.signals-section .original-title { color: var(--muted); }
 .empty-state { padding: 64px 0; text-align: center; }
 .empty-state h1, .empty-state h2 { font-family: var(--serif); font-weight: 500; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
