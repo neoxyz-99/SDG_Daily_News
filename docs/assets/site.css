@@ -5,8 +5,8 @@
 /* waive 24b: optical type and established A proportions; waive 1: existing publication wordmark.
  * waive 58, 77, 78, 79: a complete research publication retains full editorial copy, not a marketing landing page.
  * Copy punctuation in source titles and legal text is preserved verbatim. */
-@import url("./tokens.css");
-@import url("./base.css");
+@import url("./tokens.css?v=f5f51bf4b89c");
+@import url("./base.css?v=f5f51bf4b89c");
 .site-shell { width: min(var(--container), calc(100% - 96px)); margin-inline: auto; }
 .utility-bar { display: flex; justify-content: space-between; gap: 24px; align-items: center; min-height: 36px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 .site-header { min-height: 100px; display: flex; justify-content: space-between; align-items: center; gap: 32px; border-bottom: 1px solid var(--ink); }

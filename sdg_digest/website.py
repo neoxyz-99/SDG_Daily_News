@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -506,7 +507,13 @@ def build_site(archive_dir: Path, output_dir: Path, assets_dir: Path) -> list[Pu
     }
     for issue in issues:
         pages[staging_dir / "issues" / issue.date / "index.html"] = _issue_page(issue, issues)
+    asset_version = hashlib.sha256(b"".join(
+        (assets_dir / name).read_bytes() for name in ("site.css", "base.css", "tokens.css", "site.js")
+        if (assets_dir / name).exists()
+    )).hexdigest()[:12]
     for path, content in pages.items():
+        for name in ("site.css", "site.js"):
+            content = content.replace(f'assets/{name}"', f'assets/{name}?v={asset_version}"')
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
 
@@ -516,6 +523,12 @@ def build_site(archive_dir: Path, output_dir: Path, assets_dir: Path) -> list[Pu
         source = assets_dir / name
         if source.exists():
             shutil.copy2(source, output_assets / name)
+    stylesheet = output_assets / "site.css"
+    if stylesheet.exists():
+        css = stylesheet.read_text(encoding="utf-8")
+        for name in ("tokens.css", "base.css"):
+            css = css.replace(f'./{name}"', f'./{name}?v={asset_version}"')
+        stylesheet.write_text(css, encoding="utf-8")
     issue_assets = assets_dir / "issues"
     if issue_assets.exists():
         shutil.copytree(issue_assets, output_assets / "issues")
