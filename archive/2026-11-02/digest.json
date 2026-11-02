@@ -1,0 +1,578 @@
+{
+  "digest_date": "2026-11-02",
+  "subject": "SDG Weekly Compass - Week of 2026-11-02",
+  "overview_zh": "COP31与COP17都在把气候与自然目标转成可谈、可核、可融资的制度安排。",
+  "items": [
+    {
+      "title_en": "Interactive: Who wants what at the COP31 climate change summit",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-11-02",
+      "summary_zh": "Carbon Brief汇总约100份文件，梳理澳大利亚与土耳其共同主持下COP31上各国对气候融资、公正转型、减缓适应和全球盘点的立场分歧，显示谈判焦点已从笼统雄心转向机制边界、资金条件与议题打包。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        },
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#多边治理",
+        "#气候金融"
+      ],
+      "url": "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
+      "core_argument_zh": "Carbon Brief汇总约100份文件，梳理澳大利亚与土耳其共同主持下COP31上各国对气候融资、公正转型、减缓适应和全球盘点的立场分歧，显示谈判焦点已从笼统雄心转向机制边界、资金条件与议题打包。",
+      "core_argument_en": "Carbon Brief compiles around 100 documents to map how parties at COP31, under the Australia-Turkey joint presidency, line up on climate finance, just transition, mitigation, adaptation and the global stocktake, showing that the real contest has shifted from broad ambition to mechanism boundaries, financing conditions and issue linkage.",
+      "why_now_zh": "安塔利亚会议将很快开幕，而战争、能源危机与极端气候同时抬高了各方对融资和执行机制的期待。它直接回应了COP30之后“实施COP”能否兑现的检验。",
+      "why_now_en": "The Antalya conference is about to open, while war, an energy crisis and climate extremes are raising pressure for finance and implementation. It directly tests whether the post-COP30 promise of an “implementation COP” can be made real.",
+      "agenda_position_zh": "这是COP31正式谈判的议题分布图，也是各方围绕公正转型机制、气候融资和行动议程进行前置定位的文本基础。",
+      "agenda_position_en": "This is the agenda map for COP31 formal negotiations and the baseline text for positioning around the just transition mechanism, climate finance and the action agenda.",
+      "summary_en": "",
+      "why_it_matters_zh": "安塔利亚会议将很快开幕，而战争、能源危机与极端气候同时抬高了各方对融资和执行机制的期待。它直接回应了COP30之后“实施COP”能否兑现的检验。",
+      "why_it_matters_en": "The Antalya conference is about to open, while war, an energy crisis and climate extremes are raising pressure for finance and implementation. It directly tests whether the post-COP30 promise of an “implementation COP” can be made real.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "COP17: Key outcomes agreed at the UN biodiversity conference in Yerevan",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-10-31",
+      "summary_zh": "Carbon Brief指出，COP17完成了对2030年自然目标的首次全球审议，但“深表关切”的结论说明23项目标大多仍未进入可兑现轨道，资金缺口、捐助国范围争议与几近空转的基金暴露出现行生物多样性治理对融资、监测和责任分配的制度性不足。",
+      "terms": [],
+      "tags": [
+        "#综合治理议题",
+        "#环境治理与气候",
+        "#生物多样性"
+      ],
+      "url": "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
+      "core_argument_zh": "Carbon Brief指出，COP17完成了对2030年自然目标的首次全球审议，但“深表关切”的结论说明23项目标大多仍未进入可兑现轨道，资金缺口、捐助国范围争议与几近空转的基金暴露出现行生物多样性治理对融资、监测和责任分配的制度性不足。",
+      "core_argument_en": "Carbon Brief argues that COP17 completed the first global review of progress toward the 2030 nature targets, but the “deep concern” outcome shows most of the 23 targets are still off track; funding gaps, disputes over who should contribute, and a nearly empty fund expose structural weaknesses in biodiversity governance around finance, monitoring and responsibility allocation.",
+      "why_now_zh": "这是《昆明-蒙特利尔全球生物多样性框架》过半节点的正式盘点，且距离2030年只剩四年多。各国刚刚签下关键文本，但实际执行差距被摆上台面。",
+      "why_now_en": "This is the midpoint review of the Kunming-Montreal Global Biodiversity Framework, with just over four years left to 2030. Countries have signed the key texts, but the implementation gap has been put squarely on the table.",
+      "agenda_position_zh": "这是COP17闭幕后的结果梳理，直接进入COP18筹备和全球生物多样性框架的中期问责进程。",
+      "agenda_position_en": "This is the post-COP17 outcome summary feeding directly into COP18 preparation and the midterm accountability process for the Global Biodiversity Framework.",
+      "summary_en": "",
+      "why_it_matters_zh": "这是《昆明-蒙特利尔全球生物多样性框架》过半节点的正式盘点，且距离2030年只剩四年多。各国刚刚签下关键文本，但实际执行差距被摆上台面。",
+      "why_it_matters_en": "This is the midpoint review of the Kunming-Montreal Global Biodiversity Framework, with just over four years left to 2030. Countries have signed the key texts, but the implementation gap has been put squarely on the table.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "The UK’s 2026 Autumn Budget has laid the ground for cleaner and cheaper electricity. The 2027 Spending Review must build on it",
+      "source_org": "E3G",
+      "published_date": "2026-11-02",
+      "summary_zh": "E3G认为，英国秋季预算已承认政策成本不应继续压在电费账单上，并为更深层的电力市场改革打开窗口；如果2027年支出审查延续这一方向，就能把更低电价、清洁电力系统和增长目标结合起来。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
+      "core_argument_zh": "E3G认为，英国秋季预算已承认政策成本不应继续压在电费账单上，并为更深层的电力市场改革打开窗口；如果2027年支出审查延续这一方向，就能把更低电价、清洁电力系统和增长目标结合起来。",
+      "core_argument_en": "E3G argues that the UK Autumn Budget has already accepted that policy costs should no longer sit on electricity bills and has opened a window for deeper electricity-market reform; if the 2027 Spending Review follows through, it can align lower bills, a cleaner power system and growth objectives.",
+      "why_now_zh": "财政规则和电价结构正在重设，决定了新政府是把改革停留在账单修补，还是推进电力市场的系统性改造。",
+      "why_now_en": "Fiscal rules and electricity pricing are being reset, which will determine whether the new government stops at bill relief or advances a systemic redesign of the power market.",
+      "agenda_position_zh": "这是英国2027年支出审查与电力市场改革衔接的前置政策主张。",
+      "agenda_position_en": "This is a pre-budget policy case for linking the 2027 Spending Review to electricity-market reform.",
+      "summary_en": "",
+      "why_it_matters_zh": "财政规则和电价结构正在重设，决定了新政府是把改革停留在账单修补，还是推进电力市场的系统性改造。",
+      "why_it_matters_en": "Fiscal rules and electricity pricing are being reset, which will determine whether the new government stops at bill relief or advances a systemic redesign of the power market.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "COP31 must bridge ambition and action as world leaders face risks from climate target overshoot",
+      "source_org": "E3G",
+      "published_date": "2026-10-27",
+      "summary_zh": "E3G主张COP31必须把雄心转化为执行：在经济与能源安全压力上升的背景下，会议应通过公正转型、融资和实施安排来避免目标超调继续累积成治理失信。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
+      "core_argument_zh": "E3G主张COP31必须把雄心转化为执行：在经济与能源安全压力上升的背景下，会议应通过公正转型、融资和实施安排来避免目标超调继续累积成治理失信。",
+      "core_argument_en": "E3G argues that COP31 must convert ambition into delivery: under rising economic and energy-security pressures, the summit should use just transition, finance and implementation arrangements to prevent target overshoot from hardening into governance failure.",
+      "why_now_zh": "这篇文章为COP31设定了三项测试，正对冲近期关于谈判议程和目标超标风险的争论。它把会议定位为实施验证，而不是再次宣示。",
+      "why_now_en": "The article sets three tests for COP31 in direct response to current debate over the negotiating agenda and the risk of target overshoot. It frames the summit as a delivery test rather than another declaration round.",
+      "agenda_position_zh": "这是COP31前的框架性施压文本，意在影响议程设置和成果标准。",
+      "agenda_position_en": "This is a pre-COP31 framing document intended to shape agenda setting and success criteria.",
+      "summary_en": "",
+      "why_it_matters_zh": "这篇文章为COP31设定了三项测试，正对冲近期关于谈判议程和目标超标风险的争论。它把会议定位为实施验证，而不是再次宣示。",
+      "why_it_matters_en": "The article sets three tests for COP31 in direct response to current debate over the negotiating agenda and the risk of target overshoot. It frames the summit as a delivery test rather than another declaration round.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    }
+  ],
+  "readings": [
+    {
+      "title": "Challenges of the OECD’s Tax Governance Regime Leading to the United Nations’ ‘(Re)entry’ into International Tax Law Governance",
+      "authors": "Jonathan R. Everhart",
+      "year": 2026,
+      "url": "https://doi.org/10.1163/19426720-03203006",
+      "note_zh": "文章指出，OECD主导的GloBE规则虽扩大了包容性框架，但其规则制定与治理结构仍偏向成员国利益，因而对发展中国家并不充分有利；作者据此主张联合国以更包容的制度程序重返国际税收治理，并建立UN层面的高层政治论坛以承接全球税收协调。",
+      "note_en": "The article argues that although the OECD-led GloBE rules created an inclusive framework, the governance and rule-making process still favors member states, making the arrangement insufficiently beneficial for developing countries; it therefore proposes a stronger UN role in international tax governance and a UN High-level Political Forum on International Taxation.",
+      "journal": "Global Governance: A Review of Multilateralism and International Organizations",
+      "doi": "10.1163/19426720-03203006",
+      "methodology_zh": "作者以制度分析为主，比较OECD治理安排与联合国框架下的制度包容性和规则分配效果；可得摘要未说明具体定量方法。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "The article uses institutional analysis to compare the inclusiveness and distributive effects of OECD governance arrangements with those under the UN; the available abstract does not specify a quantitative method.",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可与本期Carbon Brief关于COP31谈判中气候融资与公正转型争议的报道一起阅读，理解多边规则如何在程序包容性上遭遇类似争论。",
+      "today_connection_en": "Read alongside Carbon Brief’s COP31 coverage to see how multilateral rule-making faces similar disputes over procedural inclusion in climate finance and just transition.",
+      "research_directions": [
+        {
+          "question_zh": "税收治理为何回到联合国？",
+          "keywords": [
+            "international tax governance",
+            "UN tax forum",
+            "OECD GloBE",
+            "Global South"
+          ],
+          "question_en": "Why is tax governance returning to the UN?"
+        },
+        {
+          "question_zh": "包容性如何影响规则分配？",
+          "keywords": [
+            "global governance",
+            "institutional legitimacy",
+            "rule-making power",
+            "OECD",
+            "United Nations"
+          ],
+          "question_en": "How does inclusiveness shape rule allocation?"
+        }
+      ],
+      "tags": [
+        "#多边治理",
+        "#国际治理与多边主义"
+      ],
+      "kind": "tracked recent article",
+      "published_date": "2026-09-30",
+      "abstract_en": "Abstract The Global Anti-Base Erosion (GloBE) rules were created by the Organisation for Economic Co-operation and Development ( OECD ) to address the tax challenges arising from the digitalization of the economy and ensure that large multinational enterprises pay a minimum level of tax on the income arising in each jurisdiction where they operate. The GloBE rules have been viewed as a success in being able to establish the Inclusive Framework to get over 145 countries and jurisdictions involved in this international tax initiative. However, cooperation in achieving GloBE is not in itself proof that the rules are beneficial for all of the cooperating countries, especially developing countries. Developing countries continue to express discontent with the highly publicized cooperation accord of the Inclusive Framework. This article highlights how GloBE is not an overall resounding success of international tax law cooperation because the GloBE governance and rule-making process favors OECD member countries. Part 2 of this article discusses how the OECD being the governing organization naturally favors its member countries. Part 3 of this article describes the international tax law cooperation developments that have gained support at the United Nations ( UN ) due to the GloBE governance and rule-making process not being fully beneficial to developing countries. The article concludes with an analysis of why the UN can serve as a more suitable venue for international tax law cooperation because of its inclusive governance structure and processes. This article proposes the creation of a political tax forum at the UN —called the UN High-level Political Forum on International Taxation—as a key policy solution for the United Nations Tax Committee to implement.",
+      "discovery_score": 58.80906
+    },
+    {
+      "title": "National Institutions and Global Public Goods: Are Democracies More Cooperative in Climate Change Policy?",
+      "authors": "Michèle B. Bättig, Thomas Bernauer",
+      "year": 2009,
+      "url": "https://doi.org/10.1017/s0020818309090092",
+      "note_zh": "文章检验民主制度是否更能提供全球公共品，发现民主国家的气候政策承诺水平较高，但排放结果并不稳定；这说明国内制度可以提高政策输出，却未必克服搭便车、时间折现和运输部门等领域的结构性约束。",
+      "note_en": "The article tests whether democracies provide more global public goods and finds that democratic states make stronger climate policy commitments, but emissions outcomes are not consistently better; domestic institutions can raise policy output without necessarily overcoming free-riding, discounting and sectoral constraints such as transport.",
+      "journal": "International Organization",
+      "doi": "10.1017/s0020818309090092",
+      "methodology_zh": "作者使用185个国家1990—2004年的横截面数据，比较民主程度与气候政策承诺及排放结果之间的关系。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "The authors use cross-sectional data for 185 countries from 1990 to 2004 to compare democracy levels with climate policy commitments and emissions outcomes.",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可与本期E3G关于英国预算与电力市场改革的研究动向并读，因为后者同样在处理政策承诺与实际减排/降价结果之间的落差。",
+      "today_connection_en": "Read alongside this week’s E3G item on the UK budget and electricity-market reform, which also grapples with the gap between policy commitments and real-world emissions or price outcomes.",
+      "research_directions": [
+        {
+          "question_zh": "国内制度何时转化为减排？",
+          "keywords": [
+            "democracy",
+            "climate policy",
+            "policy output",
+            "emissions outcomes"
+          ],
+          "question_en": "When do domestic institutions translate into emissions cuts?"
+        },
+        {
+          "question_zh": "承诺与结果为何脱钩？",
+          "keywords": [
+            "global public goods",
+            "free-riding",
+            "climate governance",
+            "transport sector"
+          ],
+          "question_en": "Why do commitments and outcomes diverge?"
+        }
+      ],
+      "tags": [
+        "#国际治理与多边主义",
+        "#多边治理"
+      ],
+      "kind": "tracked classic article",
+      "published_date": "2009-04-15",
+      "abstract_en": "Abstract This article examines whether democracies contribute more to the provision of global public goods. It thus contributes to the debate on the effects of domestic institutions on international cooperation. The focus is on human-induced climate change, in Stern's words “the biggest market failure the world has ever seen.” 1 Using new data on climate change cooperation we study a cross-section of 185 countries in 1990–2004. The results show that the effect of democracy on levels of political commitment to climate change mitigation (policy output) is positive. In contrast, the effect on policy outcomes, measured in terms of emission levels and trends, is ambiguous. These results demonstrate that up until now the democracy effect has not been able to override countervailing forces that emanate from the free-rider problem, discounting of future benefits of climate change mitigation, and other factors that cut against efforts to reduce emissions. Even though democracies have had a slow start in moving from political and legal commitments (policy output) to emission reductions (policy outcomes), particularly in the transportation sector, we observe some encouraging signs. The main implication of our findings for research on international politics is that greater efforts should be made to study policy output and outcome side by side. This will help in identifying whether more democratic countries experience larger “words-deeds” gaps also in other policy areas, and whether there are systematic differences of this kind between domestic and international commitments and across different policy areas.",
+      "discovery_score": 37.968296
+    }
+  ],
+  "overview_en": "COP31 and COP17 are turning climate and nature targets into negotiable, auditable, financeable institutions.",
+  "weekly_thread_zh": "本周共同议题是：多边目标已不再缺乏文本，而是进入分歧如何收束、资金如何到位、机制如何落地的阶段。",
+  "weekly_thread_en": "This week’s shared question is how multilateral targets move from text into settled disagreements, actual finance, and workable institutions.",
+  "recent_news": [
+    {
+      "title_en": "‘They have schedules to follow’: how fast ferries can threaten endangered whales in the Mediterranean",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-11-02",
+      "url": "https://www.theguardian.com/environment/2026/nov/02/fast-ferries-threaten-endangered-whales-mediterranean",
+      "one_sentence_zh": "调查发现，地中海关键鲸类栖息地里的渡轮仍普遍超速航行，尽管已有建议要求减速以降低对鲸类的干扰和碰撞风险。",
+      "one_sentence_en": "An investigation finds ferries still travel above advised speeds in a key Mediterranean cetacean habitat despite recommendations to slow down and reduce disturbance and strike risk.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "The Iran war is deepening the US energy crisis. A bad winter is ahead | Mark Wolfe",
+      "source_org": "The Guardian Environment",
+      "published_date": "2026-10-30",
+      "url": "https://www.theguardian.com/commentisfree/2026/oct/30/iran-war-energy-crisis-winter",
+      "one_sentence_zh": "作者警告，伊朗战争正在推高美国取暖油和电力账单，冬季前家庭能源负担将进一步恶化。",
+      "one_sentence_en": "The author warns that the Iran war is pushing up U.S. heating and electricity costs, worsening household energy affordability before winter.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "‘Bookkeeping Trick’ and Fuzzy Math Conceal the Climate Impacts of Beef, Researchers Say",
+      "source_org": "Inside Climate News",
+      "published_date": "2026-11-02",
+      "url": "https://insideclimatenews.org/news/02112026/beef-climate-impacts-accuracy/",
+      "one_sentence_zh": "研究者指出，牛肉排放核算中的会计处理掩盖了其真实气候影响，这一争议将影响即将到来的联合国气候谈判。",
+      "one_sentence_en": "Researchers say accounting choices conceal beef’s true climate impacts, a dispute that is likely to shape the run-up to upcoming UN climate talks.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "Hurricane Damage to a Florida Domestic Violence Shelter Shows Climate’s Stress on Vulnerable Groups",
+      "source_org": "Inside Climate News",
+      "published_date": "2026-11-02",
+      "url": "https://insideclimatenews.org/news/02112026/florida-hurricane-damage-highlights-vulnerable-groups-climate-stress/",
+      "one_sentence_zh": "佛罗里达一家家暴庇护所因飓风受损，显示极端天气如何同时冲击安全、服务连续性和弱势群体的避险能力。",
+      "one_sentence_en": "Hurricane damage to a Florida domestic violence shelter shows how extreme weather can disrupt safety, service continuity and protection for vulnerable groups.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "He Pioneered a Groundbreaking Idea and Was Met With Corporate Wrath",
+      "source_org": "New York Times Climate",
+      "published_date": "2026-11-02",
+      "url": "https://www.nytimes.com/2026/11/02/climate/william-nordhaus-carbon-tax-american-business.html",
+      "one_sentence_zh": "这篇回顾讲述诺德豪斯提出污染定价后，如何遭遇化石燃料游说与反税运动的长期反击。",
+      "one_sentence_en": "This retrospective traces how Nordhaus’s pollution-pricing idea met sustained pushback from fossil-fuel lobbying and anti-tax politics.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "Do Animals Grieve?",
+      "source_org": "New York Times Climate",
+      "published_date": "2026-11-02",
+      "url": "https://www.nytimes.com/2026/11/02/science/animals-grief-death.html",
+      "one_sentence_zh": "关于动物是否会哀悼的研究正在扩展我们对情感、物种行为和失去经验的理解边界。",
+      "one_sentence_en": "Research on animal grief is widening scientific understanding of emotion, species behavior and experiences of loss.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    },
+    {
+      "title_en": "Colossal rains and flash floods hammer the U.S. Southwest and Florida peninsula",
+      "source_org": "Yale Climate Connections",
+      "published_date": "2026-11-02",
+      "url": "https://yaleclimateconnections.org/2026/11/colossal-rains-and-flash-floods-hammer-the-u-s-southwest-and-florida-peninsula/",
+      "one_sentence_zh": "美国西南部和佛罗里达半岛遭遇强降雨与山洪，洪水紧急状态已触发并可能关联到致命事故。",
+      "one_sentence_en": "The U.S. Southwest and Florida peninsula are facing intense rainfall and flash flooding, with emergency conditions and possible links to a fatal crash.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": ""
+    }
+  ],
+  "research_signals": [
+    {
+      "title_en": "Interactive: Who wants what at the COP31 climate change summit",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-11-02",
+      "summary_zh": "Carbon Brief汇总约100份文件，梳理澳大利亚与土耳其共同主持下COP31上各国对气候融资、公正转型、减缓适应和全球盘点的立场分歧，显示谈判焦点已从笼统雄心转向机制边界、资金条件与议题打包。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        },
+        {
+          "term_en": "climate finance",
+          "term_zh": "气候金融",
+          "explanation_zh": "用于减缓、适应、损失与损害等气候行动的公共或私人资金安排。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#多边治理",
+        "#气候金融"
+      ],
+      "url": "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
+      "core_argument_zh": "Carbon Brief汇总约100份文件，梳理澳大利亚与土耳其共同主持下COP31上各国对气候融资、公正转型、减缓适应和全球盘点的立场分歧，显示谈判焦点已从笼统雄心转向机制边界、资金条件与议题打包。",
+      "core_argument_en": "Carbon Brief compiles around 100 documents to map how parties at COP31, under the Australia-Turkey joint presidency, line up on climate finance, just transition, mitigation, adaptation and the global stocktake, showing that the real contest has shifted from broad ambition to mechanism boundaries, financing conditions and issue linkage.",
+      "why_now_zh": "安塔利亚会议将很快开幕，而战争、能源危机与极端气候同时抬高了各方对融资和执行机制的期待。它直接回应了COP30之后“实施COP”能否兑现的检验。",
+      "why_now_en": "The Antalya conference is about to open, while war, an energy crisis and climate extremes are raising pressure for finance and implementation. It directly tests whether the post-COP30 promise of an “implementation COP” can be made real.",
+      "agenda_position_zh": "这是COP31正式谈判的议题分布图，也是各方围绕公正转型机制、气候融资和行动议程进行前置定位的文本基础。",
+      "agenda_position_en": "This is the agenda map for COP31 formal negotiations and the baseline text for positioning around the just transition mechanism, climate finance and the action agenda.",
+      "summary_en": "",
+      "why_it_matters_zh": "安塔利亚会议将很快开幕，而战争、能源危机与极端气候同时抬高了各方对融资和执行机制的期待。它直接回应了COP30之后“实施COP”能否兑现的检验。",
+      "why_it_matters_en": "The Antalya conference is about to open, while war, an energy crisis and climate extremes are raising pressure for finance and implementation. It directly tests whether the post-COP30 promise of an “implementation COP” can be made real.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "COP17: Key outcomes agreed at the UN biodiversity conference in Yerevan",
+      "source_org": "Carbon Brief",
+      "published_date": "2026-10-31",
+      "summary_zh": "Carbon Brief指出，COP17完成了对2030年自然目标的首次全球审议，但“深表关切”的结论说明23项目标大多仍未进入可兑现轨道，资金缺口、捐助国范围争议与几近空转的基金暴露出现行生物多样性治理对融资、监测和责任分配的制度性不足。",
+      "terms": [],
+      "tags": [
+        "#综合治理议题",
+        "#环境治理与气候",
+        "#生物多样性"
+      ],
+      "url": "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
+      "core_argument_zh": "Carbon Brief指出，COP17完成了对2030年自然目标的首次全球审议，但“深表关切”的结论说明23项目标大多仍未进入可兑现轨道，资金缺口、捐助国范围争议与几近空转的基金暴露出现行生物多样性治理对融资、监测和责任分配的制度性不足。",
+      "core_argument_en": "Carbon Brief argues that COP17 completed the first global review of progress toward the 2030 nature targets, but the “deep concern” outcome shows most of the 23 targets are still off track; funding gaps, disputes over who should contribute, and a nearly empty fund expose structural weaknesses in biodiversity governance around finance, monitoring and responsibility allocation.",
+      "why_now_zh": "这是《昆明-蒙特利尔全球生物多样性框架》过半节点的正式盘点，且距离2030年只剩四年多。各国刚刚签下关键文本，但实际执行差距被摆上台面。",
+      "why_now_en": "This is the midpoint review of the Kunming-Montreal Global Biodiversity Framework, with just over four years left to 2030. Countries have signed the key texts, but the implementation gap has been put squarely on the table.",
+      "agenda_position_zh": "这是COP17闭幕后的结果梳理，直接进入COP18筹备和全球生物多样性框架的中期问责进程。",
+      "agenda_position_en": "This is the post-COP17 outcome summary feeding directly into COP18 preparation and the midterm accountability process for the Global Biodiversity Framework.",
+      "summary_en": "",
+      "why_it_matters_zh": "这是《昆明-蒙特利尔全球生物多样性框架》过半节点的正式盘点，且距离2030年只剩四年多。各国刚刚签下关键文本，但实际执行差距被摆上台面。",
+      "why_it_matters_en": "This is the midpoint review of the Kunming-Montreal Global Biodiversity Framework, with just over four years left to 2030. Countries have signed the key texts, but the implementation gap has been put squarely on the table.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "The UK’s 2026 Autumn Budget has laid the ground for cleaner and cheaper electricity. The 2027 Spending Review must build on it",
+      "source_org": "E3G",
+      "published_date": "2026-11-02",
+      "summary_zh": "E3G认为，英国秋季预算已承认政策成本不应继续压在电费账单上，并为更深层的电力市场改革打开窗口；如果2027年支出审查延续这一方向，就能把更低电价、清洁电力系统和增长目标结合起来。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
+      "core_argument_zh": "E3G认为，英国秋季预算已承认政策成本不应继续压在电费账单上，并为更深层的电力市场改革打开窗口；如果2027年支出审查延续这一方向，就能把更低电价、清洁电力系统和增长目标结合起来。",
+      "core_argument_en": "E3G argues that the UK Autumn Budget has already accepted that policy costs should no longer sit on electricity bills and has opened a window for deeper electricity-market reform; if the 2027 Spending Review follows through, it can align lower bills, a cleaner power system and growth objectives.",
+      "why_now_zh": "财政规则和电价结构正在重设，决定了新政府是把改革停留在账单修补，还是推进电力市场的系统性改造。",
+      "why_now_en": "Fiscal rules and electricity pricing are being reset, which will determine whether the new government stops at bill relief or advances a systemic redesign of the power market.",
+      "agenda_position_zh": "这是英国2027年支出审查与电力市场改革衔接的前置政策主张。",
+      "agenda_position_en": "This is a pre-budget policy case for linking the 2027 Spending Review to electricity-market reform.",
+      "summary_en": "",
+      "why_it_matters_zh": "财政规则和电价结构正在重设，决定了新政府是把改革停留在账单修补，还是推进电力市场的系统性改造。",
+      "why_it_matters_en": "Fiscal rules and electricity pricing are being reset, which will determine whether the new government stops at bill relief or advances a systemic redesign of the power market.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    },
+    {
+      "title_en": "COP31 must bridge ambition and action as world leaders face risks from climate target overshoot",
+      "source_org": "E3G",
+      "published_date": "2026-10-27",
+      "summary_zh": "E3G主张COP31必须把雄心转化为执行：在经济与能源安全压力上升的背景下，会议应通过公正转型、融资和实施安排来避免目标超调继续累积成治理失信。",
+      "terms": [
+        {
+          "term_en": "multilateral governance",
+          "term_zh": "多边治理",
+          "explanation_zh": "国家、国际组织和非国家行为体围绕共同问题形成规则、协调行动和分配责任的机制。"
+        }
+      ],
+      "tags": [
+        "#环境治理与气候",
+        "#能源转型",
+        "#多边治理"
+      ],
+      "url": "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
+      "core_argument_zh": "E3G主张COP31必须把雄心转化为执行：在经济与能源安全压力上升的背景下，会议应通过公正转型、融资和实施安排来避免目标超调继续累积成治理失信。",
+      "core_argument_en": "E3G argues that COP31 must convert ambition into delivery: under rising economic and energy-security pressures, the summit should use just transition, finance and implementation arrangements to prevent target overshoot from hardening into governance failure.",
+      "why_now_zh": "这篇文章为COP31设定了三项测试，正对冲近期关于谈判议程和目标超标风险的争论。它把会议定位为实施验证，而不是再次宣示。",
+      "why_now_en": "The article sets three tests for COP31 in direct response to current debate over the negotiating agenda and the risk of target overshoot. It frames the summit as a delivery test rather than another declaration round.",
+      "agenda_position_zh": "这是COP31前的框架性施压文本，意在影响议程设置和成果标准。",
+      "agenda_position_en": "This is a pre-COP31 framing document intended to shape agenda setting and success criteria.",
+      "summary_en": "",
+      "why_it_matters_zh": "这篇文章为COP31设定了三项测试，正对冲近期关于谈判议程和目标超标风险的争论。它把会议定位为实施验证，而不是再次宣示。",
+      "why_it_matters_en": "The article sets three tests for COP31 in direct response to current debate over the negotiating agenda and the risk of target overshoot. It frames the summit as a delivery test rather than another declaration round.",
+      "sdg_links": [],
+      "deep_reads": [],
+      "title_original": ""
+    }
+  ],
+  "classic_readings": [
+    {
+      "title": "Challenges of the OECD’s Tax Governance Regime Leading to the United Nations’ ‘(Re)entry’ into International Tax Law Governance",
+      "authors": "Jonathan R. Everhart",
+      "year": 2026,
+      "url": "https://doi.org/10.1163/19426720-03203006",
+      "note_zh": "文章指出，OECD主导的GloBE规则虽扩大了包容性框架，但其规则制定与治理结构仍偏向成员国利益，因而对发展中国家并不充分有利；作者据此主张联合国以更包容的制度程序重返国际税收治理，并建立UN层面的高层政治论坛以承接全球税收协调。",
+      "note_en": "The article argues that although the OECD-led GloBE rules created an inclusive framework, the governance and rule-making process still favors member states, making the arrangement insufficiently beneficial for developing countries; it therefore proposes a stronger UN role in international tax governance and a UN High-level Political Forum on International Taxation.",
+      "journal": "Global Governance: A Review of Multilateralism and International Organizations",
+      "doi": "10.1163/19426720-03203006",
+      "methodology_zh": "作者以制度分析为主，比较OECD治理安排与联合国框架下的制度包容性和规则分配效果；可得摘要未说明具体定量方法。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "The article uses institutional analysis to compare the inclusiveness and distributive effects of OECD governance arrangements with those under the UN; the available abstract does not specify a quantitative method.",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可与本期Carbon Brief关于COP31谈判中气候融资与公正转型争议的报道一起阅读，理解多边规则如何在程序包容性上遭遇类似争论。",
+      "today_connection_en": "Read alongside Carbon Brief’s COP31 coverage to see how multilateral rule-making faces similar disputes over procedural inclusion in climate finance and just transition.",
+      "research_directions": [
+        {
+          "question_zh": "税收治理为何回到联合国？",
+          "keywords": [
+            "international tax governance",
+            "UN tax forum",
+            "OECD GloBE",
+            "Global South"
+          ],
+          "question_en": "Why is tax governance returning to the UN?"
+        },
+        {
+          "question_zh": "包容性如何影响规则分配？",
+          "keywords": [
+            "global governance",
+            "institutional legitimacy",
+            "rule-making power",
+            "OECD",
+            "United Nations"
+          ],
+          "question_en": "How does inclusiveness shape rule allocation?"
+        }
+      ],
+      "tags": [
+        "#多边治理",
+        "#国际治理与多边主义"
+      ],
+      "kind": "tracked recent article",
+      "published_date": "2026-09-30",
+      "abstract_en": "Abstract The Global Anti-Base Erosion (GloBE) rules were created by the Organisation for Economic Co-operation and Development ( OECD ) to address the tax challenges arising from the digitalization of the economy and ensure that large multinational enterprises pay a minimum level of tax on the income arising in each jurisdiction where they operate. The GloBE rules have been viewed as a success in being able to establish the Inclusive Framework to get over 145 countries and jurisdictions involved in this international tax initiative. However, cooperation in achieving GloBE is not in itself proof that the rules are beneficial for all of the cooperating countries, especially developing countries. Developing countries continue to express discontent with the highly publicized cooperation accord of the Inclusive Framework. This article highlights how GloBE is not an overall resounding success of international tax law cooperation because the GloBE governance and rule-making process favors OECD member countries. Part 2 of this article discusses how the OECD being the governing organization naturally favors its member countries. Part 3 of this article describes the international tax law cooperation developments that have gained support at the United Nations ( UN ) due to the GloBE governance and rule-making process not being fully beneficial to developing countries. The article concludes with an analysis of why the UN can serve as a more suitable venue for international tax law cooperation because of its inclusive governance structure and processes. This article proposes the creation of a political tax forum at the UN —called the UN High-level Political Forum on International Taxation—as a key policy solution for the United Nations Tax Committee to implement.",
+      "discovery_score": 58.80906
+    },
+    {
+      "title": "National Institutions and Global Public Goods: Are Democracies More Cooperative in Climate Change Policy?",
+      "authors": "Michèle B. Bättig, Thomas Bernauer",
+      "year": 2009,
+      "url": "https://doi.org/10.1017/s0020818309090092",
+      "note_zh": "文章检验民主制度是否更能提供全球公共品，发现民主国家的气候政策承诺水平较高，但排放结果并不稳定；这说明国内制度可以提高政策输出，却未必克服搭便车、时间折现和运输部门等领域的结构性约束。",
+      "note_en": "The article tests whether democracies provide more global public goods and finds that democratic states make stronger climate policy commitments, but emissions outcomes are not consistently better; domestic institutions can raise policy output without necessarily overcoming free-riding, discounting and sectoral constraints such as transport.",
+      "journal": "International Organization",
+      "doi": "10.1017/s0020818309090092",
+      "methodology_zh": "作者使用185个国家1990—2004年的横截面数据，比较民主程度与气候政策承诺及排放结果之间的关系。",
+      "further_reading": [],
+      "argument_zh": "",
+      "argument_en": "",
+      "method_zh": "",
+      "method_en": "The authors use cross-sectional data for 185 countries from 1990 to 2004 to compare democracy levels with climate policy commitments and emissions outcomes.",
+      "evidence_zh": "",
+      "evidence_en": "",
+      "relevance_zh": "",
+      "relevance_en": "",
+      "today_relevance_en": "",
+      "today_connection_zh": "可与本期E3G关于英国预算与电力市场改革的研究动向并读，因为后者同样在处理政策承诺与实际减排/降价结果之间的落差。",
+      "today_connection_en": "Read alongside this week’s E3G item on the UK budget and electricity-market reform, which also grapples with the gap between policy commitments and real-world emissions or price outcomes.",
+      "research_directions": [
+        {
+          "question_zh": "国内制度何时转化为减排？",
+          "keywords": [
+            "democracy",
+            "climate policy",
+            "policy output",
+            "emissions outcomes"
+          ],
+          "question_en": "When do domestic institutions translate into emissions cuts?"
+        },
+        {
+          "question_zh": "承诺与结果为何脱钩？",
+          "keywords": [
+            "global public goods",
+            "free-riding",
+            "climate governance",
+            "transport sector"
+          ],
+          "question_en": "Why do commitments and outcomes diverge?"
+        }
+      ],
+      "tags": [
+        "#国际治理与多边主义",
+        "#多边治理"
+      ],
+      "kind": "tracked classic article",
+      "published_date": "2009-04-15",
+      "abstract_en": "Abstract This article examines whether democracies contribute more to the provision of global public goods. It thus contributes to the debate on the effects of domestic institutions on international cooperation. The focus is on human-induced climate change, in Stern's words “the biggest market failure the world has ever seen.” 1 Using new data on climate change cooperation we study a cross-section of 185 countries in 1990–2004. The results show that the effect of democracy on levels of political commitment to climate change mitigation (policy output) is positive. In contrast, the effect on policy outcomes, measured in terms of emission levels and trends, is ambiguous. These results demonstrate that up until now the democracy effect has not been able to override countervailing forces that emanate from the free-rider problem, discounting of future benefits of climate change mitigation, and other factors that cut against efforts to reduce emissions. Even though democracies have had a slow start in moving from political and legal commitments (policy output) to emission reductions (policy outcomes), particularly in the transportation sector, we observe some encouraging signs. The main implication of our findings for research on international politics is that greater efforts should be made to study policy output and outcome side by side. This will help in identifying whether more democratic countries experience larger “words-deeds” gaps also in other policy areas, and whether there are systematic differences of this kind between domestic and international commitments and across different policy areas.",
+      "discovery_score": 37.968296
+    }
+  ],
+  "issue_title_en": "COP31 bargaining, biodiversity outcomes and cleaner electricity policy",
+  "issue_title_zh": "COP31谈判、生物多样性结果与更清洁电力政策",
+  "title_support": [
+    {
+      "url": "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
+      "angle_en": "Supports “COP31 bargaining” by mapping party positions on climate finance, just transition, electrification and green industrialisation at the summit."
+    },
+    {
+      "url": "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
+      "angle_en": "Supports “biodiversity outcomes” by reporting the first global review, the funding gaps, and the agreed outcomes from COP17."
+    },
+    {
+      "url": "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
+      "angle_en": "Supports “cleaner electricity policy” by arguing that UK budget reform should shift policy costs off bills and fund a cleaner power system."
+    }
+  ]
+}

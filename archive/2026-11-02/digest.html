@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-11-02</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">COP31与COP17都在把气候与自然目标转成可谈、可核、可融资的制度安排。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-11-02</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note issue-title"><h2>COP31 bargaining, biodiversity outcomes and cleaner electricity policy</h2><p>COP31谈判、生物多样性结果与更清洁电力政策</p></section>
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>COP31与COP17都在把气候与自然目标转成可谈、可核、可融资的制度安排。</p><p class="en-text">COP31 and COP17 are turning climate and nature targets into negotiable, auditable, financeable institutions.</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.theguardian.com/environment/2026/nov/02/fast-ferries-threaten-endangered-whales-mediterranean">‘They have schedules to follow’: how fast ferries can threaten endangered whales in the Mediterranean</a></h3>
+  
+  <p class="meta">The Guardian Environment · 2026-11-02</p>
+  <p class="body-text">调查发现，地中海关键鲸类栖息地里的渡轮仍普遍超速航行，尽管已有建议要求减速以降低对鲸类的干扰和碰撞风险。</p>
+  <p class="en-text">An investigation finds ferries still travel above advised speeds in a key Mediterranean cetacean habitat despite recommendations to slow down and reduce disturbance and strike risk.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://www.theguardian.com/commentisfree/2026/oct/30/iran-war-energy-crisis-winter">The Iran war is deepening the US energy crisis. A bad winter is ahead | Mark Wolfe</a></h3>
+  
+  <p class="meta">The Guardian Environment · 2026-10-30</p>
+  <p class="body-text">作者警告，伊朗战争正在推高美国取暖油和电力账单，冬季前家庭能源负担将进一步恶化。</p>
+  <p class="en-text">The author warns that the Iran war is pushing up U.S. heating and electricity costs, worsening household energy affordability before winter.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://insideclimatenews.org/news/02112026/beef-climate-impacts-accuracy/">‘Bookkeeping Trick’ and Fuzzy Math Conceal the Climate Impacts of Beef, Researchers Say</a></h3>
+  
+  <p class="meta">Inside Climate News · 2026-11-02</p>
+  <p class="body-text">研究者指出，牛肉排放核算中的会计处理掩盖了其真实气候影响，这一争议将影响即将到来的联合国气候谈判。</p>
+  <p class="en-text">Researchers say accounting choices conceal beef’s true climate impacts, a dispute that is likely to shape the run-up to upcoming UN climate talks.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>4. <a href="https://insideclimatenews.org/news/02112026/florida-hurricane-damage-highlights-vulnerable-groups-climate-stress/">Hurricane Damage to a Florida Domestic Violence Shelter Shows Climate’s Stress on Vulnerable Groups</a></h3>
+  
+  <p class="meta">Inside Climate News · 2026-11-02</p>
+  <p class="body-text">佛罗里达一家家暴庇护所因飓风受损，显示极端天气如何同时冲击安全、服务连续性和弱势群体的避险能力。</p>
+  <p class="en-text">Hurricane damage to a Florida domestic violence shelter shows how extreme weather can disrupt safety, service continuity and protection for vulnerable groups.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>5. <a href="https://www.nytimes.com/2026/11/02/climate/william-nordhaus-carbon-tax-american-business.html">He Pioneered a Groundbreaking Idea and Was Met With Corporate Wrath</a></h3>
+  
+  <p class="meta">New York Times Climate · 2026-11-02</p>
+  <p class="body-text">这篇回顾讲述诺德豪斯提出污染定价后，如何遭遇化石燃料游说与反税运动的长期反击。</p>
+  <p class="en-text">This retrospective traces how Nordhaus’s pollution-pricing idea met sustained pushback from fossil-fuel lobbying and anti-tax politics.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>6. <a href="https://www.nytimes.com/2026/11/02/science/animals-grief-death.html">Do Animals Grieve?</a></h3>
+  
+  <p class="meta">New York Times Climate · 2026-11-02</p>
+  <p class="body-text">关于动物是否会哀悼的研究正在扩展我们对情感、物种行为和失去经验的理解边界。</p>
+  <p class="en-text">Research on animal grief is widening scientific understanding of emotion, species behavior and experiences of loss.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>7. <a href="https://yaleclimateconnections.org/2026/11/colossal-rains-and-flash-floods-hammer-the-u-s-southwest-and-florida-peninsula/">Colossal rains and flash floods hammer the U.S. Southwest and Florida peninsula</a></h3>
+  
+  <p class="meta">Yale Climate Connections · 2026-11-02</p>
+  <p class="body-text">美国西南部和佛罗里达半岛遭遇强降雨与山洪，洪水紧急状态已触发并可能关联到致命事故。</p>
+  <p class="en-text">The U.S. Southwest and Florida peninsula are facing intense rainfall and flash flooding, with emergency conditions and possible links to a fatal crash.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit">Interactive: Who wants what at the COP31 climate change summit</a></h3>
+  
+  <p class="meta">Carbon Brief · 2026-11-02</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#多边治理</span><span class="tag">#气候金融</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief汇总约100份文件，梳理澳大利亚与土耳其共同主持下COP31上各国对气候融资、公正转型、减缓适应和全球盘点的立场分歧，显示谈判焦点已从笼统雄心转向机制边界、资金条件与议题打包。</p>
+  <p class="en-text">Carbon Brief compiles around 100 documents to map how parties at COP31, under the Australia-Turkey joint presidency, line up on climate finance, just transition, mitigation, adaptation and the global stocktake, showing that the real contest has shifted from broad ambition to mechanism boundaries, financing conditions and issue linkage.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">安塔利亚会议将很快开幕，而战争、能源危机与极端气候同时抬高了各方对融资和执行机制的期待。它直接回应了COP30之后“实施COP”能否兑现的检验。</p>
+  <p class="en-text">The Antalya conference is about to open, while war, an energy crisis and climate extremes are raising pressure for finance and implementation. It directly tests whether the post-COP30 promise of an “implementation COP” can be made real.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP31正式谈判的议题分布图，也是各方围绕公正转型机制、气候融资和行动议程进行前置定位的文本基础。</p>
+    <p class="en-text">This is the agenda map for COP31 formal negotiations and the baseline text for positioning around the just transition mechanism, climate finance and the action agenda.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan">COP17: Key outcomes agreed at the UN biodiversity conference in Yerevan</a></h3>
+  
+  <p class="meta">Carbon Brief · 2026-10-31</p>
+  <p class="tags"><span class="tag">#综合治理议题</span><span class="tag">#环境治理与气候</span><span class="tag">#生物多样性</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">Carbon Brief指出，COP17完成了对2030年自然目标的首次全球审议，但“深表关切”的结论说明23项目标大多仍未进入可兑现轨道，资金缺口、捐助国范围争议与几近空转的基金暴露出现行生物多样性治理对融资、监测和责任分配的制度性不足。</p>
+  <p class="en-text">Carbon Brief argues that COP17 completed the first global review of progress toward the 2030 nature targets, but the “deep concern” outcome shows most of the 23 targets are still off track; funding gaps, disputes over who should contribute, and a nearly empty fund expose structural weaknesses in biodiversity governance around finance, monitoring and responsibility allocation.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这是《昆明-蒙特利尔全球生物多样性框架》过半节点的正式盘点，且距离2030年只剩四年多。各国刚刚签下关键文本，但实际执行差距被摆上台面。</p>
+  <p class="en-text">This is the midpoint review of the Kunming-Montreal Global Biodiversity Framework, with just over four years left to 2030. Countries have signed the key texts, but the implementation gap has been put squarely on the table.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP17闭幕后的结果梳理，直接进入COP18筹备和全球生物多样性框架的中期问责进程。</p>
+    <p class="en-text">This is the post-COP17 outcome summary feeding directly into COP18 preparation and the midterm accountability process for the Global Biodiversity Framework.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it">The UK’s 2026 Autumn Budget has laid the ground for cleaner and cheaper electricity. The 2027 Spending Review must build on it</a></h3>
+  
+  <p class="meta">E3G · 2026-11-02</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G认为，英国秋季预算已承认政策成本不应继续压在电费账单上，并为更深层的电力市场改革打开窗口；如果2027年支出审查延续这一方向，就能把更低电价、清洁电力系统和增长目标结合起来。</p>
+  <p class="en-text">E3G argues that the UK Autumn Budget has already accepted that policy costs should no longer sit on electricity bills and has opened a window for deeper electricity-market reform; if the 2027 Spending Review follows through, it can align lower bills, a cleaner power system and growth objectives.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">财政规则和电价结构正在重设，决定了新政府是把改革停留在账单修补，还是推进电力市场的系统性改造。</p>
+  <p class="en-text">Fiscal rules and electricity pricing are being reset, which will determine whether the new government stops at bill relief or advances a systemic redesign of the power market.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是英国2027年支出审查与电力市场改革衔接的前置政策主张。</p>
+    <p class="en-text">This is a pre-budget policy case for linking the 2027 Spending Review to electricity-market reform.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>4. <a href="https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=cop31-bridge-ambition-action">COP31 must bridge ambition and action as world leaders face risks from climate target overshoot</a></h3>
+  
+  <p class="meta">E3G · 2026-10-27</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#能源转型</span><span class="tag">#多边治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">E3G主张COP31必须把雄心转化为执行：在经济与能源安全压力上升的背景下，会议应通过公正转型、融资和实施安排来避免目标超调继续累积成治理失信。</p>
+  <p class="en-text">E3G argues that COP31 must convert ambition into delivery: under rising economic and energy-security pressures, the summit should use just transition, finance and implementation arrangements to prevent target overshoot from hardening into governance failure.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这篇文章为COP31设定了三项测试，正对冲近期关于谈判议程和目标超标风险的争论。它把会议定位为实施验证，而不是再次宣示。</p>
+  <p class="en-text">The article sets three tests for COP31 in direct response to current debate over the negotiating agenda and the risk of target overshoot. It frames the summit as a delivery test rather than another declaration round.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP31前的框架性施压文本，意在影响议程设置和成果标准。</p>
+    <p class="en-text">This is a pre-COP31 framing document intended to shape agenda setting and success criteria.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本周共同议题是：多边目标已不再缺乏文本，而是进入分歧如何收束、资金如何到位、机制如何落地的阶段。</p><p class="en-text">This week’s shared question is how multilateral targets move from text into settled disagreements, actual finance, and workable institutions.</p></section>
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1163/19426720-03203006">Challenges of the OECD’s Tax Governance Regime Leading to the United Nations’ ‘(Re)entry’ into International Tax Law Governance</a></h3>
+  <p class="meta">Jonathan R. Everhart · 2026-09-30 · Global Governance: A Review of Multilateralism and International Organizations</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="reading-text">文章指出，OECD主导的GloBE规则虽扩大了包容性框架，但其规则制定与治理结构仍偏向成员国利益，因而对发展中国家并不充分有利；作者据此主张联合国以更包容的制度程序重返国际税收治理，并建立UN层面的高层政治论坛以承接全球税收协调。</p>
+  <p class="en-text">The article argues that although the OECD-led GloBE rules created an inclusive framework, the governance and rule-making process still favors member states, making the arrangement insufficiently beneficial for developing countries; it therefore proposes a stronger UN role in international tax governance and a UN High-level Political Forum on International Taxation.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">作者以制度分析为主，比较OECD治理安排与联合国框架下的制度包容性和规则分配效果；可得摘要未说明具体定量方法。</p>
+  <p class="en-text">The article uses institutional analysis to compare the inclusiveness and distributive effects of OECD governance arrangements with those under the UN; the available abstract does not specify a quantitative method.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期Carbon Brief关于COP31谈判中气候融资与公正转型争议的报道一起阅读，理解多边规则如何在程序包容性上遭遇类似争论。</p>
+  <p class="en-text">Read alongside Carbon Brief’s COP31 coverage to see how multilateral rule-making faces similar disputes over procedural inclusion in climate finance and just transition.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>税收治理为何回到联合国？ <span class="keywords">(international tax governance, UN tax forum, OECD GloBE, Global South)</span><br><span class="en-text">Why is tax governance returning to the UN?</span></li><li>包容性如何影响规则分配？ <span class="keywords">(global governance, institutional legitimacy, rule-making power, OECD, United Nations)</span><br><span class="en-text">How does inclusiveness shape rule allocation?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1163/19426720-03203006">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1017/s0020818309090092">National Institutions and Global Public Goods: Are Democracies More Cooperative in Climate Change Policy?</a></h3>
+  <p class="meta">Michèle B. Bättig, Thomas Bernauer · 2009-04-15 · International Organization</p>
+  <p class="tags"><span class="tag">#国际治理与多边主义</span><span class="tag">#多边治理</span></p>
+  <p class="reading-text">文章检验民主制度是否更能提供全球公共品，发现民主国家的气候政策承诺水平较高，但排放结果并不稳定；这说明国内制度可以提高政策输出，却未必克服搭便车、时间折现和运输部门等领域的结构性约束。</p>
+  <p class="en-text">The article tests whether democracies provide more global public goods and finds that democratic states make stronger climate policy commitments, but emissions outcomes are not consistently better; domestic institutions can raise policy output without necessarily overcoming free-riding, discounting and sectoral constraints such as transport.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">作者使用185个国家1990—2004年的横截面数据，比较民主程度与气候政策承诺及排放结果之间的关系。</p>
+  <p class="en-text">The authors use cross-sectional data for 185 countries from 1990 to 2004 to compare democracy levels with climate policy commitments and emissions outcomes.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期E3G关于英国预算与电力市场改革的研究动向并读，因为后者同样在处理政策承诺与实际减排/降价结果之间的落差。</p>
+  <p class="en-text">Read alongside this week’s E3G item on the UK budget and electricity-market reform, which also grapples with the gap between policy commitments and real-world emissions or price outcomes.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>国内制度何时转化为减排？ <span class="keywords">(democracy, climate policy, policy output, emissions outcomes)</span><br><span class="en-text">When do domestic institutions translate into emissions cuts?</span></li><li>承诺与结果为何脱钩？ <span class="keywords">(global public goods, free-riding, climate governance, transport sector)</span><br><span class="en-text">Why do commitments and outcomes diverge?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1017/s0020818309090092">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
