@@ -1,0 +1,87 @@
+{
+  "run_date": "2026-11-03",
+  "kind": "live_discovery_only_pre_final_parser_fixes",
+  "metrics": {
+    "http_requests": 120,
+    "cache_hits": 2,
+    "downloaded_bytes": 15265909,
+    "requests_by_host": {
+      "unfccc.int": 4,
+      "www.ipcc.ch": 2,
+      "enb.iisd.org": 2,
+      "sdg.iisd.org": 2,
+      "www.carbonbrief.org": 30,
+      "www.e3g.org": 19,
+      "climatepolicyinitiative.org": 1,
+      "odi.org": 2,
+      "www.wri.org": 2,
+      "www.brookings.edu": 3,
+      "www.lse.ac.uk": 2,
+      "www.cgdev.org": 2,
+      "www.nature.com": 7,
+      "news.un.org": 1,
+      "www.theguardian.com": 5,
+      "apnews.com": 2,
+      "rss.nytimes.com": 2,
+      "insideclimatenews.org": 3,
+      "yaleclimateconnections.org": 2,
+      "english.news.cn": 2,
+      "www.climatechangenews.com": 2,
+      "climateglobalnews.com": 2,
+      "www.contexte.com": 2,
+      "oceanconservancy.org": 2,
+      "www.bloomberg.com": 2,
+      "www.alamy.com": 3,
+      "asiasociety.org": 2,
+      "www.mee.gov.cn": 1,
+      "apps.ipcc.ch": 5,
+      "climateanalytics.org": 2,
+      "www.ox.ac.uk": 1,
+      "www.greenfinanceinstitute.co.uk": 1
+    },
+    "candidate_count": 117,
+    "distinct_publishers": 10,
+    "evidence_retrieval_attempts": 18,
+    "search_queries": 0,
+    "discovery_ai_calls": 0,
+    "generation_pool_size": 22,
+    "generation_input_characters": 40031
+  },
+  "decisions": {
+    "deduplication": 1,
+    "low_substantive_relevance": 84,
+    "insufficient_evidence": 7,
+    "lower_editorial_priority": 22,
+    "outside_temporal_scope": 3
+  },
+  "failure_counts": {
+    "http_403": 7,
+    "crawl_depth_or_link_budget": 26190,
+    "host_access_restricted": 3,
+    "robots_disallowed_or_unavailable": 10,
+    "http_404": 2,
+    "undefined entity: line 57, column 0": 1,
+    "feed_entry_missing_title_or_link": 8,
+    "no_document_metadata": 22,
+    "new_source_budget_exhausted": 68,
+    "response_size_limit": 2,
+    "not well-formed (invalid token): line 1, column 1": 1,
+    "request_budget_exhausted": 240,
+    "unsupported_content_type:application/pdf": 3,
+    "live_search_not_configured": 1
+  },
+  "known_case_discovery": [
+    {
+      "url": "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+      "method": "html_link",
+      "parent": "https://www.carbonbrief.org/",
+      "publication_date": "2026-10-20",
+      "decision": "lower_editorial_priority"
+    }
+  ],
+  "limitations": [
+    "No paid AI calls, email, archive writes or production rollout.",
+    "Editorial selection pool is not a published digest.",
+    "This live run preceded final duplicate-version, challenge-page and metadata-only extraction fixes; tests and captured-response replay validate those fixes."
+  ]
+}

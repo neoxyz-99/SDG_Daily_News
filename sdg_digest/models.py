@@ -34,6 +34,19 @@ class Candidate:
     semantic_reason: str = ""
     layer: str = "research"
     title_en: str = ""
+    discovery_method: str = "rss"
+    provenance_url: str = ""
+    publication_date_status: str = "unverified"
+    modified_date: str = ""
+    event_id: str = ""
+    event_name: str = ""
+    event_date: str = ""
+    event_end_date: str = ""
+    development_stage: str = "unknown"
+    related_documents: list[str] = field(default_factory=list)
+    evidence: list[dict] = field(default_factory=list)
+    verification_status: str = "unverified"
+    content_fingerprint: str = ""
 
 
 @dataclass(frozen=True)
@@ -147,3 +160,4 @@ class Digest:
     issue_title_en: str = ""
     issue_title_zh: str = ""
     title_support: list[TitleSupport] = field(default_factory=list)
+    upcoming_events: list[NewsBrief] = field(default_factory=list)

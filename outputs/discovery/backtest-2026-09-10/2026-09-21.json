@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "run_date": "2026-09-21",
+  "status": "published",
+  "config": {
+    "rolling_days": 21,
+    "upcoming_days": 14,
+    "max_upcoming": 2,
+    "max_requests": 120,
+    "requests_per_host": 30,
+    "delay_seconds": 1.5,
+    "timeout_seconds": 15,
+    "max_response_bytes": 2000000,
+    "cache_hours": 12,
+    "max_depth": 1,
+    "max_links_per_page": 25,
+    "max_discovered_sources": 12,
+    "max_feed_entries": 500,
+    "evidence_requests": 0,
+    "selection_pool": 60,
+    "relevance_threshold": 4,
+    "state_retention_days": 120,
+    "search_url": "",
+    "max_searches": 4,
+    "seeds": [
+      {
+        "name": "UNFCCC",
+        "url": "https://unfccc.int/",
+        "reliability": "primary"
+      }
+    ]
+  },
+  "decisions": {
+    "deduplication": 1
+  },
+  "metrics": {
+    "replayed_requests": 3,
+    "http_requests": 0,
+    "cache_hits": 0,
+    "downloaded_bytes": 0,
+    "candidate_count": 1,
+    "distinct_publishers": 1,
+    "evidence_retrieval_attempts": 0,
+    "search_queries": 0,
+    "discovery_ai_calls": 0,
+    "generation_pool_size": 0,
+    "generation_input_characters": 0
+  },
+  "sources": [
+    {
+      "url": "https://unfccc.int/",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-09-21",
+      "last_successful_fetch": "2026-09-21",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/documents/660273",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/",
+        "sources.json"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-09-21",
+      "last_successful_fetch": "2026-09-21",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/documents/660273"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": false,
+      "last_attempt": "2026-09-21",
+      "last_error": "not_in_replay_corpus"
+    }
+  ],
+  "source_events": [
+    {
+      "url": "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme",
+      "decision": "discovery_or_extraction_failure",
+      "reason": "not_in_replay_corpus",
+      "discovery_method": "html_link",
+      "publisher": "UNFCCC"
+    },
+    {
+      "decision": "source_not_monitored",
+      "url": "",
+      "reason": "live_search_not_configured",
+      "detail": "Use search-results import or an operator-provided JSON search endpoint"
+    }
+  ],
+  "candidates": [
+    {
+      "title": "Agenda for the sixth UAE just transition dialogue",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "2026-09-04",
+      "url": "https://unfccc.int/documents/660273",
+      "tags": [],
+      "discovered_date": "2026-09-21",
+      "doi": null,
+      "text_source": "metadata_only",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "registry",
+      "provenance_url": "sources.json",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "event:3fd040ba8625807d0ce2ba41",
+      "event_name": "Sixth dialogue under the UAE just transition work programme",
+      "event_date": "2026-09-10",
+      "event_end_date": "2026-09-11",
+      "development_stage": "scheduled",
+      "related_documents": [
+        "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme"
+      ],
+      "evidence": [
+        {
+          "url": "https://unfccc.int/documents/660273",
+          "publisher": "UNFCCC",
+          "publication_date": "2026-09-04",
+          "supports": "scheduled",
+          "reliability": "primary"
+        }
+      ],
+      "verification_status": "primary_source_supported",
+      "content_fingerprint": "f301c97edc0812cd305a26f9",
+      "candidate_id": "060ca9fe282205469918fcff",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 5,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "deduplication",
+      "exclusion_reason": "event_update_already_published_from_another_document",
+      "temporal_basis": "publication_date"
+    }
+  ]
+}

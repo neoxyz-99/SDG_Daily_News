@@ -81,6 +81,12 @@ def render_markdown(digest: Digest) -> str:
         if digest.weekly_thread_en:
             lines.extend([digest.weekly_thread_en, ""])
 
+    if digest.upcoming_events:
+        lines.extend(["## 即将举行 / Upcoming", ""])
+        for item in digest.upcoming_events:
+            lines.extend([f"### {item.title_en}", f"{item.source_org} · {item.published_date}", "",
+                          item.one_sentence_zh, item.one_sentence_en, f"Original: {item.url}", ""])
+
     lines.extend(["## 论文研读 / Research Reading", ""])
     if readings:
         for reading in readings[:MAX_RESEARCH_READINGS_PER_ISSUE]:
@@ -157,6 +163,10 @@ def render_html(digest: Digest) -> str:
         if digest.weekly_thread_zh
         else ""
     )
+    upcoming_html = ""
+    if digest.upcoming_events:
+        upcoming_html = '<section><h2 class="section-title">即将举行 / Upcoming</h2>' + "".join(
+            _render_recent_news_html(i, item) for i, item in enumerate(digest.upcoming_events, 1)) + '</section>'
     preheader = html.escape((digest.overview_zh or digest.subject)[:120])
 
     return f"""<!doctype html>
@@ -249,6 +259,7 @@ def render_html(digest: Digest) -> str:
     <section>{research_html}</section>
 
     {weekly_html}
+    {upcoming_html}
 
     <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
     <section class="readings-band">{readings_html}</section>

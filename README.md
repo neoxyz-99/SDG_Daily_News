@@ -96,3 +96,9 @@ Original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`. The late
 - If fewer than five high-quality items are found, the digest is shorter rather than padded.
 - Paper readings are linked through DOI metadata and selected only from results returned for the approved journal list or from the seven seed examples. New and historical papers are both eligible; the generated research directions provide search keywords rather than invented reading lists.
 - GitHub Actions may occasionally delay scheduled runs during high-load windows; the workflow uses a non-hour time to reduce that risk.
+
+## Dynamic discovery upgrade
+
+The weekly workflow now selects the event-aware discovery pipeline, with a `legacy` manual option for rollback. The bare CLI retains its legacy default; run `python3 -m sdg_digest.cli --pipeline discovery --discovery-only --dry-run` to inspect discovery without AI generation, archive publication or email. Existing bilingual modules, academic readings, archives, website and delivery remain supported.
+
+See [configuration and operation](DISCOVERY.md), [audit and backtest findings](outputs/discovery/AUDIT_AND_BACKTEST.md), and the [machine-readable retrospective comparison](outputs/discovery/backtest-2026-09-10/comparison.json). Historical replay limitations are explicit: the initial audit snapshot had no September–October feed snapshots or run logs, and unknown publication dates are not reconstructed from meeting dates.

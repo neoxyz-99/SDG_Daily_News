@@ -1,0 +1,69 @@
+{
+  "kind": "current_captured_response_comparison",
+  "run_date": "2026-11-03",
+  "limitations": [
+    "This is a November capture comparison, not historical September/October recall.",
+    "Missing captures are failures, not evidence of no articles. Raw responses remain local disposable cache.",
+    "Legacy uses its existing seven-day window and new uses 21 days; both compare discovery-only pools, without AI generation.",
+    "Low-substance counts are rule-screening measurements, not human-labelled false positives or precision.",
+    "Sitemaps supplied only by robots.txt are absent from this offline replay; the live report records their traversal."
+  ],
+  "legacy": {
+    "candidate_count": 40,
+    "distinct_publishers": 4,
+    "duplicates_removed": 0,
+    "duplicate_rate": 0.0,
+    "rule_flagged_low_substance": 35,
+    "generation_pool_size": 8,
+    "generation_input_characters": 2985,
+    "generation_pool_urls": [
+      "https://insideclimatenews.org/news/02112026/beef-climate-impacts-accuracy/",
+      "https://insideclimatenews.org/news/02112026/florida-hurricane-damage-highlights-vulnerable-groups-climate-stress/",
+      "https://www.nytimes.com/2026/11/02/climate/william-nordhaus-carbon-tax-american-business.html",
+      "https://www.nytimes.com/2026/11/02/science/animals-grief-death.html",
+      "https://yaleclimateconnections.org/2026/11/colossal-rains-and-flash-floods-hammer-the-u-s-southwest-and-florida-peninsula/",
+      "https://yaleclimateconnections.org/2026/11/la-insaciable-sed-de-inteligencia-artificial-y-como-afecta-a-las-comunidades-latinas/",
+      "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
+      "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action"
+    ]
+  },
+  "discovery": {
+    "candidate_count": 79,
+    "distinct_publishers": 6,
+    "duplicates_removed": 0,
+    "duplicate_rate": 0.0,
+    "rule_flagged_low_substance": 58,
+    "generation_pool_size": 16,
+    "generation_input_characters": 20467,
+    "generation_pool_urls": [
+      "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
+      "https://www.carbonbrief.org/analysis-how-the-uk-spent-more-than-11-6bn-on-climate-aid-since-2021",
+      "https://www.carbonbrief.org/revealed-uk-relied-on-2bn-of-questionable-accounting-to-hit-its-climate-aid-goal",
+      "https://insideclimatenews.org/news/02112026/beef-climate-impacts-accuracy/",
+      "https://www.nature.com/articles/s41893-026-01947-z",
+      "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
+      "https://www.e3g.org/news/north-sea-oil-gas-bad-deal-uk-taxpayer/?utm_source=rss&utm_medium=rss&utm_campaign=north-sea-oil-gas-bad-deal-uk-taxpayer",
+      "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+      "https://www.e3g.org/news/explained-reforms-to-the-imf-and-world-bank-s-debt-framework-send-a-new-climate-signal-adaptation-counts/?utm_source=rss&utm_medium=rss&utm_campaign=explained-reforms-to-the-imf-and-world-bank-s-debt-framework-send-a-new-climate-signal-adaptation-counts",
+      "https://www.nytimes.com/2026/11/02/business/economy/williiam-nordhaus-nobel-dead.html",
+      "https://insideclimatenews.org/news/31102026/colorado-river-basin-gubernatorial-water-politics/",
+      "https://www.nytimes.com/2026/10/27/climate/canada-youth-climate-lawsuit.html",
+      "https://www.nature.com/articles/s41893-026-01960-2",
+      "https://www.nytimes.com/2026/10/24/climate/trump-epa-chemical-air-pollution.html",
+      "https://www.nytimes.com/2026/10/21/climate/united-states-climate-pledge-emissions-gap-report.html",
+      "https://www.e3g.org/news/climate-change-stocktaking-how-the-eu-is-tackling-the-new-climate-reality/?utm_source=rss&utm_medium=rss&utm_campaign=climate-change-stocktaking-how-the-eu-is-tackling-the-new-climate-reality"
+    ],
+    "decisions": {
+      "low_substantive_relevance": 58,
+      "lower_editorial_priority": 16,
+      "insufficient_evidence": 3,
+      "outside_temporal_scope": 2
+    }
+  },
+  "cost": {
+    "network_requests": 0,
+    "ai_calls": 0,
+    "billed_api_cost": 0,
+    "note": "Replay only; original live HTTP costs are in live/summary.json. Character counts are workload proxies, not token bills."
+  }
+}

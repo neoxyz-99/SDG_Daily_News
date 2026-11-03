@@ -6,7 +6,7 @@ import hashlib
 import json
 import re
 import shutil
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from urllib.parse import quote
 
@@ -68,6 +68,7 @@ class PublicIssue:
     readings: tuple[PublicItem, ...]
     issue_title: str = ""
     legacy_headline: str = ""
+    upcoming: tuple[PublicItem, ...] = ()
 
     @property
     def headline(self) -> str:
@@ -76,7 +77,7 @@ class PublicIssue:
 
     @property
     def items(self) -> tuple[PublicItem, ...]:
-        return self.news + self.signals + self.readings
+        return self.news + self.signals + self.readings + self.upcoming
 
     @property
     def topics(self) -> tuple[str, ...]:
@@ -214,6 +215,7 @@ def normalize_digest(raw: dict) -> PublicIssue:
         news=news,
         signals=signals,
         readings=readings,
+        upcoming=tuple(replace(_news_item(issue_date, row, index + 1000), item_type="Upcoming") for index, row in enumerate(raw.get("upcoming_events") or []) if isinstance(row, dict)),
     )
 
 
@@ -374,6 +376,8 @@ def _issue_content(issue: PublicIssue) -> str:
     sections: list[str] = []
     if issue.news:
         sections.append(f'<section id="recent-news" class="issue-section">{_section_title("The immediate field", "Recent News", len(issue.news))}<div class="news-grid">{"".join(_news_card(item, index) for index, item in enumerate(issue.news))}</div></section>')
+    if issue.upcoming:
+        sections.append(f'<section id="upcoming" class="issue-section">{_section_title("Ahead", "Upcoming", len(issue.upcoming))}<div class="news-grid">{"".join(_news_card(item, index) for index, item in enumerate(issue.upcoming))}</div></section>')
     if issue.signals:
         sections.append(f'<section id="research-signals" class="issue-section signals-section">{_section_title("What the week is telling us", "Research Signals", len(issue.signals))}<div class="signals-grid">{"".join(_signal_card(item) for item in issue.signals)}</div></section>')
     if issue.weekly_thread:
@@ -446,8 +450,8 @@ def _search(issues: list[PublicIssue]) -> str:
 def _about() -> str:
     body = """<article class="prose-page"><header><h1>A compass, not a newswire.</h1><p class="page-label">About the publication</p></header>
 <p class="standfirst">SDG Weekly Compass is an independent, non-commercial knowledge and information briefing connecting current events and policy research across climate, sustainable development, development finance, and global governance.</p>
-<h2>Editorial method</h2><p>Each issue begins with updates from a defined list of institutional, research, journal, international-organization, and news sources. Items must have enough source text to evaluate. Obvious structural noise is excluded; relevant candidates are assessed semantically rather than admitted through keyword matching.</p><p>The final selection is intentionally short. We publish fewer items when the available material does not meet the editorial threshold. Previously covered URLs are excluded, and research-reading DOIs are not repeated merely to fill space.</p>
-<h2>How AI is used</h2><p>AI assists with relevance screening, synthesis, and drafting structured editorial fields. It does not replace source attribution. Every external item links to the original publication, and research readings are restricted to approved journals or human-checked seed references.</p>
+<h2>Editorial method</h2><p>Discovery combines established feeds with institutional meeting pages, official announcements, research and reputable reporting. We assess substantive policy and governance significance, institutional implications, timeliness and the strength of the evidence. Agreements, negotiations, reforms, implementation and new findings can all merit coverage.</p><p>Multiple sources can inform the same development. Publication dates and event dates are checked separately, and a scheduled meeting is not treated as evidence of an outcome. Meaningful updates to previously covered events can return in later issues.</p><p>The final selection remains intentionally short. Broader discovery does not mean a longer newsletter: stronger evidence and editorial relevance determine what appears. Optional upcoming notices are labelled separately, and research-reading DOIs are not repeated merely to fill space.</p>
+<h2>How AI is used</h2><p>AI assists with comparative editorial selection, synthesis, and drafting structured editorial fields. It does not replace source attribution. Every external item links to the original publication, and research readings are restricted to approved journals or human-checked seed references.</p>
 <h2>How to read the Compass</h2><div class="method-grid"><div><strong>Recent News</strong><p>Events whose immediate significance is worth recording.</p></div><div><strong>Research Signals</strong><p>Policy arguments interpreted through core claim, timing, and agenda position.</p></div><div><strong>Research Reading</strong><p>Selected research that supplies useful concepts and longer context.</p></div></div></article>"""
     return _page(f"About — {SITE_NAME}", "About SDG Weekly Compass and its editorial method.", body, 1, "About")
 

@@ -4,3 +4,7 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+
+# Discovery responses and event state stay local or in the workflow cache.
+data/discovery/*cache/
+data/discovery/*state/

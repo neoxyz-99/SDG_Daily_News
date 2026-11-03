@@ -1,0 +1,931 @@
+{
+  "schema_version": 1,
+  "run_date": "2026-11-03",
+  "status": "published",
+  "config": {
+    "rolling_days": 21,
+    "upcoming_days": 14,
+    "max_upcoming": 2,
+    "max_requests": 120,
+    "requests_per_host": 30,
+    "delay_seconds": 1.5,
+    "timeout_seconds": 15,
+    "max_response_bytes": 2000000,
+    "cache_hours": 12,
+    "max_depth": 1,
+    "max_links_per_page": 25,
+    "max_discovered_sources": 12,
+    "max_feed_entries": 500,
+    "evidence_requests": 0,
+    "selection_pool": 60,
+    "relevance_threshold": 4,
+    "state_retention_days": 120,
+    "search_url": "",
+    "max_searches": 4,
+    "seeds": [
+      {
+        "name": "IISD Earth Negotiations Bulletin",
+        "url": "https://enb.iisd.org/",
+        "reliability": "established_secondary"
+      },
+      {
+        "name": "Ministry of the Environment, Japan",
+        "url": "https://www.env.go.jp/",
+        "reliability": "primary"
+      },
+      {
+        "name": "UNFCCC",
+        "url": "https://unfccc.int/",
+        "reliability": "primary"
+      },
+      {
+        "name": "UNFCCC",
+        "url": "https://www.unfccc.int/",
+        "reliability": "primary"
+      },
+      {
+        "name": "Carbon Brief",
+        "url": "https://www.carbonbrief.org/",
+        "reliability": "established_secondary"
+      }
+    ]
+  },
+  "decisions": {
+    "insufficient_evidence": 5,
+    "selected_for_publication": 2,
+    "outside_temporal_scope": 4
+  },
+  "metrics": {
+    "replayed_requests": 16,
+    "http_requests": 0,
+    "cache_hits": 0,
+    "downloaded_bytes": 0,
+    "candidate_count": 11,
+    "distinct_publishers": 4,
+    "evidence_retrieval_attempts": 0,
+    "search_queries": 0,
+    "discovery_ai_calls": 0,
+    "generation_pool_size": 2,
+    "generation_input_characters": 1490
+  },
+  "sources": [
+    {
+      "url": "https://enb.iisd.org/",
+      "publisher": "IISD Earth Negotiations Bulletin",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://enb.iisd.org/"
+      ],
+      "reliability": "established_secondary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.env.go.jp/",
+      "publisher": "Ministry of the Environment, Japan",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://www.env.go.jp/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.unfccc.int/",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://www.unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.carbonbrief.org/",
+      "publisher": "Carbon Brief",
+      "source_type": "html",
+      "discovery_method": "seed",
+      "provenance": [
+        "https://www.carbonbrief.org/"
+      ],
+      "reliability": "established_secondary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://enb.iisd.org/intergovernmental-panel-climate-change-ipcc-65-summary",
+      "publisher": "IISD Earth Negotiations Bulletin",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://enb.iisd.org/"
+      ],
+      "reliability": "established_secondary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.env.go.jp/press/press_05725.html",
+      "publisher": "Ministry of the Environment, Japan",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://www.env.go.jp/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/event/informal-intersessional-workshop-on-just-transition",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/about-us/reports-highlights/quarterly-updates/un-climate-change-quarterly-update-q3-2026",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/documents/660273",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/documents/660690",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/documents/660775",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://unfccc.int/documents/661097",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.unfccc.int/topics/climate-weeks",
+      "publisher": "UNFCCC",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://www.unfccc.int/"
+      ],
+      "reliability": "primary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    },
+    {
+      "url": "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+      "publisher": "Carbon Brief",
+      "source_type": "html",
+      "discovery_method": "html_link",
+      "provenance": [
+        "https://www.carbonbrief.org/"
+      ],
+      "reliability": "established_secondary",
+      "themes": [],
+      "layer": "event",
+      "verified": true,
+      "last_attempt": "2026-11-03",
+      "last_successful_fetch": "2026-11-03",
+      "last_error": ""
+    }
+  ],
+  "source_events": [
+    {
+      "url": "https://www.ipcc.ch/meeting-doc/ipcc-65/",
+      "provenance": "https://www.env.go.jp/press/press_05725.html",
+      "decision": "discovery_or_extraction_failure",
+      "reason": "crawl_depth_or_link_budget"
+    },
+    {
+      "decision": "source_not_monitored",
+      "url": "",
+      "reason": "live_search_not_configured",
+      "detail": "Use search-results import or an operator-provided JSON search endpoint"
+    }
+  ],
+  "candidates": [
+    {
+      "title": "IPCC-65: assessment timetable and budget remain unresolved",
+      "source_org": "IISD Earth Negotiations Bulletin",
+      "source_type": "think_tank",
+      "published_date": "",
+      "url": "https://enb.iisd.org/intergovernmental-panel-climate-change-ipcc-65-summary",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://enb.iisd.org/",
+      "publication_date_status": "missing",
+      "modified_date": "",
+      "event_id": "ipcc-65:2026",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "development_stage": "outcome",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "14c8672d32459c1ef03dda28",
+      "candidate_id": "3e55f5c48feaece487c1067a",
+      "reliability": "established_secondary",
+      "relevance_assessment": {
+        "score": 8,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 2,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "climate_policy",
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "insufficient_evidence",
+      "exclusion_reason": "publication_date_missing; event_date_is_not_publication_date",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Japan reports on IPCC-65 climate assessment work plan discussions",
+      "source_org": "Ministry of the Environment, Japan",
+      "source_type": "international_org",
+      "published_date": "2026-10-22",
+      "url": "https://www.env.go.jp/press/press_05725.html",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://www.env.go.jp/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "ipcc-65:2026",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "development_stage": "completed",
+      "related_documents": [
+        "https://www.ipcc.ch/meeting-doc/ipcc-65/"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.env.go.jp/press/press_05725.html",
+          "publisher": "Ministry of the Environment, Japan",
+          "publication_date": "2026-10-22",
+          "supports": "completed",
+          "reliability": "primary"
+        }
+      ],
+      "verification_status": "primary_source_supported",
+      "content_fingerprint": "62bb6862d6654fb47cd1674b",
+      "candidate_id": "aab5c2324c1ec9083d98bb9f",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 7,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "climate_policy"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "selected_for_publication",
+      "exclusion_reason": "",
+      "temporal_basis": "publication_date",
+      "editorial_rank": 2
+    },
+    {
+      "title": "Sixth UAE just transition dialogue: industrial pathways",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "",
+      "url": "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "missing",
+      "modified_date": "",
+      "event_id": "event:3fd040ba8625807d0ce2ba41",
+      "event_name": "Sixth dialogue under the UAE just transition work programme",
+      "event_date": "2026-09-10",
+      "event_end_date": "2026-09-11",
+      "development_stage": "scheduled",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "b9f283b3c4ffbc295a5c9e72",
+      "candidate_id": "9a9213cdfb5f66fe97e96b00",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 6,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 2,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "political_economy",
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "insufficient_evidence",
+      "exclusion_reason": "publication_date_missing; event_date_is_not_publication_date",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Sydney just transition workshop considered institutional arrangements",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "",
+      "url": "https://unfccc.int/event/informal-intersessional-workshop-on-just-transition",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "missing",
+      "modified_date": "",
+      "event_id": "event:ab72e3d93f0a113ccb1d5fd0",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "development_stage": "completed",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "0229e1ef4258f3abb27b9a02",
+      "candidate_id": "1f6b9fac977de3222d841e0f",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 7,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "insufficient_evidence",
+      "exclusion_reason": "publication_date_missing; event_date_is_not_publication_date",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Quarterly report describes adaptation and transparency work at Baku Climate Week",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "",
+      "url": "https://unfccc.int/about-us/reports-highlights/quarterly-updates/un-climate-change-quarterly-update-q3-2026",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "missing",
+      "modified_date": "",
+      "event_id": "event:d0da23cbcf0a7c73317a3685",
+      "event_name": "Climate Week 4 Baku",
+      "event_date": "2026-09-07",
+      "event_end_date": "2026-09-11",
+      "development_stage": "subsequent_development",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "9f0e6418125bc1e1cb221076",
+      "candidate_id": "efc8852e0a9065fbd9d755f4",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 7,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "climate_policy"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "insufficient_evidence",
+      "exclusion_reason": "publication_date_missing; event_date_is_not_publication_date",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Agenda for the sixth UAE just transition dialogue",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "2026-09-04",
+      "url": "https://unfccc.int/documents/660273",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "metadata_only",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "event:3fd040ba8625807d0ce2ba41",
+      "event_name": "Sixth dialogue under the UAE just transition work programme",
+      "event_date": "2026-09-10",
+      "event_end_date": "2026-09-11",
+      "development_stage": "scheduled",
+      "related_documents": [
+        "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme"
+      ],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "f301c97edc0812cd305a26f9",
+      "candidate_id": "cf9021af057950bf8c78fdab",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 5,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "outside_temporal_scope",
+      "exclusion_reason": "outside_rolling_publication_window",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Agenda for an informal just transition intersessional workshop",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "2026-09-22",
+      "url": "https://unfccc.int/documents/660690",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "metadata_only",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "event:ab72e3d93f0a113ccb1d5fd0",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "development_stage": "scheduled",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "974d949c57dcf232a42fddf9",
+      "candidate_id": "17cfb730bf8e657afc021e85",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 5,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "outside_temporal_scope",
+      "exclusion_reason": "outside_rolling_publication_window",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Concept note and agenda for the just transition intersessional workshop",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "2026-09-28",
+      "url": "https://unfccc.int/documents/660775",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "metadata_only",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "event:ab72e3d93f0a113ccb1d5fd0",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "development_stage": "scheduled",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "73aca9cf7687a6aef746be12",
+      "candidate_id": "0efd3556ca43ea6e7627c228",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 5,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "outside_temporal_scope",
+      "exclusion_reason": "outside_rolling_publication_window",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "Women's constituency presentation posted after the just transition workshop",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "2026-10-07",
+      "url": "https://unfccc.int/documents/661097",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "metadata_only",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://unfccc.int/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "event:ab72e3d93f0a113ccb1d5fd0",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "development_stage": "unknown",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "6c1cf002aa7c5e5607714fc1",
+      "candidate_id": "923709a3e38d9d09b85557ab",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 5,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 0,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 0
+        },
+        "themes": [
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "outside_temporal_scope",
+      "exclusion_reason": "outside_rolling_publication_window",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "UNFCCC Climate Weeks connected policy meetings and implementation",
+      "source_org": "UNFCCC",
+      "source_type": "international_org",
+      "published_date": "",
+      "url": "https://www.unfccc.int/topics/climate-weeks",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://www.unfccc.int/",
+      "publication_date_status": "missing",
+      "modified_date": "",
+      "event_id": "event:d0da23cbcf0a7c73317a3685",
+      "event_name": "Climate Week 4 Baku",
+      "event_date": "2026-09-07",
+      "event_end_date": "2026-09-11",
+      "development_stage": "completed",
+      "related_documents": [],
+      "evidence": [],
+      "verification_status": "unverified",
+      "content_fingerprint": "31fd96ffbb21feb64c808285",
+      "candidate_id": "6892fe70266aa364fd15a78c",
+      "reliability": "primary",
+      "relevance_assessment": {
+        "score": 7,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 1,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "climate_policy"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "insufficient_evidence",
+      "exclusion_reason": "publication_date_missing; event_date_is_not_publication_date",
+      "temporal_basis": "publication_date"
+    },
+    {
+      "title": "IPCC-65 climate assessment timetable and budget talks suspended",
+      "source_org": "Carbon Brief",
+      "source_type": "think_tank",
+      "published_date": "2026-10-20",
+      "url": "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+      "tags": [],
+      "discovered_date": "2026-11-03",
+      "doi": null,
+      "text_source": "html",
+      "semantic_score": null,
+      "semantic_domain": "",
+      "semantic_reason": "",
+      "layer": "event",
+      "title_en": "",
+      "discovery_method": "html_link",
+      "provenance_url": "https://www.carbonbrief.org/",
+      "publication_date_status": "source_reported",
+      "modified_date": "",
+      "event_id": "ipcc-65:2026",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "development_stage": "outcome",
+      "related_documents": [],
+      "evidence": [
+        {
+          "url": "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+          "publisher": "Carbon Brief",
+          "publication_date": "2026-10-20",
+          "supports": "outcome",
+          "reliability": "established_secondary"
+        }
+      ],
+      "verification_status": "reputable_reporting_supported",
+      "content_fingerprint": "b9bd0b27625b69342e6e9133",
+      "candidate_id": "0af61780e051d1d1a196153e",
+      "reliability": "established_secondary",
+      "relevance_assessment": {
+        "score": 8,
+        "dimensions": {
+          "substantive_significance": 2,
+          "institutional_implications": 1,
+          "scope_relevance": 2,
+          "novelty_timeliness": 1,
+          "evidence_strength": 1,
+          "future_policy_implications": 1
+        },
+        "themes": [
+          "climate_policy",
+          "governance"
+        ],
+        "substantive": true,
+        "method": "transparent_rules_v1",
+        "reason": "Policy mechanism and thematic evidence"
+      },
+      "decision": "selected_for_publication",
+      "exclusion_reason": "",
+      "temporal_basis": "publication_date",
+      "editorial_rank": 1
+    }
+  ]
+}

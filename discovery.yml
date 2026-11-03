@@ -1,0 +1,29 @@
+{
+  "rolling_days": 21,
+  "upcoming_days": 14,
+  "max_upcoming": 0,
+  "max_requests": 120,
+  "requests_per_host": 30,
+  "delay_seconds": 1.5,
+  "timeout_seconds": 15,
+  "max_response_bytes": 2000000,
+  "cache_hours": 12,
+  "max_depth": 2,
+  "max_links_per_page": 25,
+  "max_discovered_sources": 12,
+  "max_feed_entries": 500,
+  "evidence_requests": 30,
+  "selection_pool": 60,
+  "relevance_threshold": 4,
+  "state_retention_days": 120,
+  "search_url": "",
+  "max_searches": 4,
+  "seeds": [
+    {"name": "UNFCCC", "url": "https://unfccc.int/", "reliability": "primary", "themes": ["climate policy", "just transition", "multilateral governance"]},
+    {"name": "IPCC", "url": "https://www.ipcc.ch/", "reliability": "primary", "themes": ["climate evidence", "assessment governance"]},
+    {"name": "IISD Earth Negotiations Bulletin", "url": "https://enb.iisd.org/", "reliability": "established_secondary", "themes": ["negotiations", "global governance"]},
+    {"name": "IISD SDG Knowledge Hub", "url": "https://sdg.iisd.org/", "reliability": "established_secondary", "themes": ["sustainable development", "development finance"]},
+    {"name": "Carbon Brief", "url": "https://www.carbonbrief.org/", "reliability": "established_secondary", "themes": ["climate policy", "research"]},
+    {"name": "E3G", "url": "https://www.e3g.org/", "reliability": "established_secondary", "themes": ["political economy", "energy transition"]}
+  ]
+}

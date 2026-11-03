@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from dataclasses import replace
+import json
 from datetime import date
 from pathlib import Path
 
@@ -15,6 +17,8 @@ from .generate import filter_relevant_candidates, generate_digest, is_recent_new
 from .render import render_html, render_markdown
 from .sent_articles import filter_sent_candidates, load_sent_articles, update_sent_articles
 from .titles import translate_candidate_titles
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 SOURCE_SUGGESTIONS = [
     "World Resources Institute RSS (institutional policy research; climate and development)",
@@ -44,14 +48,23 @@ def main() -> None:
     parser.add_argument("--max-per-source-recent", type=int, default=2)
     parser.add_argument("--max-per-source-research", type=int, default=2)
     parser.add_argument("--candidate-pool", type=int, default=30)
-    parser.add_argument("--sources", default="sources.yml")
-    parser.add_argument("--bibliography", default="bibliography.yml")
-    parser.add_argument("--output-dir", default="archive")
-    parser.add_argument("--sent-articles", default="sent_articles.json")
+    parser.add_argument("--sources", default=str(PROJECT_ROOT / "sources.yml"))
+    parser.add_argument("--bibliography", default=str(PROJECT_ROOT / "bibliography.yml"))
+    parser.add_argument("--output-dir", default=str(PROJECT_ROOT / "archive"))
+    parser.add_argument("--sent-articles", default=str(PROJECT_ROOT / "sent_articles.json"))
     parser.add_argument("--send-email", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--skip-openai", action="store_true")
+    parser.add_argument("--pipeline", choices=("legacy", "discovery"), default="legacy")
+    parser.add_argument("--discovery-config", default=str(PROJECT_ROOT / "discovery.yml"))
+    parser.add_argument("--discovery-state", default=str(PROJECT_ROOT / "data/discovery/state"))
+    parser.add_argument("--diagnostics", default=str(PROJECT_ROOT / "outputs/discovery"))
+    parser.add_argument("--search-results", help="JSON array of search results: url and query; page evidence is fetched independently")
+    parser.add_argument("--discovery-only", action="store_true", help="Collect and assess without AI, archive or email")
+    parser.add_argument("--trace-url", default="", help="Explain why a known URL was omitted")
     args = parser.parse_args()
+    if args.discovery_only and args.pipeline != "discovery":
+        parser.error("--discovery-only requires --pipeline discovery")
 
     run_date = date.fromisoformat(args.date)
     sources = load_sources(Path(args.sources))
@@ -59,36 +72,56 @@ def main() -> None:
     sent_record = load_sent_articles(Path(args.sent_articles))
 
     stats = CollectionStats()
-    candidates = collect_candidates(sources, run_date, args.lookback_days, stats=stats)
-    candidates = deduplicate_candidates(candidates)
-    before_sent_filter = len(candidates)
-    candidates, filtered_by_sent = filter_sent_candidates(candidates, sent_record)
-    print(f"Collected {len(candidates)} candidate(s) after source, run-level deduplication, and sent-history checks")
-    candidates = filter_relevant_candidates(candidates, use_openai=not args.skip_openai)
-    recent_candidates = [candidate for candidate in candidates if is_recent_news_candidate(candidate)]
-    research_candidates = [candidate for candidate in candidates if not is_recent_news_candidate(candidate)]
-    print(
-        f"{len(recent_candidates)} recent-news candidate(s) and "
-        f"{len(research_candidates)} research candidate(s) remain after filtering"
-    )
-    if args.lookback_days >= 7 and len(candidates) < 10:
-        print("Source expansion suggestion: fewer than 10 relevant candidates after a 7-day window.")
-        print("Consider adding RSS/Atom feeds that meet the source policy criteria:")
-        for suggestion in SOURCE_SUGGESTIONS:
-            print(f"- {suggestion}")
-    selected_recent = rank_candidates(
-        recent_candidates,
-        max(args.candidate_pool, args.max_recent_news),
-        max_per_source=args.max_per_source_recent,
-        fill_to_max=False,
-    )
-    selected_research = rank_candidates(
-        research_candidates,
-        args.candidate_pool,
-        max_per_source=args.max_per_source_research,
-        fill_to_max=False,
-    )
-    selected = selected_recent + selected_research
+    discovery = None
+    if args.pipeline == "discovery":
+        from .discovery import DiscoveryPipeline
+        from .discovery_config import DiscoveryConfig
+        discovery = DiscoveryPipeline(DiscoveryConfig.load(args.discovery_config), run_date, Path(args.discovery_state))
+        imported = json.loads(Path(args.search_results).read_text()) if args.search_results else []
+        discovery.discover(sources, imported)
+        selected = discovery.evaluate(sent_record)
+        candidates = selected
+        before_sent_filter, filtered_by_sent = len(discovery.rows), 0
+        selected_recent = [c for c in selected if is_recent_news_candidate(c)]
+        selected_research = [c for c in selected if not is_recent_news_candidate(c)]
+        report_path = Path(args.diagnostics) / f"{run_date.isoformat()}.json"
+        discovery.save(report_path, persist=not args.dry_run)
+        print(f"Discovery assessed {len(discovery.rows)} documents; {len(selected)} passed to editorial selection. Report: {report_path}")
+        if args.trace_url:
+            print(json.dumps(discovery.trace(url=args.trace_url), ensure_ascii=False, indent=2))
+        if args.discovery_only:
+            return
+    else:
+        candidates = collect_candidates(sources, run_date, args.lookback_days, stats=stats)
+        candidates = deduplicate_candidates(candidates)
+        before_sent_filter = len(candidates)
+        candidates, filtered_by_sent = filter_sent_candidates(candidates, sent_record)
+        print(f"Collected {len(candidates)} candidate(s) after source, run-level deduplication, and sent-history checks")
+        candidates = filter_relevant_candidates(candidates, use_openai=not args.skip_openai)
+        recent_candidates = [candidate for candidate in candidates if is_recent_news_candidate(candidate)]
+        research_candidates = [candidate for candidate in candidates if not is_recent_news_candidate(candidate)]
+        print(
+            f"{len(recent_candidates)} recent-news candidate(s) and "
+            f"{len(research_candidates)} research candidate(s) remain after filtering"
+        )
+        if args.lookback_days >= 7 and len(candidates) < 10:
+            print("Source expansion suggestion: fewer than 10 relevant candidates after a 7-day window.")
+            print("Consider adding RSS/Atom feeds that meet the source policy criteria:")
+            for suggestion in SOURCE_SUGGESTIONS:
+                print(f"- {suggestion}")
+        selected_recent = rank_candidates(
+            recent_candidates,
+            max(args.candidate_pool, args.max_recent_news),
+            max_per_source=args.max_per_source_recent,
+            fill_to_max=False,
+        )
+        selected_research = rank_candidates(
+            research_candidates,
+            args.candidate_pool,
+            max_per_source=args.max_per_source_research,
+            fill_to_max=False,
+        )
+        selected = selected_recent + selected_research
     if not args.skip_openai:
         selected = translate_candidate_titles(selected)
     tracked_readings = collect_academic_readings(
@@ -112,6 +145,12 @@ def main() -> None:
         sent_reading_dois=sent_record.get("classic_reading_dois", []),
         editorial_history=load_editorial_history(args.output_dir, run_date),
     )
+    if discovery:
+        if not args.skip_openai and discovery.config.max_upcoming:
+            discovery.upcoming = translate_candidate_titles(discovery.upcoming_candidates())
+        digest = replace(digest, upcoming_events=discovery.upcoming_briefs())
+        discovery.finalize(digest)
+        discovery.save(report_path, persist=not args.dry_run)
     if args.dry_run:
         print(render_markdown(digest))
     else:
@@ -130,16 +169,20 @@ def main() -> None:
         print(f"Updated sent articles record: {args.sent_articles}")
     else:
         print("Email sending skipped")
-    _print_pipeline_report(
-        stats=stats,
-        filtered_by_sent=filtered_by_sent,
-        before_sent_filter=before_sent_filter,
-        passed_to_ai=len(selected),
-        recent_candidates=len(selected_recent),
-        research_candidates=len(selected_research),
-        selected_recent_sources=_source_counts(selected_recent),
-        selected_research_sources=_source_counts(selected_research),
-    )
+    if discovery:
+        discovery.finalize(digest, published=not args.dry_run)
+        discovery.save(report_path, persist=not args.dry_run)
+    if not discovery:
+        _print_pipeline_report(
+            stats=stats,
+            filtered_by_sent=filtered_by_sent,
+            before_sent_filter=before_sent_filter,
+            passed_to_ai=len(selected),
+            recent_candidates=len(selected_recent),
+            research_candidates=len(selected_research),
+            selected_recent_sources=_source_counts(selected_recent),
+            selected_research_sources=_source_counts(selected_research),
+        )
 
 
 def _print_pipeline_report(

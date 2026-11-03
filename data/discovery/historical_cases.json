@@ -1,0 +1,195 @@
+{
+  "corpus_kind": "retrospective_curated_metadata_and_paraphrases",
+  "observed_at": "2026-11-03",
+  "not_an_as_of_snapshot": true,
+  "limitations": [
+    "These are reviewed public URLs with short original paraphrases, not archived September/October HTTP responses or RSS snapshots.",
+    "Document publication dates below were explicitly displayed by the publisher. Blank dates are unknown and must not be inferred from event dates or search crawl dates.",
+    "Reconstructed HTML and discovery links in the replay harness test parser and traversal contracts, not the historical link topology or live site accessibility.",
+    "No complete relevant/irrelevant historical universe or historical model outputs exists locally; actual production recall, precision, duplicate rates and billed cost cannot be reconstructed."
+  ],
+  "cases": [
+    "ipcc65_ar7",
+    "sixth_jt_dialogue",
+    "jt_intersessional",
+    "climate_week_2026"
+  ],
+  "documents": [
+    {
+      "case_ids": [
+        "ipcc65_ar7"
+      ],
+      "url": "https://enb.iisd.org/intergovernmental-panel-climate-change-ipcc-65-summary",
+      "publisher": "IISD Earth Negotiations Bulletin",
+      "reliability": "established_secondary",
+      "title": "IPCC-65: assessment timetable and budget remain unresolved",
+      "published_date": "",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "text": "Governments debated when climate assessment reports should be ready for the next global stocktake. The session was suspended without agreement on the assessment timetable or budget. This is a procedural development with consequences for the institution's continuing work, rather than a new scientific finding.",
+      "evidence_note": "Report content and meeting dates reviewed through web retrieval; original publication date not established. Direct bounded HTTP probe returned 403."
+    },
+    {
+      "case_ids": [
+        "ipcc65_ar7"
+      ],
+      "url": "https://www.env.go.jp/press/press_05725.html",
+      "publisher": "Ministry of the Environment, Japan",
+      "reliability": "primary",
+      "title": "Japan reports on IPCC-65 climate assessment work plan discussions",
+      "published_date": "2026-10-22",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "text": "The government's account says the session was held in Addis Ababa. Deliberations on the climate assessment work plan and 2027 budget will continue at a resumed session. Its timing was still to be announced by the secretariat.",
+      "related_documents": [
+        "https://www.ipcc.ch/meeting-doc/ipcc-65/"
+      ],
+      "evidence_note": "Publication date displayed as 2026年10月22日. English fixture wording is an original paraphrase of the Japanese announcement."
+    },
+    {
+      "case_ids": [
+        "sixth_jt_dialogue"
+      ],
+      "url": "https://unfccc.int/documents/660273",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Agenda for the sixth UAE just transition dialogue",
+      "published_date": "2026-09-04",
+      "event_name": "Sixth dialogue under the UAE just transition work programme",
+      "event_date": "2026-09-10",
+      "event_end_date": "2026-09-11",
+      "text": "The document provides the planned agenda for a just transition policy dialogue. It supports advance notice of the meeting, not a claim that governments reached an agreement.",
+      "related_documents": [
+        "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme"
+      ],
+      "evidence_note": "Publisher displays 04 Sep 2026. Event dates come from the linked official meeting page.",
+      "metadata_only": true
+    },
+    {
+      "case_ids": [
+        "sixth_jt_dialogue"
+      ],
+      "url": "https://unfccc.int/event/sixth-dialogue-under-the-united-arab-emirates-just-transition-work-programme",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Sixth UAE just transition dialogue: industrial pathways",
+      "published_date": "",
+      "event_name": "Sixth dialogue under the UAE just transition work programme",
+      "event_date": "2026-09-10",
+      "event_end_date": "2026-09-11",
+      "text": "The page announces a Baku dialogue on national just transition pathways for industry, with technology, innovation and equitable value chains on its agenda. The meeting is scheduled for September 10 and 11.",
+      "evidence_note": "Event date is explicit; publication date is not. Future-tense meeting copy must not become a completed outcome."
+    },
+    {
+      "case_ids": [
+        "jt_intersessional"
+      ],
+      "url": "https://unfccc.int/documents/660690",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Agenda for an informal just transition intersessional workshop",
+      "published_date": "2026-09-22",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "text": "An agenda document sets out plans for an informal just transition policy workshop. It is evidence of preparation, not a negotiated institutional decision.",
+      "evidence_note": "Publication date displayed in indexed official document metadata; repeated direct page retrieval timed out.",
+      "metadata_only": true
+    },
+    {
+      "case_ids": [
+        "jt_intersessional"
+      ],
+      "url": "https://unfccc.int/documents/660775",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Concept note and agenda for the just transition intersessional workshop",
+      "published_date": "2026-09-28",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "text": "A concept note accompanies the informal workshop agenda under the just transition work programme. This document establishes the policy discussion's preparation rather than any agreed outcome.",
+      "evidence_note": "Official document page displays 28 Sep 2026.",
+      "metadata_only": true
+    },
+    {
+      "case_ids": [
+        "jt_intersessional"
+      ],
+      "url": "https://unfccc.int/event/informal-intersessional-workshop-on-just-transition",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Sydney just transition workshop considered institutional arrangements",
+      "published_date": "",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "text": "The workshop was held across September 30 and October 2. Parties discussed how to operationalize a just transition mechanism, including governance and its relationship with the work programme. These informal exchanges did not prejudge later negotiations.",
+      "evidence_note": "Current official page confirms occurrence and scope but provides no verified publication timestamp."
+    },
+    {
+      "case_ids": [
+        "jt_intersessional"
+      ],
+      "url": "https://unfccc.int/documents/661097",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Women's constituency presentation posted after the just transition workshop",
+      "published_date": "2026-10-07",
+      "event_name": "Informal intersessional workshop on just transition",
+      "event_date": "2026-09-30",
+      "event_end_date": "2026-10-02",
+      "text": "The official repository lists a stakeholder presentation from the just transition policy workshop. The document's existence is verified; its substantive proposals have not been read in this review.",
+      "evidence_note": "Publication date displayed as 07 Oct 2026. This is a late-published related document, not proof of agreement.",
+      "metadata_only": true
+    },
+    {
+      "case_ids": [
+        "climate_week_2026"
+      ],
+      "url": "https://www.unfccc.int/topics/climate-weeks",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "UNFCCC Climate Weeks connected policy meetings and implementation",
+      "published_date": "",
+      "event_name": "Climate Week 4 Baku",
+      "event_date": "2026-09-07",
+      "event_end_date": "2026-09-11",
+      "text": "The overview says Climate Week 4 was held in Baku in September. Its format joins mandated climate policy meetings with implementation discussions. A calendar and format description alone do not establish particular policy outcomes.",
+      "evidence_note": "Also identifies the April Yeosu Climate Week, outside the requested period. Publication timestamp is unknown."
+    },
+    {
+      "case_ids": [
+        "climate_week_2026"
+      ],
+      "url": "https://unfccc.int/about-us/reports-highlights/quarterly-updates/un-climate-change-quarterly-update-q3-2026",
+      "publisher": "UNFCCC",
+      "reliability": "primary",
+      "title": "Quarterly report describes adaptation and transparency work at Baku Climate Week",
+      "published_date": "",
+      "event_name": "Climate Week 4 Baku",
+      "event_date": "2026-09-07",
+      "event_end_date": "2026-09-11",
+      "text": "The secretariat reports that the Baku Adaptation Road Map workshop considered implementation across the adaptation planning and monitoring cycle. At Climate Week, governments and support providers also exchanged practical approaches to transparency reporting. These are substantive implementation discussions; the report does not establish a new negotiated agreement on those points.",
+      "evidence_note": "The page includes references to reports released on October 27. Its own publication date remains unknown; it cannot be backdated to September."
+    },
+    {
+      "case_ids": [
+        "ipcc65_ar7"
+      ],
+      "url": "https://www.carbonbrief.org/qa-why-a-pivotal-ipcc-meeting-in-ethiopia-ended-in-profound-disappointment",
+      "publisher": "Carbon Brief",
+      "reliability": "established_secondary",
+      "title": "IPCC-65 climate assessment timetable and budget talks suspended",
+      "published_date": "2026-10-20",
+      "event_name": "IPCC-65",
+      "event_date": "2026-10-12",
+      "event_end_date": "2026-10-16",
+      "layer": "event",
+      "text": "The report explains that governments did not agree on the timetable for the next climate assessment or the remaining-cycle budget. Talks were suspended. The timing dispute matters for whether the assessment can inform the next global stocktake, and the unresolved budget has institutional implications.",
+      "evidence_note": "Discovered in the bounded live run through a homepage link on 2026-11-03. Page metadata gives publication 2026-10-20 and modification 2026-10-21. Text here is an original paraphrase; the current page is not an as-of October snapshot."
+    }
+  ]
+}
