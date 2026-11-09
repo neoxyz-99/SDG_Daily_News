@@ -243,7 +243,17 @@
     "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
     "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
     "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
-    "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action"
+    "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
+    "https://www.theguardian.com/politics/live/2026/nov/09/polanski-greens-labour-andy-burnham-climate-crisis-ev-targets-uk-politics-latest-news",
+    "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit",
+    "https://www.theguardian.com/environment/2026/oct/31/cop17-reforms-fails-to-deliver-targets",
+    "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/",
+    "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
+    "https://www.theguardian.com/environment/live/2026/nov/09/cop31-climate-crisis-talks-turkey-latest-news-updates",
+    "https://www.theguardian.com/environment/2026/nov/03/uk-ministers-anant-ambani-indian-zoo-vantara-freedom-information-endangered-animals-cites",
+    "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report",
+    "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
+    "https://www.nature.com/articles/s41893-026-01947-z"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -414,7 +424,15 @@
     "https://insideclimatenews.org/news/02112026/florida-hurricane-damage-highlights-vulnerable-groups-climate-stress/",
     "https://www.nytimes.com/2026/11/02/climate/william-nordhaus-carbon-tax-american-business.html",
     "https://www.nytimes.com/2026/11/02/science/animals-grief-death.html",
-    "https://yaleclimateconnections.org/2026/11/colossal-rains-and-flash-floods-hammer-the-u-s-southwest-and-florida-peninsula/"
+    "https://yaleclimateconnections.org/2026/11/colossal-rains-and-flash-floods-hammer-the-u-s-southwest-and-florida-peninsula/",
+    "https://www.theguardian.com/politics/live/2026/nov/09/polanski-greens-labour-andy-burnham-climate-crisis-ev-targets-uk-politics-latest-news",
+    "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit",
+    "https://www.theguardian.com/environment/2026/oct/31/cop17-reforms-fails-to-deliver-targets",
+    "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/",
+    "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
+    "https://www.theguardian.com/environment/live/2026/nov/09/cop31-climate-crisis-talks-turkey-latest-news-updates",
+    "https://www.theguardian.com/environment/2026/nov/03/uk-ministers-anant-ambani-indian-zoo-vantara-freedom-information-endangered-animals-cites",
+    "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -499,7 +517,9 @@
     "https://www.carbonbrief.org/interactive-who-wants-what-at-the-cop31-climate-change-summit",
     "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
     "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
-    "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action"
+    "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
+    "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
+    "https://www.nature.com/articles/s41893-026-01947-z"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -535,17 +555,11 @@
     "10.1162/glep.a.700",
     "10.1162/glep.a.704",
     "10.1163/19426720-03203006",
-    "10.1017/s0020818309090092"
+    "10.1017/s0020818309090092",
+    "10.1162/glep_a_00654",
+    "10.1163/19426720-03202001"
   ],
   "classic_reading_history": [
-    {
-      "date": "2026-06-10",
-      "dois": [
-        "10.1017/s0020818300018920",
-        "10.1017/s0020818300018993",
-        "10.1016/j.worlddev.2011.07.020"
-      ]
-    },
     {
       "date": "2026-06-15",
       "dois": [
@@ -712,7 +726,14 @@
         "10.1163/19426720-03203006",
         "10.1017/s0020818309090092"
       ]
+    },
+    {
+      "date": "2026-11-09",
+      "dois": [
+        "10.1162/glep_a_00654",
+        "10.1163/19426720-03202001"
+      ]
     }
   ],
-  "last_updated": "2026-11-02"
+  "last_updated": "2026-11-09"
 }
