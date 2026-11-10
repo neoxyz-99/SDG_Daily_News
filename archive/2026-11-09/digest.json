@@ -1,13 +1,13 @@
 {
   "digest_date": "2026-11-09",
   "subject": "SDG Weekly Compass - Week of 2026-11-09",
-  "overview_zh": "",
+  "overview_zh": "COP31前的转型路线图与IPCC预算争议凸显政策执行的条件；投资规则和灾害损失研究则提示，法律空间与恢复差距同样影响政策效果。",
   "items": [
     {
-      "title_en": "Investor-state dispute settlement (ISDS) mechanisms are threatening economic, energy and security priorities",
+      "title_en": "Investment claims may constrain clean-energy industrial policy",
       "source_org": "E3G",
       "published_date": "2026-11-04",
-      "summary_zh": "E3G这篇材料主张，Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governm…",
+      "summary_zh": "投资者—国家争端解决机制（ISDS）可能使投资保护与公共利益政策发生冲突：投资者索赔会约束政府推进清洁能源转型、产业政策和国家安全目标的空间，因此评估转型政策的可执行性时，也需要审视其面临的国际投资法约束。",
       "terms": [
         {
           "term_en": "multilateral governance",
@@ -16,48 +16,48 @@
         }
       ],
       "tags": [
-        "#综合治理议题",
         "#能源转型",
-        "#多边治理"
+        "#多边治理",
+        "#国际治理与多边主义"
       ],
       "url": "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
-      "core_argument_zh": "E3G这篇材料主张，Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governm…",
-      "core_argument_en": "E3G argues that Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governments’ ability to act…",
-      "why_now_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_now_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
-      "agenda_position_zh": "议程背景不明确",
-      "agenda_position_en": "The agenda background is unclear.",
-      "summary_en": "E3G argues that Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governments’ ability to act…",
-      "why_it_matters_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_it_matters_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
+      "core_argument_zh": "投资者—国家争端解决机制（ISDS）可能使投资保护与公共利益政策发生冲突：投资者索赔会约束政府推进清洁能源转型、产业政策和国家安全目标的空间，因此评估转型政策的可执行性时，也需要审视其面临的国际投资法约束。",
+      "core_argument_en": "Investor-state dispute settlement (ISDS) can put investment protection in tension with public-interest policy: claims may constrain governments’ ability to pursue industrial, security and domestic economic priorities during the clean-energy transition. This makes investment-law constraints relevant to assessing whether transition policies can be implemented.",
+      "why_now_zh": "11月4日发表的评论把投资保护争议与正在推进的清洁能源和产业政策联系起来。与本期巴西转型路线图对读，它提示政策工具是否可用，还取决于政府拥有多大的法律行动空间。",
+      "why_now_en": "Published on 4 November, the commentary connects investment-protection disputes to current clean-energy and industrial-policy priorities. Read alongside Brazil’s transition roadmap, it raises an implementation question: how much legal room do governments have to use the proposed policy tools?",
+      "agenda_position_zh": "这是一项关于投资协定与清洁转型政策兼容性的分析，可用于讨论政府政策空间；现有来源未显示它是COP31的正式提交文件或已通过的规则。",
+      "agenda_position_en": "This is an analytical contribution to debates about the compatibility of investment treaties and clean-transition policy. The available source does not establish a formal COP31 submission or an adopted rule.",
+      "summary_en": "",
+      "why_it_matters_zh": "11月4日发表的评论把投资保护争议与正在推进的清洁能源和产业政策联系起来。与本期巴西转型路线图对读，它提示政策工具是否可用，还取决于政府拥有多大的法律行动空间。",
+      "why_it_matters_en": "Published on 4 November, the commentary connects investment-protection disputes to current clean-energy and industrial-policy priorities. Read alongside Brazil’s transition roadmap, it raises an implementation question: how much legal room do governments have to use the proposed policy tools?",
       "sdg_links": [],
       "deep_reads": [],
-      "title_original": ""
+      "title_original": "Investor-state dispute settlement (ISDS) mechanisms are threatening economic, energy and security priorities"
     },
     {
-      "title_en": "Global socio-economic resilience to disasters",
+      "title_en": "Poorer households bear disproportionate disaster-related welfare losses",
       "source_org": "Nature Sustainability",
       "published_date": "2026-10-29",
-      "summary_zh": "Nature Sustainability这篇材料主张，Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments ofte…",
+      "summary_zh": "研究团队对132国进行微观模拟，发现最贫困群体仅承担9%的资产损失，却承担33%的福祉损失；单看财产损毁会低估其恢复困难，因此灾害风险评估和恢复资金配置应同时考虑消费损失、恢复能力及面向低收入群体的支持。",
       "terms": [],
       "tags": [
-        "#综合治理议题",
         "#环境治理与气候",
-        "#可持续金融与ESG"
+        "#可持续金融与ESG",
+        "#发展与不平等"
       ],
       "url": "https://www.nature.com/articles/s41893-026-01947-z",
-      "core_argument_zh": "Nature Sustainability这篇材料主张，Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments ofte…",
-      "core_argument_en": "Nature Sustainability argues that Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments often overlook how damag…",
-      "why_now_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_now_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
-      "agenda_position_zh": "议程背景不明确",
-      "agenda_position_en": "The agenda background is unclear.",
-      "summary_en": "Nature Sustainability argues that Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments often overlook how damag…",
-      "why_it_matters_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_it_matters_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
+      "core_argument_zh": "研究团队对132国进行微观模拟，发现最贫困群体仅承担9%的资产损失，却承担33%的福祉损失；单看财产损毁会低估其恢复困难，因此灾害风险评估和恢复资金配置应同时考虑消费损失、恢复能力及面向低收入群体的支持。",
+      "core_argument_en": "Microsimulations across 132 countries find that the poorest populations bear 9% of asset damage but 33% of well-being losses. Asset-based accounting therefore understates their recovery burden; risk assessment and recovery funding should also consider consumption losses, coping capacity and support targeted at lower-income groups.",
+      "why_now_zh": "10月29日发表的研究为本期山火恢复报道提供了分析框架：损毁金额并不能完整解释幸存者承受的长期负担。它把政策关注点从重建多少资产，推进到哪些家庭恢复得更慢、哪些支持更有效。",
+      "why_now_en": "Published on 29 October, the study provides an analytical frame for this issue’s wildfire-recovery coverage: damage totals do not capture the full burden on survivors. It shifts attention towards which households recover more slowly and which forms of support deliver greater well-being gains.",
+      "agenda_position_zh": "研究涉及灾害风险指标、恢复融资和发展规划中的分配问题，可为定向支持提供依据；这属于其政策应用方向，不能据此认定研究已进入某项正式谈判议程。",
+      "agenda_position_en": "The findings inform disaster-risk metrics, recovery finance and the distributional choices in development planning. These are policy applications of the research, not evidence that it has been placed on a formal negotiating agenda.",
+      "summary_en": "",
+      "why_it_matters_zh": "10月29日发表的研究为本期山火恢复报道提供了分析框架：损毁金额并不能完整解释幸存者承受的长期负担。它把政策关注点从重建多少资产，推进到哪些家庭恢复得更慢、哪些支持更有效。",
+      "why_it_matters_en": "Published on 29 October, the study provides an analytical frame for this issue’s wildfire-recovery coverage: damage totals do not capture the full burden on survivors. It shifts attention towards which households recover more slowly and which forms of support deliver greater well-being gains.",
       "sdg_links": [],
       "deep_reads": [],
-      "title_original": ""
+      "title_original": "Global socio-economic resilience to disasters"
     }
   ],
   "readings": [
@@ -66,41 +66,43 @@
       "authors": "Fergus Green, Declan Kuch",
       "year": 2022,
       "url": "https://doi.org/10.1162/glep_a_00654",
-      "note_zh": "自动解读暂不可用；下方英文为期刊元数据中的原始摘要，请通过 DOI 链接核对原文。",
-      "note_en": "Abstract For decades, the object of international climate governance has been greenhouse gases. The inadequacy of decarbonization based on this system has prompted calls to expand climate governance to include restrictions on fossil fuel supply. Such initiatives could rely on accountability frameworks based on fossil fuel reserves, production, or infrastructure, yet there has been little consideration of the different implications of these options. We inform such discussions by undertaking a sociotechnical analysis of existing schemes for the monitoring, reporting and verification of fossil fuels. We identify serious risks from anchoring climate governance in fossil fuel reserves. More promising directions for supply-side governance lie in accountability frameworks based on a combination of fossil fuel production volumes and infrastructure, since these are more transparent to multiple actors. This transparency would provide much-needed opportunities for democratic oversight of the data underpinning climate governance, opening new channels for holding states accountable for their climate performance.",
+      "note_zh": "文章比较以化石燃料储量、产量和基础设施为基础的问责框架，指出储量方案存在严重治理风险；产量与基础设施相结合的方案对多方参与者更透明，也更有利于公众监督和国家气候责任的追究。",
+      "note_en": "The article compares accountability frameworks based on fossil-fuel reserves, production and infrastructure. It identifies serious risks in reserve-based approaches and favours combining production and infrastructure measures, whose greater transparency can support public oversight and accountability for states’ climate performance.",
       "journal": "Global Environmental Politics",
       "doi": "10.1162/glep_a_00654",
-      "methodology_zh": "现有期刊元数据未提供可核验的方法信息，请以论文原文为准。",
+      "methodology_zh": "作者对既有化石燃料监测、报告与核查（MRV）方案开展社会技术分析（sociotechnical analysis）；摘要未详述方案选择或资料收集程序。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The available journal metadata does not provide verifiable method details; consult the paper.",
+      "method_en": "The authors use a sociotechnical analysis of existing fossil-fuel monitoring, reporting and verification (MRV) schemes. The abstract does not detail scheme selection or data-collection procedures.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "本期暂无直接关联，建议结合气候融资谈判阅读",
-      "today_connection_en": "No direct connection in this issue; read alongside climate finance negotiations.",
+      "today_connection_zh": "与本期巴西转型路线图并读，可以追问：各国自行选择的转型路径，应通过哪些可核查的产量或基础设施指标接受监督？",
+      "today_connection_en": "Read alongside Brazil’s transition roadmap, the paper raises a practical question: which verifiable production or infrastructure indicators could make nationally tailored pathways accountable?",
       "research_directions": [
         {
-          "question_zh": "制度设计如何影响融资",
+          "question_zh": "产量比储量更可问责吗",
           "keywords": [
-            "institutional design",
-            "climate finance",
-            "development banks"
+            "fossil fuel accountability",
+            "MRV",
+            "production data",
+            "climate governance"
           ],
-          "question_en": "How does institutional design shape finance?"
+          "question_en": "Are production-based metrics more accountable than reserve-based ones?"
         },
         {
-          "question_zh": "政策承诺如何转化",
+          "question_zh": "路线图如何落到核查机制",
           "keywords": [
-            "policy implementation",
-            "pledge delivery",
-            "public finance"
+            "transition roadmap",
+            "verification",
+            "monitoring",
+            "climate governance"
           ],
-          "question_en": "How are policy pledges converted into delivery?"
+          "question_en": "How can transition roadmaps be turned into verifiable mechanisms?"
         }
       ],
       "tags": [
@@ -110,48 +112,53 @@
       "kind": "tracked classic article",
       "published_date": "2022-11-10",
       "abstract_en": "Abstract For decades, the object of international climate governance has been greenhouse gases. The inadequacy of decarbonization based on this system has prompted calls to expand climate governance to include restrictions on fossil fuel supply. Such initiatives could rely on accountability frameworks based on fossil fuel reserves, production, or infrastructure, yet there has been little consideration of the different implications of these options. We inform such discussions by undertaking a sociotechnical analysis of existing schemes for the monitoring, reporting and verification of fossil fuels. We identify serious risks from anchoring climate governance in fossil fuel reserves. More promising directions for supply-side governance lie in accountability frameworks based on a combination of fossil fuel production volumes and infrastructure, since these are more transparent to multiple actors. This transparency would provide much-needed opportunities for democratic oversight of the data underpinning climate governance, opening new channels for holding states accountable for their climate performance.",
-      "discovery_score": 71.07401
+      "discovery_score": 0.0,
+      "related_article_urls": [
+        "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels"
+      ]
     },
     {
       "title": "Are the BRICS (Really) Shaping a New Approach to Global Governance?",
       "authors": "Francesco Petrone",
       "year": 2026,
       "url": "https://doi.org/10.1163/19426720-03202001",
-      "note_zh": "自动解读暂不可用；下方英文为期刊元数据中的原始摘要，请通过 DOI 链接核对原文。",
-      "note_en": "Abstract In recent years, the international order has undergone profound transformations that have weakened its stability, particularly affecting global decision-making and participatory mechanisms. Increasingly contested is the global governance system established after the Second World War, which, according to emerging powers such as the BRICS , no longer reflects today’s multipolar reality and fails to grant meaningful participation to the Global South, historically sidelined in global decision-making. This article investigates whether the BRICS are offering an alternative and more inclusive model of global governance, focusing on climate change while acknowledging that their reform agenda also extends to economic and institutional domains. Using a comparative and critical method, the findings suggest that the BRICS are making progress in reshaping governance, particularly against the backdrop of crises in the European Union and the United States. However, internal divisions, continued reliance on outdated energy sources, and the uncertainties of the BRICS Plus expansion may hinder their capacity to present a coherent and effective alternative.",
+      "note_zh": "作者考察金砖国家能否以气候议题为切入点，推动更包容的全球治理。文章认为其改革已有进展，但内部差异、对传统能源的依赖和扩员的不确定性，限制了它们提出一致而有效替代方案的能力。",
+      "note_en": "The author examines whether the BRICS can advance a more inclusive model of global governance, with climate change as the main focus. The argument recognises progress in reform but identifies internal divisions, reliance on legacy energy sources and uncertainty around expansion as constraints on a coherent alternative.",
       "journal": "Global Governance: A Review of Multilateralism and International Organizations",
       "doi": "10.1163/19426720-03202001",
-      "methodology_zh": "现有期刊元数据未提供可核验的方法信息，请以论文原文为准。",
+      "methodology_zh": "采用比较与批判性方法（comparative and critical method）分析全球治理改革；摘要未具体列出案例选择和资料收集程序。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The available journal metadata does not provide verifiable method details; consult the paper.",
+      "method_en": "The paper uses a comparative and critical method to examine governance reform. The abstract does not specify case-selection or data-collection procedures.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "本期暂无直接关联，建议结合气候融资谈判阅读",
-      "today_connection_en": "No direct connection in this issue; read alongside climate finance negotiations.",
+      "today_connection_zh": "可与本期IPCC预算与参与公平争议对读，用来分析多边机构改革中代表性和有效性之间的关系；这不表示该论文研究了此次IPCC会议。",
+      "today_connection_en": "Read alongside the IPCC funding and participation dispute, the paper offers a lens on representation and effectiveness in multilateral reform; it does not study this particular IPCC meeting.",
       "research_directions": [
         {
-          "question_zh": "制度设计如何影响融资",
+          "question_zh": "内部差异如何影响集体改革能力？",
           "keywords": [
-            "institutional design",
-            "climate finance",
-            "development banks"
+            "BRICS",
+            "institutional reform",
+            "collective action",
+            "climate governance"
           ],
-          "question_en": "How does institutional design shape finance?"
+          "question_en": "How do internal differences affect collective capacity for governance reform?"
         },
         {
-          "question_zh": "政策承诺如何转化",
+          "question_zh": "多边改革如何兼顾代表性与有效性？",
           "keywords": [
-            "policy implementation",
-            "pledge delivery",
-            "public finance"
+            "multilateralism",
+            "representation",
+            "institutional effectiveness",
+            "Global South"
           ],
-          "question_en": "How are policy pledges converted into delivery?"
+          "question_en": "How can multilateral reform combine representation with effectiveness?"
         }
       ],
       "tags": [
@@ -161,126 +168,85 @@
       "kind": "tracked classic article",
       "published_date": "2026-06-24",
       "abstract_en": "Abstract In recent years, the international order has undergone profound transformations that have weakened its stability, particularly affecting global decision-making and participatory mechanisms. Increasingly contested is the global governance system established after the Second World War, which, according to emerging powers such as the BRICS , no longer reflects today’s multipolar reality and fails to grant meaningful participation to the Global South, historically sidelined in global decision-making. This article investigates whether the BRICS are offering an alternative and more inclusive model of global governance, focusing on climate change while acknowledging that their reform agenda also extends to economic and institutional domains. Using a comparative and critical method, the findings suggest that the BRICS are making progress in reshaping governance, particularly against the backdrop of crises in the European Union and the United States. However, internal divisions, continued reliance on outdated energy sources, and the uncertainties of the BRICS Plus expansion may hinder their capacity to present a coherent and effective alternative.",
-      "discovery_score": 91.91017
+      "discovery_score": 0.0,
+      "related_article_urls": [
+        "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/"
+      ]
     }
   ],
-  "overview_en": "",
-  "weekly_thread_zh": "",
-  "weekly_thread_en": "",
+  "overview_en": "Transition roadmaps and the IPCC’s budget impasse expose constraints on climate-policy delivery, while investment rules and disaster research show why legal room and unequal recovery also matter.",
+  "weekly_thread_zh": "本期的共同分析线索是政策如何从目标进入执行：转型工具需要法律空间与科学支撑，灾后投入则需要能够识别家庭恢复差距的指标。这里的联系是跨文章的编辑分析，并不意味着它们属于同一正式谈判议程。",
+  "weekly_thread_en": "The shared analytical question is how policy moves from goals to delivery: transition measures need legal room and scientific support, while disaster assistance needs metrics that reveal unequal recovery. This is an editorial connection across the articles, not a claim that they share one formal negotiating agenda.",
   "recent_news": [
     {
-      "title_en": "Burnham warns that NHS will ‘struggle’ to cope if consultants don’t resume talks over pay – as it happened",
-      "source_org": "The Guardian Environment",
-      "published_date": "2026-11-09",
-      "url": "https://www.theguardian.com/politics/live/2026/nov/09/polanski-greens-labour-andy-burnham-climate-crisis-ev-targets-uk-politics-latest-news",
-      "one_sentence_zh": "The Guardian Environment发布或转发的这条要闻显示：Hospital consultants are set to go on a two-day strike at the end of October Do…",
-      "one_sentence_en": "The Guardian Environment reports a relevant development: Hospital consultants are set to go on a two-day strike at the end of October Downing Street has ins…",
-      "tags": [
-        "#综合治理议题",
-        "#环境治理与气候"
-      ],
-      "title_original": ""
-    },
-    {
-      "title_en": "Interactive: Tracking negotiating texts at the COP31 climate summit",
+      "title_en": "COP31 faces 104 agenda items, including finance and just-transition rules",
       "source_org": "Carbon Brief",
       "published_date": "2026-11-05",
       "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit",
-      "one_sentence_zh": "Carbon Brief发布或转发的这条要闻显示：The centrepiece of every UN climate summit is for countries to negotiate the wo…",
-      "one_sentence_en": "Carbon Brief reports a relevant development: The centrepiece of every UN climate summit is for countries to negotiate the wording of a large num…",
+      "one_sentence_zh": "COP31开幕前的文本追踪记录了104项实质议题，涉及适应、减排、公正转型机制和气候融资；新增议题仍须各方同意才能进入谈判。",
+      "one_sentence_en": "Ahead of COP31, the negotiating-text tracker lists 104 substantive agenda items, including adaptation, mitigation, just-transition rules and climate finance; proposed additions still require parties’ agreement.",
       "tags": [
-        "#综合治理议题",
         "climate policy",
         "research"
       ],
-      "title_original": ""
+      "title_original": "Interactive: Tracking negotiating texts at the COP31 climate summit"
     },
     {
-      "title_en": "‘Bunch of baloney’: calls grow for Cop summit reforms as countries on track to fail nature targets",
-      "source_org": "The Guardian Environment",
-      "published_date": "2026-10-31",
-      "url": "https://www.theguardian.com/environment/2026/oct/31/cop17-reforms-fails-to-deliver-targets",
-      "one_sentence_zh": "The Guardian Environment发布或转发的这条要闻显示：Cop17, focused on protecting nature and restoring ecosystems, concludes on Satu…",
-      "one_sentence_en": "The Guardian Environment reports a relevant development: Cop17, focused on protecting nature and restoring ecosystems, concludes on Saturday with critics sa…",
-      "tags": [
-        "#综合治理议题",
-        "#环境治理与气候"
-      ],
-      "title_original": ""
-    },
-    {
-      "title_en": "Global Science Panel Hits Roadblocks Ahead of COP31 Climate Summit",
-      "source_org": "Inside Climate News",
-      "published_date": "2026-11-07",
-      "url": "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/",
-      "one_sentence_zh": "Inside Climate News发布或转发的这条要闻显示：As global climate negotiators and government officials convene for the annual U…",
-      "one_sentence_en": "Inside Climate News reports a relevant development: As global climate negotiators and government officials convene for the annual United Nations climat…",
-      "tags": [
-        "#综合治理议题",
-        "#环境治理与气候"
-      ],
-      "title_original": ""
-    },
-    {
-      "title_en": "Q&A: What is in the global ‘roadmap’ for transitioning away from fossil fuels?",
+      "title_en": "Brazil proposes voluntary national pathways away from fossil fuels",
       "source_org": "Carbon Brief",
       "published_date": "2026-11-04",
       "url": "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
-      "one_sentence_zh": "Carbon Brief发布或转发的这条要闻显示：Transitioning away from fossil fuels is “urgent, inevitable and, yet, possible”…",
-      "one_sentence_en": "Carbon Brief reports a relevant development: Transitioning away from fossil fuels is “urgent, inevitable and, yet, possible”, says a first-of-it…",
+      "one_sentence_zh": "巴西发布自愿性化石燃料转型路线图，建议各国先评估自身准备程度，再选择适合本国的行动工具，并提出2033年的行动时间节点；这份计划并非COP30通过的正式谈判成果。",
+      "one_sentence_en": "Brazil’s voluntary fossil-fuel roadmap asks countries to assess their readiness and choose tailored policy measures, with efforts culminating by 2033; it was developed outside COP30’s negotiated outcome.",
       "tags": [
-        "#综合治理议题",
         "climate policy",
         "research"
       ],
-      "title_original": ""
+      "title_original": "Q&A: What is in the global ‘roadmap’ for transitioning away from fossil fuels?"
     },
     {
-      "title_en": "Cop31 as it happened: world leaders gather for crucial climate crisis talks",
-      "source_org": "The Guardian Environment",
+      "title_en": "IPCC budget and timetable deadlock puts climate assessments under pressure",
+      "source_org": "Inside Climate News",
+      "published_date": "2026-11-07",
+      "url": "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/",
+      "one_sentence_zh": "IPCC十月会议未能通过下一年度预算或确定报告时间表，逾百名科学家随后呼吁保障资源和参与公平；会议将于十二月在线续会。",
+      "one_sentence_en": "The IPCC’s October session ended without an agreed budget for next year or a report timetable, prompting more than 100 scientists to call for adequate resources and equitable participation; the session resumes online in December.",
+      "tags": [
+        "#环境治理与气候"
+      ],
+      "title_original": "Global Science Panel Hits Roadblocks Ahead of COP31 Climate Summit"
+    },
+    {
+      "title_en": "Wildfire recovery exposes gaps in health monitoring and access to care",
+      "source_org": "Inside Climate News",
       "published_date": "2026-11-09",
-      "url": "https://www.theguardian.com/environment/live/2026/nov/09/cop31-climate-crisis-talks-turkey-latest-news-updates",
-      "one_sentence_zh": "The Guardian Environment发布或转发的这条要闻显示：UN climate summit will focus on how to implement the targets needed to urgently…",
-      "one_sentence_en": "The Guardian Environment reports a relevant development: UN climate summit will focus on how to implement the targets needed to urgently cut greenhouse gas…",
+      "url": "https://insideclimatenews.org/news/09112026/inside-climate-podcast-maui-los-angeles-wildfires/",
+      "one_sentence_zh": "毛伊岛与洛杉矶山火后的研究记录了幸存者金属暴露和房屋污染，长期健康后果仍在追踪中；医疗费用与研究经费不足也影响灾后恢复。",
+      "one_sentence_en": "Research following the Maui and Los Angeles wildfires documents metal exposure and contaminated homes while long-term health effects remain under study; medical costs and insecure research funding complicate recovery.",
       "tags": [
-        "#综合治理议题",
         "#环境治理与气候"
       ],
-      "title_original": ""
+      "title_original": "Fallout From the Flames"
     },
     {
-      "title_en": "UK ministers told not to engage formally with Indian mega-zoo after lobbying",
-      "source_org": "The Guardian Environment",
-      "published_date": "2026-11-03",
-      "url": "https://www.theguardian.com/environment/2026/nov/03/uk-ministers-anant-ambani-indian-zoo-vantara-freedom-information-endangered-animals-cites",
-      "one_sentence_zh": "The Guardian Environment发布或转发的这条要闻显示：Guardian and Mongabay reveal approaches to officials and MPs on behalf of Vanta…",
-      "one_sentence_en": "The Guardian Environment reports a relevant development: Guardian and Mongabay reveal approaches to officials and MPs on behalf of Vantara zoo ahead of UK-c…",
-      "tags": [
-        "#综合治理议题",
-        "#环境治理与气候"
-      ],
-      "title_original": ""
-    },
-    {
-      "title_en": "Warming UK seas could ‘fundamentally reshape marine ecosystems’ – report",
+      "title_en": "Warming UK seas could disrupt food webs and food security by 2050",
       "source_org": "The Guardian Environment",
       "published_date": "2026-11-05",
       "url": "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report",
-      "one_sentence_zh": "The Guardian Environment发布或转发的这条要闻显示：Four-year study warns destabilised marine food webs could jeopardise food secur…",
-      "one_sentence_en": "The Guardian Environment reports a relevant development: Four-year study warns destabilised marine food webs could jeopardise food security by 2050 Warming…",
+      "one_sentence_zh": "一项四年研究预测，英国及东北大西洋海域变暖可能扰乱关键海洋生物群之间的食物网、损害海洋健康，并在2050年前后威胁粮食安全。",
+      "one_sentence_en": "A four-year study projects that warming seas around the UK and northeast Atlantic could disrupt marine food webs, weaken ocean health and threaten food security by 2050.",
       "tags": [
-        "#综合治理议题",
         "#环境治理与气候"
       ],
-      "title_original": ""
+      "title_original": "Warming UK seas could ‘fundamentally reshape marine ecosystems’ – report"
     }
   ],
   "research_signals": [
     {
-      "title_en": "Investor-state dispute settlement (ISDS) mechanisms are threatening economic, energy and security priorities",
+      "title_en": "Investment claims may constrain clean-energy industrial policy",
       "source_org": "E3G",
       "published_date": "2026-11-04",
-      "summary_zh": "E3G这篇材料主张，Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governm…",
+      "summary_zh": "投资者—国家争端解决机制（ISDS）可能使投资保护与公共利益政策发生冲突：投资者索赔会约束政府推进清洁能源转型、产业政策和国家安全目标的空间，因此评估转型政策的可执行性时，也需要审视其面临的国际投资法约束。",
       "terms": [
         {
           "term_en": "multilateral governance",
@@ -289,48 +255,48 @@
         }
       ],
       "tags": [
-        "#综合治理议题",
         "#能源转型",
-        "#多边治理"
+        "#多边治理",
+        "#国际治理与多边主义"
       ],
       "url": "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
-      "core_argument_zh": "E3G这篇材料主张，Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governm…",
-      "core_argument_en": "E3G argues that Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governments’ ability to act…",
-      "why_now_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_now_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
-      "agenda_position_zh": "议程背景不明确",
-      "agenda_position_en": "The agenda background is unclear.",
-      "summary_en": "E3G argues that Investor–state dispute settlement (ISDS) provisions are creating growing tensions between investors’ rights and governments’ ability to act…",
-      "why_it_matters_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_it_matters_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
+      "core_argument_zh": "投资者—国家争端解决机制（ISDS）可能使投资保护与公共利益政策发生冲突：投资者索赔会约束政府推进清洁能源转型、产业政策和国家安全目标的空间，因此评估转型政策的可执行性时，也需要审视其面临的国际投资法约束。",
+      "core_argument_en": "Investor-state dispute settlement (ISDS) can put investment protection in tension with public-interest policy: claims may constrain governments’ ability to pursue industrial, security and domestic economic priorities during the clean-energy transition. This makes investment-law constraints relevant to assessing whether transition policies can be implemented.",
+      "why_now_zh": "11月4日发表的评论把投资保护争议与正在推进的清洁能源和产业政策联系起来。与本期巴西转型路线图对读，它提示政策工具是否可用，还取决于政府拥有多大的法律行动空间。",
+      "why_now_en": "Published on 4 November, the commentary connects investment-protection disputes to current clean-energy and industrial-policy priorities. Read alongside Brazil’s transition roadmap, it raises an implementation question: how much legal room do governments have to use the proposed policy tools?",
+      "agenda_position_zh": "这是一项关于投资协定与清洁转型政策兼容性的分析，可用于讨论政府政策空间；现有来源未显示它是COP31的正式提交文件或已通过的规则。",
+      "agenda_position_en": "This is an analytical contribution to debates about the compatibility of investment treaties and clean-transition policy. The available source does not establish a formal COP31 submission or an adopted rule.",
+      "summary_en": "",
+      "why_it_matters_zh": "11月4日发表的评论把投资保护争议与正在推进的清洁能源和产业政策联系起来。与本期巴西转型路线图对读，它提示政策工具是否可用，还取决于政府拥有多大的法律行动空间。",
+      "why_it_matters_en": "Published on 4 November, the commentary connects investment-protection disputes to current clean-energy and industrial-policy priorities. Read alongside Brazil’s transition roadmap, it raises an implementation question: how much legal room do governments have to use the proposed policy tools?",
       "sdg_links": [],
       "deep_reads": [],
-      "title_original": ""
+      "title_original": "Investor-state dispute settlement (ISDS) mechanisms are threatening economic, energy and security priorities"
     },
     {
-      "title_en": "Global socio-economic resilience to disasters",
+      "title_en": "Poorer households bear disproportionate disaster-related welfare losses",
       "source_org": "Nature Sustainability",
       "published_date": "2026-10-29",
-      "summary_zh": "Nature Sustainability这篇材料主张，Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments ofte…",
+      "summary_zh": "研究团队对132国进行微观模拟，发现最贫困群体仅承担9%的资产损失，却承担33%的福祉损失；单看财产损毁会低估其恢复困难，因此灾害风险评估和恢复资金配置应同时考虑消费损失、恢复能力及面向低收入群体的支持。",
       "terms": [],
       "tags": [
-        "#综合治理议题",
         "#环境治理与气候",
-        "#可持续金融与ESG"
+        "#可持续金融与ESG",
+        "#发展与不平等"
       ],
       "url": "https://www.nature.com/articles/s41893-026-01947-z",
-      "core_argument_zh": "Nature Sustainability这篇材料主张，Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments ofte…",
-      "core_argument_en": "Nature Sustainability argues that Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments often overlook how damag…",
-      "why_now_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_now_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
-      "agenda_position_zh": "议程背景不明确",
-      "agenda_position_en": "The agenda background is unclear.",
-      "summary_en": "Nature Sustainability argues that Nature Sustainability, Published online: 29 October 2026; doi:10.1038/s41893-026-01947-z Disaster risk assessments often overlook how damag…",
-      "why_it_matters_zh": "这条材料提供了一个政策议程观察点，但发布时机需要结合原文和当周政策节点进一步判断。",
-      "why_it_matters_en": "This item offers a policy agenda signal, but its timing should be interpreted alongside the original text and the week's policy calendar.",
+      "core_argument_zh": "研究团队对132国进行微观模拟，发现最贫困群体仅承担9%的资产损失，却承担33%的福祉损失；单看财产损毁会低估其恢复困难，因此灾害风险评估和恢复资金配置应同时考虑消费损失、恢复能力及面向低收入群体的支持。",
+      "core_argument_en": "Microsimulations across 132 countries find that the poorest populations bear 9% of asset damage but 33% of well-being losses. Asset-based accounting therefore understates their recovery burden; risk assessment and recovery funding should also consider consumption losses, coping capacity and support targeted at lower-income groups.",
+      "why_now_zh": "10月29日发表的研究为本期山火恢复报道提供了分析框架：损毁金额并不能完整解释幸存者承受的长期负担。它把政策关注点从重建多少资产，推进到哪些家庭恢复得更慢、哪些支持更有效。",
+      "why_now_en": "Published on 29 October, the study provides an analytical frame for this issue’s wildfire-recovery coverage: damage totals do not capture the full burden on survivors. It shifts attention towards which households recover more slowly and which forms of support deliver greater well-being gains.",
+      "agenda_position_zh": "研究涉及灾害风险指标、恢复融资和发展规划中的分配问题，可为定向支持提供依据；这属于其政策应用方向，不能据此认定研究已进入某项正式谈判议程。",
+      "agenda_position_en": "The findings inform disaster-risk metrics, recovery finance and the distributional choices in development planning. These are policy applications of the research, not evidence that it has been placed on a formal negotiating agenda.",
+      "summary_en": "",
+      "why_it_matters_zh": "10月29日发表的研究为本期山火恢复报道提供了分析框架：损毁金额并不能完整解释幸存者承受的长期负担。它把政策关注点从重建多少资产，推进到哪些家庭恢复得更慢、哪些支持更有效。",
+      "why_it_matters_en": "Published on 29 October, the study provides an analytical frame for this issue’s wildfire-recovery coverage: damage totals do not capture the full burden on survivors. It shifts attention towards which households recover more slowly and which forms of support deliver greater well-being gains.",
       "sdg_links": [],
       "deep_reads": [],
-      "title_original": ""
+      "title_original": "Global socio-economic resilience to disasters"
     }
   ],
   "classic_readings": [
@@ -339,41 +305,43 @@
       "authors": "Fergus Green, Declan Kuch",
       "year": 2022,
       "url": "https://doi.org/10.1162/glep_a_00654",
-      "note_zh": "自动解读暂不可用；下方英文为期刊元数据中的原始摘要，请通过 DOI 链接核对原文。",
-      "note_en": "Abstract For decades, the object of international climate governance has been greenhouse gases. The inadequacy of decarbonization based on this system has prompted calls to expand climate governance to include restrictions on fossil fuel supply. Such initiatives could rely on accountability frameworks based on fossil fuel reserves, production, or infrastructure, yet there has been little consideration of the different implications of these options. We inform such discussions by undertaking a sociotechnical analysis of existing schemes for the monitoring, reporting and verification of fossil fuels. We identify serious risks from anchoring climate governance in fossil fuel reserves. More promising directions for supply-side governance lie in accountability frameworks based on a combination of fossil fuel production volumes and infrastructure, since these are more transparent to multiple actors. This transparency would provide much-needed opportunities for democratic oversight of the data underpinning climate governance, opening new channels for holding states accountable for their climate performance.",
+      "note_zh": "文章比较以化石燃料储量、产量和基础设施为基础的问责框架，指出储量方案存在严重治理风险；产量与基础设施相结合的方案对多方参与者更透明，也更有利于公众监督和国家气候责任的追究。",
+      "note_en": "The article compares accountability frameworks based on fossil-fuel reserves, production and infrastructure. It identifies serious risks in reserve-based approaches and favours combining production and infrastructure measures, whose greater transparency can support public oversight and accountability for states’ climate performance.",
       "journal": "Global Environmental Politics",
       "doi": "10.1162/glep_a_00654",
-      "methodology_zh": "现有期刊元数据未提供可核验的方法信息，请以论文原文为准。",
+      "methodology_zh": "作者对既有化石燃料监测、报告与核查（MRV）方案开展社会技术分析（sociotechnical analysis）；摘要未详述方案选择或资料收集程序。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The available journal metadata does not provide verifiable method details; consult the paper.",
+      "method_en": "The authors use a sociotechnical analysis of existing fossil-fuel monitoring, reporting and verification (MRV) schemes. The abstract does not detail scheme selection or data-collection procedures.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "本期暂无直接关联，建议结合气候融资谈判阅读",
-      "today_connection_en": "No direct connection in this issue; read alongside climate finance negotiations.",
+      "today_connection_zh": "与本期巴西转型路线图并读，可以追问：各国自行选择的转型路径，应通过哪些可核查的产量或基础设施指标接受监督？",
+      "today_connection_en": "Read alongside Brazil’s transition roadmap, the paper raises a practical question: which verifiable production or infrastructure indicators could make nationally tailored pathways accountable?",
       "research_directions": [
         {
-          "question_zh": "制度设计如何影响融资",
+          "question_zh": "产量比储量更可问责吗",
           "keywords": [
-            "institutional design",
-            "climate finance",
-            "development banks"
+            "fossil fuel accountability",
+            "MRV",
+            "production data",
+            "climate governance"
           ],
-          "question_en": "How does institutional design shape finance?"
+          "question_en": "Are production-based metrics more accountable than reserve-based ones?"
         },
         {
-          "question_zh": "政策承诺如何转化",
+          "question_zh": "路线图如何落到核查机制",
           "keywords": [
-            "policy implementation",
-            "pledge delivery",
-            "public finance"
+            "transition roadmap",
+            "verification",
+            "monitoring",
+            "climate governance"
           ],
-          "question_en": "How are policy pledges converted into delivery?"
+          "question_en": "How can transition roadmaps be turned into verifiable mechanisms?"
         }
       ],
       "tags": [
@@ -383,48 +351,53 @@
       "kind": "tracked classic article",
       "published_date": "2022-11-10",
       "abstract_en": "Abstract For decades, the object of international climate governance has been greenhouse gases. The inadequacy of decarbonization based on this system has prompted calls to expand climate governance to include restrictions on fossil fuel supply. Such initiatives could rely on accountability frameworks based on fossil fuel reserves, production, or infrastructure, yet there has been little consideration of the different implications of these options. We inform such discussions by undertaking a sociotechnical analysis of existing schemes for the monitoring, reporting and verification of fossil fuels. We identify serious risks from anchoring climate governance in fossil fuel reserves. More promising directions for supply-side governance lie in accountability frameworks based on a combination of fossil fuel production volumes and infrastructure, since these are more transparent to multiple actors. This transparency would provide much-needed opportunities for democratic oversight of the data underpinning climate governance, opening new channels for holding states accountable for their climate performance.",
-      "discovery_score": 71.07401
+      "discovery_score": 0.0,
+      "related_article_urls": [
+        "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels"
+      ]
     },
     {
       "title": "Are the BRICS (Really) Shaping a New Approach to Global Governance?",
       "authors": "Francesco Petrone",
       "year": 2026,
       "url": "https://doi.org/10.1163/19426720-03202001",
-      "note_zh": "自动解读暂不可用；下方英文为期刊元数据中的原始摘要，请通过 DOI 链接核对原文。",
-      "note_en": "Abstract In recent years, the international order has undergone profound transformations that have weakened its stability, particularly affecting global decision-making and participatory mechanisms. Increasingly contested is the global governance system established after the Second World War, which, according to emerging powers such as the BRICS , no longer reflects today’s multipolar reality and fails to grant meaningful participation to the Global South, historically sidelined in global decision-making. This article investigates whether the BRICS are offering an alternative and more inclusive model of global governance, focusing on climate change while acknowledging that their reform agenda also extends to economic and institutional domains. Using a comparative and critical method, the findings suggest that the BRICS are making progress in reshaping governance, particularly against the backdrop of crises in the European Union and the United States. However, internal divisions, continued reliance on outdated energy sources, and the uncertainties of the BRICS Plus expansion may hinder their capacity to present a coherent and effective alternative.",
+      "note_zh": "作者考察金砖国家能否以气候议题为切入点，推动更包容的全球治理。文章认为其改革已有进展，但内部差异、对传统能源的依赖和扩员的不确定性，限制了它们提出一致而有效替代方案的能力。",
+      "note_en": "The author examines whether the BRICS can advance a more inclusive model of global governance, with climate change as the main focus. The argument recognises progress in reform but identifies internal divisions, reliance on legacy energy sources and uncertainty around expansion as constraints on a coherent alternative.",
       "journal": "Global Governance: A Review of Multilateralism and International Organizations",
       "doi": "10.1163/19426720-03202001",
-      "methodology_zh": "现有期刊元数据未提供可核验的方法信息，请以论文原文为准。",
+      "methodology_zh": "采用比较与批判性方法（comparative and critical method）分析全球治理改革；摘要未具体列出案例选择和资料收集程序。",
       "further_reading": [],
       "argument_zh": "",
       "argument_en": "",
       "method_zh": "",
-      "method_en": "The available journal metadata does not provide verifiable method details; consult the paper.",
+      "method_en": "The paper uses a comparative and critical method to examine governance reform. The abstract does not specify case-selection or data-collection procedures.",
       "evidence_zh": "",
       "evidence_en": "",
       "relevance_zh": "",
       "relevance_en": "",
       "today_relevance_en": "",
-      "today_connection_zh": "本期暂无直接关联，建议结合气候融资谈判阅读",
-      "today_connection_en": "No direct connection in this issue; read alongside climate finance negotiations.",
+      "today_connection_zh": "可与本期IPCC预算与参与公平争议对读，用来分析多边机构改革中代表性和有效性之间的关系；这不表示该论文研究了此次IPCC会议。",
+      "today_connection_en": "Read alongside the IPCC funding and participation dispute, the paper offers a lens on representation and effectiveness in multilateral reform; it does not study this particular IPCC meeting.",
       "research_directions": [
         {
-          "question_zh": "制度设计如何影响融资",
+          "question_zh": "内部差异如何影响集体改革能力？",
           "keywords": [
-            "institutional design",
-            "climate finance",
-            "development banks"
+            "BRICS",
+            "institutional reform",
+            "collective action",
+            "climate governance"
           ],
-          "question_en": "How does institutional design shape finance?"
+          "question_en": "How do internal differences affect collective capacity for governance reform?"
         },
         {
-          "question_zh": "政策承诺如何转化",
+          "question_zh": "多边改革如何兼顾代表性与有效性？",
           "keywords": [
-            "policy implementation",
-            "pledge delivery",
-            "public finance"
+            "multilateralism",
+            "representation",
+            "institutional effectiveness",
+            "Global South"
           ],
-          "question_en": "How are policy pledges converted into delivery?"
+          "question_en": "How can multilateral reform combine representation with effectiveness?"
         }
       ],
       "tags": [
@@ -434,11 +407,34 @@
       "kind": "tracked classic article",
       "published_date": "2026-06-24",
       "abstract_en": "Abstract In recent years, the international order has undergone profound transformations that have weakened its stability, particularly affecting global decision-making and participatory mechanisms. Increasingly contested is the global governance system established after the Second World War, which, according to emerging powers such as the BRICS , no longer reflects today’s multipolar reality and fails to grant meaningful participation to the Global South, historically sidelined in global decision-making. This article investigates whether the BRICS are offering an alternative and more inclusive model of global governance, focusing on climate change while acknowledging that their reform agenda also extends to economic and institutional domains. Using a comparative and critical method, the findings suggest that the BRICS are making progress in reshaping governance, particularly against the backdrop of crises in the European Union and the United States. However, internal divisions, continued reliance on outdated energy sources, and the uncertainties of the BRICS Plus expansion may hinder their capacity to present a coherent and effective alternative.",
-      "discovery_score": 91.91017
+      "discovery_score": 0.0,
+      "related_article_urls": [
+        "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/"
+      ]
     }
   ],
-  "issue_title_en": "",
-  "issue_title_zh": "",
-  "title_support": [],
-  "upcoming_events": []
+  "issue_title_en": "COP31 Implementation, Investment Constraints and Unequal Disaster Recovery",
+  "issue_title_zh": "COP31政策执行、投资规则约束与灾后恢复差距",
+  "title_support": [
+    {
+      "url": "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
+      "angle_en": "Brazil’s voluntary roadmap introduces national policy choices for implementing the fossil-fuel transition discussed around COP31."
+    },
+    {
+      "url": "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
+      "angle_en": "The investment-constraints strand reflects the article’s warning about claims limiting clean-energy industrial policy."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41893-026-01947-z",
+      "angle_en": "The unequal-recovery strand reflects the study’s evidence that poorer households face disproportionate well-being losses."
+    }
+  ],
+  "upcoming_events": [],
+  "generation_mode": "reviewed",
+  "editorial_context_urls": [
+    "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
+    "https://insideclimatenews.org/news/07112026/un-ipcc-funding-crunch-ahead-of-cop31/",
+    "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
+    "https://www.nature.com/articles/s41893-026-01947-z"
+  ]
 }

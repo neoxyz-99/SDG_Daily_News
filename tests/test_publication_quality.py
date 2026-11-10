@@ -75,6 +75,8 @@ class PublicationQualityTests(unittest.TestCase):
                        method_en="The abstract does not specify the method.")
         with self.assertRaisesRegex(ValueError, "contradicts"):
             validate_publication(raw)
+        reading["method_en"] = "The authors use comparative and critical analysis. The abstract does not specify case selection."
+        validate_publication(raw)
 
     def test_discovery_budget_cannot_consume_evidence_reserve(self):
         with tempfile.TemporaryDirectory() as directory:
