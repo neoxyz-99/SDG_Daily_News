@@ -10,6 +10,9 @@ from .render import render_html, render_markdown
 
 
 def write_archive(digest: Digest, output_dir: str | Path = "archive") -> Path:
+    if digest.generation_mode:
+        from .quality import validate_publication
+        validate_publication(digest)
     root = Path(output_dir)
     day_dir = root / digest.digest_date.isoformat()
     day_dir.mkdir(parents=True, exist_ok=True)

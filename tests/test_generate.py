@@ -257,7 +257,8 @@ class GenerateTests(unittest.TestCase):
         ) as call_openai, patch(
             "sdg_digest.generate.validate_digest_payload",
             return_value=expected,
-        ):
+        ), patch("sdg_digest.generate.validate_publication"):
+
             digest = generate_digest(
                 [_candidate()],
                 {"#气候金融": readings},
@@ -339,7 +340,8 @@ class GenerateTests(unittest.TestCase):
         ) as call_openai, patch(
             "sdg_digest.generate.validate_digest_payload",
             return_value=expected,
-        ):
+        ), patch("sdg_digest.generate.validate_publication"):
+
             generate_digest(
                 [_candidate()],
                 {"pool": recent + historical},

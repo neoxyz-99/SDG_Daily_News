@@ -158,7 +158,7 @@ def _reading_item(issue_date: str, raw: dict, index: int) -> PublicItem:
         )
     )
     fields = [
-        ("Reading note", _text(raw.get("note_en") or raw.get("abstract_en"))),
+        ("Reading note", _text(raw.get("note_en"))),
         ("Method", _text(raw.get("method_en"))),
         ("Today’s connection", _text(raw.get("today_connection_en"))),
         ("Research directions", direction_text),
@@ -179,6 +179,9 @@ def _reading_item(issue_date: str, raw: dict, index: int) -> PublicItem:
 
 
 def normalize_digest(raw: dict) -> PublicIssue:
+    if raw.get("generation_mode"):
+        from .quality import validate_publication
+        validate_publication(raw)
     issue_date = _text(raw.get("digest_date"))
     signal_rows = raw.get("research_signals") or raw.get("items") or []
     reading_rows = raw.get("classic_readings") or raw.get("readings") or []

@@ -98,7 +98,8 @@ class HistoricalRegressionTests(unittest.TestCase):
         candidates = [candidate(title=f"Climate adaptation policy reform {i}", url=f"https://agency.int/{i}") for i in range(45)]
         response = {"output": [{"content": [{"type": "output_text", "text": "{}"}]}]}
         with patch.dict("os.environ", {"OPENAI_API_KEY": "test"}), patch("sdg_digest.generate.post_json", return_value=response) as api:
-            generate_digest(candidates, {}, date(2026, 10, 19), 5)
+            with self.assertRaisesRegex(RuntimeError, "refusing to publish"):
+                generate_digest(candidates, {}, date(2026, 10, 19), 5)
         prompt = json.loads(api.call_args.args[1]["input"][1]["content"])
         self.assertEqual(len(prompt["recent_news_candidates"]), 45)
         self.assertIn("development_stage", prompt["recent_news_candidates"][0])

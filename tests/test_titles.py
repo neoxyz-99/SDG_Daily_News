@@ -50,10 +50,10 @@ class TitleTests(unittest.TestCase):
         news = replace(_candidate(), title="中国发布气候适应计划", title_en="China releases climate adaptation plan",
                        layer="event", url="https://example.org/news")
         research = replace(_candidate(), title="城市的水资源治理", title_en="Urban water governance")
-        payload = {"recent_news": [{"title_en": news.title, "source_org": news.source_org,
+        payload = {"recent_news": [{"title_en": news.title_en, "source_org": news.source_org,
                     "published_date": news.published_date, "url": news.url,
                     "one_sentence_zh": "中国公布了气候适应计划。", "one_sentence_en": "China published an adaptation plan."}],
-                   "research_signals": [_item(research)]}
+                   "research_signals": [{**_item(research), "title_en": research.title_en}]}
         payload.update(issue_title_en="Climate Adaptation, Water Access and Local Institutions",
                        issue_title_zh="气候适应、水资源获取与地方制度",
                        title_support=[{"url": item.url, "angle_en": "This article connects adaptation and local policy implementation."}

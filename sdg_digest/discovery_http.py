@@ -34,6 +34,7 @@ class PublicFetcher:
                  delay=1.5, timeout=15, max_bytes=2_000_000, cache_hours=12):
         self.cache_dir = Path(cache_dir)
         self.max_requests, self.per_host = max_requests, per_host
+        self.request_limit, self.host_limit = max_requests, per_host
         self.delay, self.timeout, self.max_bytes = delay, timeout, max_bytes
         self.cache_seconds = cache_hours * 3600
         self.requests = self.cache_hits = self.bytes = 0
@@ -62,7 +63,7 @@ class PublicFetcher:
         host = urlsplit(url).netloc
         if host in self.blocked_hosts:
             raise FetchFailure("host_access_restricted")
-        if self.requests >= self.max_requests or self.host_counts.get(host, 0) >= self.per_host:
+        if self.requests >= min(self.max_requests, self.request_limit) or self.host_counts.get(host, 0) >= min(self.per_host, self.host_limit):
             raise FetchFailure("request_budget_exhausted")
         pause = max(self.delay, delay or 0) - (time.monotonic() - self.last_request.get(host, 0))
         if pause > 60:
@@ -107,6 +108,8 @@ class PublicFetcher:
                 parser.parse(body.splitlines())
                 self.sitemaps[origin] = parser.site_maps() or []
             except FetchFailure as exc:
+                if str(exc) == "request_budget_exhausted":
+                    raise  # A phase limit must not poison the later robots policy cache.
                 if str(exc) == "http_404":
                     parser.parse(["User-agent: *", "Allow: /"])
                 else:

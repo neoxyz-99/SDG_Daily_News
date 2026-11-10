@@ -161,3 +161,4 @@ class Digest:
     issue_title_zh: str = ""
     title_support: list[TitleSupport] = field(default_factory=list)
     upcoming_events: list[NewsBrief] = field(default_factory=list)
+    generation_mode: str = ""

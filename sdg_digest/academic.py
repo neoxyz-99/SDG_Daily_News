@@ -363,7 +363,8 @@ def _authors(raw_authors: object) -> str:
 
 def _clean_markup(value: str) -> str:
     without_tags = re.sub(r"<[^>]+>", " ", value)
-    return re.sub(r"\s+", " ", html.unescape(without_tags)).strip()
+    from .quality import clean_source_text
+    return clean_source_text(re.sub(r"\s+", " ", html.unescape(without_tags)).strip())
 
 
 def _word_count(value: str) -> int:

@@ -139,6 +139,17 @@ class DiscoveryPipeline:
         return source
 
     def discover(self, sources: list[Source], search_results: list[dict] | None = None):
+        # Reserve actual HTTP capacity, including robots/redirect requests, for evidence.
+        reserve = min(self.config.evidence_requests, self.config.max_requests // 2)
+        self.fetcher.request_limit = self.config.max_requests - reserve
+        self.fetcher.host_limit = max(1, self.config.requests_per_host - min(10, reserve))
+        try:
+            return self._discover(sources, search_results)
+        finally:
+            self.fetcher.request_limit = self.config.max_requests
+            self.fetcher.host_limit = self.config.requests_per_host
+
+    def _discover(self, sources: list[Source], search_results: list[dict] | None = None):
         queue = deque()
         for seed in self.config.seeds:
             source = {**seed, "layer": seed.get("layer", "event")}
@@ -203,6 +214,10 @@ class DiscoveryPipeline:
 
     def _crawl(self, queue):
         while queue:
+            if getattr(self.fetcher, "requests", 0) >= getattr(self.fetcher, "request_limit", self.config.max_requests):
+                self.source_events.append({"url": "", "decision": "discovery_or_extraction_failure",
+                    "reason": "discovery_budget_reserved_for_evidence", "queued_urls": len(queue)})
+                break
             url, source, depth, method, parent, kind = queue.popleft()
             key = canonical_url(url)
             if key in self.visited:

@@ -83,10 +83,10 @@ class IssueTitleTests(unittest.TestCase):
         invalid["title_support"] = invalid["title_support"][:1]
         with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
             "sdg_digest.generate._call_openai", side_effect=[invalid, valid]
-        ) as call:
+        ) as call, patch("sdg_digest.generate._repair_issue_title", return_value=valid) as repair:
             result = generate_digest([first, second], {}, date(2026, 10, 5), 5)
-        self.assertEqual(call.call_count, 2)
-        self.assertIn("at least two", call.call_args.kwargs["feedback"])
+        self.assertEqual(call.call_count, 1)
+        self.assertIn("at least two", repair.call_args.args[1])
         self.assertEqual(result.issue_title_en, valid["issue_title_en"])
 
     def test_title_intro_and_support_survive_archive_and_render_separately(self):

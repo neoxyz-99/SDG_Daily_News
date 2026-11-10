@@ -15,6 +15,7 @@ from .emailer import send_email
 from .editorial import load_editorial_history
 from .generate import filter_relevant_candidates, generate_digest, is_recent_news_candidate
 from .render import render_html, render_markdown
+from .quality import validate_publication
 from .sent_articles import filter_sent_candidates, load_sent_articles, update_sent_articles
 from .titles import translate_candidate_titles
 
@@ -145,6 +146,8 @@ def main() -> None:
         sent_reading_dois=sent_record.get("classic_reading_dois", []),
         editorial_history=load_editorial_history(args.output_dir, run_date),
     )
+    if not args.dry_run:
+        validate_publication(digest)
     if discovery:
         if not args.skip_openai and discovery.config.max_upcoming:
             discovery.upcoming = translate_candidate_titles(discovery.upcoming_candidates())

@@ -3,6 +3,10 @@ name: SDG Weekly Compass
 on:
   workflow_dispatch:
     inputs:
+      rebuild_date:
+        description: "Rebuild an archived issue into a review artifact only (YYYY-MM-DD); never sends email or publishes"
+        type: string
+        default: ""
       send_email:
         description: "Send the digest email through Resend"
         type: boolean
@@ -28,6 +32,7 @@ permissions:
 
 jobs:
   digest:
+    if: github.event.inputs.rebuild_date == ''
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -78,6 +83,7 @@ jobs:
         if: steps.run_window.outputs.should_run == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GENERATION_DIAGNOSTICS_DIR: outputs/discovery/generation
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           DIGEST_TO_EMAIL: ${{ secrets.DIGEST_TO_EMAIL }}
           DIGEST_FROM_EMAIL: ${{ secrets.DIGEST_FROM_EMAIL }}
@@ -137,3 +143,30 @@ jobs:
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
 
       # CHANGE 1 DONE: GitHub Actions commits the persistent sent_articles.json record after successful runs.
+
+  rebuild_preview:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.rebuild_date != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - name: Rebuild editorial preview without email credentials
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REBUILD_DATE: ${{ inputs.rebuild_date }}
+        run: python -m sdg_digest.rebuild --date "$REBUILD_DATE" --seeds "data/discovery/rebuild-$REBUILD_DATE.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: editorial-rebuild-${{ inputs.rebuild_date }}
+          path: |
+            outputs/rebuild/archive
+            outputs/rebuild/drafts
+            outputs/rebuild/evidence.json
+            outputs/rebuild/quality.json
+          retention-days: 14

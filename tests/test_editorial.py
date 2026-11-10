@@ -32,7 +32,8 @@ class EditorialTests(unittest.TestCase):
         with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
             "sdg_digest.generate.post_json", return_value=response
         ) as api:
-            generate_digest([_candidate()], {}, date(2026, 9, 30), 5, editorial_history=history)
+            with self.assertRaisesRegex(RuntimeError, "refusing to publish"):
+                generate_digest([_candidate()], {}, date(2026, 9, 30), 5, editorial_history=history)
         prompt = json.loads(api.call_args.args[1]["input"][1]["content"])
         self.assertEqual(prompt["recent_editorial_history"], history)
         self.assertIn("evidence", " ".join(prompt["instructions"]))

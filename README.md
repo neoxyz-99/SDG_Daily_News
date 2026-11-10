@@ -102,3 +102,9 @@ Original issue artwork lives in `website_assets/issues/YYYY-MM-DD.jpg`. The late
 The weekly workflow now selects the event-aware discovery pipeline, with a `legacy` manual option for rollback. The bare CLI retains its legacy default; run `python3 -m sdg_digest.cli --pipeline discovery --discovery-only --dry-run` to inspect discovery without AI generation, archive publication or email. Existing bilingual modules, academic readings, archives, website and delivery remain supported.
 
 See [configuration and operation](DISCOVERY.md), [audit and backtest findings](outputs/discovery/AUDIT_AND_BACKTEST.md), and the [machine-readable retrospective comparison](outputs/discovery/backtest-2026-09-10/comparison.json). Historical replay limitations are explicit: the initial audit snapshot had no September–October feed snapshots or run logs, and unknown publication dates are not reconstructed from meeting dates.
+
+### Editorial quality and no-email rebuilds
+
+Production output must pass editorial checks before archiving or email. Validation exhaustion fails the run; an explicitly enabled deterministic fallback is preview-only and cannot be published. Issue-title repair reuses the validated articles. Generation drafts are retained in the Actions diagnostic artifact for review. Discovery reserves up to 30 of the existing 120 HTTP requests for evidence retrieval.
+
+To rebuild an archived issue without sending email or changing the website, dispatch the weekly workflow with `rebuild_date` (for example `2026-11-09`). Its separate read-only job receives only the generation credential, refetches the recorded candidate URLs, excludes pages updated after the issue date, and uploads a preview plus evidence. Review the preview before copying the regenerated archive into the repository and building the site. It does not update `sent_articles.json`.
