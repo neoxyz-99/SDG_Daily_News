@@ -1,5 +1,6 @@
 """Publication checks shared by generation, archive, email and the public site."""
 from dataclasses import asdict
+from types import SimpleNamespace
 import re
 
 
@@ -32,8 +33,19 @@ def validate_publication(digest, *, check_title=True):
     if check_title and len(news) + len(signals) >= 2:
         for field in ("issue_title_en", "issue_title_zh"):
             _text(raw.get(field), field)
+        from .editorial import validate_issue_title
+        validate_issue_title(raw, [SimpleNamespace(**r) for r in news], [SimpleNamespace(**r) for r in signals])
+    selected_urls = {row["url"] for row in news + signals}
+    if not set(raw.get("editorial_context_urls", [])) <= selected_urls:
+        raise ValueError("Introduction or weekly thread cites an unselected article")
     for item in news + signals:
         _text(item.get("title_en"), "article title")
+        words = re.sub(r"^the\s+", "", item.get("source_org", ""), flags=re.I).split()
+        names = {" ".join(words), " ".join(words[:2]), "".join(w[0] for w in words[:3])}
+        names |= {re.sub(r"\s+(?:Environment|Climate|News)$", "", n, flags=re.I) for n in names}
+        headline = re.sub(r"^the\s+", "", item["title_en"], flags=re.I)
+        if any(n and re.match(re.escape(n) + r"\s+(?:says|reports|argues|frames|guide frames)\b", headline, re.I) for n in names):
+            raise ValueError("Headline must name the development, not use a publisher-says formula")
         if re.search(r"[–—-]\s*report\s*$", item["title_en"], re.I):
             raise ValueError("Use an informative editorial headline, without a trailing report label")
     for item in news:
@@ -46,6 +58,8 @@ def validate_publication(digest, *, check_title=True):
     for reading in raw.get("classic_readings") or raw.get("readings") or []:
         for field in ("note_en", "note_zh", "method_en", "methodology_zh"):
             _text(reading.get(field), field)
+        if not set(reading.get("related_article_urls", [])) <= selected_urls:
+            raise ValueError("Reading connection cites an unselected article")
         abstract = clean_source_text(reading.get("abstract_en", ""))
         note = clean_source_text(reading["note_en"])
         words = re.findall(r"\w+", abstract.lower())

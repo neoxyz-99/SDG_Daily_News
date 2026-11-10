@@ -36,6 +36,8 @@ class PublicationQualityTests(unittest.TestCase):
         raw = json.loads(Path("archive/2026-11-09/digest.json").read_text())
         # The archived regression fixture must not be changed by regenerating the issue.
         raw.update(generation_mode="reviewed", issue_title_en="Climate Policy and Governance in This Week", issue_title_zh="本周气候政策与治理")
+        raw["title_support"] = [{"url": row["url"], "angle_en": "This article supports the climate governance theme."}
+                                for row in raw["recent_news"] + raw["research_signals"]]
         raw["recent_news"][0]["one_sentence_en"] = "Source reports a relevant development: An incomplete excerpt…"
         with self.assertRaisesRegex(ValueError, "Placeholder|report label"):
             validate_publication(raw)
@@ -85,6 +87,41 @@ class PublicationQualityTests(unittest.TestCase):
                 p.discover([])
             self.assertEqual(p.fetcher.max_requests - p.fetcher.requests, 30)
             self.assertEqual(p.fetcher.request_limit, 120)
+
+    def test_editorial_context_cannot_reference_an_unselected_candidate(self):
+        raw = asdict(validate_digest_payload(_payload(_candidate()), [_candidate()], {}, date(2026, 11, 9)))
+        raw["editorial_context_urls"] = ["https://unselected.example/article"]
+        with self.assertRaisesRegex(ValueError, "unselected article"):
+            validate_publication(raw)
+
+    def test_publisher_says_headlines_are_not_informative(self):
+        raw = asdict(validate_digest_payload(_payload(_candidate()), [_candidate()], {}, date(2026, 11, 9)))
+        raw["research_signals"][0].update(source_org="The Guardian Environment", title_en="Guardian says climate policy must change")
+        with self.assertRaisesRegex(ValueError, "publisher-says"):
+            validate_publication(raw)
+
+    def test_failed_title_repair_does_not_regenerate_the_validated_body(self):
+        first, second = _candidate(), _candidate_two()
+        raw = _payload(first, second)
+        raw["title_support"] = []
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test", "ALLOW_OPENAI_FALLBACK": "false"}), patch(
+            "sdg_digest.generate._call_openai", return_value=raw
+        ) as body, patch("sdg_digest.generate._repair_issue_title", return_value=raw):
+            with self.assertRaisesRegex(RuntimeError, "Title repair failed"):
+                generate_digest([first, second], {}, date(2026, 11, 9), 5)
+            self.assertEqual(body.call_count, 1)
+
+    def test_fallback_cannot_reach_archive_or_email_transport(self):
+        from sdg_digest.archive import write_archive
+        from sdg_digest.emailer import send_email
+        digest = fallback_digest([_candidate()], {}, date(2026, 11, 9))
+        with tempfile.TemporaryDirectory() as directory, patch("sdg_digest.emailer.post_json") as transport:
+            with self.assertRaises(ValueError):
+                write_archive(digest, directory)
+            self.assertEqual(list(Path(directory).iterdir()), [])
+            with self.assertRaises(ValueError):
+                send_email(digest, "irrelevant")
+            transport.assert_not_called()
 
     def test_phase_budget_exhaustion_does_not_cache_robots_denial(self):
         with tempfile.TemporaryDirectory() as directory:

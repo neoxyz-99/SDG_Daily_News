@@ -9,6 +9,8 @@ RESEND_URL = "https://api.resend.com/emails"
 
 
 def send_email(digest: Digest, html_body: str) -> dict:
+    from .quality import validate_publication
+    validate_publication(digest)
     api_key = _required_env("RESEND_API_KEY")
     to_email = _required_env("DIGEST_TO_EMAIL")
     from_email = _required_env("DIGEST_FROM_EMAIL")

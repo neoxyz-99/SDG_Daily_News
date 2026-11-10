@@ -106,6 +106,7 @@ class DeepRead:
     published_date: str = ""
     abstract_en: str = ""
     discovery_score: float = 0.0
+    related_article_urls: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -162,3 +163,4 @@ class Digest:
     title_support: list[TitleSupport] = field(default_factory=list)
     upcoming_events: list[NewsBrief] = field(default_factory=list)
     generation_mode: str = ""
+    editorial_context_urls: list[str] = field(default_factory=list)

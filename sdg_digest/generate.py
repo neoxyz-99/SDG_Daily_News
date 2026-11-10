@@ -280,6 +280,13 @@ def _normalize_references(payload, candidates):
             matches = by_key.get(canonical_url(str(row.get("url", ""))), [])
             if len(matches) == 1:
                 row["url"] = matches[0].url
+    for row in result.get("readings", []):
+        row["related_article_urls"] = [by_key[canonical_url(url)][0].url
+            if len(by_key.get(canonical_url(url), [])) == 1 else url
+            for url in row.get("related_article_urls", [])]
+    result["editorial_context_urls"] = [by_key[canonical_url(url)][0].url
+        if len(by_key.get(canonical_url(url), [])) == 1 else url
+        for url in result.get("editorial_context_urls", [])]
     return result
 
 
@@ -371,7 +378,7 @@ def _call_openai(
     feedback: str = "",
     editorial_history: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    recent_news, research = _split_candidates(candidates)
+    recent_news, research = _split_candidates(sorted(candidates, key=lambda c: bool(c.full_text), reverse=True))
     prompt = {
         "run_date": run_date.isoformat(),
         "newsletter": NEWSLETTER_NAME,
@@ -390,6 +397,7 @@ def _call_openai(
         ],
         "instructions": [
             "Return a JSON object that follows the schema.",
+            "Select across the ENTIRE pool before composing. Item limits are ceilings, not targets. Prefer fewer evidence-rich articles to filling all slots with thin feed material. Put the strongest policy developments first. Use editorial_context_urls to identify the FINAL selected articles discussed in the introduction and weekly thread. Each reading related_article_urls must identify only FINAL selected articles discussed in its today_connection. Never describe unselected candidates as part of this issue. Do not lead headlines with a publisher says/reports/frames formula; name the substantive actor, action or finding instead. Preserve may/could/claims where the source is tentative. Do not infer specific treaty remedies or causal mechanisms from a truncated RSS excerpt.",
             "The newsletter is fully bilingual. Every Chinese analytical field must have a faithful English counterpart. English should be analytical and concise, not a word-for-word awkward translation.",
             "Write each title_en as a concise, informative English editorial headline naming the actor and concrete development or finding. Preserve uncertainty and attribution where needed; never add unsupported facts. Do not copy teaser questions or append report labels. Original source titles are retained separately.",
             "For recent_news and research_signals, every URL must be copied exactly from the supplied recent_news_candidates or research_candidates. Never use academic-reading DOI links, paper URLs, or invented URLs as news/research item URLs.",
@@ -493,6 +501,7 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
             "issue_title_en",
             "issue_title_zh",
             "title_support",
+            "editorial_context_urls",
             "weekly_editorial_note_zh",
             "weekly_editorial_note_en",
             "weekly_thread_zh",
@@ -516,6 +525,7 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
                     },
                 },
             },
+            "editorial_context_urls": {"type": "array", "items": {"type": "string"}},
             "weekly_editorial_note_zh": {"type": ["string", "null"]},
             "weekly_editorial_note_en": {"type": ["string", "null"]},
             "weekly_thread_zh": {"type": ["string", "null"]},
@@ -593,6 +603,7 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
                         "methodology_en",
                         "today_connection_zh",
                         "today_connection_en",
+                        "related_article_urls",
                         "research_directions",
                     ],
                     "properties": {
@@ -607,6 +618,7 @@ def _digest_schema(max_recent_news: int, max_research_signals: int) -> dict[str,
                         "methodology_en": {"type": "string"},
                         "today_connection_zh": {"type": "string"},
                         "today_connection_en": {"type": "string"},
+                        "related_article_urls": {"type": "array", "items": {"type": "string"}},
                         "research_directions": {
                             "type": "array",
                             "minItems": 2,
@@ -767,6 +779,7 @@ def validate_digest_payload(
         issue_title_zh=issue_title_zh,
         title_support=title_support,
         generation_mode="ai",
+        editorial_context_urls=payload.get("editorial_context_urls", []),
         items=research_signals,
         readings=readings,
         weekly_thread_zh=weekly_thread_zh,
@@ -975,6 +988,7 @@ def _validate_readings(
                 published_date=approved.published_date,
                 abstract_en=approved.abstract_en,
                 discovery_score=approved.discovery_score,
+                related_article_urls=raw.get("related_article_urls", []),
                 today_connection_zh=today_connection_zh,
                 today_connection_en=today_connection_en,
                 research_directions=research_directions,
