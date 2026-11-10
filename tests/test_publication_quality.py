@@ -111,6 +111,24 @@ class PublicationQualityTests(unittest.TestCase):
                 generate_digest([first, second], {}, date(2026, 11, 9), 5)
             self.assertEqual(body.call_count, 1)
 
+    def test_title_repair_counts_research_module_and_retries_only_title(self):
+        from sdg_digest.generate import _repair_issue_title
+        from sdg_digest.models import Digest
+        from tests.test_issue_titles import article, title_payload
+        news = [article(0), article(1)]
+        signals = [article(2, True), article(3, True)]
+        digest = Digest(date(2026, 11, 9), "Issue", "", signals, recent_news=news, research_signals=signals)
+        bad, good = title_payload(news + signals[:1]), title_payload(signals + news[:1])
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch("sdg_digest.generate.post_json", side_effect=[
+            {"output_text": json.dumps(bad)}, {"output_text": json.dumps(good)}
+        ]) as api:
+            result = _repair_issue_title(digest, "coverage")
+        self.assertEqual(api.call_count, 2)
+        self.assertEqual(result, good)
+        messages = api.call_args.args[1]["input"]
+        self.assertIn("at least 2 distinct URLs from selected_research", messages[0]["content"])
+        self.assertEqual(json.loads(messages[-1]["content"])["actual_research_support_count"], 1)
+
     def test_fallback_cannot_reach_archive_or_email_transport(self):
         from sdg_digest.archive import write_archive
         from sdg_digest.emailer import send_email
