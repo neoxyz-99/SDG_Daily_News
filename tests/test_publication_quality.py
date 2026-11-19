@@ -26,6 +26,27 @@ class PublicationQualityTests(unittest.TestCase):
             self.assertEqual(api.call_count, 2)
             fallback.assert_not_called()
 
+
+    def test_repair_two_independent_errors_without_regenerating_issue(self):
+        first, second = _candidate(), _candidate_two()
+        raw = _payload(first, second)
+        raw["research_signals"] = raw.pop("items")
+        fixed = dict(raw["research_signals"][0])
+        raw["research_signals"][0]["title_en"] += " — report"
+        raw["editorial_context_urls"] = ["https://example.org/unselected"]
+        context = {key: raw[key] for key in ("weekly_thread_en", "weekly_thread_zh", "weekly_editorial_note_en")}
+        context.update(weekly_editorial_note_zh=raw["daily_editorial_note_zh"], editorial_context_urls=[first.url])
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "test"}), patch(
+            "sdg_digest.generate._call_openai", return_value=raw
+        ) as whole, patch("sdg_digest.generate.post_json", side_effect=[
+            {"output_text": json.dumps(value)} for value in (context, fixed)
+        ]) as local:
+            issue = generate_digest([first, second], {}, date(2026, 11, 16), 5)
+        validate_publication(issue)
+        self.assertEqual(whole.call_count, 1)
+        self.assertEqual(local.call_count, 2)
+        self.assertEqual(issue.research_signals[1].title_en, second.title)
+
     def test_even_opted_in_fallback_cannot_pass_publication_or_site(self):
         digest = fallback_digest([_candidate()], {}, date(2026, 11, 9))
         for check in (validate_publication, lambda d: normalize_digest(asdict(d))):
