@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDG Weekly Compass - Week of 2026-11-24</title>
+  <style>
+    body { margin: 0; background: #f3f5f2; color: #202721; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    .preheader { display: none; max-height: 0; overflow: hidden; opacity: 0; }
+    main { max-width: 880px; margin: 0 auto; padding: 22px 14px 44px; }
+    header { position: relative; overflow: hidden; background: #103d2b; color: #f7fbf6; border-radius: 8px; padding: 24px 28px 28px; border-bottom: 4px solid #d7b65c; }
+    .header-row { position: relative; z-index: 2; display: table; width: 100%; }
+    .issue-date { display: table-cell; vertical-align: top; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 400; }
+    .masthead { display: table-cell; vertical-align: top; text-align: right; font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: 0; }
+    .header-pattern { position: absolute; right: -34px; top: -16px; width: 260px; height: 160px; opacity: 1; }
+    .editorial-note, .weekly-thread { background: #ffffff; border-left: 4px solid #d7b65c; border-radius: 8px; padding: 18px 22px; margin: 24px 0 8px; }
+    .editorial-note h2, .weekly-thread h2 { margin: 0 0 8px; font-size: 16px; color: #123524; }
+    .editorial-note p, .weekly-thread p { margin: 0; font-size: 15px; line-height: 1.78; }
+    .section-title { margin: 30px 0 12px; font-size: 19px; color: #123524; }
+    .section-subtitle { color: #66736a; font-weight: 400; }
+    article.card { border-radius: 8px; padding: 20px 24px; margin: 0 0 16px; box-shadow: none; }
+    .recent-card { background: #f2f7fd; border: 1px solid #d5e5f6; }
+    .research-card { background: #f7f9f7; border: 1px solid #dfe6df; }
+    .compact-card { padding: 16px 20px; }
+    .card h3 { font-size: 19px; line-height: 1.35; margin: 0 0 6px; }
+    .card h3 a { color: #0b5cad; text-decoration: none; }
+    .meta { font-size: 12px; color: #888; margin: 0 0 12px; }
+    .tags { margin: 0 0 14px; }
+    .tag { display: inline-block; border-radius: 999px; padding: 4px 8px; margin: 0 6px 6px 0; font-size: 12px; background: #edf7f1; color: #1f6a43; border: 1px solid #c9e3d1; }
+    .label { margin: 16px 0 6px; font-size: 12px; color: #356046; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .body-text { font-size: 15px; line-height: 1.78; margin: 0; }
+    .en-text { color: #5d6b63; font-size: 14px; line-height: 1.74; margin: 8px 0 0; }
+    .agenda { background: #ffffff; border-left: 4px solid #9cc9a7; padding: 12px 14px; margin: 16px 0 0; }
+    .readings-band { background: #faf8f4; border-radius: 8px; padding: 22px 24px 2px; }
+    article.reading { background: transparent; border: 0; padding: 0; margin: 0 0 28px; box-shadow: none; }
+    .reading h3 { font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 7px; }
+    .reading h3 a { color: #5e4630; text-decoration: none; }
+    .reading .meta { color: #7a746c; font-size: 12px; }
+    .reading-text, .method-text, .connection-text { font-size: 15px; line-height: 1.82; margin: 8px 0 10px; color: #2f332f; }
+    .method-title, .connection-title, .research-title { margin: 16px 0 6px; font-size: 13px; color: #6f4a18; font-weight: 700; }
+    .connection-text { margin-left: 14px; color: #5d6e63; font-style: italic; }
+    .research-list { margin: 8px 0 0; padding-left: 18px; }
+    .research-list li { margin: 8px 0; line-height: 1.65; }
+    .keywords { color: #617064; font-size: 13px; }
+    .doi-link { display: inline-block; margin-top: 10px; font-size: 12px; color: #7a746c; text-decoration: none; }
+    .empty { background: #fff; border: 1px dashed #c9d3cc; border-radius: 6px; padding: 18px; color: #617064; }
+    a { color: #0b5cad; }
+    @media (max-width: 520px) {
+      main { padding: 12px 10px 28px; }
+      header { padding: 22px 18px 24px; }
+      .header-row, .issue-date, .masthead { display: block; text-align: left; }
+      .masthead { margin-top: 10px; font-size: 28px; }
+      article.card { padding: 18px; }
+      .readings-band { padding: 18px 18px 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">COP31暴露气候治理的执行缺口：融资文本缩水，终稿仍回避关键承诺。</div>
+  <main>
+    <header>
+      <svg class="header-pattern" viewBox="0 0 260 160" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+          <path d="M20 20 C80 0 180 0 240 20" />
+          <path d="M20 55 C80 35 180 35 240 55" />
+          <path d="M20 90 C80 70 180 70 240 90" />
+          <path d="M20 125 C80 105 180 105 240 125" />
+          <path d="M40 8 C58 42 58 118 40 152" />
+          <path d="M90 4 C112 44 112 116 90 156" />
+          <path d="M140 2 C164 44 164 116 140 158" />
+          <path d="M190 4 C212 44 212 116 190 156" />
+          <path d="M238 8 C220 42 220 118 238 152" />
+        </g>
+      </svg>
+      <div class="header-row">
+        <div class="issue-date">2026-11-24</div>
+        <div class="masthead">SDG Weekly Compass</div>
+      </div>
+    </header>
+
+    <section class="editorial-note issue-title"><h2>COP31 deadlock, finance gaps and implementation tests</h2><p>COP31僵局、融资缺口与执行考验</p></section>
+    <section class="editorial-note"><h2>本周导语 / Editorial Note</h2><p>COP31暴露气候治理的执行缺口：融资文本缩水，终稿仍回避关键承诺。</p><p class="en-text">COP31 exposed an execution gap in climate governance: the finance text shrank, and the final draft still avoided key commitments.</p></section>
+
+    <h2 class="section-title">近期要闻 <span class="section-subtitle">/ Recent News</span></h2>
+    <section><article class="card compact-card recent-card">
+  <h3>1. <a href="https://www.carbonbrief.org/cop31-key-outcomes-agreed-at-the-un-climate-talks-in-antalya">COP31 in Antalya ends without a climate pact</a></h3>
+  <p class="meta" dir="auto">Original title: COP31: Key outcomes agreed at the UN climate talks in Antalya</p>
+  <p class="meta">Carbon Brief · 2026-11-23</p>
+  <p class="body-text">安塔利亚COP31未能就气候“公约”达成一致，围绕化石燃料措辞与气候融资的分歧最终压垮了由主席国推动的整体文本。</p>
+  <p class="en-text">COP31 in Antalya ended without agreement on the presidency-backed pact, as divisions over fossil-fuel language and climate finance blocked a deal.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>2. <a href="https://insideclimatenews.org/news/21112026/texas-wont-enforce-plastic-discharge-ban/">Texas regulator faces pressure over Formosa plastic discharge permit</a></h3>
+  <p class="meta" dir="auto">Original title: He Sacrificed Everything to Stop Industrial Water Pollution. Authorities in Texas Don’t Care.</p>
+  <p class="meta">Inside Climate News · 2026-11-21</p>
+  <p class="body-text">得州监管机构正考虑续发Formosa Plastics的排放许可，而地方活动人士要求继续保留禁止向拉瓦卡湾排放塑料废弃物的约束。</p>
+  <p class="en-text">Texas regulators are weighing renewal of Formosa Plastics’ discharge permit, while local campaigners push to keep the ban on plastic waste discharges into Lavaca Bay.</p>
+</article>
+<article class="card compact-card recent-card">
+  <h3>3. <a href="https://www.theguardian.com/commentisfree/2026/nov/23/the-guardian-view-on-cop31-a-just-transition-needs-more-than-fine-words">UN climate talks expose a just-transition dispute over finance and ambition</a></h3>
+  <p class="meta" dir="auto">Original title: The Guardian view on Cop31: a just transition needs more than fine words | Editorial</p>
+  <p class="meta">The Guardian Environment · 2026-11-23</p>
+  <p class="body-text">《卫报》社论认为，COP31破裂暴露出富裕国家不愿出资、产油国阻挠减排目标的问题，而“公正转型”需要超出空泛表态的安排。</p>
+  <p class="en-text">The Guardian argues that COP31’s breakdown exposed wealthy countries’ reluctance to pay and petrostates’ resistance to ambition, and that just transition needs more than rhetoric.</p>
+</article></section>
+
+    <h2 class="section-title">研究动向 <span class="section-subtitle">/ Research Signals</span></h2>
+    <section><article class="card research-card">
+  <h3>1. <a href="https://connect.carbonbrief.org/t/cop31-third-and-final-draft-cover-decision/208">COP31 cover draft removes fossil-fuel and adaptation-finance specifics</a></h3>
+  <p class="meta" dir="auto">Original title: COP31 third (and final?) draft ‘cover decision’</p>
+  <p class="meta">Carbon Brief · 2026-11-22</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#气候金融</span><span class="tag">#绿色转型</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">COP31第三版主席国封面决议草案删除了对转向化石燃料的直接表述，也没有就三倍适应融资、1200亿美元目标或IPCC下一轮报告给出明确时间表，说明主席国试图用程序性语言维持谈判框架，却回避了最具约束力的政治分歧。</p>
+  <p class="en-text">COP31’s third presidency draft drops direct fossil-fuel language and gives no clear timetable for tripling adaptation finance, a $120bn adaptation target, or the next IPCC report, showing an attempt to preserve the process while sidestepping the most binding political disputes.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这份草案出现在闭幕前夕，直接暴露主席国在最后一轮收束文本时能否把争议转成可接受的最低共识。它也承接前几轮文本中反复收缩的融资与化石燃料条款。</p>
+  <p class="en-text">Released on the eve of closure, the draft tests whether the presidency can convert dispute into an acceptable minimum consensus. It also follows earlier drafts that steadily stripped out finance and fossil-fuel provisions.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP31封面决议谈判的正式文本之一，直接嵌入大会最终政治结果的形成过程。</p>
+    <p class="en-text">This is one of the formal COP31 cover-decision texts and sits directly inside the process that shapes the summit’s final political outcome.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>2. <a href="https://connect.carbonbrief.org/t/new-slimmed-down-climate-finance-text-lands-with-most-substance-gone/192">Climate-finance work programme narrows to process language at COP31</a></h3>
+  <p class="meta" dir="auto">Original title: NEW: Slimmed-down climate finance text lands, with most substance gone</p>
+  <p class="meta">Carbon Brief · 2026-11-19</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#气候金融</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">COP31气候融资工作方案文本从11页压缩为2页，原本关于负担分担、贡献方扩大与三倍适应融资的实质内容被删除，显示各方仍在争夺融资责任应由谁承担、谈判程序应持续多久以及成果应是什么类型。</p>
+  <p class="en-text">At COP31, the climate-finance work programme was cut from 11 pages to 2, with burden-sharing, contributor-base expansion and tripling-adaptation-finance provisions removed, showing that parties are still contesting who should carry finance responsibility, how long the process should run, and what kind of outcome it should deliver.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">这份文本出现在部长级收束前，说明融资争议已从原则分歧转为文本层面的删减与保留。它也解释了为何后续封面决议会继续回避融资实质。</p>
+  <p class="en-text">The text emerged during the ministerial endgame, showing that the finance dispute had shifted from principle to line-by-line subtraction. It also helps explain why later cover-decision drafts continued to avoid finance substance.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">这是COP31气候融资工作方案的谈判文本更新，属于正式工作方案而非外部评论。</p>
+    <p class="en-text">This is a negotiation text for the COP31 climate-finance work programme and belongs to the formal process rather than external commentary.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>3. <a href="https://www.nature.com/articles/s41893-026-01945-1">Nature paper calls for mandatory water-footprint transparency in mining</a></h3>
+  <p class="meta" dir="auto">Original title: Accounting for the mining industry’s global water footprint</p>
+  <p class="meta">Nature Sustainability · 2026-11-17</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#可持续金融与ESG</span><span class="tag">#水资源治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">该研究主张将矿业用水、排放和污染披露设为强制要求，并把透明度作为关键矿产资本配置的前提，以此纠正长期依赖自愿披露和碎片化监管所造成的社区信息盲区与风险外部化。</p>
+  <p class="en-text">The paper argues that mining firms’ withdrawals, discharges and contamination should be subject to mandatory disclosure, with transparency treated as a condition for capital allocation to critical-mineral supply chains, correcting the information gaps and externalized risks produced by voluntary reporting and fragmented regulation.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">关键矿产供应链扩张正在加快，而资源开发周边社区对水风险的可见度仍然有限，因此该文把透明度问题从企业披露上升为融资条件。</p>
+  <p class="en-text">As critical-mineral supply chains expand, communities near extraction sites still have limited visibility over water risks, so the paper elevates transparency from a reporting issue to a financing condition.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">该文主要对应采矿监管、供应链尽职调查和可持续金融框架；没有正式谈判提交，但它直接影响关键矿产与水治理的政策设计。</p>
+    <p class="en-text">The paper speaks to mining regulation, supply-chain due diligence and sustainable-finance frameworks; no formal negotiating submission is documented, but it directly bears on policy design for critical minerals and water governance.</p>
+  </div>
+</article>
+<article class="card research-card">
+  <h3>4. <a href="https://www.nature.com/articles/s41893-026-01972-y">Water-governance resilience depends on coordination and accountability</a></h3>
+  <p class="meta" dir="auto">Original title: Resilience as a governing principle in water governance</p>
+  <p class="meta">Nature Sustainability · 2026-11-17</p>
+  <p class="tags"><span class="tag">#环境治理与气候</span><span class="tag">#可持续金融与ESG</span><span class="tag">#水资源治理</span></p>
+  <p class="label">核心论点 / Core Argument</p>
+  <p class="body-text">作者通过五个国际案例指出，水治理中的韧性（resilience）不应被当作静态终点，而应作为治理设计与运行原则，依赖适应性、协调、学习和问责来处理跨部门、跨尺度的复杂不确定性。</p>
+  <p class="en-text">Drawing on five international cases, the authors argue that resilience in water governance should not be treated as a static end state but as a governing principle, relying on adaptability, coordination, learning and accountability to manage cross-sector and cross-scale uncertainty.</p>
+  <p class="label">为什么此刻重要 / Why Now</p>
+  <p class="body-text">随着旱涝风险和基础设施脆弱性上升，单纯强调工程能力已不足以解释水系统为何失灵或如何修复。该研究为当前围绕适应与执行的政策争论提供了更制度化的语言。</p>
+  <p class="en-text">As drought and flood risks rise and infrastructure vulnerability deepens, engineering capacity alone no longer explains why water systems fail or how they recover. The study offers a more institutional language for current debates over adaptation and implementation.</p>
+  <div class="agenda">
+    <p class="label">议程位置 / Agenda Position</p>
+    <p class="body-text">该文对应水治理改革与适应政策设计，并未嵌入某一正式国际谈判文本，但对各类流域和城市水管理制度具有直接参考价值。</p>
+    <p class="en-text">The paper speaks to water-governance reform and adaptation policy design; it is not embedded in a formal international negotiation text, but it is directly relevant to basin and urban water-management institutions.</p>
+  </div>
+</article></section>
+
+    <section class="weekly-thread"><h2>本周议题线索 / Weekly Thread</h2><p>本期共同问题不是承诺是否存在，而是它们能否进入可执行、可追踪的制度文本。COP31的融资与化石燃料争议、以及水治理研究对问责与协调的强调，都指向同一检验标准。</p><p class="en-text">This week’s shared question is not whether commitments exist, but whether they can be translated into enforceable, trackable institutional text. COP31’s finance and fossil-fuel disputes, together with water-governance research on accountability and coordination, point to the same test.</p></section>
+    
+
+    <h2 class="section-title">论文研读 <span class="section-subtitle">/ Research Reading</span></h2>
+    <section class="readings-band"><article class="reading">
+  <h3><a href="https://doi.org/10.1163/19426720-02701006">Who Controls Multilateral Development Finance?</a></h3>
+  <p class="meta">Rebecca Ray · 2021-02-18 · Global Governance: A Review of Multilateralism and International Organizations</p>
+  <p class="tags"><span class="tag">#多边治理</span><span class="tag">#国际治理与多边主义</span></p>
+  <p class="reading-text">这篇文章衡量28家多边开发银行（MDB）的治理投票权分布，并据此区分债权人主导、核心借款人主导与互助导向三类制度。它说明，谁掌握治理权，谁就更可能影响发展融资的流向与条件。</p>
+  <p class="en-text">The article measures voting-power distributions across 28 multilateral development banks and distinguishes creditor-led, core borrower-led, and mutual aid-oriented governance types. It shows that who holds governance power is closely tied to who can shape the direction and terms of development finance.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">作者使用Penrose-Banzhaf与Shapley-Shubik权力指数，并结合成员国在MDB董事会中的相对投票权，对28家MDB的治理结构进行比较测算。</p>
+  <p class="en-text">The author uses Penrose-Banzhaf and Shapley-Shubik power indices, together with members’ relative voting power on MDB boards, to compare governance structures across 28 MDBs.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与本期COP31气候融资僵局一起阅读，因为谈判中反复出现的责任分担、资金来源与融资条件之争，本质上都指向“谁来控制资金、谁来承担成本”。</p>
+  <p class="en-text">Read alongside this issue’s COP31 finance deadlock, because the recurring disputes over burden sharing, funding sources, and financing conditions all come back to who controls the money and who bears the costs.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>MDB投票权如何影响气候融资分配？ <span class="keywords">(multilateral development banks, voting power, climate finance, burden sharing, governance)</span><br><span class="en-text">How does MDB voting power affect the distribution of climate finance?</span></li><li>借款国如何在发展融资治理中争取更大话语权？ <span class="keywords">(borrower-led governance, MDB reform, institutional power, development finance, representation)</span><br><span class="en-text">How do borrower countries gain greater influence in development finance governance?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1163/19426720-02701006">DOI / 原文链接</a>
+</article>
+<article class="reading">
+  <h3><a href="https://doi.org/10.1093/isq/sqag093">Legitimacy by Design: Institutional Representation and Public Support for Global Governance</a></h3>
+  <p class="meta">Philipp Bien, Thomas Malang, Matthias Mader · 2026-11-13 · International Studies Quarterly</p>
+  <p class="tags"><span class="tag">#国际治理与多边主义</span><span class="tag">#地缘政治与治理</span></p>
+  <p class="reading-text">这篇研究表明，把国会议员纳入国际组织决策，能显著提升公众对全球治理机构的合法性感知。尤其在政治立场更分化、对国际合作更怀疑的人群中，代表性设计更能修复合法性压力，因此可被视为一种可扩展的制度回应。</p>
+  <p class="en-text">The study finds that including parliamentarians in international-organization decision-making significantly raises perceived legitimacy. The effect is especially strong among politically diverse or skeptical publics, making representational design a scalable institutional response to legitimacy pressure in global governance.</p>
+  <p class="method-title">方法论 / Methodology</p>
+  <p class="method-text">作者使用预注册联合实验，让受访者评估若干属性不同的虚拟国际组织决策，其中包括是否存在、以及何种类型的议员参与。通过比较这些情境，作者识别代表性安排对合法性感知的影响。</p>
+  <p class="en-text">The authors use a pre-registered conjoint experiment in which respondents evaluate hypothetical IO decisions varying across several attributes, including the presence and type of parliamentary involvement. Comparing these scenarios allows them to estimate how representational design affects legitimacy perceptions.</p>
+  <p class="connection-title">今日关联 / Today's Connection</p>
+  <p class="connection-text">可与COP31破裂后的气候治理改革讨论一起读：当谈判机制难以形成共识时，这篇文章提醒我们，制度设计本身就是合法性的一部分，而不是事后装饰。</p>
+  <p class="en-text">Read alongside the post-COP31 debate on climate-governance reform: when negotiation machinery fails to produce consensus, this paper suggests legitimacy is built into institutional design itself, not added afterward.</p>
+  <p class="research-title">研究方向 / Research Directions</p>
+  <ul class="research-list"><li>更广泛的代表性是否能缓解全球治理中的合法性危机？ <span class="keywords">(global governance, legitimacy, representation, parliamentarians, conjoint experiment)</span><br><span class="en-text">Does broader representation ease legitimacy crises in global governance?</span></li><li>哪些制度参与形式最能提升公众支持？ <span class="keywords">(international organizations, public support, participation, legitimacy, institutional design)</span><br><span class="en-text">Which forms of institutional participation most increase public support?</span></li></ul>
+  <a class="doi-link" href="https://doi.org/10.1093/isq/sqag093">DOI / 原文链接</a>
+</article></section>
+  </main>
+</body>
+</html>
