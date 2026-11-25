@@ -253,7 +253,14 @@
     "https://www.theguardian.com/environment/2026/nov/03/uk-ministers-anant-ambani-indian-zoo-vantara-freedom-information-endangered-animals-cites",
     "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report",
     "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
-    "https://www.nature.com/articles/s41893-026-01947-z"
+    "https://www.nature.com/articles/s41893-026-01947-z",
+    "https://www.carbonbrief.org/cop31-key-outcomes-agreed-at-the-un-climate-talks-in-antalya",
+    "https://insideclimatenews.org/news/21112026/texas-wont-enforce-plastic-discharge-ban/",
+    "https://www.theguardian.com/commentisfree/2026/nov/23/the-guardian-view-on-cop31-a-just-transition-needs-more-than-fine-words",
+    "https://connect.carbonbrief.org/t/cop31-third-and-final-draft-cover-decision/208",
+    "https://connect.carbonbrief.org/t/new-slimmed-down-climate-finance-text-lands-with-most-substance-gone/192",
+    "https://www.nature.com/articles/s41893-026-01945-1",
+    "https://www.nature.com/articles/s41893-026-01972-y"
   ],
   "recent_news_urls": [
     "https://www.theguardian.com/commentisfree/2026/jun/08/the-guardian-view-on-climate-equality-a-richer-life-and-real-public-abundance-not-just-more-stuff",
@@ -432,7 +439,10 @@
     "https://www.carbonbrief.org/qa-what-is-in-the-global-roadmap-for-transitioning-away-from-fossil-fuels",
     "https://www.theguardian.com/environment/live/2026/nov/09/cop31-climate-crisis-talks-turkey-latest-news-updates",
     "https://www.theguardian.com/environment/2026/nov/03/uk-ministers-anant-ambani-indian-zoo-vantara-freedom-information-endangered-animals-cites",
-    "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report"
+    "https://www.theguardian.com/environment/2026/nov/05/warming-uk-seas-could-fundamentally-reshape-marine-ecosystems-report",
+    "https://www.carbonbrief.org/cop31-key-outcomes-agreed-at-the-un-climate-talks-in-antalya",
+    "https://insideclimatenews.org/news/21112026/texas-wont-enforce-plastic-discharge-ban/",
+    "https://www.theguardian.com/commentisfree/2026/nov/23/the-guardian-view-on-cop31-a-just-transition-needs-more-than-fine-words"
   ],
   "research_signal_urls": [
     "https://www.climatepolicyinitiative.org/closing-the-water-finance-gap-five-lessons-from-a-decade-of-practice/",
@@ -519,7 +529,11 @@
     "https://www.e3g.org/news/the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it/?utm_source=rss&utm_medium=rss&utm_campaign=the-uk-s-2026-autumn-budget-has-laid-the-ground-for-cleaner-and-cheaper-electricity-the-2027-spending-review-must-build-on-it",
     "https://www.e3g.org/news/cop31-bridge-ambition-action/?utm_source=rss&utm_medium=rss&utm_campaign=cop31-bridge-ambition-action",
     "https://www.e3g.org/news/investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=investor-state-dispute-settlement-isds-mechanisms-are-threatening-economic-energy-and-security-priorities",
-    "https://www.nature.com/articles/s41893-026-01947-z"
+    "https://www.nature.com/articles/s41893-026-01947-z",
+    "https://connect.carbonbrief.org/t/cop31-third-and-final-draft-cover-decision/208",
+    "https://connect.carbonbrief.org/t/new-slimmed-down-climate-finance-text-lands-with-most-substance-gone/192",
+    "https://www.nature.com/articles/s41893-026-01945-1",
+    "https://www.nature.com/articles/s41893-026-01972-y"
   ],
   "classic_reading_dois": [
     "10.1017/s0020818300018920",
@@ -557,17 +571,11 @@
     "10.1163/19426720-03203006",
     "10.1017/s0020818309090092",
     "10.1162/glep_a_00654",
-    "10.1163/19426720-03202001"
+    "10.1163/19426720-03202001",
+    "10.1163/19426720-02701006",
+    "10.1093/isq/sqag093"
   ],
   "classic_reading_history": [
-    {
-      "date": "2026-06-15",
-      "dois": [
-        "10.1017/s0020818300018920",
-        "10.1017/s0020818300018993",
-        "10.1162/glep.2010.10.1.60"
-      ]
-    },
     {
       "date": "2026-06-16",
       "dois": [
@@ -733,7 +741,14 @@
         "10.1162/glep_a_00654",
         "10.1163/19426720-03202001"
       ]
+    },
+    {
+      "date": "2026-11-24",
+      "dois": [
+        "10.1163/19426720-02701006",
+        "10.1093/isq/sqag093"
+      ]
     }
   ],
-  "last_updated": "2026-11-09"
+  "last_updated": "2026-11-24"
 }

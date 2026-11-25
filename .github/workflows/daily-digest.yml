@@ -111,24 +111,19 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python -m sdg_digest.hero_image
 
-      - name: Commit archive
+      - name: Commit archive and sent articles together
         if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
         run: |
           python -m sdg_digest.website
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add archive docs website_assets/issues
+          git add archive docs website_assets/issues sent_articles.json
           git diff --cached --quiet || git commit -m "Archive SDG Weekly Compass for $(date -u +%F)"
-          git push
-
-      - name: Commit sent articles record
-        if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sent_articles.json
-          git diff --staged --quiet || git commit -m "chore: update sent_articles [skip ci]"
-          git push
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            if [ "$attempt" -lt 3 ]; then sleep $((5 * attempt)); fi
+          done
+          exit 1
 
       - name: Request GitHub Pages build
         if: steps.run_window.outputs.should_run == 'true' && (github.event_name == 'schedule' || github.event.inputs.send_email == 'true')
@@ -141,8 +136,6 @@ jobs:
             --header "Authorization: Bearer ${GITHUB_TOKEN}" \
             --header "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
-
-      # CHANGE 1 DONE: GitHub Actions commits the persistent sent_articles.json record after successful runs.
 
   rebuild_preview:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.rebuild_date != ''
